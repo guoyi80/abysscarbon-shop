@@ -30,4 +30,4 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
-Sitemap: https://abysscarbon.com/sitemap.xml
+Sitemap: https://guoyi80.github.io/abysscarbon-shop/sitemap.xml
