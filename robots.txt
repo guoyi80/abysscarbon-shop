@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /reports/
+
+Sitemap: https://abysscarbon.com/sitemap.xml

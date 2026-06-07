@@ -1,0 +1,211 @@
+{
+  "site": "AbyssCarbon",
+  "generated_at": "2026-06-07T22:34:39.414152",
+  "site_validation": [
+    {
+      "file": "index.html",
+      "status": "OK",
+      "size_bytes": 16481,
+      "sha256": "948e382a0b7fe300"
+    },
+    {
+      "file": "privacy.html",
+      "status": "OK",
+      "size_bytes": 2815,
+      "sha256": "4a11d5dc3b544f84"
+    },
+    {
+      "file": "terms.html",
+      "status": "OK",
+      "size_bytes": 2843,
+      "sha256": "2783bbc38771480c"
+    },
+    {
+      "file": "refunds.html",
+      "status": "OK",
+      "size_bytes": 3644,
+      "sha256": "cc8d1524ba98db2a"
+    },
+    {
+      "file": "robots.txt",
+      "status": "OK",
+      "size_bytes": 89,
+      "sha256": "c3957f7e19fd1d6e"
+    },
+    {
+      "file": "css\\style.css",
+      "status": "OK",
+      "size_bytes": 7567,
+      "sha256": "50e33b847c281bcf"
+    },
+    {
+      "file": "js\\main.js",
+      "status": "OK",
+      "size_bytes": 2943,
+      "sha256": "2c352b8e644bce62"
+    }
+  ],
+  "all_files_valid": true,
+  "seo_audit": {
+    "checks": {
+      "title_tag": true,
+      "meta_description": true,
+      "meta_keywords": true,
+      "canonical_url": true,
+      "og_tags": true,
+      "twitter_card": true,
+      "schema_org": true,
+      "h1_count": 1,
+      "h2_count": 3,
+      "img_alt": 0,
+      "robots_meta": true,
+      "title_length": 91
+    },
+    "score": 11,
+    "max": 12
+  },
+  "pricing_analysis": [
+    {
+      "product": "Carbon Blades — C1 Pro",
+      "current_price": 895,
+      "competitor_range": [
+        758.47,
+        964.6
+      ],
+      "recommended_price": 888.17,
+      "projected_margin": 0.2946,
+      "action": "maintain"
+    },
+    {
+      "product": "Low-Volume Mask — M1",
+      "current_price": 345,
+      "competitor_range": [
+        303.94,
+        352.42
+      ],
+      "recommended_price": 339.46,
+      "projected_margin": 0.2886,
+      "action": "maintain"
+    },
+    {
+      "product": "Carbon Noseclip — N1",
+      "current_price": 165,
+      "competitor_range": [
+        138.56,
+        170.52
+      ],
+      "recommended_price": 168.37,
+      "projected_margin": 0.314,
+      "action": "maintain_premium"
+    },
+    {
+      "product": "Monofin — MF1",
+      "current_price": 1495,
+      "competitor_range": [
+        1283.96,
+        1546.02
+      ],
+      "recommended_price": 1504.7,
+      "projected_margin": 0.3045,
+      "action": "maintain"
+    },
+    {
+      "product": "Dive Computer — DC1",
+      "current_price": 620,
+      "competitor_range": [
+        551.52,
+        655.48
+      ],
+      "recommended_price": 601.96,
+      "projected_margin": 0.279,
+      "action": "consider_discount"
+    },
+    {
+      "product": "Neck Weight — W1 Carbon",
+      "current_price": 285,
+      "competitor_range": [
+        242.68,
+        304.44
+      ],
+      "recommended_price": 288.13,
+      "projected_margin": 0.3076,
+      "action": "maintain"
+    }
+  ],
+  "revenue_tracking": {
+    "date": "2026-06-07",
+    "day_of_year": 158,
+    "days_remaining": 207,
+    "annual_target": 100000,
+    "projected_ytd": 43287.67,
+    "simulated_actual": 45612.75,
+    "remaining_needed": 56712.33,
+    "on_track": true,
+    "pace_pct": 43.3,
+    "avg_order_value": 634.17,
+    "estimated_orders_ytd": 71,
+    "daily_target": 273.97
+  },
+  "conversion_funnel": {
+    "estimated_daily_visitors": 106,
+    "page_views": 354,
+    "cart_additions": 3,
+    "cart_rate": 2.83,
+    "checkouts_started": 1,
+    "checkout_rate": 33.33,
+    "estimated_conversions": 0,
+    "conversion_rate": 0.0,
+    "daily_revenue_est": 0.0
+  },
+  "content_freshness": [
+    {
+      "file": "index.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "index.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "privacy.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "refunds.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "terms.html",
+      "age_days": 0,
+      "action": "fresh"
+    }
+  ],
+  "legal_compliance": {
+    "privacy_linked": true,
+    "terms_linked": true,
+    "refunds_linked": true,
+    "privacy_page_exists": true,
+    "terms_page_exists": true,
+    "refunds_page_exists": true,
+    "copyright_year": true,
+    "cookie_notice": true
+  },
+  "sitemap": "C:\\Users\\Windows11\\AppData\\Roaming\\Tencent\\Marvis\\User\\oAN1i2euy8UQvAuKLfMH_70ovJ4I\\workspace\\conv_19ea22a3a23_91c9a58e2ab4\\output\\sitemap.xml",
+  "actions_required": [
+    "PRICE Carbon Noseclip — N1: $165 → $168.37 (maintain_premium)",
+    "PRICE Dive Computer — DC1: $620 → $601.96 (consider_discount)"
+  ],
+  "summary": {
+    "annual_target": 100000,
+    "daily_target": 273.97,
+    "monthly_target": 8333.33,
+    "products_tracked": 6,
+    "seo_score": "11/12",
+    "on_track": true,
+    "actions_count": 2
+  }
+}
