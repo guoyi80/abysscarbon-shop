@@ -1,0 +1,108 @@
+{
+  "site": "AbyssCarbon",
+  "generated_at": "2026-06-07T21:07:01.052643",
+  "site_validation": [
+    {
+      "file": "index.html",
+      "status": "OK",
+      "size_bytes": 8092
+    },
+    {
+      "file": "css\\style.css",
+      "status": "OK",
+      "size_bytes": 6641
+    },
+    {
+      "file": "js\\main.js",
+      "status": "OK",
+      "size_bytes": 2222
+    }
+  ],
+  "sitemap": "C:\\Users\\Windows11\\AppData\\Roaming\\Tencent\\Marvis\\User\\oAN1i2euy8UQvAuKLfMH_70ovJ4I\\workspace\\conv_19ea22a3a23_91c9a58e2ab4\\output\\sitemap.xml",
+  "revenue_tracking": {
+    "date": "2026-06-07",
+    "day_of_year": 158,
+    "days_remaining": 207,
+    "annual_target": 100000,
+    "projected_ytd": 43287.67,
+    "projected_mtd": 50000.0,
+    "remaining_needed": 56712.33,
+    "on_track": true
+  },
+  "pricing_analysis": [
+    {
+      "product": "Carbon Blades — C1 Pro",
+      "current_price": 895,
+      "competitor_range": [
+        813.82,
+        969.43
+      ],
+      "recommended_price": 891.62,
+      "projected_margin": 0.2973,
+      "action": "maintain"
+    },
+    {
+      "product": "Low-Volume Mask — M1",
+      "current_price": 345,
+      "competitor_range": [
+        308.64,
+        375.16
+      ],
+      "recommended_price": 341.9,
+      "projected_margin": 0.2937,
+      "action": "maintain"
+    },
+    {
+      "product": "Carbon Noseclip — N1",
+      "current_price": 165,
+      "competitor_range": [
+        149.2,
+        178.46
+      ],
+      "recommended_price": 163.83,
+      "projected_margin": 0.295,
+      "action": "maintain"
+    },
+    {
+      "product": "Monofin — MF1",
+      "current_price": 1495,
+      "competitor_range": [
+        1339.54,
+        1573.92
+      ],
+      "recommended_price": 1456.73,
+      "projected_margin": 0.2816,
+      "action": "maintain"
+    },
+    {
+      "product": "Dive Computer — DC1",
+      "current_price": 620,
+      "competitor_range": [
+        535.45,
+        637.28
+      ],
+      "recommended_price": 586.37,
+      "projected_margin": 0.2599,
+      "action": "review"
+    },
+    {
+      "product": "Neck Weight — W1 Carbon",
+      "current_price": 285,
+      "competitor_range": [
+        242.91,
+        310.71
+      ],
+      "recommended_price": 276.81,
+      "projected_margin": 0.2793,
+      "action": "maintain"
+    }
+  ],
+  "summary": {
+    "all_files_valid": true,
+    "daily_revenue_target": 273.972602739726,
+    "monthly_target": 8333.333333333334,
+    "annual_target": 100000,
+    "products_tracked": 6,
+    "next_optimization": "2026-06-08 21:07:01"
+  }
+}
