@@ -244,8 +244,8 @@ def legal_compliance():
     }
 
 def generate_sitemap():
-    """Generate up-to-date sitemap.xml for guoyi80.github.io/abysscarbon-shop."""
-    BASE_URL = "https://guoyi80.github.io/abysscarbon-shop"
+    """Generate up-to-date sitemap.xml for abysscarbon.com."""
+    BASE_URL = "https://abysscarbon.com"
     pages = [
         (f"{BASE_URL}/", "1.0", "daily"),
         (f"{BASE_URL}/#products", "0.9", "weekly"),
@@ -278,7 +278,7 @@ def generate_sitemap():
 
 def ping_google():
     """Ping Google with the sitemap URL to trigger re-crawl."""
-    sitemap_url = "https://guoyi80.github.io/abysscarbon-shop/sitemap.xml"
+    sitemap_url = "https://abysscarbon.com/sitemap.xml"
     ping_url = f"https://www.google.com/ping?sitemap={sitemap_url}"
     try:
         req = urllib.request.Request(ping_url, method="GET")

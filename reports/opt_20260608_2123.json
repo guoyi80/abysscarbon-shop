@@ -1,12 +1,12 @@
 {
   "site": "AbyssCarbon",
-  "generated_at": "2026-06-08T21:08:46.655409",
+  "generated_at": "2026-06-08T21:23:39.586857",
   "site_validation": [
     {
       "file": "index.html",
       "status": "OK",
-      "size_bytes": 20271,
-      "sha256": "1a15966dc6d93cc8"
+      "size_bytes": 21433,
+      "sha256": "101baac2472065d2"
     },
     {
       "file": "privacy.html",
@@ -35,8 +35,8 @@
     {
       "file": "css\\style.css",
       "status": "OK",
-      "size_bytes": 12214,
-      "sha256": "0a5d1e1bb30a42fd"
+      "size_bytes": 12645,
+      "sha256": "b4ba70b9b7fa3eae"
     },
     {
       "file": "js\\main.js",
@@ -47,32 +47,32 @@
     {
       "file": "guide\\best-freediving-gear-2026.html",
       "status": "OK",
-      "size_bytes": 13656,
-      "sha256": "e57e205469ce3f2d"
+      "size_bytes": 15883,
+      "sha256": "2f8bef43a06866cb"
     },
     {
       "file": "guide\\carbon-fiber-freediving.html",
       "status": "OK",
-      "size_bytes": 10392,
-      "sha256": "8aa0419bb84b54d8"
+      "size_bytes": 12575,
+      "sha256": "7322b8256d587ae6"
     },
     {
       "file": "compare\\freediving-fins-comparison-2026.html",
       "status": "OK",
-      "size_bytes": 20980,
-      "sha256": "9dfbf1984a4e84ce"
+      "size_bytes": 23565,
+      "sha256": "180da4c53007e13d"
     },
     {
       "file": "blog\\freediving-training-equipment-guide.html",
       "status": "OK",
-      "size_bytes": 29873,
-      "sha256": "3cf3e3a412aebb20"
+      "size_bytes": 32791,
+      "sha256": "732ebd6619418f75"
     },
     {
       "file": "blog\\carbon-vs-fiberglass-vs-plastic-fins.html",
       "status": "OK",
-      "size_bytes": 18320,
-      "sha256": "2b506ccbe6cd3b48"
+      "size_bytes": 20774,
+      "sha256": "e293562af10eba7d"
     }
   ],
   "all_files_valid": true,
@@ -87,11 +87,11 @@
       "schema_org": true,
       "h1_count": 1,
       "h2_count": 5,
-      "img_alt": 0,
+      "img_alt": 7,
       "robots_meta": true,
       "title_length": 91
     },
-    "score": 11,
+    "score": 12,
     "max": 12
   },
   "pricing_analysis": [
@@ -99,67 +99,67 @@
       "product": "Carbon Blades — C1 Pro",
       "current_price": 895,
       "competitor_range": [
-        797.28,
-        943.16
+        748.61,
+        965.63
       ],
-      "recommended_price": 898.75,
-      "projected_margin": 0.3029,
+      "recommended_price": 878.57,
+      "projected_margin": 0.2869,
       "action": "maintain"
     },
     {
       "product": "Low-Volume Mask — M1",
       "current_price": 345,
       "competitor_range": [
-        283.91,
-        352.37
+        303.28,
+        354.43
       ],
-      "recommended_price": 350.54,
-      "projected_margin": 0.3111,
+      "recommended_price": 342.94,
+      "projected_margin": 0.2958,
       "action": "maintain"
     },
     {
       "product": "Carbon Noseclip — N1",
       "current_price": 165,
       "competitor_range": [
-        144.67,
-        177.57
+        142.42,
+        168.6
       ],
-      "recommended_price": 161.52,
-      "projected_margin": 0.2849,
-      "action": "consider_discount"
+      "recommended_price": 168.85,
+      "projected_margin": 0.316,
+      "action": "maintain_premium"
     },
     {
       "product": "Monofin — MF1",
       "current_price": 1495,
       "competitor_range": [
-        1225.92,
-        1606.94
+        1305.0,
+        1560.96
       ],
-      "recommended_price": 1484.0,
-      "projected_margin": 0.2948,
+      "recommended_price": 1476.89,
+      "projected_margin": 0.2914,
       "action": "maintain"
     },
     {
       "product": "Dive Computer — DC1",
       "current_price": 620,
       "competitor_range": [
-        526.06,
-        642.98
+        526.65,
+        668.31
       ],
-      "recommended_price": 623.66,
-      "projected_margin": 0.3041,
-      "action": "maintain"
+      "recommended_price": 594.93,
+      "projected_margin": 0.2705,
+      "action": "consider_discount"
     },
     {
       "product": "Neck Weight — W1 Carbon",
       "current_price": 285,
       "competitor_range": [
-        243.52,
-        291.8
+        254.27,
+        291.49
       ],
-      "recommended_price": 279.19,
-      "projected_margin": 0.2854,
-      "action": "consider_discount"
+      "recommended_price": 286.93,
+      "projected_margin": 0.3047,
+      "action": "maintain"
     }
   ],
   "revenue_tracking": {
@@ -168,24 +168,24 @@
     "days_remaining": 206,
     "annual_target": 100000,
     "projected_ytd": 43561.64,
-    "simulated_actual": 45516.76,
+    "simulated_actual": 46331.77,
     "remaining_needed": 56438.36,
     "on_track": true,
     "pace_pct": 43.6,
     "avg_order_value": 634.17,
-    "estimated_orders_ytd": 71,
+    "estimated_orders_ytd": 73,
     "daily_target": 273.97
   },
   "conversion_funnel": {
-    "estimated_daily_visitors": 109,
-    "page_views": 450,
-    "cart_additions": 4,
-    "cart_rate": 3.67,
-    "checkouts_started": 2,
-    "checkout_rate": 50.0,
-    "estimated_conversions": 1,
-    "conversion_rate": 0.92,
-    "daily_revenue_est": 634.17
+    "estimated_daily_visitors": 187,
+    "page_views": 838,
+    "cart_additions": 13,
+    "cart_rate": 6.95,
+    "checkouts_started": 7,
+    "checkout_rate": 53.85,
+    "estimated_conversions": 5,
+    "conversion_rate": 2.67,
+    "daily_revenue_est": 3170.83
   },
   "content_freshness": [
     {
@@ -247,6 +247,11 @@
       "file": "index.html",
       "age_days": 0,
       "action": "fresh"
+    },
+    {
+      "file": "monofin-vs-bifins-freediving.html",
+      "age_days": 0,
+      "action": "fresh"
     }
   ],
   "content_touched": null,
@@ -267,24 +272,27 @@
     "response": "HTTP Error 404: Sitemaps ping is deprecated. See https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping."
   },
   "git_sync": {
-    "staged": [],
-    "committed": false,
+    "staged": [
+      "reports/opt_20260608_2121.json"
+    ],
+    "committed": true,
     "pushed": false,
-    "error": "[WinError 2] 系统找不到指定的文件。"
+    "error": "To github.com:guoyi80/abysscarbon-shop.git\n ! [rejected]        main -> main (non-fast-forward)\nerror: failed to push some refs to 'github.com:guoyi80/abysscarbon-shop.git'\nhint: Updates were rejected because the tip of your current branch is behind\nhint: its remote counterpart. If you want to integ"
   },
   "actions_required": [
-    "PRICE Carbon Noseclip — N1: $165 → $161.52 (consider_discount)",
-    "PRICE Neck Weight — W1 Carbon: $285 → $279.19 (consider_discount)",
-    "GIT error: [WinError 2] 系统找不到指定的文件。"
+    "PRICE Carbon Noseclip — N1: $165 → $168.85 (maintain_premium)",
+    "PRICE Dive Computer — DC1: $620 → $594.93 (consider_discount)",
+    "GIT staged 1 files, committed=True, pushed=False",
+    "GIT error: To github.com:guoyi80/abysscarbon-shop.git\n ! [rejected]        main -> main (non-fast-forward)\nerror: failed to push some refs to 'github.com:guoyi80/abysscarbon-shop.git'\nhint: Updates were rejected because the tip of your current branch is behind\nhint: its remote counterpart. If you want to integ"
   ],
   "summary": {
     "annual_target": 100000,
     "daily_target": 273.97,
     "monthly_target": 8333.33,
     "products_tracked": 6,
-    "seo_score": "11/12",
+    "seo_score": "12/12",
     "on_track": true,
-    "actions_count": 3,
+    "actions_count": 4,
     "google_ping_status": 0,
     "git_pushed": false
   }

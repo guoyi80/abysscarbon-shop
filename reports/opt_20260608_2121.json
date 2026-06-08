@@ -267,7 +267,7 @@
   },
   "sitemap": "C:\\Users\\Windows11\\AppData\\Roaming\\Tencent\\Marvis\\User\\oAN1i2euy8UQvAuKLfMH_70ovJ4I\\workspace\\conv_19ea22a3a23_91c9a58e2ab4\\output\\sitemap.xml",
   "google_ping": {
-    "ping_url": "https://www.google.com/ping?sitemap=https://guoyi80.github.io/abysscarbon-shop/sitemap.xml",
+    "ping_url": "https://www.google.com/ping?sitemap=https://abysscarbon.com/sitemap.xml",
     "status": 0,
     "response": "HTTP Error 404: Sitemaps ping is deprecated. See https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping."
   },
