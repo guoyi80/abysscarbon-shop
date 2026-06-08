@@ -49,7 +49,68 @@
         .guide a:hover { text-decoration: underline; }
         .footer { text-align: center; padding: 60px 24px; color: #333; font-size: 12px; }
         .footer a { color: #444; text-decoration: none; }
-    </style>
+    
+/* ===== Related Articles ===== */
+.related-articles {
+    margin: 56px 0 0;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.related-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #555;
+    margin-bottom: 20px;
+}
+.related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+.related-card {
+    display: block;
+    background: #0f0f0f;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    padding: 18px 20px;
+    text-decoration: none;
+    transition: border-color 0.22s ease, background 0.22s ease;
+}
+.related-card:hover {
+    border-color: #c9a96e;
+    background: #111;
+}
+.related-card-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #c9a96e;
+    margin-bottom: 8px;
+}
+.related-card h3 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin: 0 0 6px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+.related-card p {
+    font-size: 0.76rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+@media (max-width: 640px) {
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
 <body class="dark">
     <nav class="nav">
@@ -111,7 +172,25 @@
         <p>The numbers do not lie. Carbon fiber fins return 50% more of your energy to the water than plastic fins. Over a training session of 50 dives, that is thousands of kilojoules conserved. Over a competition, it is meters of depth. Freediving is a sport of margins—and carbon fiber widens yours.</p>
 
         <p style="margin-top:48px;"><a href="best-freediving-gear-2026.html">← Back to Best Freediving Gear 2026</a> &nbsp;·&nbsp; <a href="../index.html#products">Shop AbyssCarbon Products →</a></p>
-    </article>
+    
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <h2 class="related-title">Related Articles</h2>
+        <div class="related-grid">
+        <a href="../blog/carbon-vs-fiberglass-vs-plastic-fins.html" class="related-card">
+            <span class="related-card-tag">MATERIAL COMPARISON</span>
+            <h3>Carbon Fiber vs Fiberglass vs Plastic Fins</h3>
+            <p>See how carbon stacks up against fiberglass and plastic with real energy return percentages.</p>
+        </a>
+        <a href="best-freediving-gear-2026.html" class="related-card">
+            <span class="related-card-tag">EXPERT GUIDE</span>
+            <h3>Best Freediving Equipment 2026</h3>
+            <p>The complete guide — fins, masks, monofins, computers, and neck weights reviewed.</p>
+        </a>
+        </div>
+    </section>
+
+</article>
     <footer class="footer">
         <p>AbyssCarbon &copy; 2026 &nbsp;·&nbsp; Expert Freediving Equipment Reviews</p>
     </footer>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="8" fill="#0a0a0a"/>
+  <path d="M60 170 L100 40 L140 170" stroke="#c9a84c" stroke-width="3" fill="none"/>
+  <path d="M40 190 Q100 130 160 190" stroke="#c9a84c" stroke-width="2" fill="none" opacity="0.4"/>
+  <text x="100" y="180" text-anchor="middle" fill="#c9a84c" font-family="Inter,sans-serif" font-size="14" font-weight="600">C1 PRO</text>
+</svg>

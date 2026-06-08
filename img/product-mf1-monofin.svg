@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="8" fill="#0a0a0a"/>
+  <path d="M100 170 L40 40 L100 30 L160 40 Z" stroke="#c9a84c" stroke-width="3" fill="none"/>
+  <text x="100" y="180" text-anchor="middle" fill="#c9a84c" font-family="Inter,sans-serif" font-size="14" font-weight="600">MF1</text>
+</svg>

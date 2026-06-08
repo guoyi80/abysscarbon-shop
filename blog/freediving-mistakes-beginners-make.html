@@ -330,7 +330,68 @@
             .cta-links { flex-direction: column; align-items: center; }
             .mistake .block { padding: 14px 16px; }
         }
-    </style>
+    
+/* ===== Related Articles ===== */
+.related-articles {
+    margin: 56px 0 0;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.related-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #555;
+    margin-bottom: 20px;
+}
+.related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+.related-card {
+    display: block;
+    background: #0f0f0f;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    padding: 18px 20px;
+    text-decoration: none;
+    transition: border-color 0.22s ease, background 0.22s ease;
+}
+.related-card:hover {
+    border-color: #c9a96e;
+    background: #111;
+}
+.related-card-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #c9a96e;
+    margin-bottom: 8px;
+}
+.related-card h3 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin: 0 0 6px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+.related-card p {
+    font-size: 0.76rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+@media (max-width: 640px) {
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
 <body>
 
@@ -463,6 +524,24 @@
             <a href="../blog/training-gear-pyramid.html" class="secondary">Training Gear Pyramid</a>
         </div>
     </div>
+
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <h2 class="related-title">Related Articles</h2>
+        <div class="related-grid">
+        <a href="freediving-training-equipment-guide.html" class="related-card">
+            <span class="related-card-tag">TRAINING GUIDE</span>
+            <h3>Freediving Training Equipment Pyramid</h3>
+            <p>Build your kit in the right order. From mask to monofin, the optimal upgrade path for intermediate divers.</p>
+        </a>
+        <a href="../compare/freediving-fins-comparison-2026.html" class="related-card">
+            <span class="related-card-tag">COMPARISON</span>
+            <h3>6 Best Carbon Freediving Fins Compared (2026)</h3>
+            <p>Side-by-side comparison of C1 Pro, Alchemy V3, Cetma Edge, and more. Real specs, honest ratings.</p>
+        </a>
+        </div>
+    </section>
+
 </article>
 
 <footer>

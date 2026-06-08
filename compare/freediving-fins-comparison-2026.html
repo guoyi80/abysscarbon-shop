@@ -172,7 +172,68 @@
             .nav-links { display: none; }
             .conclusion-box { padding: 24px 20px; }
         }
-    </style>
+    
+/* ===== Related Articles ===== */
+.related-articles {
+    margin: 56px 0 0;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.related-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #555;
+    margin-bottom: 20px;
+}
+.related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+.related-card {
+    display: block;
+    background: #0f0f0f;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    padding: 18px 20px;
+    text-decoration: none;
+    transition: border-color 0.22s ease, background 0.22s ease;
+}
+.related-card:hover {
+    border-color: #c9a96e;
+    background: #111;
+}
+.related-card-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #c9a96e;
+    margin-bottom: 8px;
+}
+.related-card h3 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin: 0 0 6px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+.related-card p {
+    font-size: 0.76rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+@media (max-width: 640px) {
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -381,6 +442,24 @@
     <div class="disclaimer">
         <p>Methodology: Ratings are based on independent testing, user reviews aggregated from the freediving community, and manufacturer specifications. Depth figures represent validated third-party test results, not manufacturer claims. Prices are MSRP as of June 2026 and may vary by region. This comparison is editorial content; AbyssCarbon produces the C1 Pro but all products are evaluated against identical criteria. Last updated: June 8, 2026.</p>
     </div>
+
+
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <h2 class="related-title">Related Articles</h2>
+        <div class="related-grid">
+        <a href="../guide/best-freediving-gear-2026.html" class="related-card">
+            <span class="related-card-tag">EXPERT GUIDE</span>
+            <h3>Best Freediving Equipment 2026</h3>
+            <p>Beyond fins — the complete freediving kit reviewed: masks, nose clips, computers, and more.</p>
+        </a>
+        <a href="../blog/carbon-vs-fiberglass-vs-plastic-fins.html" class="related-card">
+            <span class="related-card-tag">MATERIAL COMPARISON</span>
+            <h3>Carbon Fiber vs Fiberglass vs Plastic Fins</h3>
+            <p>Understand the material science behind fin performance before you choose your next pair.</p>
+        </a>
+        </div>
+    </section>
 
 </main>
 

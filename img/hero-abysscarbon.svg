@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <!-- Stylized fin silhouette -->
+  <path d="M400 320 L280 80 L320 75 L400 280 L480 75 L520 80 Z" stroke="#c9a84c" stroke-width="2" fill="none" opacity="0.3"/>
+  <path d="M400 300 L300 100 L330 95 L400 270 L470 95 L500 100 Z" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- Depth lines -->
+  <line x1="100" y1="350" x2="700" y2="350" stroke="#c9a84c" stroke-width="0.5" opacity="0.15"/>
+  <line x1="150" y1="360" x2="650" y2="360" stroke="#c9a84c" stroke-width="0.5" opacity="0.1"/>
+  <!-- Text -->
+  <text x="400" y="370" text-anchor="middle" fill="#c9a84c" font-family="Inter,sans-serif" font-size="18" font-weight="300" letter-spacing="8">ABYSSCARBON</text>
+  <text x="400" y="390" text-anchor="middle" fill="#c9a84c" font-family="Inter,sans-serif" font-size="10" font-weight="300" opacity="0.5">FOR THE DEEP</text>
+</svg>

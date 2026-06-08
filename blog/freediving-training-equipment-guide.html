@@ -486,7 +486,68 @@
             .pyramid-2 { width: 210px; }
             .pyramid-1 { width: 270px; }
         }
-    </style>
+    
+/* ===== Related Articles ===== */
+.related-articles {
+    margin: 56px 0 0;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.related-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #555;
+    margin-bottom: 20px;
+}
+.related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+.related-card {
+    display: block;
+    background: #0f0f0f;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    padding: 18px 20px;
+    text-decoration: none;
+    transition: border-color 0.22s ease, background 0.22s ease;
+}
+.related-card:hover {
+    border-color: #c9a96e;
+    background: #111;
+}
+.related-card-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #c9a96e;
+    margin-bottom: 8px;
+}
+.related-card h3 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin: 0 0 6px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+}
+.related-card p {
+    font-size: 0.76rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+@media (max-width: 640px) {
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
 <body>
 
@@ -683,7 +744,25 @@
             <p>Each layer builds on the one below it. Skip a layer and you are compensating for a gap you could have closed for less money. Follow the pyramid, and by the time you reach the top, you will not just own the gear — you will know how to use it.</p>
         </section>
 
-    </article>
+    
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <h2 class="related-title">Related Articles</h2>
+        <div class="related-grid">
+        <a href="carbon-vs-fiberglass-vs-plastic-fins.html" class="related-card">
+            <span class="related-card-tag">MATERIAL COMPARISON</span>
+            <h3>Carbon Fiber vs Fiberglass vs Plastic Fins</h3>
+            <p>Real energy return data: carbon 92%, fiberglass 74%, plastic 61%. Which fin blade material is right for you?</p>
+        </a>
+        <a href="freediving-mistakes-beginners-make.html" class="related-card">
+            <span class="related-card-tag">TRAINING</span>
+            <h3>7 Freediving Mistakes Beginners Make</h3>
+            <p>Oversized mask, wrong fins, hyperventilation — avoid these common errors and dive smarter from day one.</p>
+        </a>
+        </div>
+    </section>
+
+</article>
 </main>
 
 <footer>
