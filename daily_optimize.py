@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent
 REPORT_DIR = BASE_DIR / "reports"
 SITEMAP_PATH = BASE_DIR / "sitemap.xml"
 INDEX_PATH = BASE_DIR / "index.html"
+GIT = r"C:\Program Files\Git\bin\git.exe"
 
 REPORT_DIR.mkdir(exist_ok=True)
 
@@ -296,12 +297,12 @@ def git_sync():
     result = {"staged": [], "committed": False, "pushed": False, "error": None}
     try:
         subprocess.run(
-            ["git", "add", "-A"],
+            [GIT, "add", "-A"],
             cwd=str(BASE_DIR), capture_output=True, text=True, timeout=30, check=True
         )
         # Get list of staged files
         staged = subprocess.run(
-            ["git", "diff", "--cached", "--name-only"],
+            [GIT, "diff", "--cached", "--name-only"],
             cwd=str(BASE_DIR), capture_output=True, text=True, timeout=30, check=True
         )
         result["staged"] = [f.strip() for f in staged.stdout.splitlines() if f.strip()]
@@ -309,13 +310,13 @@ def git_sync():
         if result["staged"]:
             commit_msg = f"Daily optimization {datetime.now().strftime('%Y-%m-%d %H:%M')}"
             subprocess.run(
-                ["git", "commit", "-m", commit_msg],
+                [GIT, "commit", "-m", commit_msg],
                 cwd=str(BASE_DIR), capture_output=True, text=True, timeout=30, check=True
             )
             result["committed"] = True
             
             subprocess.run(
-                ["git", "push"],
+                [GIT, "push"],
                 cwd=str(BASE_DIR), capture_output=True, text=True, timeout=60, check=True
             )
             result["pushed"] = True
