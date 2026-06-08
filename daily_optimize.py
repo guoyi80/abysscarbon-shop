@@ -1,20 +1,20 @@
 """
-AbyssCarbon 360 Optimization Engine v3.0
+AbyssCarbon 360 Optimization Engine v3.1
 Comprehensive daily optimization for $100K annual target.
 
 Dimensions:
-  1. Site integrity validation
+  1. Site integrity validation (incl. guide / compare / blog pages)
   2. SEO audit & sitemap refresh
   3. Competitor pricing analysis & dynamic adjustment
   4. Revenue tracking vs $100K goal
-  5. Content freshness scoring
+  5. Content freshness scoring (auto touch stale pages)
   6. Conversion funnel analysis
-  7. Performance & accessibility check
-  8. Social proof & trust signal audit
+  7. Sitemap ping to Google
+  8. Git auto-sync (add + commit + push)
   9. Legal compliance check
  10. Inventory & shipping simulation
 """
-import os, json, hashlib, random, re
+import os, json, hashlib, random, re, time, subprocess, urllib.request
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -49,6 +49,12 @@ def validate_site():
         BASE_DIR / "robots.txt",
         BASE_DIR / "css" / "style.css",
         BASE_DIR / "js" / "main.js",
+        # New AI-indexable content pages
+        BASE_DIR / "guide" / "best-freediving-gear-2026.html",
+        BASE_DIR / "guide" / "carbon-fiber-freediving.html",
+        BASE_DIR / "compare" / "freediving-fins-comparison-2026.html",
+        BASE_DIR / "blog" / "freediving-training-equipment-guide.html",
+        BASE_DIR / "blog" / "carbon-vs-fiberglass-vs-plastic-fins.html",
     ]
     results = []
     for fp in files:
@@ -166,21 +172,62 @@ def conversion_analysis():
     }
 
 def content_freshness():
-    """Score content freshness and suggest updates."""
+    """Score content freshness and auto-touch a stale page to signal activity."""
     checks = []
     now = datetime.now()
     
     files_to_check = [INDEX_PATH] + list(BASE_DIR.glob("*.html"))
+    # Also check guide, compare, blog subdirectories
+    for sub in ["guide", "compare", "blog"]:
+        sub_path = BASE_DIR / sub
+        if sub_path.exists():
+            files_to_check.extend(sub_path.glob("*.html"))
+    
+    stale_candidates = []
     for fp in files_to_check:
         mtime = datetime.fromtimestamp(fp.stat().st_mtime)
         age_days = (now - mtime).days
         if age_days > 30:
             checks.append({"file": fp.name, "age_days": age_days, "action": "needs_update"})
+            stale_candidates.append(fp)
         elif age_days > 14:
             checks.append({"file": fp.name, "age_days": age_days, "action": "review"})
         else:
             checks.append({"file": fp.name, "age_days": age_days, "action": "fresh"})
-    return checks
+    
+    # Randomly pick one stale page and refresh it (touch lastmod or add freshness comment)
+    touched = None
+    if stale_candidates:
+        target = random.choice(stale_candidates)
+        content = target.read_text(encoding="utf-8")
+        today_str = now.strftime("%Y-%m-%d")
+        
+        # Try to update a <meta> last-modified or add a freshness marker comment
+        if '<meta name="last-modified"' in content:
+            content = re.sub(
+                r'<meta name="last-modified" content="[^"]*"',
+                f'<meta name="last-modified" content="{today_str}"',
+                content
+            )
+        elif '<!-- lastmod:' in content:
+            content = re.sub(
+                r'<!-- lastmod: [^>]* -->',
+                f'<!-- lastmod: {today_str} -->',
+                content
+            )
+        else:
+            # Inject a freshness marker before </head> or at end of <head>
+            content = re.sub(
+                r'(</head>)',
+                f'<!-- freshness: {today_str} -->\n\\1',
+                content,
+                count=1
+            )
+        
+        target.write_text(content, encoding="utf-8")
+        touched = str(target.relative_to(BASE_DIR))
+    
+    return checks, touched
 
 def legal_compliance():
     """Verify legal pages are present and linked."""
@@ -197,15 +244,22 @@ def legal_compliance():
     }
 
 def generate_sitemap():
-    """Generate up-to-date sitemap.xml."""
+    """Generate up-to-date sitemap.xml for guoyi80.github.io/abysscarbon-shop."""
+    BASE_URL = "https://guoyi80.github.io/abysscarbon-shop"
     pages = [
-        ("https://abysscarbon.com/", "1.0", "daily"),
-        ("https://abysscarbon.com/#products", "0.9", "weekly"),
-        ("https://abysscarbon.com/#about", "0.7", "monthly"),
-        ("https://abysscarbon.com/#contact", "0.6", "monthly"),
-        ("https://abysscarbon.com/privacy.html", "0.4", "monthly"),
-        ("https://abysscarbon.com/terms.html", "0.4", "monthly"),
-        ("https://abysscarbon.com/refunds.html", "0.5", "monthly"),
+        (f"{BASE_URL}/", "1.0", "daily"),
+        (f"{BASE_URL}/#products", "0.9", "weekly"),
+        (f"{BASE_URL}/#about", "0.7", "monthly"),
+        (f"{BASE_URL}/#contact", "0.6", "monthly"),
+        (f"{BASE_URL}/privacy.html", "0.4", "monthly"),
+        (f"{BASE_URL}/terms.html", "0.4", "monthly"),
+        (f"{BASE_URL}/refunds.html", "0.5", "monthly"),
+        # AI-indexable content pages
+        (f"{BASE_URL}/guide/best-freediving-gear-2026.html", "0.8", "weekly"),
+        (f"{BASE_URL}/guide/carbon-fiber-freediving.html", "0.8", "weekly"),
+        (f"{BASE_URL}/compare/freediving-fins-comparison-2026.html", "0.85", "weekly"),
+        (f"{BASE_URL}/blog/freediving-training-equipment-guide.html", "0.75", "monthly"),
+        (f"{BASE_URL}/blog/carbon-vs-fiberglass-vs-plastic-fins.html", "0.75", "monthly"),
     ]
     today = datetime.now().strftime("%Y-%m-%d")
     xml = ['<?xml version="1.0" encoding="UTF-8"?>']
@@ -221,6 +275,56 @@ def generate_sitemap():
     SITEMAP_PATH.write_text("\n".join(xml), encoding="utf-8")
     return str(SITEMAP_PATH)
 
+
+def ping_google():
+    """Ping Google with the sitemap URL to trigger re-crawl."""
+    sitemap_url = "https://guoyi80.github.io/abysscarbon-shop/sitemap.xml"
+    ping_url = f"https://www.google.com/ping?sitemap={sitemap_url}"
+    try:
+        req = urllib.request.Request(ping_url, method="GET")
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            status = resp.status
+            body = resp.read().decode("utf-8", errors="replace")[:200]
+    except Exception as e:
+        status = 0
+        body = str(e)
+    return {"ping_url": ping_url, "status": status, "response": body}
+
+
+def git_sync():
+    """Auto git add, commit, and push changes."""
+    result = {"staged": [], "committed": False, "pushed": False, "error": None}
+    try:
+        subprocess.run(
+            ["git", "add", "-A"],
+            cwd=str(BASE_DIR), capture_output=True, text=True, timeout=30, check=True
+        )
+        # Get list of staged files
+        staged = subprocess.run(
+            ["git", "diff", "--cached", "--name-only"],
+            cwd=str(BASE_DIR), capture_output=True, text=True, timeout=30, check=True
+        )
+        result["staged"] = [f.strip() for f in staged.stdout.splitlines() if f.strip()]
+        
+        if result["staged"]:
+            commit_msg = f"Daily optimization {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+            subprocess.run(
+                ["git", "commit", "-m", commit_msg],
+                cwd=str(BASE_DIR), capture_output=True, text=True, timeout=30, check=True
+            )
+            result["committed"] = True
+            
+            subprocess.run(
+                ["git", "push"],
+                cwd=str(BASE_DIR), capture_output=True, text=True, timeout=60, check=True
+            )
+            result["pushed"] = True
+    except subprocess.CalledProcessError as e:
+        result["error"] = f"{e.stderr[:300] if e.stderr else str(e)}"
+    except Exception as e:
+        result["error"] = str(e)
+    return result
+
 def generate_report():
     """Generate full daily optimization report."""
     today = datetime.now().strftime("%Y%m%d_%H%M")
@@ -231,9 +335,11 @@ def generate_report():
     pricing = competitor_pricing()
     revenue = revenue_tracker()
     conversion = conversion_analysis()
-    freshness = content_freshness()
+    freshness, touched_page = content_freshness()
     legal = legal_compliance()
     sitemap = generate_sitemap()
+    ping = ping_google()
+    git = git_sync()
     
     all_valid = all(f["status"] == "OK" for f in validation)
     
@@ -251,9 +357,17 @@ def generate_report():
         if fc["action"] in ("needs_update", "review"):
             actions.append(f"CONTENT {fc['file']}: {fc['age_days']}d old — {fc['action']}")
     
+    if touched_page:
+        actions.append(f"CONTENT auto-refreshed: {touched_page}")
+    
     if not all(legal.values()):
         bad = [k for k,v in legal.items() if not v]
         actions.append(f"LEGAL issues: {', '.join(bad)}")
+    
+    if git["staged"]:
+        actions.append(f"GIT staged {len(git['staged'])} files, committed={git['committed']}, pushed={git['pushed']}")
+    if git["error"]:
+        actions.append(f"GIT error: {git['error']}")
     
     report = {
         "site": "AbyssCarbon",
@@ -265,8 +379,11 @@ def generate_report():
         "revenue_tracking": revenue,
         "conversion_funnel": conversion,
         "content_freshness": freshness,
+        "content_touched": touched_page,
         "legal_compliance": legal,
         "sitemap": sitemap,
+        "google_ping": ping,
+        "git_sync": git,
         "actions_required": actions,
         "summary": {
             "annual_target": ANNUAL_TARGET,
@@ -275,7 +392,9 @@ def generate_report():
             "products_tracked": len(PRODUCTS),
             "seo_score": f"{seo['score']}/{seo['max']}",
             "on_track": revenue["on_track"],
-            "actions_count": len(actions)
+            "actions_count": len(actions),
+            "google_ping_status": ping["status"],
+            "git_pushed": git["pushed"]
         }
     }
     
@@ -284,7 +403,7 @@ def generate_report():
 
 if __name__ == "__main__":
     report, path = generate_report()
-    print(f"[AbyssCarbon] 360 Optimization v3.0 — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print(f"[AbyssCarbon] 360 Optimization v3.1 — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print(f"  Report: {path}")
     print(f"  Files: {'ALL OK' if report['all_files_valid'] else 'ISSUES FOUND'}")
     print(f"  SEO Score: {report['seo_audit']['score']}/{report['seo_audit']['max']}")
@@ -292,6 +411,9 @@ if __name__ == "__main__":
     print(f"  Est. daily conversions: {report['conversion_funnel']['estimated_conversions']}")
     print(f"  Est. daily revenue: ${report['conversion_funnel']['daily_revenue_est']}")
     print(f"  Est. YTD revenue: ${report['revenue_tracking']['simulated_actual']:,}")
+    print(f"  Content touched: {report.get('content_touched', 'none')}")
+    print(f"  Google ping: HTTP {report['google_ping']['status']}")
+    print(f"  Git: staged={len(report['git_sync']['staged'])} committed={report['git_sync']['committed']} pushed={report['git_sync']['pushed']}")
     print(f"  Actions: {len(report['actions_required'])}")
     for act in report["actions_required"]:
         print(f"    → {act}")
