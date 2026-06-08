@@ -1,6 +1,58 @@
 // AbyssCarbon — E-commerce JS
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ── Hamburger Menu ──
+    const nav = document.querySelector('.nav');
+    const navLinks = document.querySelector('.nav-links');
+    if (nav && navLinks) {
+        // Create hamburger button
+        const hamburger = document.createElement('button');
+        hamburger.className = 'hamburger';
+        hamburger.setAttribute('aria-label', 'Toggle navigation');
+        hamburger.innerHTML = '<span></span><span></span><span></span>';
+
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'nav-overlay';
+
+        // Clone nav links into overlay
+        const clonedLinks = navLinks.cloneNode(true);
+        overlay.appendChild(clonedLinks);
+
+        // Insert into DOM
+        nav.appendChild(hamburger);
+        document.body.appendChild(overlay);
+
+        // Toggle function
+        function openMenu() {
+            hamburger.classList.add('open');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            hamburger.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', () => {
+            if (hamburger.classList.contains('open')) { closeMenu(); }
+            else { openMenu(); }
+        });
+
+        // Close on overlay link click
+        overlay.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => closeMenu());
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    }
+
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', (e) => {
