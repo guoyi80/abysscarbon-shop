@@ -33,7 +33,7 @@
         "@type": "OfferCatalog",
         "name": "Freediving Equipment",
         "itemListElement": [
-          {"@type": "Product","name": "Carbon Blades — C1 Pro","offers": {"@type": "Offer","price": "895.00","priceCurrency": "USD"}},
+          {"@type": "Product","name": "Carbon Blades — C1 Pro","offers": {"@type": "Offer","price": "850.26","priceCurrency": "USD"}},
           {"@type": "Product","name": "Low-Volume Mask — M1","offers": {"@type": "Offer","price": 331.45,"priceCurrency": "USD"}},
           {"@type": "Product","name": "Carbon Noseclip — N1","offers": {"@type": "Offer","price": 158.86,"priceCurrency": "USD"}},
           {"@type": "Product","name": "Monofin — MF1","offers": {"@type": "Offer","price": 1458.32,"priceCurrency": "USD"}},
@@ -51,15 +51,16 @@
     <link rel="preconnect" href="https://cdn.snipcart.com">
     <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.css">
 <style>
-    .flash-banner{background:linear-gradient(135deg,#c9a84c,#8b6914);color:#0a0a0a;text-align:center;padding:10px 0;font-size:14px;font-weight:600;letter-spacing:.5px;position:sticky;top:0;z-index:1000;animation:flashPulse 2s infinite;}
-    @keyframes flashPulse{0%,100%{opacity:1}50%{opacity:.92}}
-    .flash-sale-tag{background:#c9a84c;color:#0a0a0a;font-size:12px;font-weight:600;padding:3px 8px;border-radius:3px;display:inline-block;margin:0 6px;animation:flashPulse 2s infinite;}
+    .flash-banner{background:linear-gradient(135deg,#c9a84c,#8b6914);color:#0a0a0a;text-align:center;padding:10px 36px;font-size:14px;font-weight:600;letter-spacing:.5px;position:relative;z-index:1000;}
+    .flash-banner .flash-close{position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:20px;line-height:1;opacity:.7;padding:0 6px;background:none;border:none;color:#0a0a0a;}
+    .flash-banner .flash-close:hover{opacity:1;}
+    .flash-sale-tag{background:#c9a84c;color:#0a0a0a;font-size:12px;font-weight:600;padding:3px 8px;border-radius:3px;display:inline-block;margin:0 6px;}
     .trust-micro{font-size:11px;color:#555;margin-top:8px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
     .social-proof{font-size:12px;color:#c9a84c;margin-top:6px;font-weight:500;}
     </style>
 </head>
 <body class="dark">
-    <div class="flash-banner">SUMMER FLASH SALE &mdash; Up to 15% off select gear &middot; Limited time <span class="flash-timer">&minus; Ends Soon</span></div>
+    <div class="flash-banner" id="flashBanner">SUMMER FLASH SALE &mdash; Up to 15% off select gear &middot; Limited time <span class="flash-timer">&minus; Ends Soon</span><button class="flash-close" onclick="document.getElementById('flashBanner').style.display='none'" aria-label="Close">&times;</button></div>
     <nav class="nav">
         <a href="#" class="nav-logo">ABYSS<span>CARBON</span></a>
         <div class="nav-links">
@@ -119,7 +120,7 @@
                         <span class="price">$850.26</span>
                         <button class="btn btn-buy snipcart-add-item"
                             data-item-id="C1-Pro"
-                            data-item-price="895.00"
+                            data-item-price="850.26"
                             data-item-url="/"
                             data-item-name="Carbon Blades — C1 Pro"
                             data-item-description="Hand-laid carbon fiber freediving blades. 22° angle, variable stiffness."
