@@ -67,7 +67,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://guoyi80.github.io/abysscarbon-shop/blog/index.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://guoyi80.github.io/abysscarbon-shop/blog/carbon-vs-fiberglass-vs-plastic-fins.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://guoyi80.github.io/abysscarbon-shop/blog/freediving-mistakes-beginners-make.html</loc>
     <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>

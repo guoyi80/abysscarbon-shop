@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbyssCarbon Blog — Freediving Gear, Training &amp; Science</title>
+    <meta name="description" content="Expert insights on freediving gear, training methodology, carbon fiber fins, and freediving science. Read our latest articles on choosing the right equipment and optimizing your freediving performance.">
+    <meta name="keywords" content="freediving blog, carbon fiber fins, freediving training, freediving gear, freediving science, AbyssCarbon">
+    <meta name="author" content="AbyssCarbon">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://guoyi80.github.io/abysscarbon-shop/blog/">
+    <meta property="og:title" content="AbyssCarbon Blog — Freediving Gear, Training &amp; Science">
+    <meta property="og:description" content="Expert insights on freediving gear, training methodology, carbon fiber fins, and freediving science.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://guoyi80.github.io/abysscarbon-shop/blog/">
+    <meta property="og:site_name" content="AbyssCarbon">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AbyssCarbon Blog — Freediving Gear, Training &amp; Science">
+    <meta name="twitter:description" content="Expert insights on freediving gear, training methodology, carbon fiber fins, and freediving science.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "AbyssCarbon Blog",
+        "description": "Expert insights on freediving gear, training methodology, carbon fiber fins, and freediving science.",
+        "url": "https://guoyi80.github.io/abysscarbon-shop/blog/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "AbyssCarbon"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #161616;
+            --bg-card: #1a1a1a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --text-muted: #6b6b6b;
+            --accent: #c9a84c;
+            --accent-dim: rgba(201, 168, 76, 0.15);
+            --border: #2a2a2a;
+            --border-hover: #c9a84c;
+            --max-width: 960px;
+            --radius: 8px;
+            --transition: 0.25s ease;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ── Navigation ── */
+        .navbar {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            transition: color var(--transition);
+        }
+
+        .nav-brand:hover {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color var(--transition);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--accent);
+            border-radius: 1px;
+        }
+
+        /* ── Main ── */
+        .main {
+            flex: 1;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 56px 24px 80px;
+            width: 100%;
+        }
+
+        .page-header {
+            margin-bottom: 48px;
+        }
+
+        .page-title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* ── Blog Cards ── */
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            list-style: none;
+        }
+
+        .blog-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            transition: border-color var(--transition), background-color var(--transition);
+            display: block;
+        }
+
+        .blog-card:hover {
+            border-color: var(--border-hover);
+            background-color: #1e1e1e;
+        }
+
+        .blog-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+            transition: color var(--transition);
+        }
+
+        .blog-card:hover .blog-card-title {
+            color: var(--accent);
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .blog-card-meta .sep {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: var(--text-muted);
+        }
+
+        .blog-card-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── Placeholder ── */
+        .placeholder-section {
+            margin-top: 40px;
+            padding: 32px;
+            text-align: center;
+            border: 1px dashed var(--border);
+            border-radius: var(--radius);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 24px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-links a {
+                font-size: 0.78rem;
+            }
+
+            .page-title {
+                font-size: 1.8rem;
+            }
+
+            .blog-card {
+                padding: 20px 20px;
+            }
+
+            .blog-card-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="../index.html" class="nav-brand">AbyssCarbon</a>
+            <ul class="nav-links">
+                <li><a href="../products.html">Products</a></li>
+                <li><a href="../guide.html">Guide</a></li>
+                <li><a href="../compare.html">Compare</a></li>
+                <li><a href="index.html" class="active">Blog</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <header class="page-header">
+            <h1 class="page-title">AbyssCarbon Blog</h1>
+            <p class="page-subtitle">Freediving Gear, Training &amp; Science</p>
+        </header>
+
+        <ul class="blog-list">
+            <li>
+                <a class="blog-card" href="carbon-vs-fiberglass-vs-plastic-fins.html">
+                    <h2 class="blog-card-title">Carbon Fiber vs Fiberglass vs Plastic Fins</h2>
+                    <div class="blog-card-meta">
+                        <span>June 2026</span>
+                        <span class="sep"></span>
+                        <span>8 min read</span>
+                    </div>
+                    <p class="blog-card-desc">
+                        A detailed comparison of fin blade materials: energy efficiency, durability, price, and how to choose the right material for your freediving goals.
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a class="blog-card" href="freediving-mistakes-beginners-make.html">
+                    <h2 class="blog-card-title">7 Freediving Mistakes Beginners Make — And How to Fix Them</h2>
+                    <div class="blog-card-meta">
+                        <span>June 2026</span>
+                        <span class="sep"></span>
+                        <span>8 min read</span>
+                    </div>
+                    <p class="blog-card-desc">
+                        Avoid these common pitfalls that hold back new freedivers. From overbreathing to wrong fin stiffness, learn what they are and how to correct them.
+                    </p>
+                </a>
+            </li>
+            <li>
+                <a class="blog-card" href="freediving-training-equipment-guide.html">
+                    <h2 class="blog-card-title">The Freediving Training Equipment Pyramid</h2>
+                    <div class="blog-card-meta">
+                        <span>June 2026</span>
+                        <span class="sep"></span>
+                        <span>7 min read</span>
+                    </div>
+                    <p class="blog-card-desc">
+                        A structured guide to the essential equipment every freediver needs at each stage, from beginner mask and snorkel to advanced carbon fins.
+                    </p>
+                </a>
+            </li>
+        </ul>
+
+        <section class="placeholder-section">
+            More articles coming soon — stay tuned for deep dives into freediving technique, gear reviews, and training science.
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2026 AbyssCarbon. All rights reserved.
+    </footer>
+
+</body>
+</html>
