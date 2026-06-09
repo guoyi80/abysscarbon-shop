@@ -9,8 +9,8 @@
     --border: #1a1a1a;
     --text: #a0a0a0;
     --text-bright: #e0e0e0;
-    --accent: #c9a96e;
-    --accent-dim: #8a7040;
+    --accent: #00A3FF;
+    --accent-dim: #0066AA;
     --green: #4a7c59;
     --red: #8b4a4a;
     --radius: 4px;
@@ -57,7 +57,7 @@ textarea{
     display:flex;justify-content:space-between;align-items:center;
     padding:0 20px;
     height:var(--nav-height);
-    background:rgba(10,10,10,0.85);
+    background:#050A18;
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
     border-bottom:1px solid var(--border);
@@ -95,7 +95,7 @@ textarea{
     transition:all 0.2s;
     min-height:44px;
 }
-.cart-btn:hover{background:var(--accent);color:#0a0a0a;}
+.cart-btn:hover{background:#00A3FF;color:#fff;}
 
 /* ── Hamburger Menu Button ── */
 .hamburger{
@@ -147,7 +147,7 @@ textarea{
    FLASH BANNER
    ============================================================ */
 .flash-banner{
-    background:linear-gradient(135deg,#c9a84c,#8b6914);
+    background:linear-gradient(135deg,#0077CC,#004488);
     color:#0a0a0a;text-align:center;
     padding:8px 40px;
     font-size:13px;font-weight:600;letter-spacing:.5px;
@@ -163,7 +163,7 @@ textarea{
 }
 .flash-banner .flash-close:hover{opacity:1;}
 .flash-sale-tag{
-    background:#c9a84c;color:#0a0a0a;
+    background:#00A3FF;color:#0a0a0a;
     font-size:11px;font-weight:600;
     padding:3px 8px;border-radius:3px;
     display:inline-block;margin:0 6px;
@@ -221,7 +221,7 @@ textarea{
     min-height:44px;display:inline-flex;align-items:center;justify-content:center;
     text-align:center;
 }
-.btn:hover{background:var(--accent);color:#0a0a0a;}
+.btn:hover{background:#00A3FF;color:#fff;}
 
 .btn-buy{
     padding:10px 20px;font-size:10px;letter-spacing:1.2px;
@@ -481,13 +481,14 @@ section h2{
     transition:all 0.25s;
     min-height:44px;
 }
-.newsletter-form button:hover{background:var(--accent);color:#0a0a0a;}
+.newsletter-form button:hover{background:#00A3FF;color:#fff;}
 
 /* ============================================================
    FOOTER
    ============================================================ */
 .footer{
     text-align:center;padding:32px 20px;
+    background:#050A18;
     border-top:1px solid var(--border);
     font-size:11px;color:#333;
 }
@@ -587,7 +588,7 @@ section h2{
     text-decoration:none;font-size:12px;letter-spacing:1.5px;
     text-transform:uppercase;transition:all 0.25s;border-radius:4px;
 }
-.guide .btn:hover{background:var(--accent);color:#0a0a0a;}
+.guide .btn:hover{background:#00A3FF;color:#fff;}
 
 /* ── Legal pages (privacy, terms, refunds) ── */
 body.dark > section:only-of-type{

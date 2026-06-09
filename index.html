@@ -13,11 +13,11 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://abysscarbon.com/">
     <meta property="og:site_name" content="AbyssCarbon">
-    <meta property="og:image" content="https://abysscarbon.com/img/hero-abysscarbon.svg">
+    <meta property="og:image" content="https://abysscarbon.com/img/hero-freediver-deep.jpg">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="400">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://abysscarbon.com/img/hero-abysscarbon.svg">
+    <meta name="twitter:image" content="https://abysscarbon.com/img/hero-freediver-deep.jpg">
     <meta name="twitter:title" content="AbyssCarbon — Premium Carbon Fiber Freediving Equipment">
     <meta name="twitter:description" content="Handcrafted carbon fiber freediving equipment. Engineered for the deep.">
     <script type="application/ld+json">
@@ -60,7 +60,7 @@
         /* ── Deep-Dive Hero Gradient ── */
         .hero-deep {
             position: relative;
-            background: linear-gradient(180deg, #0a0a0a 0%, #050510 30%, #040418 50%, #050510 70%, #0a0a0a 100%);
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,10,30,0.7)), url('img/hero-freediver-deep.jpg') center/cover no-repeat;
             overflow: hidden;
             max-width: none;
             padding-left: 20px;
@@ -104,7 +104,7 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse 800px 600px at 50% 120%, rgba(201,169,110,0.04) 0%, transparent 60%),
+                radial-gradient(ellipse 800px 600px at 50% 120%, rgba(0,163,255,0.04) 0%, transparent 60%),
                 radial-gradient(ellipse 400px 200px at 25% 40%, rgba(180,180,210,0.03) 0%, transparent 60%),
                 radial-gradient(ellipse 300px 180px at 75% 35%, rgba(180,180,210,0.02) 0%, transparent 50%);
             pointer-events: none;
@@ -268,7 +268,7 @@
             top: 12px;
             left: 12px;
             z-index: 2;
-            background: linear-gradient(135deg, #8a6d2b, #5c4818);
+            background: linear-gradient(135deg, #005599, #003366);
             color: #f0d080;
             font-size: 9px;
             font-weight: 600;
@@ -282,8 +282,8 @@
         /* ── Feature Badge ── */
         .feature-badge {
             display: inline-block;
-            background: rgba(201,169,110,0.08);
-            border: 1px solid rgba(201,169,110,0.2);
+            background: rgba(0,163,255,0.08);
+            border: 1px solid rgba(0,163,255,0.2);
             color: var(--accent);
             font-size: 9px;
             font-weight: 500;
@@ -398,7 +398,7 @@
             min-height: 44px;
             transition: background 0.2s;
         }
-        .mobile-sticky-cta a:hover { background: #d4b87a; }
+        .mobile-sticky-cta a:hover { background: #0087D1; }
         @media(max-width:1023px) {
             .mobile-sticky-cta { display: block; }
         }
@@ -506,15 +506,15 @@
             border-color: var(--accent);
         }
         .highlight {
-            color: #00e5ff;
+            color: var(--accent);
             font-size: 1.2em;
             font-weight: 500;
         }
         #calc-result {
             margin-top: 25px;
             padding: 20px;
-            background: rgba(0,229,255,0.05);
-            border: 1px solid rgba(0,229,255,0.2);
+            background: rgba(0,163,255,0.05);
+            border: 1px solid rgba(0,163,255,0.2);
             border-radius: 4px;
         }
         #calc-result h4 {
@@ -557,7 +557,7 @@
         .guide-toggle {
             display: inline-block;
             background: none;
-            border: 1px solid rgba(201,169,110,0.3);
+            border: 1px solid rgba(0,163,255,0.3);
             color: var(--accent);
             font-size: 11px;
             font-weight: 500;
@@ -571,7 +571,7 @@
         }
         .guide-toggle:hover {
             border-color: var(--accent);
-            background: rgba(201,169,110,0.08);
+            background: rgba(0,163,255,0.08);
         }
         .guide-content {
             display: none;
@@ -766,7 +766,7 @@
             <div class="product-card" id="product-C1">
                 <div class="product-visual">
                     <div class="editors-choice">EDITOR'S CHOICE</div>
-                    <img src="img/product-c1-blades.svg" alt="Carbon Blades C1 Pro — carbon fiber freediving fins" loading="lazy">
+                    <img src="img/carbon-fiber-closeup.jpg" alt="Carbon Blades C1 Pro — carbon fiber freediving fins" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-C1'">Configure Your Gear</button>
                     </div>
@@ -851,7 +851,7 @@
             <!-- M1 Mask -->
             <div class="product-card" id="product-M1">
                 <div class="product-visual">
-                    <img src="img/product-m1-mask.svg" alt="Low-Volume Mask M1 — carbon frame freediving mask" loading="lazy">
+                    <img src="img/carbon-fiber-closeup.jpg" alt="Low-Volume Mask M1 — carbon frame freediving mask" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-M1'">Configure Your Gear</button>
                     </div>
@@ -902,7 +902,7 @@
             <!-- N1 Noseclip -->
             <div class="product-card" id="product-N1">
                 <div class="product-visual">
-                    <img src="img/product-n1-noseclip.svg" alt="Carbon Noseclip N1 — freediving equalization nose clip" loading="lazy">
+                    <img src="img/carbon-fiber-closeup.jpg" alt="Carbon Noseclip N1 — freediving equalization nose clip" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-N1'">Configure Your Gear</button>
                     </div>
@@ -948,7 +948,7 @@
             <!-- MF1 Monofin -->
             <div class="product-card" id="product-MF1">
                 <div class="product-visual">
-                    <img src="img/product-mf1-monofin.svg" alt="Monofin MF1 — full carbon competition freediving monofin" loading="lazy">
+                    <img src="img/carbon-fiber-closeup.jpg" alt="Monofin MF1 — full carbon competition freediving monofin" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-MF1'">Configure Your Gear</button>
                     </div>
@@ -999,7 +999,7 @@
             <!-- DC1 Dive Computer -->
             <div class="product-card" id="product-DC1">
                 <div class="product-visual">
-                    <img src="img/product-dc1-computer.svg" alt="Dive Computer DC1 — carbon casing depth watch" loading="lazy">
+                    <img src="img/carbon-fiber-closeup.jpg" alt="Dive Computer DC1 — carbon casing depth watch" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-DC1'">Configure Your Gear</button>
                     </div>
@@ -1049,7 +1049,7 @@
             <!-- W1 Neck Weight -->
             <div class="product-card" id="product-W1">
                 <div class="product-visual">
-                    <img src="img/product-w1-weight.svg" alt="Neck Weight W1 Carbon — modular freediving neck weight" loading="lazy">
+                    <img src="img/carbon-fiber-closeup.jpg" alt="Neck Weight W1 Carbon — modular freediving neck weight" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-W1'">Configure Your Gear</button>
                     </div>
@@ -1094,7 +1094,7 @@
             <!-- E1 Silicone Ear Plugs -->
             <div class="product-card" id="product-E1">
                 <div class="product-visual">
-                    <img src="img/product-e1-earplugs.svg" alt="Silicone Ear Plugs E1 — medical grade silicone ear plugs for freediving" loading="lazy" style="background:#0a0a0a;padding:20px;">
+                    <img src="img/carbon-fiber-closeup.jpg" alt="Silicone Ear Plugs E1 — medical grade silicone ear plugs for freediving" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-E1'">Configure Your Gear</button>
                     </div>
@@ -1129,8 +1129,8 @@
             <!-- MN1 Mask + Noseclip Bundle -->
             <div class="product-card" id="product-MN1">
                 <div class="product-visual">
-                    <div class="editors-choice" style="background:linear-gradient(135deg, #c9a96e, #8a6d2b);">BUNDLE DEAL</div>
-                    <img src="img/product-mn1-combo.svg" alt="Mask + Noseclip Bundle MN1 — freediving mask and noseclip combo" loading="lazy" style="background:#0a0a0a;padding:20px;">
+                    <div class="editors-choice" style="background:linear-gradient(135deg, #00A3FF, #0066AA);">BUNDLE DEAL</div>
+                    <img src="img/carbon-fiber-closeup.jpg" alt="Mask + Noseclip Bundle MN1 — freediving mask and noseclip combo" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-MN1'">Configure Your Gear</button>
                     </div>
@@ -1183,7 +1183,7 @@
         </div>
         <div class="underwater-grid">
             <div class="underwater-card">
-                <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/underwater-bg.svg') center/cover no-repeat;">
+                <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/hero-freediver-deep.jpg') center/cover no-repeat;">
                     <div class="underwater-overlay">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                         <p class="testimonial-quote">"The C1 Pro blades are the most responsive fins I've ever worn. 22° angle is perfect for CWTB."</p>
@@ -1192,7 +1192,7 @@
                 </div>
             </div>
             <div class="underwater-card">
-                <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/underwater-bg.svg') center/cover no-repeat;">
+                <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/hero-freediver-deep.jpg') center/cover no-repeat;">
                     <div class="underwater-overlay">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                         <p class="testimonial-quote">"Carbon fiber feels like cheating. Effortless propulsion at 40m."</p>
@@ -1201,7 +1201,7 @@
                 </div>
             </div>
             <div class="underwater-card">
-                <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/underwater-bg.svg') center/cover no-repeat;">
+                <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/hero-freediver-deep.jpg') center/cover no-repeat;">
                     <div class="underwater-overlay">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                         <p class="testimonial-quote">"Switched from plastic fins. My PB improved by 12m in two weeks."</p>
@@ -1228,7 +1228,7 @@
                     <div class="stat"><span class="stat-value">50</span><span class="stat-label">Verified Reviews</span></div>
                 </div>
             </div>
-            <div class="about-visual"><span>ABYSS</span></div>
+            <div class="about-visual" style="overflow:hidden;"><img src="img/workshop-craft.jpg" alt="AbyssCarbon workshop — handcrafted carbon fiber, made-to-order" style="width:100%;height:100%;object-fit:cover;"></div>
         </div>
     </section>
 
