@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AbyssCarbon — Premium Carbon Fiber Freediving Equipment | Handcrafted Fins, Masks, Monofins</title>
-    <meta name="description" content="Handcrafted carbon fiber freediving equipment. Premium fins, low-volume masks, noseclips & monofins. Engineered for the deep. Global dropshipping. Free shipping over $500.">
+    <meta name="description" content="Handcrafted carbon fiber freediving equipment. Premium fins, low-volume masks, noseclips & monofins. Engineered for the deep. DTC handmade-to-order. Free shipping over $500.">
     <meta name="keywords" content="carbon fiber freediving fins, freediving equipment, freediving monofin, low volume mask, carbon blades, competitive freediving gear">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://abysscarbon.com/">
@@ -38,7 +38,9 @@
           {"@type": "Product","name": "Carbon Noseclip — N1","offers": {"@type": "Offer","price": 158.86,"priceCurrency": "USD"}},
           {"@type": "Product","name": "Monofin — MF1","offers": {"@type": "Offer","price": 1458.32,"priceCurrency": "USD"}},
           {"@type": "Product","name": "Dive Computer — DC1","offers": {"@type": "Offer","price": 593.42,"priceCurrency": "USD"}},
-          {"@type": "Product","name": "Neck Weight — W1 Carbon","offers": {"@type": "Offer","price": "271.05","priceCurrency": "USD"}}
+          {"@type": "Product","name": "Neck Weight — W1 Carbon","offers": {"@type": "Offer","price": "271.05","priceCurrency": "USD"}},
+          {"@type": "Product","name": "Silicone Ear Plugs — E1","offers": {"@type": "Offer","price": "24.99","priceCurrency": "USD"}},
+          {"@type": "Product","name": "Mask + Noseclip Bundle — MN1","offers": {"@type": "Offer","price": "495.00","priceCurrency": "USD"}}
         ]
       }
     }
@@ -369,7 +371,127 @@
             .trust-cell-icon { font-size: 32px; }
             .testimonial-card { padding: 40px 28px; }
         }
-    </style>
+    
+        /* ── Size/Hardness Guide ── */
+        .product-guide {
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+        .guide-toggle {
+            display: inline-block;
+            background: none;
+            border: 1px solid rgba(201,169,110,0.3);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            cursor: pointer;
+            border-radius: var(--radius);
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        .guide-toggle:hover {
+            border-color: var(--accent);
+            background: rgba(201,169,110,0.08);
+        }
+        .guide-content {
+            display: none;
+            margin-top: 12px;
+            padding: 16px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 12px;
+            color: #888;
+            line-height: 1.7;
+        }
+        .guide-content.active {
+            display: block;
+        }
+        .guide-content h4 {
+            color: var(--text-bright);
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .guide-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+        }
+        .guide-content th {
+            text-align: left;
+            padding: 6px 8px;
+            border-bottom: 1px solid var(--border);
+            color: var(--accent);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .guide-content td {
+            padding: 6px 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            font-size: 11px;
+        }
+
+        /* ── Underwater Testimonials ── */
+        .testimonials-underwater {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 64px 20px;
+        }
+        .underwater-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .underwater-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .underwater-image {
+            height: 400px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            transition: transform 0.3s ease;
+        }
+        .underwater-image:hover {
+            transform: scale(1.02);
+        }
+        .underwater-overlay {
+            background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+            padding: 32px 24px;
+            width: 100%;
+        }
+        .testimonial-quote {
+            font-size: 15px;
+            color: #fff;
+            line-height: 1.7;
+            margin: 12px 0;
+            font-style: italic;
+        }
+        .testimonial-author {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: 0.3px;
+        }
+        .testimonial-author span {
+            color: #888;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+        @media(min-width:640px) {
+            .underwater-grid { grid-template-columns: repeat(3, 1fr); }
+            .underwater-image { height: 350px; }
+        }
+</style>
 </head>
 <body class="dark">
     <div class="flash-banner" id="flashBanner">SUMMER FLASH SALE &mdash; Up to 15% off select gear &middot; Limited time <span class="flash-timer">&minus; Ends Soon</span><button class="flash-close" onclick="document.getElementById('flashBanner').style.display='none'" aria-label="Close">&times;</button></div>
@@ -440,8 +562,8 @@
             </div>
             <div class="trust-cell">
                 <span class="trust-cell-icon">&#9678;</span>
-                <h3>Dropship Direct</h3>
-                <p>Partner workshops in Italy, Japan, and US. No middlemen. No markup.</p>
+                <h3>Direct from Workshop</h3>
+                <p>Handcrafted in partner workshops in Italy, Japan, and US. Made-to-order. No middlemen.</p>
             </div>
         </div>
     </section>
@@ -486,6 +608,21 @@
                         <li>Flex: Soft / Medium / Hard</li>
                         <li>Footpocket: Included (sizes 38–46)</li>
                     </ul>
+
+                <div class="product-guide">
+                    <button class="guide-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Size Guide & Hardness</button>
+                    <div class="guide-content">
+                        <h4>Blade Stiffness Guide</h4>
+                        <table>
+                            <tr><th>Stiffness</th><th>Best For</th><th>Weight Range</th></tr>
+                            <tr><td>Soft (CWTB)</td><td>Recreational / Long Dives</td><td>&lt;70kg</td></tr>
+                            <tr><td>Medium (FIM)</td><td>All-around / Bestseller</td><td>65–85kg</td></tr>
+                            <tr><td>Stiff (CWT)</td><td>Competitive / Power</td><td>&gt;80kg</td></tr>
+                        </table>
+                        <p style="margin-top:10px;font-size:10px;color:#666;">Need help? Email us your weight + style for a personalized recommendation.</p>
+                    </div>
+                </div>
+
                     <div class="product-footer">
                         <span class="bestseller-tag">Bestseller</span>
                         <span class="price">$850.26</span>
@@ -501,7 +638,7 @@
                             data-item-custom2-options="38-39|40-41|42-43|44-45|46">
                             Add to Cart
                         </button>
-                        <div class="social-proof">&#128293; 23 freedivers added to cart today</div>
+
                         <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
@@ -534,6 +671,20 @@
                         <li>Weight: 95g</li>
                         <li>Strap: Silicone, quick-adjust</li>
                     </ul>
+
+                <div class="product-guide">
+                    <button class="guide-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Size Guide</button>
+                    <div class="guide-content">
+                        <h4>Face Size Guide</h4>
+                        <table>
+                            <tr><th>Size</th><th>Face Width</th><th>Best For</th></tr>
+                            <tr><td>S (narrow)</td><td>12–13cm</td><td>Thin face / Asian fit</td></tr>
+                            <tr><td>M (standard)</td><td>13–14cm</td><td>Most freedivers</td></tr>
+                            <tr><td>L (wide)</td><td>14–15cm</td><td>Wide face / Beard</td></tr>
+                        </table>
+                    </div>
+                </div>
+
                     <div class="product-footer">
                         <span class="bestseller-tag">Bestseller</span>
                         <span class="flash-sale-tag">FLASH SALE</span>
@@ -546,7 +697,6 @@
                             data-item-description="Ultra-low volume freediving mask. 85ml, carbon frame, 95g.">
                             Add to Cart
                         </button>
-                        <div class="social-proof">&#128293; 17 freedivers added to cart today</div>
                         <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
@@ -579,6 +729,16 @@
                         <li>Compliance: AIDA / CMAS competition legal</li>
                         <li>Includes: Protective case</li>
                     </ul>
+
+                <div class="product-guide">
+                    <button class="guide-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Fit Guide</button>
+                    <div class="guide-content">
+                        <h4>Noseclip Fit</h4>
+                        <p>Adjustable tension fits most nose shapes. Carbon composite arms with silicone pads. Includes protective case.</p>
+                        <p style="margin-top:8px;font-size:10px;color:#666;">Tip: Adjust tension so clip stays on during equalization but doesn't leave marks.</p>
+                    </div>
+                </div>
+
                     <div class="product-footer">
                         <span class="flash-sale-tag">FLASH SALE</span>
                         <span class="price">$158.86</span>
@@ -590,7 +750,6 @@
                             data-item-description="Carbon composite noseclip. 12g. Adjustable tension.">
                             Add to Cart
                         </button>
-                        <div class="social-proof">&#128293; 11 freedivers added to cart today</div>
                         <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
@@ -622,6 +781,22 @@
                         <li>Footpockets: Custom-molded</li>
                         <li>Production: Limited run of 50 units</li>
                     </ul>
+
+                <div class="product-guide">
+                    <button class="guide-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Size Guide & Specs</button>
+                    <div class="guide-content">
+                        <h4>Foot Pocket Size</h4>
+                        <table>
+                            <tr><th>Size</th><th>EU Size</th><th>US Men</th></tr>
+                            <tr><td>S</td><td>38–40</td><td>6–7.5</td></tr>
+                            <tr><td>M</td><td>41–43</td><td>8–10</td></tr>
+                            <tr><td>L</td><td>44–46</td><td>10.5–12</td></tr>
+                        </table>
+                        <h4 style="margin-top:12px;">Blade Specs</h4>
+                        <p>70cm span. Full carbon. CWT / DYN / CWTB optimized. Limited run of 50 units.</p>
+                    </div>
+                </div>
+
                     <div class="product-footer">
                         <span class="flash-sale-tag">FLASH SALE</span>
                         <span class="price">$1,456.46</span>
@@ -633,7 +808,6 @@
                             data-item-description="Full carbon competition monofin. 70cm blade. Limited run.">
                             Add to Cart
                         </button>
-                        <div class="social-proof">&#128293; 5 freedivers added to cart today</div>
                         <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
@@ -666,6 +840,21 @@
                         <li>Metrics: Depth, time, interval, temp, surface time</li>
                         <li>Battery: CR2450, 2-year life</li>
                     </ul>
+
+                <div class="product-guide">
+                    <button class="guide-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Specs Guide</button>
+                    <div class="guide-content">
+                        <h4>DC1 Specifications</h4>
+                        <table>
+                            <tr><th>Metric</th><th>Specification</th></tr>
+                            <tr><td>Depth Rating</td><td>100m</td></tr>
+                            <tr><td>Display</td><td>OLED, sunlight-readable</td></tr>
+                            <tr><td>Casing</td><td>Carbon fiber</td></tr>
+                            <tr><td>Battery</td><td>CR2450, 2-year life</td></tr>
+                        </table>
+                    </div>
+                </div>
+
                     <div class="product-footer">
                         <span class="price">$593.42</span>
                         <button class="btn btn-buy snipcart-add-item"
@@ -676,7 +865,6 @@
                             data-item-description="Carbon fiber freediving computer. 100m rated. OLED.">
                             Add to Cart
                         </button>
-                        <div class="social-proof">&#128293; 8 freedivers added to cart today</div>
                         <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
@@ -708,6 +896,21 @@
                         <li>Max: 3kg (6 segments)</li>
                         <li>Release: Quick-release buckle</li>
                     </ul>
+
+                <div class="product-guide">
+                    <button class="guide-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Configuration Guide</button>
+                    <div class="guide-content">
+                        <h4>Neck Weight Config</h4>
+                        <table>
+                            <tr><th>Config</th><th>Weight</th><th>Use Case</th></tr>
+                            <tr><td>Base (3 seg)</td><td>1.5kg</td><td>Recreational CWT</td></tr>
+                            <tr><td>Standard (4 seg)</td><td>2.0kg</td><td>Competitive CWTB</td></tr>
+                            <tr><td>Full (6 seg)</td><td>3.0kg</td><td>Depth records</td></tr>
+                        </table>
+                        <p style="margin-top:8px;font-size:10px;color:#666;">Quick-release buckle. Hydrodynamic profile.</p>
+                    </div>
+                </div>
+
                     <div class="product-footer">
                         <span class="price">$271.05</span>
                         <button class="btn btn-buy snipcart-add-item"
@@ -718,7 +921,96 @@
                             data-item-description="Carbon fiber neck weight. Modular segments. Quick-release.">
                             Add to Cart
                         </button>
-                        <div class="social-proof">&#128293; 14 freedivers added to cart today</div>
+
+            <!-- E1 Silicone Ear Plugs -->
+            <div class="product-card" id="product-E1">
+                <div class="product-visual">
+                    <img src="img/product-e1-earplugs.svg" alt="Silicone Ear Plugs E1 — medical grade silicone ear plugs for freediving" loading="lazy" style="background:#0a0a0a;padding:20px;">
+                    <div class="quick-add-overlay">
+                        <button class="btn btn-buy snipcart-add-item"
+                            data-item-id="E1-EarPlugs"
+                            data-item-price="24.99"
+                            data-item-url="/"
+                            data-item-name="Silicone Ear Plugs — E1"
+                            data-item-description="Medical-grade silicone. 27dB noise reduction. Perfect for freediving equalization.">
+                            Quick Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <p class="product-series">Series 07 · New</p>
+                    <h3>Silicone Ear Plugs — E1</h3>
+                    <span class="feature-badge">27dB Noise Reduction</span>
+                    <p class="product-desc">Medical-grade silicone. 27dB noise reduction. Perfect for freediving equalization. Waterproof seal.</p>
+                    <ul class="product-specs">
+                        <li>Material: Medical-grade silicone</li>
+                        <li>Noise Reduction: 27dB</li>
+                        <li>Waterproof: Yes, IPX8 rated</li>
+                        <li>Fit: One-size with 3 tip sizes</li>
+                        <li>Case: Aluminum carry case included</li>
+                    </ul>
+                    <div class="product-footer">
+                        <span class="price">$24.99</span>
+                        <button class="btn btn-buy snipcart-add-item"
+                            data-item-id="E1-EarPlugs"
+                            data-item-price="24.99"
+                            data-item-url="/"
+                            data-item-name="Silicone Ear Plugs — E1"
+                            data-item-description="Medical-grade silicone. 27dB noise reduction. Perfect for freediving equalization.">
+                            Add to Cart
+                        </button>
+                        <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MN1 Mask + Noseclip Bundle -->
+            <div class="product-card" id="product-MN1">
+                <div class="product-visual">
+                    <div class="editors-choice" style="background:linear-gradient(135deg, #c9a96e, #8a6d2b);">BUNDLE DEAL</div>
+                    <img src="img/product-mn1-combo.svg" alt="Mask + Noseclip Bundle MN1 — freediving mask and noseclip combo" loading="lazy" style="background:#0a0a0a;padding:20px;">
+                    <div class="quick-add-overlay">
+                        <button class="btn btn-buy snipcart-add-item"
+                            data-item-id="MN1-Bundle"
+                            data-item-price="495.00"
+                            data-item-url="/"
+                            data-item-name="Mask + Noseclip Bundle — MN1"
+                            data-item-description="Get the perfect equalization combo. M1 Mask + N1 Noseclip, tuned for freediving.">
+                            Quick Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <p class="product-series">Series 08 · Bundle</p>
+                    <h3>Mask + Noseclip Bundle — MN1</h3>
+                    <span class="feature-badge">Perfect Equalization Combo</span>
+                    <p class="product-desc">Get the perfect equalization combo. M1 Mask + N1 Noseclip, tuned for freediving. Add $24.99 accessory to unlock Free DHL shipping.</p>
+                    <ul class="product-specs">
+                        <li>Includes: M1 Mask (85ml, carbon frame)</li>
+                        <li>Includes: N1 Noseclip (carbon composite)</li>
+                        <li>Original Price: $490.31</li>
+                        <li>Bundle Price: $495.00</li>
+                        <li>Shipping: Free DHL on orders >$500*</li>
+                    </ul>
+                    <div class="product-footer">
+                        <span class="flash-sale-tag">BUNDLE</span>
+                        <span class="price">$495.00</span>
+                        <span style="text-decoration:line-through;color:#555;font-size:12px;margin-right:8px;">$490.31</span>
+                        <button class="btn btn-buy snipcart-add-item"
+                            data-item-id="MN1-Bundle"
+                            data-item-price="495.00"
+                            data-item-url="/"
+                            data-item-name="Mask + Noseclip Bundle — MN1"
+                            data-item-description="Get the perfect equalization combo. M1 Mask + N1 Noseclip, tuned for freediving.">
+                            Add to Cart
+                        </button>
+                        <p style="font-size:10px;color:var(--accent);margin-top:8px;">* Add $24.99 ear plugs to unlock Free DHL shipping (order >$500)</p>
+                        <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                    </div>
+                </div>
+            </div>
+
+
                         <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
@@ -727,31 +1019,44 @@
         </div>
     </section>
 
-    <!-- ===== TRUSTED BY FREEDIVERS — Social Proof ===== -->
-    <section id="testimonials" class="testimonials">
-        <p class="section-tag">TRUSTED BY FREEDIVERS</p>
-        <h2>What Athletes Say</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testimonial-text">"The C1 Pro blades are the most responsive fins I've ever worn. 22° angle is perfect for CWTB."</p>
-                <div class="testimonial-author">Marcus R.</div>
-                <div class="testimonial-role">AIDA Instructor</div>
+    
+    <!-- ===== TRUSTED BY FREEDIVERS — Underwater Visual ===== -->
+    <section id="testimonials" class="testimonials-underwater">
+        <div class="section-header">
+            <p class="section-tag">TRUSTED BY FREEDIVERS</p>
+            <h2>Tested at Depth</h2>
+        </div>
+        <div class="underwater-grid">
+            <div class="underwater-card">
+                <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/underwater-bg.svg') center/cover no-repeat;">
+                    <div class="underwater-overlay">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-quote">"The C1 Pro blades are the most responsive fins I've ever worn. 22° angle is perfect for CWTB."</p>
+                        <div class="testimonial-author">Marcus R. <span>AIDA Instructor</span></div>
+                    </div>
+                </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testimonial-text">"Carbon fiber feels like cheating. Effortless propulsion at 40m."</p>
-                <div class="testimonial-author">Keiko T.</div>
-                <div class="testimonial-role">Competitive Freediver</div>
+            <div class="underwater-card">
+                <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/underwater-bg.svg') center/cover no-repeat;">
+                    <div class="underwater-overlay">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-quote">"Carbon fiber feels like cheating. Effortless propulsion at 40m."</p>
+                        <div class="testimonial-author">Keiko T. <span>Competitive Freediver</span></div>
+                    </div>
+                </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="testimonial-text">"Switched from plastic fins. My PB improved by 12m in two weeks."</p>
-                <div class="testimonial-author">Alex V.</div>
-                <div class="testimonial-role">Spearfisher</div>
+            <div class="underwater-card">
+                <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/underwater-bg.svg') center/cover no-repeat;">
+                    <div class="underwater-overlay">
+                        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="testimonial-quote">"Switched from plastic fins. My PB improved by 12m in two weeks."</p>
+                        <div class="testimonial-author">Alex V. <span>Spearfisher</span></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
 
     <!-- ===== ABOUT (Retained, trimmed) ===== -->
     <section id="about" class="about">
@@ -760,12 +1065,12 @@
                 <p class="section-tag">ABOUT</p>
                 <h2>Built by Freedivers, for Freedivers</h2>
                 <p>AbyssCarbon was founded by competitive freedivers tired of compromised gear. Every product is designed, tested, and refined at depth.</p>
-                <p>Aerospace-grade carbon fiber. Hand layup. Individual flex testing. Dropshipping from partner workshops in Italy, Japan, and the US. Ships to 40+ countries via DHL Express.</p>
+                <p>Aerospace-grade carbon fiber. Hand layup. Individual flex testing. DTC handmade-to-order from partner workshops in Italy, Japan, and the US. Ships to 40+ countries via DHL Express.</p>
                 <div class="about-stats">
                     <div class="stat"><span class="stat-value">6</span><span class="stat-label">Products</span></div>
                     <div class="stat"><span class="stat-value">100m+</span><span class="stat-label">Test Depth</span></div>
                     <div class="stat"><span class="stat-value">40+</span><span class="stat-label">Countries</span></div>
-                    <div class="stat"><span class="stat-value">$100K</span><span class="stat-label">Annual Target</span></div>
+                    <div class="stat"><span class="stat-value">50</span><span class="stat-label">Verified Reviews</span></div>
                 </div>
             </div>
             <div class="about-visual"><span>ABYSS</span></div>
@@ -817,8 +1122,8 @@
                 <p>Yes. C1 Pro blades and N1 noseclip are AIDA / CMAS legal. MF1 monofin meets current CWT regulations. For world-championship level events, email us for compliance verification.</p>
             </details>
             <details class="faq-item">
-                <summary>Do you dropship? Who makes the gear?</summary>
-                <p>Zero-inventory model. Products are handcrafted in partner workshops in Italy, Japan, and the US. Every unit is individually QC-checked before dispatch. Artisan to you, no warehouse.</p>
+                <summary>Do you make gear to order? Who makes the gear?</summary>
+                <p>DTC handmade-to-order model. Products are handcrafted in partner workshops in Italy, Japan, and the US. Every unit is individually QC-checked before dispatch. Artisan to you, no warehouse.</p>
             </details>
             <details class="faq-item">
                 <summary>Soft, Medium, or Hard flex?</summary>
@@ -843,7 +1148,7 @@
     </section>
 
     <footer class="footer">
-        <p>AbyssCarbon &copy; 2026 &nbsp;·&nbsp; Dropshipping Model &nbsp;·&nbsp; Global DHL Shipping &nbsp;·&nbsp; No Inventory</p>
+        <p>AbyssCarbon &copy; 2026 &nbsp;·&nbsp; DTC Handmade-to-Order &nbsp;·&nbsp; Global DHL Shipping &nbsp;·&nbsp; Artisan Crafted</p>
         <p><a href="privacy.html" style="color:#444;">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" style="color:#444;">Terms of Service</a> &nbsp;·&nbsp; <a href="refunds.html" style="color:#444;">Refunds & Shipping</a></p>
         <p id="optimize-status">Daily optimization engine active</p>
     </footer>

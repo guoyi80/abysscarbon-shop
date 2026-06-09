@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="8" fill="#0a0a0a"/>
+  <!-- Left earplug -->
+  <ellipse cx="75" cy="90" rx="20" ry="28" stroke="#c9a84c" stroke-width="2.5" fill="none"/>
+  <ellipse cx="75" cy="80" rx="10" ry="12" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+  <ellipse cx="75" cy="70" rx="5" ry="6" stroke="#c9a84c" stroke-width="1" fill="none"/>
+  <!-- Right earplug -->
+  <ellipse cx="125" cy="90" rx="20" ry="28" stroke="#c9a84c" stroke-width="2.5" fill="none"/>
+  <ellipse cx="125" cy="80" rx="10" ry="12" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+  <ellipse cx="125" cy="70" rx="5" ry="6" stroke="#c9a84c" stroke-width="1" fill="none"/>
+  <!-- Connecting tether -->
+  <path d="M95 85 Q100 95 105 85" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+  <!-- Silicone texture lines -->
+  <line x1="61" y1="100" x2="61" y2="112" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+  <line x1="68" y1="102" x2="68" y2="114" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+  <line x1="82" y1="100" x2="82" y2="112" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+  <line x1="89" y1="102" x2="89" y2="114" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+  <line x1="111" y1="100" x2="111" y2="112" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+  <line x1="118" y1="102" x2="118" y2="114" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+  <line x1="132" y1="100" x2="132" y2="112" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+  <line x1="139" y1="102" x2="139" y2="114" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+  <!-- Brand label -->
+  <text x="100" y="175" text-anchor="middle" fill="#c9a84c" font-family="Inter,sans-serif" font-size="13" font-weight="600" letter-spacing="1">E1 EAR PLUGS</text>
+</svg>

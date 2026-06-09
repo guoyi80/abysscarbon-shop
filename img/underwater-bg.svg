@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#003366"/>
+      <stop offset="50%" stop-color="#005588"/>
+      <stop offset="100%" stop-color="#002244"/>
+    </linearGradient>
+    <radialGradient id="light1" cx="30%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#88ccff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#003366" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="light2" cx="70%" cy="60%" r="35%">
+      <stop offset="0%" stop-color="#44aadd" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#002244" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#water)"/>
+  <rect width="800" height="400" fill="url(#light1)"/>
+  <rect width="800" height="400" fill="url(#light2)"/>
+  <!-- Light rays -->
+  <path d="M200 0 Q220 100 180 400" stroke="#88ccff" stroke-width="2" opacity="0.15" fill="none"/>
+  <path d="M400 0 Q420 150 350 400" stroke="#88ccff" stroke-width="3" opacity="0.1" fill="none"/>
+  <path d="M600 0 Q580 120 620 400" stroke="#88ccff" stroke-width="2" opacity="0.12" fill="none"/>
+  <path d="M500 0 Q520 80 480 400" stroke="#88ccff" stroke-width="1.5" opacity="0.08" fill="none"/>
+  <!-- Bubbles -->
+  <circle cx="150" cy="120" r="4" fill="#88ccff" opacity="0.3"/>
+  <circle cx="300" cy="200" r="6" fill="#88ccff" opacity="0.2"/>
+  <circle cx="500" cy="150" r="3" fill="#88ccff" opacity="0.35"/>
+  <circle cx="650" cy="250" r="5" fill="#88ccff" opacity="0.25"/>
+  <circle cx="250" cy="320" r="4" fill="#88ccff" opacity="0.2"/>
+  <circle cx="450" cy="350" r="3" fill="#88ccff" opacity="0.3"/>
+  <circle cx="700" cy="100" r="5" fill="#88ccff" opacity="0.15"/>
+  <!-- Silhouette diver/fin hints -->
+  <path d="M350 280 Q380 250 420 280 Q400 320 370 300 Z" fill="#001122" opacity="0.3"/>
+  <path d="M550 260 Q580 240 610 270 Q590 300 560 280 Z" fill="#001122" opacity="0.2"/>
+  <!-- Floating particles -->
+  <circle cx="100" cy="180" r="1" fill="#aaddff" opacity="0.5"/>
+  <circle cx="250" cy="140" r="1.5" fill="#aaddff" opacity="0.4"/>
+  <circle cx="400" cy="220" r="1" fill="#aaddff" opacity="0.6"/>
+  <circle cx="600" cy="180" r="1.5" fill="#aaddff" opacity="0.3"/>
+  <circle cx="720" cy="300" r="1" fill="#aaddff" opacity="0.5"/>
+</svg>

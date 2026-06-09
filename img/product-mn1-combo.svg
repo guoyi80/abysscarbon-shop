@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="8" fill="#0a0a0a"/>
+  <!-- M1 Mask (upper half) -->
+  <ellipse cx="70" cy="75" rx="28" ry="32" stroke="#c9a84c" stroke-width="2.5" fill="none"/>
+  <ellipse cx="130" cy="75" rx="28" ry="32" stroke="#c9a84c" stroke-width="2.5" fill="none"/>
+  <path d="M52 60 L148 60" stroke="#c9a84c" stroke-width="2" fill="none"/>
+  <text x="100" y="63" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="700">M1</text>
+  <!-- N1 Nose Clip (lower half) -->
+  <path d="M80 120 Q100 110 120 120" stroke="#c9a84c" stroke-width="2.5" fill="none"/>
+  <circle cx="80" cy="120" r="5" stroke="#c9a84c" stroke-width="2" fill="none"/>
+  <circle cx="120" cy="120" r="5" stroke="#c9a84c" stroke-width="2" fill="none"/>
+  <text x="100" y="138" text-anchor="middle" fill="#0a0a0a" font-family="Inter,sans-serif" font-size="9" font-weight="700">N1</text>
+  <!-- Divider -->
+  <line x1="30" y1="145" x2="170" y2="145" stroke="#c9a84c" stroke-width="0.5" opacity="0.3"/>
+  <!-- Brand label -->
+  <text x="100" y="178" text-anchor="middle" fill="#c9a84c" font-family="Inter,sans-serif" font-size="13" font-weight="600" letter-spacing="1">MN1 COMBO</text>
+</svg>
