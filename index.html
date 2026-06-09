@@ -62,6 +62,41 @@
             position: relative;
             background: linear-gradient(180deg, #0a0a0a 0%, #050510 30%, #040418 50%, #050510 70%, #0a0a0a 100%);
             overflow: hidden;
+            max-width: none;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        @media(min-width:1024px) {
+            .hero-deep {
+                padding-left: 48px;
+                padding-right: 48px;
+            }
+        }
+        .hero-deep-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 32px;
+            padding-top: calc(var(--nav-height) + 48px);
+            padding-bottom: 48px;
+            position: relative;
+            z-index: 1;
+        }
+        @media(min-width:640px) {
+            .hero-deep-inner {
+                flex-direction: row;
+                gap: 40px;
+                padding-top: calc(var(--nav-height) + 72px);
+                padding-bottom: 64px;
+            }
+        }
+        @media(min-width:1024px) {
+            .hero-deep-inner {
+                padding-top: 120px;
+                padding-bottom: 80px;
+            }
         }
         /* Depth light rays */
         .hero-deep::before {
@@ -132,6 +167,23 @@
             letter-spacing: 1.5px;
             margin-top: 4px;
         }
+        @media(min-width:1024px) {
+            .hero-stat-value { font-size: 36px; }
+            .hero-stat-label { font-size: 10px; }
+            .hero-stats { max-width: 680px; }
+        }
+
+        /* ── Hero Heading Sizes (desktop) ── */
+        .hero-deep h1 { font-size: 24px; }
+        @media(min-width:480px) { .hero-deep h1 { font-size: 28px; } }
+        @media(min-width:640px) { .hero-deep h1 { font-size: 32px; } }
+        @media(min-width:768px) { .hero-deep h1 { font-size: 40px; } }
+        @media(min-width:1024px) { .hero-deep h1 { font-size: 48px; } }
+        @media(min-width:1200px) { .hero-deep h1 { font-size: 56px; } }
+        .hero-deep .hero-sub { font-size: 14px; }
+        @media(min-width:1024px) { .hero-deep .hero-sub { font-size: 17px; } }
+        .hero-deep .hero-visual { flex: 1; min-width: 280px; }
+        .hero-deep .hero-text { flex: 1.2; }
 
         /* ── Hero Dual CTA ── */
         .hero-cta-group {
@@ -370,6 +422,131 @@
             .trust-cell { padding: 40px 28px; }
             .trust-cell-icon { font-size: 32px; }
             .testimonial-card { padding: 40px 28px; }
+            .trust-block { padding: 80px 48px 64px; }
+            .testimonials { padding: 80px 48px; }
+        }
+
+        /* ── Flex Calculator Styles ── */
+        .flex-calculator {
+            margin: 20px 0;
+        }
+        .carbon-btn, .action-btn {
+            background-color: #111;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 12px 24px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border-radius: var(--radius);
+            font-family: var(--font-sans);
+        }
+        .carbon-btn:hover, .action-btn:hover {
+            background-color: #333;
+            border-color: var(--accent);
+        }
+        .modal-hidden {
+            display: none;
+        }
+        #flex-calc-modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(5px);
+        }
+        .calc-content {
+            background: #0a0a0a;
+            padding: 30px;
+            border: 1px solid #333;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 400px;
+            color: #eee;
+            font-family: var(--font-sans);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+        }
+        .close-btn:hover {
+            color: #fff;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            background: #111;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 4px;
+            font-family: var(--font-sans);
+        }
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .highlight {
+            color: #00e5ff;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+        #calc-result {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(0,229,255,0.05);
+            border: 1px solid rgba(0,229,255,0.2);
+            border-radius: 4px;
+        }
+        #calc-result h4 {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        #flex-reason {
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        /* ── Configure Button Styles ── */
+        .configure-btn {
+            background: linear-gradient(135deg, #111, #222);
+            color: #fff;
+            border: 1px solid #333;
+            padding: 12px 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-radius: var(--radius);
+            font-family: var(--font-sans);
+            width: 100%;
+            text-align: center;
+        }
+        .configure-btn:hover {
+            background: linear-gradient(135deg, #222, #333);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
     
         /* ── Size/Hardness Guide ── */
@@ -489,7 +666,14 @@
         }
         @media(min-width:640px) {
             .underwater-grid { grid-template-columns: repeat(3, 1fr); }
-            .underwater-image { height: 350px; }
+            .underwater-image { height: 420px; }
+        }
+        @media(min-width:1024px) {
+            .underwater-image { height: 500px; }
+            .testimonials-underwater { padding: 80px 48px; }
+        }
+        @media(min-width:1200px) {
+            .underwater-image { height: 560px; }
         }
 </style>
 </head>
@@ -511,7 +695,8 @@
     </nav>
 
     <!-- ===== HERO: Deep Dive Redesign ===== -->
-    <section class="hero hero-deep">
+    <section class="hero-deep">
+        <div class="hero-deep-inner">
         <div class="hero-text">
             <p class="hero-tag">ENGINEERED FOR THE DEEP</p>
             <h1 class="hero-animate-title">Carbon Fiber Freediving Equipment,<br>Tested at 100m+</h1>
@@ -537,6 +722,7 @@
         </div>
         <div class="hero-visual">
             <img src="img/hero-abysscarbon.svg" alt="AbyssCarbon — premium carbon fiber freediving equipment, handcrafted fins and gear for deep water performance" loading="eager">
+        </div>
         </div>
     </section>
 
@@ -582,18 +768,7 @@
                     <div class="editors-choice">EDITOR'S CHOICE</div>
                     <img src="img/product-c1-blades.svg" alt="Carbon Blades C1 Pro — carbon fiber freediving fins" loading="lazy">
                     <div class="quick-add-overlay">
-                        <button class="btn btn-buy snipcart-add-item"
-                            data-item-id="C1-Pro"
-                            data-item-price="850.26"
-                            data-item-url="/"
-                            data-item-name="Carbon Blades — C1 Pro"
-                            data-item-description="Hand-laid carbon fiber freediving blades. 22° angle, variable stiffness."
-                            data-item-custom1-name="Flex"
-                            data-item-custom1-options="Soft|Medium|Hard"
-                            data-item-custom2-name="Footpocket Size"
-                            data-item-custom2-options="38-39|40-41|42-43|44-45|46">
-                            Quick Add to Cart
-                        </button>
+                        <button class="configure-btn" onclick="window.location.href='#product-C1'">Configure Your Gear</button>
                     </div>
                 </div>
                 <div class="product-info">
@@ -608,6 +783,35 @@
                         <li>Flex: Soft / Medium / Hard</li>
                         <li>Footpocket: Included (sizes 38–46)</li>
                     </ul>
+
+                <!-- Flex Calculator -->
+                <div class="flex-calculator">
+                    <button id="open-calc-btn" class="carbon-btn">Find Your Perfect Flex</button>
+                    <div id="flex-calc-modal" class="modal-hidden">
+                        <div class="calc-content">
+                            <span id="close-calc" class="close-btn">&times;</span>
+                            <h3>Carbon Flex Calculator</h3>
+                            <p>Get the optimized blade stiffness for your profile.</p>
+                            <div class="input-group">
+                                <label for="diver-weight">Your Weight (kg):</label>
+                                <input type="number" id="diver-weight" placeholder="e.g., 75" min="40" max="150">
+                            </div>
+                            <div class="input-group">
+                                <label for="dive-style">Primary Discipline:</label>
+                                <select id="dive-style">
+                                    <option value="recreational">Recreational / Spearfishing</option>
+                                    <option value="cwt">Deep CWT (Competition)</option>
+                                    <option value="dyn">Dynamic Pool</option>
+                                </select>
+                            </div>
+                            <button id="calculate-btn" class="action-btn">Calculate Flex</button>
+                            <div id="calc-result" style="display:none;">
+                                <h4>Recommended Flex: <span id="flex-output" class="highlight"></span></h4>
+                                <p id="flex-reason"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="product-guide">
                     <button class="guide-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Size Guide & Hardness</button>
@@ -649,14 +853,7 @@
                 <div class="product-visual">
                     <img src="img/product-m1-mask.svg" alt="Low-Volume Mask M1 — carbon frame freediving mask" loading="lazy">
                     <div class="quick-add-overlay">
-                        <button class="btn btn-buy snipcart-add-item"
-                            data-item-id="M1-Mask"
-                            data-item-price="331.45"
-                            data-item-url="/"
-                            data-item-name="Low-Volume Mask — M1"
-                            data-item-description="Ultra-low volume freediving mask. 85ml, carbon frame, 95g.">
-                            Quick Add to Cart
-                        </button>
+                        <button class="configure-btn" onclick="window.location.href='#product-M1'">Configure Your Gear</button>
                     </div>
                 </div>
                 <div class="product-info">
@@ -707,14 +904,7 @@
                 <div class="product-visual">
                     <img src="img/product-n1-noseclip.svg" alt="Carbon Noseclip N1 — freediving equalization nose clip" loading="lazy">
                     <div class="quick-add-overlay">
-                        <button class="btn btn-buy snipcart-add-item"
-                            data-item-id="N1-Noseclip"
-                            data-item-price="158.86"
-                            data-item-url="/"
-                            data-item-name="Carbon Noseclip — N1"
-                            data-item-description="Carbon composite noseclip. 12g. Adjustable tension.">
-                            Quick Add to Cart
-                        </button>
+                        <button class="configure-btn" onclick="window.location.href='#product-N1'">Configure Your Gear</button>
                     </div>
                 </div>
                 <div class="product-info">
@@ -760,14 +950,7 @@
                 <div class="product-visual">
                     <img src="img/product-mf1-monofin.svg" alt="Monofin MF1 — full carbon competition freediving monofin" loading="lazy">
                     <div class="quick-add-overlay">
-                        <button class="btn btn-buy snipcart-add-item"
-                            data-item-id="MF1-Monofin"
-                            data-item-price="1458.32"
-                            data-item-url="/"
-                            data-item-name="Monofin — MF1"
-                            data-item-description="Full carbon competition monofin. 70cm blade. Limited run.">
-                            Quick Add to Cart
-                        </button>
+                        <button class="configure-btn" onclick="window.location.href='#product-MF1'">Configure Your Gear</button>
                     </div>
                 </div>
                 <div class="product-info">
@@ -818,14 +1001,7 @@
                 <div class="product-visual">
                     <img src="img/product-dc1-computer.svg" alt="Dive Computer DC1 — carbon casing depth watch" loading="lazy">
                     <div class="quick-add-overlay">
-                        <button class="btn btn-buy snipcart-add-item"
-                            data-item-id="DC1-Computer"
-                            data-item-price="593.42"
-                            data-item-url="/"
-                            data-item-name="Dive Computer — DC1"
-                            data-item-description="Carbon fiber freediving computer. 100m rated. OLED.">
-                            Quick Add to Cart
-                        </button>
+                        <button class="configure-btn" onclick="window.location.href='#product-DC1'">Configure Your Gear</button>
                     </div>
                 </div>
                 <div class="product-info">
@@ -875,14 +1051,7 @@
                 <div class="product-visual">
                     <img src="img/product-w1-weight.svg" alt="Neck Weight W1 Carbon — modular freediving neck weight" loading="lazy">
                     <div class="quick-add-overlay">
-                        <button class="btn btn-buy snipcart-add-item"
-                            data-item-id="W1-Weight"
-                            data-item-price="271.05"
-                            data-item-url="/"
-                            data-item-name="Neck Weight — W1 Carbon"
-                            data-item-description="Carbon fiber neck weight. Modular segments. Quick-release.">
-                            Quick Add to Cart
-                        </button>
+                        <button class="configure-btn" onclick="window.location.href='#product-W1'">Configure Your Gear</button>
                     </div>
                 </div>
                 <div class="product-info">
@@ -927,14 +1096,7 @@
                 <div class="product-visual">
                     <img src="img/product-e1-earplugs.svg" alt="Silicone Ear Plugs E1 — medical grade silicone ear plugs for freediving" loading="lazy" style="background:#0a0a0a;padding:20px;">
                     <div class="quick-add-overlay">
-                        <button class="btn btn-buy snipcart-add-item"
-                            data-item-id="E1-EarPlugs"
-                            data-item-price="24.99"
-                            data-item-url="/"
-                            data-item-name="Silicone Ear Plugs — E1"
-                            data-item-description="Medical-grade silicone. 27dB noise reduction. Perfect for freediving equalization.">
-                            Quick Add to Cart
-                        </button>
+                        <button class="configure-btn" onclick="window.location.href='#product-E1'">Configure Your Gear</button>
                     </div>
                 </div>
                 <div class="product-info">
@@ -970,14 +1132,7 @@
                     <div class="editors-choice" style="background:linear-gradient(135deg, #c9a96e, #8a6d2b);">BUNDLE DEAL</div>
                     <img src="img/product-mn1-combo.svg" alt="Mask + Noseclip Bundle MN1 — freediving mask and noseclip combo" loading="lazy" style="background:#0a0a0a;padding:20px;">
                     <div class="quick-add-overlay">
-                        <button class="btn btn-buy snipcart-add-item"
-                            data-item-id="MN1-Bundle"
-                            data-item-price="495.00"
-                            data-item-url="/"
-                            data-item-name="Mask + Noseclip Bundle — MN1"
-                            data-item-description="Get the perfect equalization combo. M1 Mask + N1 Noseclip, tuned for freediving.">
-                            Quick Add to Cart
-                        </button>
+                        <button class="configure-btn" onclick="window.location.href='#product-MN1'">Configure Your Gear</button>
                     </div>
                 </div>
                 <div class="product-info">
@@ -1161,5 +1316,68 @@
     <div id="snipcart" data-api-key="Mzk0NDcwMWEtNmZjYi00MzExLWIwNjktZjA1M2Q4YTFmODJjNjM5MTY0MzU1MjExMzEyODY2" hidden></div>
     <script src="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Flex Calculator Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('flex-calc-modal');
+            const openBtn = document.getElementById('open-calc-btn');
+            const closeBtn = document.getElementById('close-calc');
+            const calcBtn = document.getElementById('calculate-btn');
+            const resultDiv = document.getElementById('calc-result');
+
+            if (openBtn) {
+                openBtn.onclick = () => modal.style.display = 'flex';
+                closeBtn.onclick = () => {
+                    modal.style.display = 'none';
+                    resultDiv.style.display = 'none';
+                    document.getElementById('diver-weight').value = '';
+                    document.getElementById('dive-style').value = 'recreational';
+                };
+
+                calcBtn.onclick = () => {
+                    const weight = parseInt(document.getElementById('diver-weight').value);
+                    const style = document.getElementById('dive-style').value;
+
+                    if(!weight || weight < 40 || weight > 150) {
+                        alert("Please enter a valid weight between 40-150kg.");
+                        return;
+                    }
+
+                    let flex = "Medium";
+                    let reason = "The optimal balance of propulsion and energy saving for your profile.";
+
+                    if (weight < 65) {
+                        flex = "Soft";
+                        reason = "A softer blade minimizes ankle fatigue for your weight class.";
+                        if (style === 'cwt') {
+                            flex = "Medium";
+                            reason = "Upgraded to Medium for better deep-water propulsion despite lighter weight.";
+                        }
+                    } else if (weight >= 65 && weight <= 85) {
+                        flex = "Medium";
+                        if (style === 'dyn') {
+                            flex = "Soft";
+                            reason = "A softer blade provides better efficiency for dynamic pool disciplines.";
+                        }
+                        if (style === 'cwt') {
+                            flex = "Hard";
+                            reason = "Competitive deep diving requires maximum power transfer.";
+                        }
+                    } else {
+                        flex = "Hard";
+                        reason = "Maximum power transfer needed for your weight class.";
+                        if (style === 'recreational') {
+                            flex = "Medium";
+                            reason = "Stepped down to Medium to ensure all-day comfort for recreational diving.";
+                        }
+                    }
+
+                    document.getElementById('flex-output').innerText = flex;
+                    document.getElementById('flex-reason').innerText = reason;
+                    resultDiv.style.display = 'block';
+                };
+            }
+        });
+    </script>
 </body>
 </html>
