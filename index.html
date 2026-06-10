@@ -615,6 +615,48 @@
             font-size: 11px;
         }
 
+        /* ── Workshop Urgency Strip ── */
+        .workshop-urgency-strip {
+            max-width: var(--max-width);
+            margin: 0 auto 32px;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, rgba(0,163,255,0.06), rgba(0,163,255,0.02));
+            border: 1px solid rgba(0,163,255,0.15);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .workshop-urgency-strip .wu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: #999;
+            letter-spacing: 0.3px;
+        }
+        .workshop-urgency-strip .wu-icon {
+            color: var(--accent);
+            font-size: 16px;
+            line-height: 1;
+        }
+        .workshop-urgency-strip .wu-highlight {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        @media(max-width:639px) {
+            .workshop-urgency-strip {
+                gap: 12px;
+                padding: 14px 16px;
+            }
+            .workshop-urgency-strip .wu-item {
+                font-size: 11px;
+            }
+        }
+
         /* ── Underwater Testimonials ── */
         .testimonials-underwater {
             max-width: var(--max-width);
@@ -728,7 +770,7 @@
 
     <!-- ===== Trust Bar (Updated) ===== -->
     <div class="trust-bar">
-        <div class="trust-item"><span class="trust-icon">SSL</span><span>256-bit SSL · 30-Day Returns · Free DHL >$500 · 3-Year Warranty</span></div>
+        <div class="trust-item"><span class="trust-icon">&#9678;</span><span>Handcrafted to Order &middot; 256-bit SSL &middot; 30-Day Returns &middot; Free DHL >$500 &middot; 3-Year Warranty</span></div>
     </div>
 
     <!-- ===== WHY ABYSSCARBON Trust Block ===== -->
@@ -760,6 +802,22 @@
             <p class="section-tag">EQUIPMENT</p>
             <h2>Precision Instruments</h2>
         </div>
+        <!-- Workshop Urgency Strip -->
+        <div class="workshop-urgency-strip">
+            <div class="wu-item">
+                <span class="wu-icon">&#9678;</span>
+                <span><span class="wu-highlight">Handcrafted to Order</span> &mdash; Each piece individually built in our partner workshops</span>
+            </div>
+            <div class="wu-item">
+                <span class="wu-icon">&#9202;</span>
+                <span>Ships in <span class="wu-highlight">5&ndash;7 Business Days</span></span>
+            </div>
+            <div class="wu-item">
+                <span class="wu-icon">&#9888;</span>
+                <span><span class="wu-highlight">Limited Capacity</span> &mdash; Only a few workshop slots remain this week</span>
+            </div>
+        </div>
+
         <div class="product-grid">
 
             <!-- C1 Pro — Editor's Choice -->
@@ -843,7 +901,7 @@
                             Add to Cart
                         </button>
 
-                        <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -894,7 +952,7 @@
                             data-item-description="Ultra-low volume freediving mask. 85ml, carbon frame, 95g.">
                             Add to Cart
                         </button>
-                        <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -940,7 +998,7 @@
                             data-item-description="Carbon composite noseclip. 12g. Adjustable tension.">
                             Add to Cart
                         </button>
-                        <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -991,7 +1049,7 @@
                             data-item-description="Full carbon competition monofin. 70cm blade. Limited run.">
                             Add to Cart
                         </button>
-                        <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -1041,7 +1099,7 @@
                             data-item-description="Carbon fiber freediving computer. 100m rated. OLED.">
                             Add to Cart
                         </button>
-                        <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -1121,7 +1179,7 @@
                             data-item-description="Medical-grade silicone. 27dB noise reduction. Perfect for freediving equalization.">
                             Add to Cart
                         </button>
-                        <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -1160,13 +1218,13 @@
                             Add to Cart
                         </button>
                         <p style="font-size:10px;color:var(--accent);margin-top:8px;">* Add $24.99 ear plugs to unlock Free DHL shipping (order >$500)</p>
-                        <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
 
 
-                        <div class="trust-micro"><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
