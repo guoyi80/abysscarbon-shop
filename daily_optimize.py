@@ -9,7 +9,7 @@ Dimensions:
   4. Revenue tracking vs $100K goal
   5. Content freshness scoring (auto touch stale pages)
   6. Conversion funnel analysis
-  7. Sitemap ping to Google
+  7. Sitemap ping to search engines (Google deprecated, Bing active)
   8. Git auto-sync (add + commit + push)
   9. Legal compliance check
  10. Inventory & shipping simulation
@@ -278,18 +278,47 @@ def generate_sitemap():
 
 
 def ping_google():
-    """Ping Google with the sitemap URL to trigger re-crawl."""
+    """Ping search engines with the sitemap URL to trigger re-crawl.
+
+    Google sitemaps ping endpoint was deprecated in June 2023 and now returns
+    HTTP 404.  Google Sitemaps ping has been marked as deprecated and is
+    silently skipped.  Bing is pinged instead as the primary search engine.
+    """
     sitemap_url = "https://abysscarbon.com/sitemap.xml"
-    ping_url = f"https://www.google.com/ping?sitemap={sitemap_url}"
+
+    # ── Google ping — deprecated (returns 404 since June 2023) ──────────
+    google_url = f"https://www.google.com/ping?sitemap={sitemap_url}"
+    google_result = {
+        "ping_url": google_url,
+        "status": "deprecated",
+        "response": "Google Sitemaps ping deprecated — silently skipped. "
+                    "See https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping."
+    }
+
+    # ── Bing ping — active ──────────────────────────────────────────────
+    bing_url = f"https://www.bing.com/ping?sitemap={sitemap_url}"
     try:
-        req = urllib.request.Request(ping_url, method="GET")
+        req = urllib.request.Request(bing_url, method="GET")
         with urllib.request.urlopen(req, timeout=15) as resp:
-            status = resp.status
-            body = resp.read().decode("utf-8", errors="replace")[:200]
+            bing_status = resp.status
+            bing_body = resp.read().decode("utf-8", errors="replace")[:200]
     except Exception as e:
-        status = 0
-        body = str(e)
-    return {"ping_url": ping_url, "status": status, "response": body}
+        bing_status = 0
+        bing_body = str(e)
+
+    bing_result = {
+        "ping_url": bing_url,
+        "status": bing_status,
+        "response": bing_body
+    }
+
+    return {
+        "google": google_result,
+        "bing": bing_result,
+        "status": bing_status,
+        "ping_url": bing_url,
+        "response": bing_body
+    }
 
 
 def git_sync():
@@ -413,7 +442,9 @@ if __name__ == "__main__":
     print(f"  Est. daily revenue: ${report['conversion_funnel']['daily_revenue_est']}")
     print(f"  Est. YTD revenue: ${report['revenue_tracking']['simulated_actual']:,}")
     print(f"  Content touched: {report.get('content_touched', 'none')}")
-    print(f"  Google ping: HTTP {report['google_ping']['status']}")
+    ping = report["google_ping"]
+    print(f"  Google ping: {ping['google']['status'].upper()}")
+    print(f"  Bing ping: HTTP {ping['bing']['status']}")
     print(f"  Git: staged={len(report['git_sync']['staged'])} committed={report['git_sync']['committed']} pushed={report['git_sync']['pushed']}")
     print(f"  Actions: {len(report['actions_required'])}")
     for act in report["actions_required"]:

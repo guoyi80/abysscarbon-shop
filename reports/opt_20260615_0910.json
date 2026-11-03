@@ -1,0 +1,299 @@
+{
+  "site": "AbyssCarbon",
+  "generated_at": "2026-06-15T09:10:13.863764",
+  "site_validation": [
+    {
+      "file": "index.html",
+      "status": "OK",
+      "size_bytes": 68163,
+      "sha256": "13a7d85f585537c3"
+    },
+    {
+      "file": "privacy.html",
+      "status": "OK",
+      "size_bytes": 2815,
+      "sha256": "4a11d5dc3b544f84"
+    },
+    {
+      "file": "terms.html",
+      "status": "OK",
+      "size_bytes": 2843,
+      "sha256": "2783bbc38771480c"
+    },
+    {
+      "file": "refunds.html",
+      "status": "OK",
+      "size_bytes": 3644,
+      "sha256": "cc8d1524ba98db2a"
+    },
+    {
+      "file": "robots.txt",
+      "status": "OK",
+      "size_bytes": 460,
+      "sha256": "149c5ec156c033b1"
+    },
+    {
+      "file": "css\\style.css",
+      "status": "OK",
+      "size_bytes": 26196,
+      "sha256": "27b449285fe61b68"
+    },
+    {
+      "file": "js\\main.js",
+      "status": "OK",
+      "size_bytes": 4718,
+      "sha256": "1a9edb06c527b730"
+    },
+    {
+      "file": "guide\\best-freediving-gear-2026.html",
+      "status": "OK",
+      "size_bytes": 15826,
+      "sha256": "c0e7854f54ef387a"
+    },
+    {
+      "file": "guide\\carbon-fiber-freediving.html",
+      "status": "OK",
+      "size_bytes": 12556,
+      "sha256": "29025471aa9bd0c5"
+    },
+    {
+      "file": "compare\\freediving-fins-comparison-2026.html",
+      "status": "OK",
+      "size_bytes": 23489,
+      "sha256": "1355952be92ba6df"
+    },
+    {
+      "file": "blog\\freediving-training-equipment-guide.html",
+      "status": "OK",
+      "size_bytes": 32506,
+      "sha256": "0e17d866b3e1e8c8"
+    },
+    {
+      "file": "blog\\carbon-vs-fiberglass-vs-plastic-fins.html",
+      "status": "OK",
+      "size_bytes": 20717,
+      "sha256": "4de30759f6393525"
+    }
+  ],
+  "all_files_valid": true,
+  "seo_audit": {
+    "checks": {
+      "title_tag": true,
+      "meta_description": true,
+      "meta_keywords": true,
+      "canonical_url": true,
+      "og_tags": true,
+      "twitter_card": true,
+      "schema_org": true,
+      "h1_count": 1,
+      "h2_count": 7,
+      "img_alt": 10,
+      "robots_meta": true,
+      "title_length": 91
+    },
+    "score": 12,
+    "max": 12
+  },
+  "pricing_analysis": [
+    {
+      "product": "Carbon Blades — C1 Pro",
+      "current_price": 895,
+      "competitor_range": [
+        804.56,
+        932.96
+      ],
+      "recommended_price": 896.24,
+      "projected_margin": 0.301,
+      "action": "maintain"
+    },
+    {
+      "product": "Low-Volume Mask — M1",
+      "current_price": 345,
+      "competitor_range": [
+        287.08,
+        365.24
+      ],
+      "recommended_price": 338.54,
+      "projected_margin": 0.2866,
+      "action": "maintain"
+    },
+    {
+      "product": "Carbon Noseclip — N1",
+      "current_price": 165,
+      "competitor_range": [
+        135.62,
+        176.16
+      ],
+      "recommended_price": 163.08,
+      "projected_margin": 0.2918,
+      "action": "maintain"
+    },
+    {
+      "product": "Monofin — MF1",
+      "current_price": 1495,
+      "competitor_range": [
+        1244.19,
+        1585.35
+      ],
+      "recommended_price": 1494.87,
+      "projected_margin": 0.2999,
+      "action": "maintain"
+    },
+    {
+      "product": "Dive Computer — DC1",
+      "current_price": 620,
+      "competitor_range": [
+        525.76,
+        657.88
+      ],
+      "recommended_price": 622.41,
+      "projected_margin": 0.3027,
+      "action": "maintain"
+    },
+    {
+      "product": "Neck Weight — W1 Carbon",
+      "current_price": 285,
+      "competitor_range": [
+        250.63,
+        304.27
+      ],
+      "recommended_price": 275.15,
+      "projected_margin": 0.2749,
+      "action": "consider_discount"
+    }
+  ],
+  "revenue_tracking": {
+    "date": "2026-06-15",
+    "day_of_year": 166,
+    "days_remaining": 199,
+    "annual_target": 100000,
+    "projected_ytd": 45479.45,
+    "simulated_actual": 45184.12,
+    "remaining_needed": 54520.55,
+    "on_track": false,
+    "pace_pct": 45.5,
+    "avg_order_value": 634.17,
+    "estimated_orders_ytd": 71,
+    "daily_target": 273.97
+  },
+  "conversion_funnel": {
+    "estimated_daily_visitors": 230,
+    "page_views": 872,
+    "cart_additions": 13,
+    "cart_rate": 5.65,
+    "checkouts_started": 4,
+    "checkout_rate": 30.77,
+    "estimated_conversions": 2,
+    "conversion_rate": 0.87,
+    "daily_revenue_est": 1268.33
+  },
+  "content_freshness": [
+    {
+      "file": "index.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "index.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "privacy.html",
+      "age_days": 7,
+      "action": "fresh"
+    },
+    {
+      "file": "refunds.html",
+      "age_days": 7,
+      "action": "fresh"
+    },
+    {
+      "file": "terms.html",
+      "age_days": 7,
+      "action": "fresh"
+    },
+    {
+      "file": "best-freediving-gear-2026.html",
+      "age_days": 6,
+      "action": "fresh"
+    },
+    {
+      "file": "carbon-fiber-freediving.html",
+      "age_days": 6,
+      "action": "fresh"
+    },
+    {
+      "file": "freediving-fins-comparison-2026.html",
+      "age_days": 6,
+      "action": "fresh"
+    },
+    {
+      "file": "carbon-vs-fiberglass-vs-plastic-fins.html",
+      "age_days": 6,
+      "action": "fresh"
+    },
+    {
+      "file": "freediving-mistakes-beginners-make.html",
+      "age_days": 6,
+      "action": "fresh"
+    },
+    {
+      "file": "freediving-training-equipment-guide.html",
+      "age_days": 6,
+      "action": "fresh"
+    },
+    {
+      "file": "index.html",
+      "age_days": 6,
+      "action": "fresh"
+    },
+    {
+      "file": "monofin-vs-bifins-freediving.html",
+      "age_days": 6,
+      "action": "fresh"
+    }
+  ],
+  "content_touched": null,
+  "legal_compliance": {
+    "privacy_linked": true,
+    "terms_linked": true,
+    "refunds_linked": true,
+    "privacy_page_exists": true,
+    "terms_page_exists": true,
+    "refunds_page_exists": true,
+    "copyright_year": true,
+    "cookie_notice": true
+  },
+  "sitemap": "C:\\Users\\Windows11\\AppData\\Roaming\\Tencent\\Marvis\\User\\oAN1i2euy8UQvAuKLfMH_70ovJ4I\\workspace\\conv_19ea22a3a23_91c9a58e2ab4\\output\\sitemap.xml",
+  "google_ping": {
+    "ping_url": "https://www.google.com/ping?sitemap=https://abysscarbon.com/sitemap.xml",
+    "status": 0,
+    "response": "HTTP Error 404: Sitemaps ping is deprecated. See https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping."
+  },
+  "git_sync": {
+    "staged": [
+      "index.html",
+      "reports/opt_20260614_2136.json",
+      "sitemap.xml"
+    ],
+    "committed": true,
+    "pushed": true,
+    "error": null
+  },
+  "actions_required": [
+    "PRICE Neck Weight — W1 Carbon: $285 → $275.15 (consider_discount)",
+    "GIT staged 3 files, committed=True, pushed=True"
+  ],
+  "summary": {
+    "annual_target": 100000,
+    "daily_target": 273.97,
+    "monthly_target": 8333.33,
+    "products_tracked": 6,
+    "seo_score": "12/12",
+    "on_track": false,
+    "actions_count": 2,
+    "google_ping_status": 0,
+    "git_pushed": true
+  }
+}
