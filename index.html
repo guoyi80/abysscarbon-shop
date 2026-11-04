@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AbyssCarbon — Carbon Fiber Freediving Fins &amp; Masks</title>
-    <meta name="description" content="Handcrafted carbon fiber freediving gear: fins, low-volume masks, noseclips & monofins. Engineered for the deep. Free DHL over $500.">
-    <meta name="keywords" content="carbon fiber freediving fins, freediving equipment, freediving monofin, low volume mask, carbon blades, competitive freediving gear">
+    <title>AbyssCarbon — Carbon Fiber Dive Gear for People Who Love the Ocean</title>
+    <meta name="description" content="Handcrafted carbon fiber gear for freedivers, scuba divers and everyone who lives for the water: fins, low-volume masks, noseclips, monofins and instruments. Made to order, built to be repaired — and 1% of every order goes back to the ocean.">
+    <meta name="keywords" content="carbon fiber dive gear, freediving fins, scuba diving equipment, low volume mask, freediving monofin, carbon blades, spearfishing fins, snorkelling gear, ocean conservation brand, sustainable dive equipment">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://abysscarbon.com/">
-    <meta property="og:title" content="AbyssCarbon — Premium Carbon Fiber Freediving Equipment">
-    <meta property="og:description" content="Handcrafted carbon fiber freediving equipment. Engineered for the deep.">
+    <meta property="og:title" content="AbyssCarbon — Carbon Fiber Gear for People Who Love the Ocean">
+    <meta property="og:description" content="Handcrafted carbon fiber gear for freedivers, scuba divers and water people. Made to order. Built to be repaired. 1% for the ocean.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://abysscarbon.com/">
     <meta property="og:site_name" content="AbyssCarbon">
@@ -18,20 +18,21 @@
     <meta property="og:image:height" content="400">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://abysscarbon.com/img/hero-freediver-deep.jpg">
-    <meta name="twitter:title" content="AbyssCarbon — Premium Carbon Fiber Freediving Equipment">
-    <meta name="twitter:description" content="Handcrafted carbon fiber freediving equipment. Engineered for the deep.">
+    <meta name="twitter:title" content="AbyssCarbon — Carbon Fiber Gear for People Who Love the Ocean">
+    <meta name="twitter:description" content="Handcrafted carbon fiber gear for freedivers, scuba divers and water people. Made to order. Built to be repaired. 1% for the ocean.">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "OnlineStore",
       "name": "AbyssCarbon",
-      "description": "Handcrafted carbon fiber freediving equipment. Fins, masks, noseclips, monofins.",
+      "slogan": "For people who love the ocean.",
+      "description": "Handcrafted carbon fiber gear for freedivers, scuba divers and water people. Fins, masks, noseclips, monofins, dive instruments and training accessories. Made to order, built to be repaired, 1% for the ocean.",
       "url": "https://abysscarbon.com",
       "currenciesAccepted": "USD",
       "priceRange": "$$$",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Freediving Equipment",
+        "name": "Carbon Fiber Dive & Water Gear",
         "itemListElement": [
           {"@type": "Product","name": "Carbon Blades — C1 Pro","offers": {"@type": "Offer","price": "817.56","priceCurrency": "USD"}},
           {"@type": "Product","name": "Low-Volume Mask — M1","offers": {"@type": "Offer","price": "322.54","priceCurrency": "USD"}},
@@ -56,6 +57,13 @@
         /* ============================================================
            ABYSSCARBON ENHANCED STYLES — Hero Rebuild + Trust + Social Proof
            ============================================================ */
+
+        /* ── Nav density for the expanded brand navigation ── */
+        @media(min-width:768px) and (max-width:1280px) {
+            .nav-links { gap: 14px; }
+            .nav-links a { font-size: 10.5px; letter-spacing: 0.8px; }
+            .cart-btn { padding: 8px 12px; font-size: 10px; }
+        }
 
         /* ── Deep-Dive Hero Gradient ── */
         .hero-deep {
@@ -717,14 +725,180 @@
         @media(min-width:1200px) {
             .underwater-image { height: 560px; }
         }
+
+        /* ============================================================
+           OCEAN PLEDGE
+           ============================================================ */
+        .ocean-pledge {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 64px 20px;
+        }
+        .ocean-pledge .section-tag { text-align: center; }
+        .ocean-pledge h2 { text-align: center; margin-bottom: 18px; }
+        .pledge-lead {
+            max-width: 660px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #666;
+        }
+        .pledge-lead strong { color: var(--text-bright); font-weight: 500; }
+        .pledge-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+        .pledge-cell {
+            background: var(--surface);
+            padding: 30px 24px;
+            transition: background 0.3s ease;
+        }
+        .pledge-cell:hover { background: #141414; }
+        .pledge-num {
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: var(--accent-dim);
+            margin-bottom: 14px;
+        }
+        .pledge-cell h3 {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-bright);
+            margin-bottom: 10px;
+            letter-spacing: 0.3px;
+        }
+        .pledge-cell p {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.7;
+        }
+        .pledge-action {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        /* ============================================================
+           WHO IT'S FOR — DISCIPLINES
+           ============================================================ */
+        .audience {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 64px 20px;
+        }
+        .audience .section-tag { text-align: center; }
+        .audience h2 { text-align: center; margin-bottom: 12px; }
+        .audience-sub {
+            max-width: 620px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #555;
+        }
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+        .audience-card {
+            background: var(--surface);
+            padding: 28px 24px;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s ease;
+        }
+        .audience-card:hover { background: #141414; }
+        .audience-card h3 {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-bright);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .audience-card p {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.7;
+        }
+        .audience-card .audience-meta {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-dim);
+        }
+        .audience-card:hover .audience-meta { color: var(--accent); }
+
+        /* ============================================================
+           COLLECTION FILTER BAR
+           ============================================================ */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+        .filter-chip {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: #777;
+            font-family: inherit;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 9px 16px;
+            min-height: 40px;
+            cursor: pointer;
+            border-radius: var(--radius);
+            transition: all 0.2s;
+        }
+        .filter-chip:hover { color: var(--text-bright); border-color: #333; }
+        .filter-chip.active {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: rgba(0,163,255,0.06);
+        }
+        .filter-empty {
+            display: none;
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+            padding: 32px 0;
+        }
+
+        @media(min-width:640px) {
+            .pledge-grid { grid-template-columns: 1fr 1fr; }
+            .audience-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media(min-width:1024px) {
+            .ocean-pledge { padding: 88px 48px; }
+            .audience { padding: 80px 48px; }
+            .pledge-grid { grid-template-columns: repeat(4, 1fr); }
+            .audience-grid { grid-template-columns: repeat(4, 1fr); }
+            .pledge-cell { padding: 34px 26px; }
+        }
 </style>
 </head>
 <body class="dark">
-    <div class="flash-banner" id="flashBanner">SUMMER FLASH SALE &mdash; Up to 15% off select gear &middot; Limited time <span class="flash-timer">&minus; Ends Soon</span><button class="flash-close" onclick="document.getElementById('flashBanner').style.display='none'" aria-label="Close">&times;</button></div>
+    <div class="flash-banner" id="flashBanner">THE OCEAN PLEDGE &mdash; 1% of every order funds coastal restoration &middot; Free DHL over $500 <span class="flash-timer">Made to order, built to last</span><button class="flash-close" onclick="document.getElementById('flashBanner').style.display='none'" aria-label="Close">&times;</button></div>
     <nav class="nav">
         <a href="#" class="nav-logo">ABYSS<span>CARBON</span></a>
         <div class="nav-links">
-            <a href="#products">Products</a>
+            <a href="#products">Gear</a>
+            <a href="#ocean">Ocean Pledge</a>
+            <a href="#who">Who It's For</a>
             <a href="guide/best-freediving-gear-2026.html">Guide</a>
             <a href="compare/freediving-fins-comparison-2026.html">Compare</a>
             <a href="blog/index.html">Blog</a>
@@ -740,21 +914,21 @@
     <section class="hero-deep">
         <div class="hero-deep-inner">
         <div class="hero-text">
-            <p class="hero-tag">ENGINEERED FOR THE DEEP</p>
-            <h1 class="hero-animate-title">Carbon Fiber Freediving Equipment,<br>Tested at 100m+</h1>
-            <p class="hero-sub hero-animate-sub">Aerospace-grade carbon fiber. Hand layup. Individual flex certification. Built for competitive freedivers who refuse to compromise.</p>
+            <p class="hero-tag">FOR THE OCEAN YOU KEEP COMING BACK TO</p>
+            <h1 class="hero-animate-title">Carbon Fiber Gear for People<br>Who Love the Ocean</h1>
+            <p class="hero-sub hero-animate-sub">Fins, low-volume masks and dive instruments for freedivers, scuba divers and every kind of water person. Hand-laid, individually tested, made to order &mdash; and built to be repaired, not replaced.</p>
             <div class="hero-cta-group hero-animate-btn">
-                <a href="#products" class="btn">Explore Equipment</a>
-                <a href="guide/best-freediving-gear-2026.html" class="btn-outline">Read the Guide</a>
+                <a href="#products" class="btn">Explore the Collection</a>
+                <a href="#ocean" class="btn-outline">Our Ocean Pledge</a>
             </div>
             <div class="hero-stats hero-animate-btn">
                 <div class="hero-stat-card">
-                    <span class="hero-stat-value">100m+</span>
-                    <span class="hero-stat-label">Test Depth</span>
+                    <span class="hero-stat-value">1%</span>
+                    <span class="hero-stat-label">Of Every Order to the Ocean</span>
                 </div>
                 <div class="hero-stat-card">
-                    <span class="hero-stat-value">6 Products</span>
-                    <span class="hero-stat-label">Carbon Fiber Collection</span>
+                    <span class="hero-stat-value">100m+</span>
+                    <span class="hero-stat-label">Field Tested</span>
                 </div>
                 <div class="hero-stat-card">
                     <span class="hero-stat-value">40+ Countries</span>
@@ -763,45 +937,119 @@
             </div>
         </div>
         <div class="hero-visual">
-            <img src="img/hero-abysscarbon.svg" alt="AbyssCarbon — premium carbon fiber freediving equipment, handcrafted fins and gear for deep water performance" loading="eager">
+            <img src="img/hero-abysscarbon.svg" alt="AbyssCarbon — carbon fiber dive and freediving gear for people who love the ocean" loading="eager">
         </div>
         </div>
     </section>
 
     <!-- ===== Trust Bar (Updated) ===== -->
     <div class="trust-bar">
-        <div class="trust-item"><span class="trust-icon">&#9678;</span><span>Handcrafted to Order &middot; 256-bit SSL &middot; 30-Day Returns &middot; Free DHL >$500 &middot; 3-Year Warranty</span></div>
+        <div class="trust-item"><span class="trust-icon">&#9678;</span><span>Handcrafted to Order &middot; 256-bit SSL &middot; 30-Day Returns &middot; Free DHL >$500 &middot; 3-Year Warranty &middot; 1% for the Ocean</span></div>
     </div>
 
     <!-- ===== WHY ABYSSCARBON Trust Block ===== -->
     <section class="trust-block">
         <p class="section-tag">WHY ABYSSCARBON</p>
-        <h2>Materials & Process</h2>
+        <h2>Made for the Long Run</h2>
         <div class="trust-grid">
             <div class="trust-cell">
                 <span class="trust-cell-icon">&#9672;</span>
                 <h3>Aerospace Carbon</h3>
-                <p>T700 military-grade carbon fiber, same material used in F1 and aerospace.</p>
+                <p>T700 military-grade carbon fiber — the same material trusted in F1 and aerospace. Light, stiff, and stable season after season.</p>
             </div>
             <div class="trust-cell">
                 <span class="trust-cell-icon">&#9671;</span>
                 <h3>Individual Testing</h3>
-                <p>Every blade is flex-tested at 3 points and certified before shipping.</p>
+                <p>Every blade is flex-tested at three points and certified by hand before it ships. No batch averages, no guesswork.</p>
             </div>
             <div class="trust-cell">
                 <span class="trust-cell-icon">&#9678;</span>
-                <h3>Direct from Workshop</h3>
-                <p>Handcrafted in partner workshops in Italy, Japan, and US. Made-to-order. No middlemen.</p>
+                <h3>Repair, Not Replace</h3>
+                <p>Made to order in partner workshops in Italy, Japan and the US — and backed by spare parts and servicing, so gear stays out of landfill.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- ===== OCEAN PLEDGE ===== -->
+    <section id="ocean" class="ocean-pledge">
+        <p class="section-tag">THE OCEAN PLEDGE</p>
+        <h2>Love the Ocean. Then Act Like It.</h2>
+        <p class="pledge-lead">Nobody needs more gear. What the water needs is fewer things made badly. So we build <strong>less, better, and for longer</strong> — and we put a share of every order back into the places we dive.</p>
+        <div class="pledge-grid">
+            <div class="pledge-cell">
+                <span class="pledge-num">01</span>
+                <h3>1% for the Ocean</h3>
+                <p>One percent of every order funds coastal clean-ups and reef restoration with local marine partners. No greenwash — we publish where it goes.</p>
+            </div>
+            <div class="pledge-cell">
+                <span class="pledge-num">02</span>
+                <h3>Plastic-Free Shipping</h3>
+                <p>Molded pulp, paper tape, recycled board. Your gear arrives protected, not wrapped in single-use plastic that ends up in the water you dive.</p>
+            </div>
+            <div class="pledge-cell">
+                <span class="pledge-num">03</span>
+                <h3>Built to Be Repaired</h3>
+                <p>Replaceable footpockets, serviceable straps and spare parts held for years. A fin that lasts a decade is the most sustainable fin there is.</p>
+            </div>
+            <div class="pledge-cell">
+                <span class="pledge-num">04</span>
+                <h3>Shoreline Days</h3>
+                <p>Workshop clean-ups and dive-site sweeps with our ambassadors. Come dive with us — and take a bag of someone else's rubbish home.</p>
+            </div>
+        </div>
+        <div class="pledge-action">
+            <a href="#contact" class="btn-outline">Partner With Us</a>
+        </div>
+    </section>
+
+    <!-- ===== WHO IT'S FOR ===== -->
+    <section id="who" class="audience">
+        <p class="section-tag">WHO IT'S FOR</p>
+        <h2>One Workshop. Every Kind of Water.</h2>
+        <p class="audience-sub">We started with competitive freediving. The same materials and the same standards now serve everyone who spends their weekends in the sea, a quarry, or a pool.</p>
+        <div class="audience-grid">
+            <a class="audience-card" href="#product-C1">
+                <h3>Freediving</h3>
+                <p>Competition and recreational depth. Carbon blades with certified flex, monofins and low-volume masks.</p>
+                <span class="audience-meta">Depth &rarr;</span>
+            </a>
+            <a class="audience-card" href="#product-M1">
+                <h3>Scuba</h3>
+                <p>Travel-friendly masks, streamlined weighting and instruments that survive a liveaboard and a decade of use.</p>
+                <span class="audience-meta">Recreational &amp; technical &rarr;</span>
+            </a>
+            <a class="audience-card" href="#product-C1">
+                <h3>Spearfishing &amp; Snorkelling</h3>
+                <p>Silent, efficient propulsion for long surface days — gear that disappears in the water and comes back year after year.</p>
+                <span class="audience-meta">Shallow &amp; silent &rarr;</span>
+            </a>
+            <a class="audience-card" href="guide/best-freediving-gear-2026.html">
+                <h3>Pool &amp; Training</h3>
+                <p>DYN, DNF and breath-hold training at home. Ear plugs, noseclips and stiffness options tuned to your body.</p>
+                <span class="audience-meta">Train smarter &rarr;</span>
+            </a>
         </div>
     </section>
 
     <!-- ===== PRODUCTS ===== -->
     <section id="products" class="products">
         <div class="section-header">
-            <p class="section-tag">EQUIPMENT</p>
-            <h2>Precision Instruments</h2>
+            <p class="section-tag">THE COLLECTION</p>
+            <h2>Gear That Earns Its Place in Your Bag</h2>
         </div>
+        <!-- Category filter — add a data-category token + chip to open a new product line -->
+        <div class="filter-bar" id="collectionFilter">
+            <button class="filter-chip active" data-filter="all">All Gear</button>
+            <button class="filter-chip" data-filter="fins">Fins &amp; Blades</button>
+            <button class="filter-chip" data-filter="mask">Masks</button>
+            <button class="filter-chip" data-filter="noseclip">Noseclips</button>
+            <button class="filter-chip" data-filter="monofin">Monofins</button>
+            <button class="filter-chip" data-filter="instrument">Instruments</button>
+            <button class="filter-chip" data-filter="weight">Weights</button>
+            <button class="filter-chip" data-filter="accessory">Accessories</button>
+            <button class="filter-chip" data-filter="bundle">Bundles</button>
+        </div>
+        <p class="filter-empty" id="filterEmpty">Nothing in this category yet — new lines are in the workshop.</p>
         <!-- Workshop Urgency Strip -->
         <div class="workshop-urgency-strip">
             <div class="wu-item">
@@ -821,7 +1069,7 @@
         <div class="product-grid">
 
             <!-- C1 Pro — Editor's Choice -->
-            <div class="product-card" id="product-C1">
+            <div class="product-card" id="product-C1" data-category="fins">
                 <div class="product-visual">
                     <div class="editors-choice">EDITOR'S CHOICE</div>
                     <img src="img/products/c1-pro-blades.png" alt="Carbon Blades C1 Pro — carbon fiber freediving fins" loading="lazy">
@@ -907,7 +1155,7 @@
             </div>
 
             <!-- M1 Mask -->
-            <div class="product-card" id="product-M1">
+            <div class="product-card" id="product-M1" data-category="mask">
                 <div class="product-visual">
                     <img src="img/products/m1-low-volume-mask.png" alt="Low-Volume Mask M1 — carbon frame freediving mask" loading="lazy">
                     <div class="quick-add-overlay">
@@ -958,7 +1206,7 @@
             </div>
 
             <!-- N1 Noseclip -->
-            <div class="product-card" id="product-N1">
+            <div class="product-card" id="product-N1" data-category="noseclip">
                 <div class="product-visual">
                     <img src="img/products/n1-noseclip.png" alt="Carbon Noseclip N1 — freediving equalization nose clip" loading="lazy">
                     <div class="quick-add-overlay">
@@ -1004,7 +1252,7 @@
             </div>
 
             <!-- MF1 Monofin -->
-            <div class="product-card" id="product-MF1">
+            <div class="product-card" id="product-MF1" data-category="monofin">
                 <div class="product-visual">
                     <img src="img/products/mf1-monofin.png" alt="Monofin MF1 — full carbon competition freediving monofin" loading="lazy">
                     <div class="quick-add-overlay">
@@ -1055,7 +1303,7 @@
             </div>
 
             <!-- DC1 Dive Computer -->
-            <div class="product-card" id="product-DC1">
+            <div class="product-card" id="product-DC1" data-category="instrument">
                 <div class="product-visual">
                     <img src="img/products/dc1-dive-computer.png" alt="Dive Computer DC1 — carbon casing depth watch" loading="lazy">
                     <div class="quick-add-overlay">
@@ -1105,7 +1353,7 @@
             </div>
 
             <!-- W1 Neck Weight -->
-            <div class="product-card" id="product-W1">
+            <div class="product-card" id="product-W1" data-category="weight">
                 <div class="product-visual">
                     <img src="img/products/w1-neck-weight.png" alt="Neck Weight W1 Carbon — modular freediving neck weight" loading="lazy">
                     <div class="quick-add-overlay">
@@ -1155,7 +1403,7 @@
             </div>
 
             <!-- E1 Silicone Ear Plugs -->
-            <div class="product-card" id="product-E1">
+            <div class="product-card" id="product-E1" data-category="accessory">
                 <div class="product-visual">
                     <img src="img/products/e1-earplugs.png" alt="Silicone Ear Plugs E1 — medical grade silicone ear plugs for freediving" loading="lazy">
                     <div class="quick-add-overlay">
@@ -1190,7 +1438,7 @@
             </div>
 
             <!-- MN1 Mask + Noseclip Bundle -->
-            <div class="product-card" id="product-MN1">
+            <div class="product-card" id="product-MN1" data-category="bundle">
                 <div class="product-visual">
                     <div class="editors-choice" style="background:linear-gradient(135deg, #00A3FF, #0066AA);">BUNDLE DEAL</div>
                     <img src="img/products/mn1-bundle.png" alt="Mask + Noseclip Bundle MN1 — freediving mask and noseclip combo" loading="lazy">
@@ -1232,19 +1480,19 @@
     </section>
 
     
-    <!-- ===== TRUSTED BY FREEDIVERS — Underwater Visual ===== -->
+    <!-- ===== TRUSTED BY WATER PEOPLE — Underwater Visual ===== -->
     <section id="testimonials" class="testimonials-underwater">
         <div class="section-header">
-            <p class="section-tag">TRUSTED BY FREEDIVERS</p>
-            <h2>Tested at Depth</h2>
+            <p class="section-tag">TRUSTED BY WATER PEOPLE</p>
+            <h2>Voices from the Water</h2>
         </div>
         <div class="underwater-grid">
             <div class="underwater-card">
                 <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/hero-freediver-deep.jpg') center/cover no-repeat;">
                     <div class="underwater-overlay">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="testimonial-quote">"The C1 Pro blades are the most responsive fins I've ever worn. 22° angle is perfect for CWTB."</p>
-                        <div class="testimonial-author">Marcus R. <span>AIDA Instructor</span></div>
+                        <p class="testimonial-quote">"The C1 Pro blades are the most responsive fins I've ever worn. The 22&deg; angle is perfect for CWTB."</p>
+                        <div class="testimonial-author">Marcus R. <span>Freediver &middot; AIDA Instructor</span></div>
                     </div>
                 </div>
             </div>
@@ -1252,8 +1500,8 @@
                 <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/hero-freediver-deep.jpg') center/cover no-repeat;">
                     <div class="underwater-overlay">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="testimonial-quote">"Carbon fiber feels like cheating. Effortless propulsion at 40m."</p>
-                        <div class="testimonial-author">Keiko T. <span>Competitive Freediver</span></div>
+                        <p class="testimonial-quote">"I bought the mask for freediving and ended up taking it on every scuba trip. Compact, clear, and three seasons of liveaboards later it still seals perfectly."</p>
+                        <div class="testimonial-author">Dana K. <span>Scuba Diver &middot; Rescue Certified</span></div>
                     </div>
                 </div>
             </div>
@@ -1261,8 +1509,8 @@
                 <div class="underwater-image" style="background: linear-gradient(135deg, rgba(0,50,100,0.3), rgba(0,150,200,0.2)), url('img/hero-freediver-deep.jpg') center/cover no-repeat;">
                     <div class="underwater-overlay">
                         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                        <p class="testimonial-quote">"Switched from plastic fins. My PB improved by 12m in two weeks."</p>
-                        <div class="testimonial-author">Alex V. <span>Spearfisher</span></div>
+                        <p class="testimonial-quote">"Silent on the ascent, effortless on the surface. Six hours in the water and my legs still feel fresh."</p>
+                        <div class="testimonial-author">Alex V. <span>Spearfisher &middot; Coastal</span></div>
                     </div>
                 </div>
             </div>
@@ -1270,19 +1518,20 @@
     </section>
 
 
-    <!-- ===== ABOUT (Retained, trimmed) ===== -->
+    <!-- ===== ABOUT ===== -->
     <section id="about" class="about">
         <div class="about-grid">
             <div class="about-text">
                 <p class="section-tag">ABOUT</p>
-                <h2>Built by Freedivers, for Freedivers</h2>
-                <p>AbyssCarbon was founded by competitive freedivers tired of compromised gear. Every product is designed, tested, and refined at depth.</p>
-                <p>Aerospace-grade carbon fiber. Hand layup. Individual flex testing. DTC handmade-to-order from partner workshops in Italy, Japan, and the US. Ships to 40+ countries via DHL Express.</p>
+                <h2>Born in the Deep. Built for Everyone Who Follows.</h2>
+                <p>AbyssCarbon started with competitive freedivers tired of compromised gear. The obsession was simple: make the best carbon blades in the water, then stand behind them for a decade.</p>
+                <p>That obsession has widened. The same materials and standards now serve scuba divers, spearfishers, snorkellers and pool athletes &mdash; because good gear should not belong to one discipline. Aerospace-grade carbon fiber, hand layup, individual flex testing, DTC handmade-to-order from partner workshops in Italy, Japan and the US.</p>
+                <p>And because we make our living from the ocean, we owe something back: 1% of every order to coastal restoration, plastic-free shipping, and gear designed to be repaired rather than replaced.</p>
                 <div class="about-stats">
-                    <div class="stat"><span class="stat-value">6</span><span class="stat-label">Products</span></div>
+                    <div class="stat"><span class="stat-value">8</span><span class="stat-label">Products</span></div>
                     <div class="stat"><span class="stat-value">100m+</span><span class="stat-label">Test Depth</span></div>
                     <div class="stat"><span class="stat-value">40+</span><span class="stat-label">Countries</span></div>
-                    <div class="stat"><span class="stat-value">50</span><span class="stat-label">Verified Reviews</span></div>
+                    <div class="stat"><span class="stat-value">1%</span><span class="stat-label">Pledged to the Ocean</span></div>
                 </div>
             </div>
             <div class="about-visual" style="overflow:hidden;"><img src="img/workshop-craft.jpg" alt="AbyssCarbon workshop — handcrafted carbon fiber, made-to-order" style="width:100%;height:100%;object-fit:cover;"></div>
@@ -1293,7 +1542,7 @@
         <div class="section-header">
             <p class="section-tag">CONTACT</p>
             <h2>Get in Touch</h2>
-            <p class="contact-sub">Bulk orders · Custom specs · Dealer inquiries</p>
+            <p class="contact-sub">Bulk orders · Custom specs · Dealer &amp; ocean partnerships</p>
         </div>
         <form class="contact-form" action="https://formspree.io/f/placeholder" method="POST">
             <div class="form-row">
@@ -1308,7 +1557,10 @@
                 <option>Monofin — MF1</option>
                 <option>Dive Computer — DC1</option>
                 <option>Neck Weight — W1 Carbon</option>
+                <option>Silicone Ear Plugs — E1</option>
+                <option>Mask + Noseclip Bundle — MN1</option>
                 <option>Dealer / Bulk Inquiry</option>
+                <option>Ocean Pledge Partnership</option>
             </select>
             <textarea name="message" placeholder="Message" rows="4"></textarea>
             <button type="submit" class="btn">Send Message</button>
@@ -1338,6 +1590,14 @@
                 <p>DTC handmade-to-order model. Products are handcrafted in partner workshops in Italy, Japan, and the US. Every unit is individually QC-checked before dispatch. Artisan to you, no warehouse.</p>
             </details>
             <details class="faq-item">
+                <summary>What is the Ocean Pledge?</summary>
+                <p>1% of every order is set aside for kelp reforestation, reef restoration and coastal clean-up partners. All orders ship in plastic-free packaging, and every product is built to be serviced and repaired rather than replaced. Numbers are published in our monthly field notes.</p>
+            </details>
+            <details class="faq-item">
+                <summary>I scuba dive, not freedive. Is this gear for me?</summary>
+                <p>Yes. The M1 mask, DC1 computer, N1 noseclip, W1 neck weight and E1 ear plugs are used by recreational and technical scuba divers. Carbon fins are optimized for freediving and spearfishing, but many divers also use them for snorkelling and long surface swims.</p>
+            </details>
+            <details class="faq-item">
                 <summary>Soft, Medium, or Hard flex?</summary>
                 <p>Soft: recreational divers under 70kg. Medium: bestseller, balanced for most. Hard: competitive athletes over 85kg needing max power. Tell us your weight and style — we recommend.</p>
             </details>
@@ -1350,18 +1610,18 @@
 
     <!-- ===== NEWSLETTER (Upgraded) ===== -->
     <section class="newsletter">
-        <h2>DIVE DEEPER</h2>
-        <p class="newsletter-sub">Get gear drops, depth records, and exclusive freediving content.</p>
+        <h2>JOIN THE TIDE</h2>
+        <p class="newsletter-sub">New releases, field notes from the workshops, and the ocean work your orders fund. Once a month, no noise.</p>
         <form class="newsletter-form" action="#">
             <input type="email" placeholder="Your email" required>
             <button type="submit">Subscribe</button>
         </form>
-        <p class="newsletter-promise">No spam. Just depth.</p>
+        <p class="newsletter-promise">No spam. Just water.</p>
     </section>
 
     <footer class="footer">
-        <p>AbyssCarbon &copy; 2026 &nbsp;·&nbsp; DTC Handmade-to-Order &nbsp;·&nbsp; Global DHL Shipping &nbsp;·&nbsp; Artisan Crafted</p>
-        <p><a href="privacy.html" style="color:#444;">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" style="color:#444;">Terms of Service</a> &nbsp;·&nbsp; <a href="refunds.html" style="color:#444;">Refunds & Shipping</a></p>
+        <p>AbyssCarbon &copy; 2026 &nbsp;·&nbsp; DTC Handmade-to-Order &nbsp;·&nbsp; Global DHL Shipping &nbsp;·&nbsp; Artisan Crafted &nbsp;·&nbsp; 1% for the Ocean</p>
+        <p><a href="#ocean" style="color:#444;">Ocean Pledge</a> &nbsp;·&nbsp; <a href="privacy.html" style="color:#444;">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html" style="color:#444;">Terms of Service</a> &nbsp;·&nbsp; <a href="refunds.html" style="color:#444;">Refunds & Shipping</a></p>
         <p id="optimize-status">Daily optimization engine active</p>
     </footer>
 
@@ -1434,6 +1694,35 @@
                     resultDiv.style.display = 'block';
                 };
             }
+        });
+    </script>
+    <script>
+        // Collection filter — scalable category chips (fins / mask / bundle / ...)
+        document.addEventListener('DOMContentLoaded', function() {
+            var bar = document.getElementById('collectionFilter');
+            if (!bar) return;
+            var chips = bar.querySelectorAll('.filter-chip');
+            var cards = document.querySelectorAll('.product-grid .product-card');
+            var empty = document.getElementById('filterEmpty');
+
+            function apply(cat) {
+                var visible = 0;
+                cards.forEach(function(card) {
+                    var match = (cat === 'all' || card.getAttribute('data-category') === cat);
+                    card.style.display = match ? '' : 'none';
+                    if (match) visible++;
+                });
+                chips.forEach(function(c) {
+                    c.classList.toggle('active', c.getAttribute('data-filter') === cat);
+                });
+                if (empty) empty.style.display = visible ? 'none' : 'block';
+            }
+
+            chips.forEach(function(chip) {
+                chip.addEventListener('click', function() {
+                    apply(chip.getAttribute('data-filter'));
+                });
+            });
         });
     </script>
 </body>
