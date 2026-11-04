@@ -56,6 +56,15 @@ DAILY_TARGET = ANNUAL_TARGET / 365
 LEGAL_PAGES = {"privacy.html", "terms.html", "refunds.html"}
 
 
+def daily_rng():
+    """Deterministic RNG per calendar day.
+
+    Makes the engine idempotent: running it twice on 2026-11-04 must report the
+    same simulated revenue / conversion numbers, otherwise the KPI trend is noise.
+    """
+    return random.Random(datetime.now().strftime("%Y-%m-%d"))
+
+
 def all_pages():
     """Every html page in the site, as resolved absolute paths (deduplicated)."""
     pages = {INDEX_PATH.resolve()}
@@ -171,13 +180,14 @@ MIN_CHANGE = 2.0     # ignore noise below 2%
 
 def competitor_pricing():
     """Competitor price simulation with anti-erosion guardrails."""
+    rng = daily_rng()
     adjustments = []
     for p in PRODUCTS:
-        competitor_low = round(p["price"] * (1 - random.uniform(0.10, 0.18)), 2)
-        competitor_high = round(p["price"] * (1 + random.uniform(0.02, 0.08)), 2)
+        competitor_low = round(p["price"] * (1 - rng.uniform(0.10, 0.18)), 2)
+        competitor_high = round(p["price"] * (1 + rng.uniform(0.02, 0.08)), 2)
         midpoint = round((competitor_low + competitor_high) / 2, 2)
 
-        proposed = round(p["price"] * (1 + random.uniform(-0.04, 0.02)), 2)
+        proposed = round(p["price"] * (1 + rng.uniform(-0.04, 0.02)), 2)
         # if we already sit above the market midpoint, never cut below it
         if p["price"] >= midpoint:
             proposed = max(proposed, midpoint)
@@ -209,6 +219,7 @@ def competitor_pricing():
 
 def revenue_tracker():
     """Track projected revenue toward $100K with pace analysis."""
+    rng = daily_rng()
     now = datetime.now()
     day_of_year = now.timetuple().tm_yday
     days_in_year = 366 if now.year % 4 == 0 else 365
@@ -217,7 +228,7 @@ def revenue_tracker():
     pace = day_of_year / days_in_year
 
     # Simulated actual (80-120% of projected, realistic variance)
-    actual_factor = 0.95 + random.uniform(-0.1, 0.15)
+    actual_factor = 0.95 + rng.uniform(-0.1, 0.15)
     simulated_actual = round(projected_ytd * actual_factor, 2)
 
     gap = round(ANNUAL_TARGET - simulated_actual, 2)
@@ -246,11 +257,12 @@ def revenue_tracker():
 
 def conversion_analysis():
     """Analyze conversion funnel health."""
-    visitors_est = random.randint(80, 250)  # daily estimated visitors
-    views_est = int(visitors_est * random.uniform(2.5, 4.5))  # pages per visit
-    cart_adds = int(visitors_est * random.uniform(0.03, 0.08))
-    checkouts = int(cart_adds * random.uniform(0.3, 0.6))
-    conversions = int(checkouts * random.uniform(0.5, 0.85))
+    rng = daily_rng()
+    visitors_est = rng.randint(80, 250)  # daily estimated visitors
+    views_est = int(visitors_est * rng.uniform(2.5, 4.5))  # pages per visit
+    cart_adds = int(visitors_est * rng.uniform(0.03, 0.08))
+    checkouts = int(cart_adds * rng.uniform(0.3, 0.6))
+    conversions = int(checkouts * rng.uniform(0.5, 0.85))
     avg_order = sum(p["price"] for p in PRODUCTS) / len(PRODUCTS)
 
     return {
