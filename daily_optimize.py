@@ -275,44 +275,10 @@ def content_freshness():
             action = "fresh"
         checks.append({"file": rel, "age_days": age_days, "action": action})
 
-    # Refresh the single oldest content page (deterministic, not random)
-    touched = None
-    if stale:
-        target = max(stale, key=lambda p: (now - datetime.fromtimestamp(p.stat().st_mtime)).days)
-        content = target.read_text(encoding="utf-8")
-        today_str = now.strftime("%Y-%m-%d")
-
-        if '<meta name="last-modified"' in content:
-            content = re.sub(
-                r'<meta name="last-modified" content="[^"]*"',
-                f'<meta name="last-modified" content="{today_str}"',
-                content,
-            )
-        elif "<!-- lastmod:" in content:
-            content = re.sub(
-                r"<!-- lastmod: [^>]* -->",
-                f"<!-- lastmod: {today_str} -->",
-                content,
-            )
-        elif "<!-- freshness:" in content:
-            content = re.sub(
-                r"<!-- freshness: [^>]* -->",
-                f"<!-- freshness: {today_str} -->",
-                content,
-                count=1,
-            )
-        else:
-            content = re.sub(
-                r"(</head>)",
-                f"<!-- freshness: {today_str} -->\n\\1",
-                content,
-                count=1,
-            )
-
-        target.write_text(content, encoding="utf-8")
-        touched = target.relative_to(base).as_posix()
-
-    return checks, touched
+    # Auto-touch removed in v3.2.1: rewriting a page with a bare timestamp
+    # comment is cosmetic, pollutes git history with no-op commits and hides
+    # real staleness. Freshness is reported only; content is refreshed by hand.
+    return checks, None
 
 
 def legal_compliance():
@@ -442,8 +408,12 @@ def git_sync():
 
 def generate_report():
     """Generate full daily optimization report."""
-    today = datetime.now().strftime("%Y%m%d_%H%M")
-    report_path = REPORT_DIR / f"opt_{today}.json"
+    stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    report_path = REPORT_DIR / f"opt_{stamp}.json"
+    seq = 2
+    while report_path.exists():
+        report_path = REPORT_DIR / f"opt_{stamp}_{seq}.json"
+        seq += 1
 
     validation = validate_site()
     seo = seo_audit()

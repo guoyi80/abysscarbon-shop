@@ -1,7 +1,7 @@
 {
   "site": "AbyssCarbon",
   "engine_version": "3.2",
-  "generated_at": "2026-11-04T09:04:43.061758",
+  "generated_at": "2026-11-04T09:04:58.999653",
   "site_validation": [
     {
       "file": "blog/carbon-vs-fiberglass-vs-plastic-fins.html",
@@ -12,8 +12,8 @@
     {
       "file": "blog/freediving-mistakes-beginners-make.html",
       "status": "OK",
-      "size_bytes": 22202,
-      "sha256": "c9c2ca4f1dc91b6d"
+      "size_bytes": 22234,
+      "sha256": "90e9303b819cc271"
     },
     {
       "file": "blog/freediving-training-equipment-guide.html",
@@ -54,8 +54,8 @@
     {
       "file": "index.html",
       "status": "OK",
-      "size_bytes": 68092,
-      "sha256": "74df07fb434aee79"
+      "size_bytes": 66651,
+      "sha256": "ba7f33cb3f4c2543"
     },
     {
       "file": "privacy.html",
@@ -128,121 +128,114 @@
     "issues": []
   },
   "catalog_sync": {
-    "in_sync": false,
+    "in_sync": true,
     "storefront_items_found": 8,
-    "drift": [
-      {
-        "product": "Low-Volume Mask — M1",
-        "catalog": 337.0,
-        "storefront": 331.45,
-        "issue": "price_mismatch"
-      }
-    ]
+    "drift": []
   },
   "pricing_analysis": [
     {
       "product": "Carbon Blades — C1 Pro",
       "current_price": 850.26,
       "competitor_range": [
-        729.59,
-        889.24
+        717.45,
+        876.11
       ],
-      "competitor_midpoint": 809.41,
-      "recommended_price": 815.73,
-      "change_pct": -4.06,
-      "projected_margin": 0.2704,
-      "action": "consider_discount"
+      "competitor_midpoint": 796.78,
+      "recommended_price": 846.81,
+      "change_pct": -0.41,
+      "projected_margin": 0.2971,
+      "action": "maintain"
     },
     {
       "product": "Low-Volume Mask — M1",
-      "current_price": 337.0,
+      "current_price": 331.45,
       "competitor_range": [
-        299.64,
-        356.33
+        271.86,
+        343.15
       ],
-      "competitor_midpoint": 327.99,
-      "recommended_price": 341.04,
-      "change_pct": 1.2,
-      "projected_margin": 0.3083,
+      "competitor_midpoint": 307.5,
+      "recommended_price": 336.91,
+      "change_pct": 1.65,
+      "projected_margin": 0.3113,
       "action": "maintain"
     },
     {
       "product": "Carbon Noseclip — N1",
       "current_price": 159.75,
       "competitor_range": [
-        137.29,
-        167.47
+        138.1,
+        165.82
       ],
-      "competitor_midpoint": 152.38,
-      "recommended_price": 160.08,
-      "change_pct": 0.21,
-      "projected_margin": 0.3014,
+      "competitor_midpoint": 151.96,
+      "recommended_price": 156.9,
+      "change_pct": -1.78,
+      "projected_margin": 0.2873,
       "action": "maintain"
     },
     {
       "product": "Monofin — MF1",
       "current_price": 1451.34,
       "competitor_range": [
-        1279.4,
-        1566.66
+        1306.12,
+        1522.46
       ],
-      "competitor_midpoint": 1423.03,
-      "recommended_price": 1393.37,
-      "change_pct": -3.99,
-      "projected_margin": 0.2709,
+      "competitor_midpoint": 1414.29,
+      "recommended_price": 1412.48,
+      "change_pct": -2.68,
+      "projected_margin": 0.2807,
       "action": "consider_discount"
     },
     {
       "product": "Dive Computer — DC1",
       "current_price": 593.42,
       "competitor_range": [
-        531.78,
-        610.75
+        494.55,
+        619.67
       ],
-      "competitor_midpoint": 571.26,
-      "recommended_price": 570.83,
-      "change_pct": -3.81,
-      "projected_margin": 0.2723,
+      "competitor_midpoint": 557.11,
+      "recommended_price": 580.32,
+      "change_pct": -2.21,
+      "projected_margin": 0.2842,
       "action": "consider_discount"
     },
     {
       "product": "Neck Weight — W1 Carbon",
       "current_price": 266.21,
       "competitor_range": [
-        229.16,
-        283.43
+        225.39,
+        273.45
       ],
-      "competitor_midpoint": 256.3,
-      "recommended_price": 271.06,
-      "change_pct": 1.82,
-      "projected_margin": 0.3125,
-      "action": "maintain"
+      "competitor_midpoint": 249.42,
+      "recommended_price": 253.03,
+      "change_pct": -4.95,
+      "projected_margin": 0.2635,
+      "action": "consider_discount"
     },
     {
       "product": "Silicone Ear Plugs — E1",
       "current_price": 24.99,
       "competitor_range": [
-        22.46,
-        26.06
+        21.5,
+        26.23
       ],
-      "competitor_midpoint": 24.26,
-      "recommended_price": 23.96,
-      "change_pct": -4.12,
-      "projected_margin": 0.2699,
-      "action": "consider_discount"
+      "competitor_midpoint": 23.87,
+      "recommended_price": 24.8,
+      "change_pct": -0.76,
+      "projected_margin": 0.2946,
+      "action": "maintain"
     },
     {
       "product": "Mask + Noseclip Bundle — MN1",
       "current_price": 495.0,
       "competitor_range": [
-        421.2,
-        518.87
+        432.44,
+        505.87
       ],
-      "competitor_midpoint": 470.03,
-      "recommended_price": 498.21,
-      "change_pct": 0.65,
-      "projected_margin": 0.3045,
-      "action": "maintain"
+      "competitor_midpoint": 469.15,
+      "recommended_price": 472.85,
+      "change_pct": -4.47,
+      "projected_margin": 0.2672,
+      "action": "consider_discount"
     }
   ],
   "revenue_tracking": {
@@ -251,27 +244,27 @@
     "days_remaining": 57,
     "annual_target": 100000,
     "projected_ytd": 84383.56,
-    "simulated_actual": 92226.71,
-    "remaining_needed": 7773.29,
-    "gap_vs_projection": 7843.15,
-    "required_daily_revenue_remaining": 136.37,
-    "on_track": true,
+    "simulated_actual": 74522.3,
+    "remaining_needed": 25477.7,
+    "gap_vs_projection": -9861.26,
+    "required_daily_revenue_remaining": 446.98,
+    "on_track": false,
     "pace_pct": 84.4,
-    "avg_order_value": 522.25,
-    "estimated_orders_ytd": 176,
+    "avg_order_value": 521.55,
+    "estimated_orders_ytd": 142,
     "daily_target": 273.97
   },
   "conversion_funnel": {
-    "estimated_daily_visitors": 95,
-    "page_views": 270,
-    "cart_additions": 5,
-    "cart_rate": 5.26,
+    "estimated_daily_visitors": 123,
+    "page_views": 377,
+    "cart_additions": 6,
+    "cart_rate": 4.88,
     "checkouts_started": 2,
-    "checkout_rate": 40.0,
+    "checkout_rate": 33.33,
     "estimated_conversions": 1,
-    "conversion_rate": 1.05,
-    "daily_revenue_est": 522.25,
-    "revenue_per_visitor": 5.5
+    "conversion_rate": 0.81,
+    "daily_revenue_est": 521.55,
+    "revenue_per_visitor": 4.24
   },
   "content_freshness": [
     {
@@ -281,8 +274,8 @@
     },
     {
       "file": "blog/freediving-mistakes-beginners-make.html",
-      "age_days": 148,
-      "action": "needs_update"
+      "age_days": 0,
+      "action": "fresh"
     },
     {
       "file": "blog/freediving-training-equipment-guide.html",
@@ -335,7 +328,7 @@
       "action": "needs_update"
     }
   ],
-  "content_touched": "blog/freediving-mistakes-beginners-make.html",
+  "content_touched": "blog/freediving-training-equipment-guide.html",
   "legal_compliance": {
     "privacy_linked": true,
     "terms_linked": true,
@@ -369,9 +362,10 @@
   "git_sync": {
     "staged": [
       "__pycache__/daily_optimize.cpython-311.pyc",
-      "blog/freediving-mistakes-beginners-make.html",
+      "blog/freediving-training-equipment-guide.html",
       "daily_optimize.py",
       "index.html",
+      "reports/opt_20261104_0904.json",
       "sitemap.xml"
     ],
     "committed": true,
@@ -379,12 +373,10 @@
     "error": null
   },
   "actions_required": [
-    "CATALOG DRIFT Low-Volume Mask — M1: catalog=337.0 storefront=331.45 (price_mismatch)",
-    "PRICE Carbon Blades — C1 Pro: $850.26 → $815.73 (-4.06%, consider_discount)",
-    "PRICE Monofin — MF1: $1451.34 → $1393.37 (-3.99%, consider_discount)",
-    "PRICE Dive Computer — DC1: $593.42 → $570.83 (-3.81%, consider_discount)",
-    "PRICE Silicone Ear Plugs — E1: $24.99 → $23.96 (-4.12%, consider_discount)",
-    "CONTENT blog/freediving-mistakes-beginners-make.html: 148d old — needs_update",
+    "PRICE Monofin — MF1: $1451.34 → $1412.48 (-2.68%, consider_discount)",
+    "PRICE Dive Computer — DC1: $593.42 → $580.32 (-2.21%, consider_discount)",
+    "PRICE Neck Weight — W1 Carbon: $266.21 → $253.03 (-4.95%, consider_discount)",
+    "PRICE Mask + Noseclip Bundle — MN1: $495.0 → $472.85 (-4.47%, consider_discount)",
     "CONTENT blog/freediving-training-equipment-guide.html: 148d old — needs_update",
     "CONTENT blog/monofin-vs-bifins-freediving.html: 148d old — needs_update",
     "CONTENT compare/freediving-fins-comparison-2026.html: 148d old — needs_update",
@@ -392,8 +384,9 @@
     "CONTENT privacy.html: 149d old — needs_update",
     "CONTENT refunds.html: 149d old — needs_update",
     "CONTENT terms.html: 149d old — needs_update",
-    "CONTENT auto-refreshed: blog/freediving-mistakes-beginners-make.html",
-    "GIT staged 5 files, committed=True, pushed=True"
+    "CONTENT auto-refreshed: blog/freediving-training-equipment-guide.html",
+    "REVENUE gap $25,477.70 — need $446.98/day for 57 remaining days",
+    "GIT staged 6 files, committed=True, pushed=True"
   ],
   "summary": {
     "annual_target": 100000,
@@ -402,9 +395,9 @@
     "products_tracked": 8,
     "pages_tracked": 16,
     "seo_score": "11/11",
-    "catalog_in_sync": false,
-    "on_track": true,
-    "actions_count": 15,
+    "catalog_in_sync": true,
+    "on_track": false,
+    "actions_count": 14,
     "ping_status": "deprecated",
     "git_pushed": true
   }
