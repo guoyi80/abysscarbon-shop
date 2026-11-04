@@ -1,0 +1,441 @@
+{
+  "site": "AbyssCarbon",
+  "engine_version": "3.2",
+  "generated_at": "2026-11-04T09:06:06.967686",
+  "site_validation": [
+    {
+      "file": "blog/carbon-vs-fiberglass-vs-plastic-fins.html",
+      "status": "OK",
+      "size_bytes": 20749,
+      "sha256": "a7bddf63c5980d59"
+    },
+    {
+      "file": "blog/freediving-mistakes-beginners-make.html",
+      "status": "OK",
+      "size_bytes": 22234,
+      "sha256": "90e9303b819cc271"
+    },
+    {
+      "file": "blog/freediving-training-equipment-guide.html",
+      "status": "OK",
+      "size_bytes": 32538,
+      "sha256": "927c3ae9d84624c9"
+    },
+    {
+      "file": "blog/index.html",
+      "status": "OK",
+      "size_bytes": 11723,
+      "sha256": "5363f5387eee957c"
+    },
+    {
+      "file": "blog/monofin-vs-bifins-freediving.html",
+      "status": "OK",
+      "size_bytes": 38334,
+      "sha256": "80d9070b3cb58dc4"
+    },
+    {
+      "file": "compare/freediving-fins-comparison-2026.html",
+      "status": "OK",
+      "size_bytes": 23489,
+      "sha256": "1355952be92ba6df"
+    },
+    {
+      "file": "guide/best-freediving-gear-2026.html",
+      "status": "OK",
+      "size_bytes": 15826,
+      "sha256": "c0e7854f54ef387a"
+    },
+    {
+      "file": "guide/carbon-fiber-freediving.html",
+      "status": "OK",
+      "size_bytes": 12588,
+      "sha256": "06ba1614c23e98f8"
+    },
+    {
+      "file": "index.html",
+      "status": "OK",
+      "size_bytes": 66651,
+      "sha256": "ba7f33cb3f4c2543"
+    },
+    {
+      "file": "privacy.html",
+      "status": "OK",
+      "size_bytes": 2815,
+      "sha256": "4a11d5dc3b544f84"
+    },
+    {
+      "file": "refunds.html",
+      "status": "OK",
+      "size_bytes": 3644,
+      "sha256": "cc8d1524ba98db2a"
+    },
+    {
+      "file": "terms.html",
+      "status": "OK",
+      "size_bytes": 2843,
+      "sha256": "2783bbc38771480c"
+    },
+    {
+      "file": "robots.txt",
+      "status": "OK",
+      "size_bytes": 460,
+      "sha256": "149c5ec156c033b1"
+    },
+    {
+      "file": "css/style.css",
+      "status": "OK",
+      "size_bytes": 26196,
+      "sha256": "27b449285fe61b68"
+    },
+    {
+      "file": "js/main.js",
+      "status": "OK",
+      "size_bytes": 4718,
+      "sha256": "1a9edb06c527b730"
+    },
+    {
+      "file": "CNAME",
+      "status": "OK",
+      "size_bytes": 15,
+      "sha256": "97c3b3077fe58385"
+    }
+  ],
+  "all_files_valid": true,
+  "seo_audit": {
+    "checks": {
+      "title_length_10_60": true,
+      "meta_description_50_160": true,
+      "meta_keywords": true,
+      "canonical_url": true,
+      "og_tags": true,
+      "twitter_card": true,
+      "schema_org": true,
+      "h1_exactly_one": true,
+      "h2_present": true,
+      "img_alt_complete": true,
+      "robots_meta": true
+    },
+    "metrics": {
+      "title_length": 54,
+      "meta_description_length": 132,
+      "h1_count": 1,
+      "h2_count": 7,
+      "images": 10,
+      "images_with_alt": 10
+    },
+    "score": 11,
+    "max": 11,
+    "issues": []
+  },
+  "catalog_sync": {
+    "in_sync": true,
+    "storefront_items_found": 8,
+    "drift": []
+  },
+  "pricing_analysis": [
+    {
+      "product": "Carbon Blades — C1 Pro",
+      "current_price": 850.26,
+      "competitor_range": [
+        756.93,
+        913.07
+      ],
+      "competitor_midpoint": 835.0,
+      "reference_price": 851.35,
+      "reference_delta_pct": 0.13,
+      "data_quality": "simulated_reference",
+      "projected_margin": 0.3009,
+      "action": "reference_only"
+    },
+    {
+      "product": "Low-Volume Mask — M1",
+      "current_price": 331.45,
+      "competitor_range": [
+        289.46,
+        339.31
+      ],
+      "competitor_midpoint": 314.38,
+      "reference_price": 325.47,
+      "reference_delta_pct": -1.8,
+      "data_quality": "simulated_reference",
+      "projected_margin": 0.2871,
+      "action": "reference_only"
+    },
+    {
+      "product": "Carbon Noseclip — N1",
+      "current_price": 159.75,
+      "competitor_range": [
+        132.25,
+        169.02
+      ],
+      "competitor_midpoint": 150.63,
+      "reference_price": 157.47,
+      "reference_delta_pct": -1.43,
+      "data_quality": "simulated_reference",
+      "projected_margin": 0.2899,
+      "action": "reference_only"
+    },
+    {
+      "product": "Monofin — MF1",
+      "current_price": 1451.34,
+      "competitor_range": [
+        1292.07,
+        1538.78
+      ],
+      "competitor_midpoint": 1415.42,
+      "reference_price": 1382.0,
+      "reference_delta_pct": -4.78,
+      "data_quality": "simulated_reference",
+      "projected_margin": 0.2649,
+      "action": "reference_only"
+    },
+    {
+      "product": "Dive Computer — DC1",
+      "current_price": 593.42,
+      "competitor_range": [
+        528.8,
+        640.83
+      ],
+      "competitor_midpoint": 584.82,
+      "reference_price": 569.18,
+      "reference_delta_pct": -4.08,
+      "data_quality": "simulated_reference",
+      "projected_margin": 0.2702,
+      "action": "reference_only"
+    },
+    {
+      "product": "Neck Weight — W1 Carbon",
+      "current_price": 266.21,
+      "competitor_range": [
+        223.32,
+        277.42
+      ],
+      "competitor_midpoint": 250.37,
+      "reference_price": 258.51,
+      "reference_delta_pct": -2.89,
+      "data_quality": "simulated_reference",
+      "projected_margin": 0.2791,
+      "action": "reference_only"
+    },
+    {
+      "product": "Silicone Ear Plugs — E1",
+      "current_price": 24.99,
+      "competitor_range": [
+        22.02,
+        25.72
+      ],
+      "competitor_midpoint": 23.87,
+      "reference_price": 25.29,
+      "reference_delta_pct": 1.2,
+      "data_quality": "simulated_reference",
+      "projected_margin": 0.3083,
+      "action": "reference_only"
+    },
+    {
+      "product": "Mask + Noseclip Bundle — MN1",
+      "current_price": 495.0,
+      "competitor_range": [
+        418.96,
+        510.59
+      ],
+      "competitor_midpoint": 464.77,
+      "reference_price": 479.66,
+      "reference_delta_pct": -3.1,
+      "data_quality": "simulated_reference",
+      "projected_margin": 0.2776,
+      "action": "reference_only"
+    }
+  ],
+  "pricing_data_quality": "simulated_reference — no live competitor feed; do not change live prices from this report alone",
+  "revenue_tracking": {
+    "date": "2026-11-04",
+    "day_of_year": 308,
+    "days_remaining": 57,
+    "annual_target": 100000,
+    "projected_ytd": 84383.56,
+    "simulated_actual": 83196.98,
+    "remaining_needed": 16803.02,
+    "gap_vs_projection": -1186.58,
+    "required_daily_revenue_remaining": 294.79,
+    "on_track": false,
+    "pace_pct": 84.4,
+    "avg_order_value": 521.55,
+    "estimated_orders_ytd": 159,
+    "daily_target": 273.97
+  },
+  "conversion_funnel": {
+    "estimated_daily_visitors": 113,
+    "page_views": 457,
+    "cart_additions": 6,
+    "cart_rate": 5.31,
+    "checkouts_started": 2,
+    "checkout_rate": 33.33,
+    "estimated_conversions": 1,
+    "conversion_rate": 0.88,
+    "daily_revenue_est": 521.55,
+    "revenue_per_visitor": 4.62
+  },
+  "content_freshness": [
+    {
+      "file": "blog/carbon-vs-fiberglass-vs-plastic-fins.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "blog/freediving-mistakes-beginners-make.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "blog/freediving-training-equipment-guide.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "blog/index.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "blog/monofin-vs-bifins-freediving.html",
+      "age_days": 148,
+      "action": "needs_update"
+    },
+    {
+      "file": "compare/freediving-fins-comparison-2026.html",
+      "age_days": 148,
+      "action": "needs_update"
+    },
+    {
+      "file": "guide/best-freediving-gear-2026.html",
+      "age_days": 148,
+      "action": "needs_update"
+    },
+    {
+      "file": "guide/carbon-fiber-freediving.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "index.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "privacy.html",
+      "age_days": 149,
+      "action": "needs_update"
+    },
+    {
+      "file": "refunds.html",
+      "age_days": 149,
+      "action": "needs_update"
+    },
+    {
+      "file": "terms.html",
+      "age_days": 149,
+      "action": "needs_update"
+    }
+  ],
+  "content_touched": null,
+  "legal_compliance": {
+    "privacy_linked": true,
+    "terms_linked": true,
+    "refunds_linked": true,
+    "privacy_page_exists": true,
+    "terms_page_exists": true,
+    "refunds_page_exists": true,
+    "copyright_year": true,
+    "cookie_notice": true
+  },
+  "sitemap": {
+    "path": "C:\\Users\\Windows11\\AppData\\Roaming\\Tencent\\Marvis\\User\\oAN1i2euy8UQvAuKLfMH_70ovJ4I\\workspace\\conv_19ea22a3a23_91c9a58e2ab4\\output\\sitemap.xml",
+    "url_count": 12
+  },
+  "google_ping": {
+    "google": {
+      "ping_url": "https://www.google.com/ping?sitemap=https://abysscarbon.com/sitemap.xml",
+      "status": "deprecated",
+      "response": "Google Sitemaps ping deprecated (HTTP 404 since Jun 2023) — skipped. Use Search Console sitemap submission instead."
+    },
+    "bing": {
+      "ping_url": "https://www.bing.com/ping?sitemap=https://abysscarbon.com/sitemap.xml",
+      "status": "deprecated",
+      "response": "Bing sitemap ping deprecated (HTTP 410 Gone) — skipped. Use IndexNow (api.indexnow.org/indexnow) or Bing Webmaster Tools instead."
+    },
+    "status": "deprecated",
+    "ping_url": "https://www.bing.com/ping?sitemap=https://abysscarbon.com/sitemap.xml",
+    "response": "Bing sitemap ping deprecated (HTTP 410 Gone) — skipped. Use IndexNow (api.indexnow.org/indexnow) or Bing Webmaster Tools instead.",
+    "action_needed": "Submit sitemap once in Google Search Console + Bing Webmaster Tools; optionally enable IndexNow for instant indexing."
+  },
+  "git_sync": {
+    "staged": [
+      "__pycache__/daily_optimize.cpython-311.pyc",
+      "daily_optimize.py",
+      "reports/opt_20261104_090545.json"
+    ],
+    "committed": true,
+    "pushed": true,
+    "error": null
+  },
+  "actions_required": [
+    "CONTENT blog/monofin-vs-bifins-freediving.html: 148d old — needs_update",
+    "CONTENT compare/freediving-fins-comparison-2026.html: 148d old — needs_update",
+    "CONTENT guide/best-freediving-gear-2026.html: 148d old — needs_update",
+    "CONTENT privacy.html: 149d old — needs_update",
+    "CONTENT refunds.html: 149d old — needs_update",
+    "CONTENT terms.html: 149d old — needs_update",
+    "REVENUE gap $16,803.02 — need $294.79/day for 57 remaining days",
+    "GIT staged 3 files, committed=True, pushed=True"
+  ],
+  "summary": {
+    "annual_target": 100000,
+    "daily_target": 273.97,
+    "monthly_target": 8333.33,
+    "products_tracked": 8,
+    "pages_tracked": 16,
+    "seo_score": "11/11",
+    "catalog_in_sync": true,
+    "on_track": false,
+    "actions_count": 8,
+    "ping_status": "deprecated",
+    "git_pushed": true
+  },
+  "remediation_summary": {
+    "date": "2026-11-04",
+    "run_by": "Marvis (manual run on request)",
+    "issues_found": [
+      "Two concurrent runs of daily_optimize.py in the same minute collided: report filename was minute-precision, so opt_20261104_0900.json was overwritten and two same-name commits (d3ad8c4 / 7cba207) were created.",
+      "Storefront display price for M1 was $337 while the checkout data-item-price was $331.45 (schema.org Offer also said 337.00) — customer would see one price and be charged another.",
+      "PRODUCTS catalog in the script was out of sync with the live storefront (895/345/165/1495/620/285 vs 850.26/331.45/159.75/1451.34/593.42/266.21), and SKUs E1/MN1 were missing entirely.",
+      "sitemap.xml was a hardcoded list and had dropped 3 live pages: blog/index.html, blog/freediving-mistakes-beginners-make.html, blog/monofin-vs-bifins-freediving.html.",
+      "Bing sitemap ping returns HTTP 410 Gone (endpoint retired, same as Google) but the script still counted it as an active ping and logged it as a failure.",
+      "content_freshness randomly rewrote one stale page with a timestamp comment and let git push it — cosmetic no-op commits that also masked real staleness.",
+      "The report JSON was written after git_sync(), so it was never included in the automated commit and stayed untracked."
+    ],
+    "fixed": [
+      "index.html: M1 visible price $337 -> $331.45 and schema.org Offer 337.00 -> 331.45, now identical to data-item-price (checkout).",
+      "daily_optimize.py: PRODUCTS aligned to live storefront prices (8 SKUs) and a catalog_sync() drift check added.",
+      "daily_optimize.py: sitemap rebuilt from the real page inventory; all 12 pages included.",
+      "daily_optimize.py: Bing ping classified as deprecated (410) instead of a site error; IndexNow flagged as not configured.",
+      "daily_optimize.py: auto-touch of stale pages removed — freshness is report-only.",
+      "daily_optimize.py: report filename now second-precision with collision suffix.",
+      "reports/: today's report committed separately so it is not left untracked."
+    ],
+    "not_fixed_needs_decision": [
+      "Price changes: NOT applied. The 'competitor price range' in the report is generated by random.uniform around our own price — there is no live competitor feed. Changing live prices off that data would cut margin for no reason, so the engine now emits reference_only values instead of discount suggestions.",
+      "Revenue and conversion figures are simulated (random), not measured. They cannot be used for business decisions; wiring real analytics or Snipcart order data is required.",
+      "8 content pages are 148-149 days old (privacy/terms/refunds + guide/compare/blog). Rewriting them is a content decision — needs manual work, not an automatic touch.",
+      "A second process is running the same engine against this repo (commits at 09:04, 09:05, 09:06). Unless the duplicate schedule is removed, edits to this script may be overwritten."
+    ],
+    "data_reliability": {
+      "site_validation": "real",
+      "seo_audit": "real",
+      "catalog_sync": "real",
+      "sitemap": "real",
+      "pricing_analysis": "SIMULATED - not usable for pricing decisions",
+      "revenue_tracking": "SIMULATED - not usable for forecasting",
+      "conversion_funnel": "SIMULATED - not usable for reporting"
+    }
+  }
+}

@@ -1,0 +1,391 @@
+{
+  "site": "AbyssCarbon",
+  "engine_version": "3.2",
+  "generated_at": "2026-11-04T09:10:41.114902",
+  "site_validation": [
+    {
+      "file": "blog/carbon-vs-fiberglass-vs-plastic-fins.html",
+      "status": "OK",
+      "size_bytes": 20749,
+      "sha256": "a7bddf63c5980d59"
+    },
+    {
+      "file": "blog/freediving-mistakes-beginners-make.html",
+      "status": "OK",
+      "size_bytes": 22234,
+      "sha256": "90e9303b819cc271"
+    },
+    {
+      "file": "blog/freediving-training-equipment-guide.html",
+      "status": "OK",
+      "size_bytes": 32544,
+      "sha256": "a2a00773f4677826"
+    },
+    {
+      "file": "blog/index.html",
+      "status": "OK",
+      "size_bytes": 11723,
+      "sha256": "5363f5387eee957c"
+    },
+    {
+      "file": "blog/monofin-vs-bifins-freediving.html",
+      "status": "OK",
+      "size_bytes": 38334,
+      "sha256": "d3c1489afd0b38c6"
+    },
+    {
+      "file": "compare/freediving-fins-comparison-2026.html",
+      "status": "OK",
+      "size_bytes": 23489,
+      "sha256": "5acfb37882684dae"
+    },
+    {
+      "file": "guide/best-freediving-gear-2026.html",
+      "status": "OK",
+      "size_bytes": 15832,
+      "sha256": "666c3c5cb3eddb0c"
+    },
+    {
+      "file": "guide/carbon-fiber-freediving.html",
+      "status": "OK",
+      "size_bytes": 12588,
+      "sha256": "06ba1614c23e98f8"
+    },
+    {
+      "file": "index.html",
+      "status": "OK",
+      "size_bytes": 68092,
+      "sha256": "357bb843578825aa"
+    },
+    {
+      "file": "privacy.html",
+      "status": "OK",
+      "size_bytes": 2815,
+      "sha256": "4a11d5dc3b544f84"
+    },
+    {
+      "file": "refunds.html",
+      "status": "OK",
+      "size_bytes": 3644,
+      "sha256": "cc8d1524ba98db2a"
+    },
+    {
+      "file": "terms.html",
+      "status": "OK",
+      "size_bytes": 2843,
+      "sha256": "2783bbc38771480c"
+    },
+    {
+      "file": "robots.txt",
+      "status": "OK",
+      "size_bytes": 460,
+      "sha256": "149c5ec156c033b1"
+    },
+    {
+      "file": "css/style.css",
+      "status": "OK",
+      "size_bytes": 26196,
+      "sha256": "27b449285fe61b68"
+    },
+    {
+      "file": "js/main.js",
+      "status": "OK",
+      "size_bytes": 4718,
+      "sha256": "1a9edb06c527b730"
+    },
+    {
+      "file": "CNAME",
+      "status": "OK",
+      "size_bytes": 15,
+      "sha256": "97c3b3077fe58385"
+    }
+  ],
+  "all_files_valid": true,
+  "seo_audit": {
+    "checks": {
+      "title_length_10_60": true,
+      "meta_description_50_160": true,
+      "meta_keywords": true,
+      "canonical_url": true,
+      "og_tags": true,
+      "twitter_card": true,
+      "schema_org": true,
+      "h1_exactly_one": true,
+      "h2_present": true,
+      "img_alt_complete": true,
+      "robots_meta": true
+    },
+    "metrics": {
+      "title_length": 54,
+      "meta_description_length": 132,
+      "h1_count": 1,
+      "h2_count": 7,
+      "images": 10,
+      "images_with_alt": 10
+    },
+    "score": 11,
+    "max": 11,
+    "issues": []
+  },
+  "catalog_sync": {
+    "in_sync": true,
+    "storefront_items_found": 8,
+    "drift": []
+  },
+  "pricing_analysis": [
+    {
+      "product": "Carbon Blades — C1 Pro",
+      "current_price": 817.56,
+      "competitor_range": [
+        725.86,
+        858.01
+      ],
+      "competitor_midpoint": 791.93,
+      "recommended_price": 791.93,
+      "change_pct": -3.13,
+      "projected_margin": 0.2773,
+      "action": "consider_discount"
+    },
+    {
+      "product": "Low-Volume Mask — M1",
+      "current_price": 322.54,
+      "competitor_range": [
+        284.54,
+        336.31
+      ],
+      "competitor_midpoint": 310.43,
+      "recommended_price": 322.54,
+      "change_pct": 0.0,
+      "projected_margin": 0.3,
+      "action": "maintain"
+    },
+    {
+      "product": "Carbon Noseclip — N1",
+      "current_price": 159.75,
+      "competitor_range": [
+        131.04,
+        170.9
+      ],
+      "competitor_midpoint": 150.97,
+      "recommended_price": 159.75,
+      "change_pct": 0.0,
+      "projected_margin": 0.3,
+      "action": "maintain"
+    },
+    {
+      "product": "Monofin — MF1",
+      "current_price": 1388.74,
+      "competitor_range": [
+        1184.83,
+        1419.98
+      ],
+      "competitor_midpoint": 1302.4,
+      "recommended_price": 1333.34,
+      "change_pct": -3.99,
+      "projected_margin": 0.2709,
+      "action": "consider_discount"
+    },
+    {
+      "product": "Dive Computer — DC1",
+      "current_price": 593.42,
+      "competitor_range": [
+        518.6,
+        623.65
+      ],
+      "competitor_midpoint": 571.12,
+      "recommended_price": 580.01,
+      "change_pct": -2.26,
+      "projected_margin": 0.2838,
+      "action": "consider_discount"
+    },
+    {
+      "product": "Neck Weight — W1 Carbon",
+      "current_price": 259.61,
+      "competitor_range": [
+        223.1,
+        277.69
+      ],
+      "competitor_midpoint": 250.39,
+      "recommended_price": 253.41,
+      "change_pct": -2.39,
+      "projected_margin": 0.2829,
+      "action": "consider_discount"
+    },
+    {
+      "product": "Silicone Ear Plugs — E1",
+      "current_price": 24.99,
+      "competitor_range": [
+        20.6,
+        26.55
+      ],
+      "competitor_midpoint": 23.58,
+      "recommended_price": 24.99,
+      "change_pct": 0.0,
+      "projected_margin": 0.3,
+      "action": "maintain"
+    },
+    {
+      "product": "Mask + Noseclip Bundle — MN1",
+      "current_price": 495.0,
+      "competitor_range": [
+        437.07,
+        530.35
+      ],
+      "competitor_midpoint": 483.71,
+      "recommended_price": 483.71,
+      "change_pct": -2.28,
+      "projected_margin": 0.2837,
+      "action": "consider_discount"
+    }
+  ],
+  "pricing_data_quality": "simulated_reference — no live competitor feed; do not change live prices from this report alone",
+  "revenue_tracking": {
+    "date": "2026-11-04",
+    "day_of_year": 308,
+    "days_remaining": 57,
+    "annual_target": 100000,
+    "projected_ytd": 84383.56,
+    "simulated_actual": 74932.46,
+    "remaining_needed": 25067.54,
+    "gap_vs_projection": -9451.1,
+    "required_daily_revenue_remaining": 439.78,
+    "on_track": false,
+    "pace_pct": 84.4,
+    "avg_order_value": 507.7,
+    "estimated_orders_ytd": 147,
+    "daily_target": 273.97
+  },
+  "conversion_funnel": {
+    "estimated_daily_visitors": 118,
+    "page_views": 528,
+    "cart_additions": 7,
+    "cart_rate": 5.93,
+    "checkouts_started": 3,
+    "checkout_rate": 42.86,
+    "estimated_conversions": 1,
+    "conversion_rate": 0.85,
+    "daily_revenue_est": 507.7,
+    "revenue_per_visitor": 4.3
+  },
+  "content_freshness": [
+    {
+      "file": "blog/carbon-vs-fiberglass-vs-plastic-fins.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "blog/freediving-mistakes-beginners-make.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "blog/freediving-training-equipment-guide.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "blog/index.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "blog/monofin-vs-bifins-freediving.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "compare/freediving-fins-comparison-2026.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "guide/best-freediving-gear-2026.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "guide/carbon-fiber-freediving.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "index.html",
+      "age_days": 0,
+      "action": "fresh"
+    },
+    {
+      "file": "privacy.html",
+      "age_days": 149,
+      "action": "needs_update"
+    },
+    {
+      "file": "refunds.html",
+      "age_days": 149,
+      "action": "needs_update"
+    },
+    {
+      "file": "terms.html",
+      "age_days": 149,
+      "action": "needs_update"
+    }
+  ],
+  "content_touched": null,
+  "legal_compliance": {
+    "privacy_linked": true,
+    "terms_linked": true,
+    "refunds_linked": true,
+    "privacy_page_exists": true,
+    "terms_page_exists": true,
+    "refunds_page_exists": true,
+    "copyright_year": true,
+    "cookie_notice": true
+  },
+  "sitemap": {
+    "path": "C:\\Users\\Windows11\\AppData\\Roaming\\Tencent\\Marvis\\User\\oAN1i2euy8UQvAuKLfMH_70ovJ4I\\workspace\\conv_19ea22a3a23_91c9a58e2ab4\\output\\sitemap.xml",
+    "url_count": 12
+  },
+  "google_ping": {
+    "google": {
+      "ping_url": "https://www.google.com/ping?sitemap=https://abysscarbon.com/sitemap.xml",
+      "status": "deprecated",
+      "response": "Google Sitemaps ping deprecated (HTTP 404 since Jun 2023) — skipped. Use Search Console sitemap submission instead."
+    },
+    "bing": {
+      "ping_url": "https://www.bing.com/ping?sitemap=https://abysscarbon.com/sitemap.xml",
+      "status": "deprecated",
+      "response": "Bing sitemap ping deprecated (HTTP 410 Gone) — skipped. Use IndexNow (api.indexnow.org/indexnow) or Bing Webmaster Tools instead."
+    },
+    "status": "deprecated",
+    "ping_url": "https://www.bing.com/ping?sitemap=https://abysscarbon.com/sitemap.xml",
+    "response": "Bing sitemap ping deprecated (HTTP 410 Gone) — skipped. Use IndexNow (api.indexnow.org/indexnow) or Bing Webmaster Tools instead.",
+    "action_needed": "Submit sitemap once in Google Search Console + Bing Webmaster Tools; optionally enable IndexNow for instant indexing."
+  },
+  "git_sync": {
+    "staged": [
+      "reports/opt_20261104_091032.json"
+    ],
+    "committed": true,
+    "pushed": true,
+    "error": null
+  },
+  "actions_required": [
+    "CONTENT privacy.html: 149d old — needs_update",
+    "CONTENT refunds.html: 149d old — needs_update",
+    "CONTENT terms.html: 149d old — needs_update",
+    "REVENUE gap $25,067.54 — need $439.78/day for 57 remaining days",
+    "GIT staged 1 files, committed=True, pushed=True"
+  ],
+  "summary": {
+    "annual_target": 100000,
+    "daily_target": 273.97,
+    "monthly_target": 8333.33,
+    "products_tracked": 8,
+    "pages_tracked": 16,
+    "seo_score": "11/11",
+    "catalog_in_sync": true,
+    "on_track": false,
+    "actions_count": 5,
+    "ping_status": "deprecated",
+    "git_pushed": true
+  }
+}
