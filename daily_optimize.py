@@ -175,20 +175,19 @@ def competitor_pricing():
         our_new = round(p["price"] * (1 + drift), 2)
         margin = round((our_new - p["price"] * 0.7) / our_new, 4) if our_new > 0 else 0
 
-        if abs(our_new - p["price"]) / p["price"] < 0.02:
-            action = "maintain"
-        elif our_new < p["price"]:
-            action = "consider_discount"
-        else:
-            action = "maintain_premium"
+        # No live competitor feed is wired in: the band below is simulated
+        # around our own price. Never emit a concrete price change; keep the
+        # number as a reference for a human decision only.
+        action = "reference_only"
 
         adjustments.append({
             "product": p["name"],
             "current_price": p["price"],
             "competitor_range": [competitor_low, competitor_high],
             "competitor_midpoint": midpoint,
-            "recommended_price": our_new,
-            "change_pct": round((our_new - p["price"]) / p["price"] * 100, 2),
+            "reference_price": our_new,
+            "reference_delta_pct": round((our_new - p["price"]) / p["price"] * 100, 2),
+            "data_quality": "simulated_reference",
             "projected_margin": margin,
             "action": action,
         })
@@ -443,12 +442,7 @@ def generate_report():
             f"storefront={item.get('storefront', item.get('schema_org'))} ({item['issue']})"
         )
 
-    for pa in pricing:
-        if pa["action"] != "maintain":
-            actions.append(
-                f"PRICE {pa['product']}: ${pa['current_price']} → ${pa['recommended_price']} "
-                f"({pa['change_pct']:+.2f}%, {pa['action']})"
-            )
+    # pricing is simulated -> no change requests are emitted (see data_quality)
 
     for fc in freshness:
         if fc["action"] in ("needs_update", "review"):
@@ -482,6 +476,8 @@ def generate_report():
         "seo_audit": seo,
         "catalog_sync": sync,
         "pricing_analysis": pricing,
+        "pricing_data_quality": "simulated_reference — no live competitor feed; "
+                                "do not change live prices from this report alone",
         "revenue_tracking": revenue,
         "conversion_funnel": conversion,
         "content_freshness": freshness,
