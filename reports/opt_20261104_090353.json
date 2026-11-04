@@ -400,5 +400,13 @@
     "bing_ping_status": "deprecated",
     "indexnow_configured": false,
     "git_pushed": true
+  },
+  "report_commit": {
+    "staged": [
+      "reports/opt_20261104_090353.json"
+    ],
+    "committed": true,
+    "pushed": true,
+    "error": null
   }
 }
