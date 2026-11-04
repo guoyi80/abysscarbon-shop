@@ -965,6 +965,240 @@
             .audience-grid { grid-template-columns: repeat(4, 1fr); }
             .pledge-cell { padding: 34px 26px; }
         }
+
+        /* ============================================================
+           MADE-TO-MEASURE 3D SUIT BUILDER
+           ============================================================ */
+        .custom-builder {
+            padding: 72px 20px;
+            background: radial-gradient(1200px 600px at 50% -10%, rgba(0,163,255,0.10), transparent 70%), var(--bg);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .custom-builder .section-tag, .custom-builder h2 { text-align: center; }
+        .custom-builder h2 { margin-bottom: 14px; }
+        .builder-lead {
+            max-width: 640px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.9;
+        }
+        .builder-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 28px;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+        .builder-stage {
+            position: relative;
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, #0d0d0d, #060606);
+            border-radius: 2px;
+            min-height: 460px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .builder-stage::after {
+            content: '';
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 120px;
+            background: linear-gradient(180deg, transparent, rgba(0,163,255,0.07));
+            pointer-events: none;
+        }
+        .suit-wrap {
+            perspective: 1200px;
+            cursor: grab;
+            user-select: none;
+            touch-action: pan-y;
+        }
+        .suit-wrap.dragging { cursor: grabbing; }
+        .suit-inner {
+            transition: transform 0.12s linear;
+            transform-style: preserve-3d;
+            display: block;
+        }
+        .suit-inner svg { display: block; width: 220px; height: 380px; }
+        .view-btns {
+            display: flex;
+            gap: 8px;
+            margin-top: 22px;
+            position: relative;
+            z-index: 2;
+        }
+        .view-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: #777;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.25s ease;
+        }
+        .view-btn:hover { color: var(--text-bright); border-color: #333; }
+        .view-btn.active { color: var(--accent); border-color: var(--accent); }
+        .builder-hint {
+            margin-top: 12px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #3a3a3a;
+        }
+        .builder-panel {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            padding: 26px 22px;
+        }
+        .opt-group { margin-bottom: 20px; }
+        .opt-label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #5a5a5a;
+            margin-bottom: 10px;
+        }
+        .chip-row { display: flex; flex-wrap: wrap; gap: 7px; }
+        .opt-chip {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: #888;
+            font-family: inherit;
+            font-size: 11px;
+            padding: 7px 11px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .opt-chip:hover { color: var(--text-bright); border-color: #333; }
+        .opt-chip.active {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: rgba(0,163,255,0.07);
+        }
+        .swatch-row { display: flex; flex-wrap: wrap; gap: 9px; }
+        .swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            outline: 1px solid #262626;
+            cursor: pointer;
+            padding: 0;
+            transition: transform 0.2s ease;
+        }
+        .swatch:hover { transform: scale(1.08); }
+        .swatch.active { border-color: var(--accent); outline-color: var(--accent); }
+        .extra-row { display: flex; flex-direction: column; gap: 9px; margin-top: 4px; }
+        .extra-item {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 12px;
+            color: #888;
+            cursor: pointer;
+        }
+        .extra-item input { accent-color: var(--accent); width: 14px; height: 14px; cursor: pointer; }
+        .builder-summary {
+            border-top: 1px solid var(--border);
+            padding-top: 18px;
+            margin-top: 6px;
+        }
+        .builder-price {
+            font-size: 26px;
+            font-weight: 300;
+            color: var(--text-bright);
+            letter-spacing: 1px;
+        }
+        .builder-price span { font-size: 11px; color: #555; letter-spacing: 1px; margin-left: 6px; }
+        .builder-meta {
+            font-size: 11px;
+            color: #5a5a5a;
+            line-height: 1.9;
+            margin: 8px 0 16px;
+        }
+        .builder-spec {
+            font-size: 11px;
+            color: #6a6a6a;
+            line-height: 1.8;
+            min-height: 40px;
+            border-left: 2px solid rgba(0,163,255,0.35);
+            padding-left: 12px;
+            margin-bottom: 16px;
+        }
+
+        /* ============================================================
+           FULL RANGE / CATEGORY MAP
+           ============================================================ */
+        .full-range { padding: 72px 20px; }
+        .full-range .section-tag, .full-range h2, .full-range .range-sub { text-align: center; }
+        .range-sub {
+            max-width: 620px;
+            margin: 0 auto 38px;
+            font-size: 13px;
+            color: #5f5f5f;
+            line-height: 1.9;
+        }
+        .range-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+        .range-card {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            padding: 20px 20px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+        .range-card:hover { border-color: rgba(0,163,255,0.4); background: #101010; }
+        .range-card h3 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-bright);
+            font-weight: 500;
+        }
+        .range-card p { font-size: 11.5px; color: #5a5a5a; line-height: 1.75; }
+        .range-tag {
+            align-self: flex-start;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border: 1px solid #262626;
+            color: #666;
+        }
+        .range-tag.primary { color: var(--accent); border-color: rgba(0,163,255,0.45); }
+        .range-tag.soon { color: #4a4a4a; }
+        .range-card a.range-link { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-dim); text-decoration: none; }
+        .range-card a.range-link:hover { color: var(--accent); }
+
+        @media(min-width:640px) {
+            .builder-grid { grid-template-columns: 1fr 1fr; }
+            .range-grid { grid-template-columns: 1fr 1fr; }
+            .suit-inner svg { width: 260px; height: 440px; }
+        }
+        @media(min-width:1024px) {
+            .custom-builder { padding: 96px 48px; }
+            .full-range { padding: 88px 48px; }
+            .builder-grid { grid-template-columns: 1.05fr 0.95fr; gap: 36px; }
+            .range-grid { grid-template-columns: repeat(4, 1fr); }
+            .suit-inner svg { width: 300px; height: 500px; }
+            .builder-stage { min-height: 620px; }
+        }
 </style>
 </head>
 <body class="dark">
@@ -972,7 +1206,9 @@
     <nav class="nav">
         <a href="#" class="nav-logo">ABYSS<span>CARBON</span></a>
         <div class="nav-links">
-            <a href="#products">Gear</a>
+            <a href="#custom">Custom Suits</a>
+            <a href="#products">Accessories</a>
+            <a href="#range">Full Range</a>
             <a href="#ocean">Ocean Pledge</a>
             <a href="#who">Who It's For</a>
             <a href="guide/best-freediving-gear-2026.html">Guide</a>
@@ -990,21 +1226,21 @@
     <section class="hero-deep">
         <div class="hero-deep-inner">
         <div class="hero-text">
-            <p class="hero-tag">FOR THE OCEAN YOU KEEP COMING BACK TO</p>
-            <h1 class="hero-animate-title">Carbon Fiber Gear for People<br>Who Love the Ocean</h1>
-            <p class="hero-sub hero-animate-sub">Fins, low-volume masks and dive instruments for freedivers, scuba divers and every kind of water person. Hand-laid, individually tested, made to order &mdash; and built to be repaired, not replaced.</p>
+            <p class="hero-tag">MADE TO MEASURE &middot; PREVIEWED IN 3D</p>
+            <h1 class="hero-animate-title">Your Suit. Your Body.<br>Your Ocean.</h1>
+            <p class="hero-sub hero-animate-sub">Freediving, spearfishing, scuba and swim suits cut to your own measurements &mdash; built in a 3D configurator before a single panel of neoprene is cut. Fins, masks and instruments stay in stock as the accessories your suit needs.</p>
             <div class="hero-cta-group hero-animate-btn">
-                <a href="#products" class="btn">Explore the Collection</a>
-                <a href="#ocean" class="btn-outline">Our Ocean Pledge</a>
+                <a href="#custom" class="btn">Build Your Suit in 3D</a>
+                <a href="#products" class="btn-outline">Shop Accessories</a>
             </div>
             <div class="hero-stats hero-animate-btn">
                 <div class="hero-stat-card">
-                    <span class="hero-stat-value">1%</span>
-                    <span class="hero-stat-label">Of Every Order to the Ocean</span>
+                    <span class="hero-stat-value">3D</span>
+                    <span class="hero-stat-label">Preview Before Cutting</span>
                 </div>
                 <div class="hero-stat-card">
-                    <span class="hero-stat-value">100m+</span>
-                    <span class="hero-stat-label">Field Tested</span>
+                    <span class="hero-stat-value">1%</span>
+                    <span class="hero-stat-label">Of Every Order to the Ocean</span>
                 </div>
                 <div class="hero-stat-card">
                     <span class="hero-stat-value">40+ Countries</span>
@@ -1107,11 +1343,67 @@
         </div>
     </section>
 
+    <!-- ===== MADE-TO-MEASURE 3D SUIT BUILDER (CORE BUSINESS) ===== -->
+    <section id="custom" class="custom-builder">
+        <p class="section-tag">MADE TO MEASURE</p>
+        <h2>Build Your Suit in 3D</h2>
+        <p class="builder-lead">Every AbyssCarbon suit is cut to your body, not to a size chart. Pick your discipline, thickness and finish &mdash; the 3D preview updates as you build. Final quote is confirmed by the workshop after your measurements are reviewed.</p>
+        <div class="builder-grid">
+            <div class="builder-stage">
+                <div class="suit-wrap" id="suitWrap" role="img" aria-label="Interactive 3D preview of a made-to-measure wetsuit">
+                    <div class="suit-inner" id="suitInner"></div>
+                </div>
+                <div class="view-btns" id="viewBtns">
+                    <button class="view-btn active" data-view="front">Front</button>
+                    <button class="view-btn" data-view="side">Side</button>
+                    <button class="view-btn" data-view="back">Back</button>
+                </div>
+                <p class="builder-hint">Drag to rotate</p>
+            </div>
+            <div class="builder-panel">
+                <div class="opt-group">
+                    <span class="opt-label">01 &middot; Discipline</span>
+                    <div class="chip-row" id="optSport"></div>
+                </div>
+                <div class="opt-group">
+                    <span class="opt-label">02 &middot; Thickness</span>
+                    <div class="chip-row" id="optThick"></div>
+                </div>
+                <div class="opt-group">
+                    <span class="opt-label">03 &middot; Neoprene &amp; Lining</span>
+                    <div class="chip-row" id="optLining"></div>
+                </div>
+                <div class="opt-group">
+                    <span class="opt-label">04 &middot; Seam Construction</span>
+                    <div class="chip-row" id="optStitch"></div>
+                </div>
+                <div class="opt-group">
+                    <span class="opt-label">05 &middot; Body Colour</span>
+                    <div class="swatch-row" id="swBody"></div>
+                </div>
+                <div class="opt-group">
+                    <span class="opt-label">06 &middot; Panel Colour</span>
+                    <div class="swatch-row" id="swPanel"></div>
+                </div>
+                <div class="opt-group">
+                    <span class="opt-label">07 &middot; Add-ons</span>
+                    <div class="extra-row" id="optExtras"></div>
+                </div>
+                <div class="builder-summary">
+                    <p class="builder-price" id="sumPrice">$460<span>EST. FROM / MADE TO MEASURE</span></p>
+                    <p class="builder-meta" id="sumMeta">Lead time 4&ndash;6 weeks &middot; 2 fitting revisions included &middot; Free repair within 3 years</p>
+                    <p class="builder-spec" id="sumSpec"></p>
+                    <a href="#contact" class="btn" style="display:block;text-align:center;">Request Measurement Kit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== PRODUCTS ===== -->
     <section id="products" class="products">
         <div class="section-header">
-            <p class="section-tag">THE COLLECTION</p>
-            <h2>Gear That Earns Its Place in Your Bag</h2>
+            <p class="section-tag">ACCESSORIES &amp; HARD GEAR</p>
+            <h2>The Kit That Goes With Every Suit</h2>
         </div>
         <!-- Category filter — add a data-category token + chip to open a new product line -->
         <div class="filter-bar" id="collectionFilter">
@@ -1148,7 +1440,7 @@
             <div class="product-card" id="product-C1" data-category="fins">
                 <div class="product-visual">
                     <div class="editors-choice">EDITOR'S CHOICE</div>
-                    <img src="img/products/c1-pro-blades.png" alt="Carbon Blades C1 Pro — carbon fiber freediving fins" loading="lazy">
+                    <img src="img/products/c1-pro-blades.webp" alt="Carbon Blades C1 Pro — carbon fiber freediving fins" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-C1'">Configure Your Gear</button>
                     </div>
@@ -1233,7 +1525,7 @@
             <!-- M1 Mask -->
             <div class="product-card" id="product-M1" data-category="mask">
                 <div class="product-visual">
-                    <img src="img/products/m1-low-volume-mask.png" alt="Low-Volume Mask M1 — carbon frame freediving mask" loading="lazy">
+                    <img src="img/products/m1-low-volume-mask.webp" alt="Low-Volume Mask M1 — carbon frame freediving mask" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-M1'">Configure Your Gear</button>
                     </div>
@@ -1284,7 +1576,7 @@
             <!-- N1 Noseclip -->
             <div class="product-card" id="product-N1" data-category="noseclip">
                 <div class="product-visual">
-                    <img src="img/products/n1-noseclip.png" alt="Carbon Noseclip N1 — freediving equalization nose clip" loading="lazy">
+                    <img src="img/products/n1-noseclip.webp" alt="Carbon Noseclip N1 — freediving equalization nose clip" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-N1'">Configure Your Gear</button>
                     </div>
@@ -1330,7 +1622,7 @@
             <!-- MF1 Monofin -->
             <div class="product-card" id="product-MF1" data-category="monofin">
                 <div class="product-visual">
-                    <img src="img/products/mf1-monofin.png" alt="Monofin MF1 — full carbon competition freediving monofin" loading="lazy">
+                    <img src="img/products/mf1-monofin.webp" alt="Monofin MF1 — full carbon competition freediving monofin" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-MF1'">Configure Your Gear</button>
                     </div>
@@ -1381,7 +1673,7 @@
             <!-- DC1 Dive Computer -->
             <div class="product-card" id="product-DC1" data-category="instrument">
                 <div class="product-visual">
-                    <img src="img/products/dc1-dive-computer.png" alt="Dive Computer DC1 — carbon casing depth watch" loading="lazy">
+                    <img src="img/products/dc1-dive-computer.webp" alt="Dive Computer DC1 — carbon casing depth watch" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-DC1'">Configure Your Gear</button>
                     </div>
@@ -1431,7 +1723,7 @@
             <!-- W1 Neck Weight -->
             <div class="product-card" id="product-W1" data-category="weight">
                 <div class="product-visual">
-                    <img src="img/products/w1-neck-weight.png" alt="Neck Weight W1 Carbon — modular freediving neck weight" loading="lazy">
+                    <img src="img/products/w1-neck-weight.webp" alt="Neck Weight W1 Carbon — modular freediving neck weight" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-W1'">Configure Your Gear</button>
                     </div>
@@ -1481,7 +1773,7 @@
             <!-- E1 Silicone Ear Plugs -->
             <div class="product-card" id="product-E1" data-category="accessory">
                 <div class="product-visual">
-                    <img src="img/products/e1-earplugs.png" alt="Silicone Ear Plugs E1 — medical grade silicone ear plugs for freediving" loading="lazy">
+                    <img src="img/products/e1-earplugs.webp" alt="Silicone Ear Plugs E1 — medical grade silicone ear plugs for freediving" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-E1'">Configure Your Gear</button>
                     </div>
@@ -1517,7 +1809,7 @@
             <div class="product-card" id="product-MN1" data-category="bundle">
                 <div class="product-visual">
                     <div class="editors-choice" style="background:linear-gradient(135deg, #00A3FF, #0066AA);">BUNDLE DEAL</div>
-                    <img src="img/products/mn1-bundle.png" alt="Mask + Noseclip Bundle MN1 — freediving mask and noseclip combo" loading="lazy">
+                    <img src="img/products/mn1-bundle.webp" alt="Mask + Noseclip Bundle MN1 — freediving mask and noseclip combo" loading="lazy">
                     <div class="quick-add-overlay">
                         <button class="configure-btn" onclick="window.location.href='#product-MN1'">Configure Your Gear</button>
                     </div>
@@ -1557,6 +1849,87 @@
 
     
     <!-- ===== TRUSTED BY WATER PEOPLE — Underwater Visual ===== -->
+    <!-- ===== FULL RANGE: SUIT LINES + ACCESSORY LINES ===== -->
+    <section id="range" class="full-range">
+        <p class="section-tag">THE FULL RANGE</p>
+        <h2>Suits First. Everything Else Serves the Suit.</h2>
+        <p class="range-sub">Made-to-measure neoprene is our core business. Fins, masks, instruments and small parts are stocked as accessories &mdash; the pieces you add once the suit already fits.</p>
+        <div class="range-grid">
+            <div class="range-card">
+                <span class="range-tag primary">Made to Measure</span>
+                <h3>Freediving Suits</h3>
+                <p>1.5&ndash;7 mm open-cell, hooded or hoodless, one-piece or two-piece high-waist. Chest and hip panels cut to your measurements.</p>
+                <a href="#custom" class="range-link">Build in 3D &rarr;</a>
+            </div>
+            <div class="range-card">
+                <span class="range-tag primary">Made to Measure</span>
+                <h3>Spearfishing Suits</h3>
+                <p>Camo or solid panel layouts, chest loading pad, reinforced knee and elbow, optional thigh pockets and knife loops.</p>
+                <a href="#custom" class="range-link">Build in 3D &rarr;</a>
+            </div>
+            <div class="range-card">
+                <span class="range-tag primary">Made to Measure</span>
+                <h3>Scuba &amp; Travel Suits</h3>
+                <p>3 mm and 5 mm full suits with front or back zip, spine pad, and a cut that stays comfortable under a BCD.</p>
+                <a href="#custom" class="range-link">Build in 3D &rarr;</a>
+            </div>
+            <div class="range-card">
+                <span class="range-tag primary">Made to Measure</span>
+                <h3>Surf &amp; Watersports</h3>
+                <p>2 mm and 3 mm suits and spring suits with stretch panel placement for paddle-heavy sessions.</p>
+                <a href="#custom" class="range-link">Build in 3D &rarr;</a>
+            </div>
+            <div class="range-card">
+                <span class="range-tag primary">Made to Measure</span>
+                <h3>Swimwear &amp; Pool Suits</h3>
+                <p>Training and racing swimsuits in chlorine-resistant fabric, custom print and panel colour, individual sizing.</p>
+                <a href="#custom" class="range-link">Build in 3D &rarr;</a>
+            </div>
+            <div class="range-card">
+                <span class="range-tag primary">Made to Measure</span>
+                <h3>Triathlon &amp; Swim Skin</h3>
+                <p>0&ndash;2 mm panels, quick-release ankle and wrist cuffs, sleeveless or full sleeve, race-number friendly.</p>
+                <a href="#custom" class="range-link">Build in 3D &rarr;</a>
+            </div>
+            <div class="range-card">
+                <span class="range-tag primary">Made to Measure</span>
+                <h3>Kids &amp; Junior</h3>
+                <p>2 mm and 3 mm suits cut with growth allowance so a fast-growing diver gets more than one season.</p>
+                <a href="#custom" class="range-link">Build in 3D &rarr;</a>
+            </div>
+            <div class="range-card">
+                <span class="range-tag primary">Made to Measure</span>
+                <h3>Team &amp; Club Orders</h3>
+                <p>From five suits up: shared measurement sheet, club logo placement, matched panel colours, one delivery date.</p>
+                <a href="#custom" class="range-link">Build in 3D &rarr;</a>
+            </div>
+            <div class="range-card">
+                <span class="range-tag">In Stock &middot; Accessory</span>
+                <h3>Fins &amp; Blades</h3>
+                <p>Carbon and fiberglass blades, foot pockets in four stiffness grades. The C1 Pro stays our reference blade.</p>
+                <a href="#products" class="range-link">See accessories &rarr;</a>
+            </div>
+            <div class="range-card">
+                <span class="range-tag">In Stock &middot; Accessory</span>
+                <h3>Masks, Noseclips &amp; Monofins</h3>
+                <p>Low-volume masks with real glass lenses, silicone noseclips, competition monofins with adjustable straps.</p>
+                <a href="#products" class="range-link">See accessories &rarr;</a>
+            </div>
+            <div class="range-card">
+                <span class="range-tag">In Stock &middot; Accessory</span>
+                <h3>Instruments &amp; Weights</h3>
+                <p>Depth and dive computers, neck weights and belts matched to your suit thickness and buoyancy.</p>
+                <a href="#products" class="range-link">See accessories &rarr;</a>
+            </div>
+            <div class="range-card">
+                <span class="range-tag">In Stock &middot; Accessory</span>
+                <h3>Small Parts &amp; Care</h3>
+                <p>Earplugs, lanyards, spare straps, neoprene glue and patch kits &mdash; so a suit gets repaired, not replaced.</p>
+                <a href="#products" class="range-link">See accessories &rarr;</a>
+            </div>
+        </div>
+    </section>
+
     <section id="testimonials" class="testimonials-underwater">
         <div class="section-header">
             <p class="section-tag">TRUSTED BY WATER PEOPLE</p>
@@ -1800,6 +2173,249 @@
                 });
             });
         });
+    </script>
+
+    <!-- ===== 3D SUIT BUILDER LOGIC (no external libs, no model files) ===== -->
+    <script>
+    (function () {
+        var inner = document.getElementById('suitInner');
+        if (!inner) return;
+
+        var COLORS = [
+            { id: 'carbon', name: 'Carbon Black', hex: '#0c0d0f' },
+            { id: 'navy',   name: 'Deep Navy',    hex: '#17233d' },
+            { id: 'blue',   name: 'Electric Blue',hex: '#0a6fd8' },
+            { id: 'steel',  name: 'Storm Grey',   hex: '#4b5157' },
+            { id: 'coral',  name: 'Coral',        hex: '#e2543a' },
+            { id: 'sand',   name: 'Sand',         hex: '#c3b299' },
+            { id: 'olive',  name: 'Camo Olive',   hex: '#424b36' },
+            { id: 'bone',   name: 'Bone White',   hex: '#e8e6df' }
+        ];
+        var SPORTS = [
+            { id: 'freedive', label: 'Freediving',     base: 420, lead: '4-6 weeks' },
+            { id: 'spear',    label: 'Spearfishing',   base: 460, lead: '4-6 weeks' },
+            { id: 'scuba',    label: 'Scuba / Travel', base: 430, lead: '4-6 weeks' },
+            { id: 'surf',     label: 'Surf & Water',   base: 400, lead: '4-6 weeks' },
+            { id: 'swim',     label: 'Swimwear',       base: 180, lead: '3-4 weeks' },
+            { id: 'tri',      label: 'Triathlon',      base: 320, lead: '4-5 weeks' },
+            { id: 'kids',     label: 'Kids / Junior',  base: 220, lead: '3-4 weeks' },
+            { id: 'team',     label: 'Team / Club',    base: 380, lead: '5-7 weeks' }
+        ];
+        var THICKS = [
+            { id: '1.5', label: '1.5 mm', add: 0 },
+            { id: '3',   label: '3 mm',   add: 40 },
+            { id: '5',   label: '5 mm',   add: 60 },
+            { id: '7',   label: '7 mm',   add: 80 }
+        ];
+        var LININGS = [
+            { id: 'std',     label: 'Open-cell + nylon', add: 0 },
+            { id: 'ultra',   label: 'UltraSpan 4-way',   add: 30 },
+            { id: 'titan',   label: 'Titanium coated',   add: 45 },
+            { id: 'thermal', label: 'Thermal fleece',    add: 60 }
+        ];
+        var STITCHES = [
+            { id: 'blind',  label: 'Glued & blind-stitched', add: 0 },
+            { id: 'flat',   label: 'Flatlock',               add: 10 },
+            { id: 'liquid', label: 'Liquid sealed',          add: 35 }
+        ];
+        var EXTRAS = [
+            { id: 'hood',    label: 'Integrated hood  +$45',     add: 45 },
+            { id: 'pad',     label: 'Chest loading pad  +$35',   add: 35 },
+            { id: 'pocket',  label: 'Thigh pocket  +$25',        add: 25 },
+            { id: 'reflect', label: 'Reflective markings  +$15', add: 15 },
+            { id: 'name',    label: 'Name embroidery  +$12',     add: 12 }
+        ];
+
+        var state = { sport: 'spear', thick: '3', lining: 'ultra', stitch: 'blind', body: 'carbon', panel: 'blue', extras: ['pad'] };
+
+        function find(list, id) {
+            for (var i = 0; i < list.length; i++) { if (list[i].id === id) { return list[i]; } }
+            return list[0];
+        }
+
+        /* --- silhouette + panel layout per view --- */
+        var HOOD  = 'M100,12 C82,12 70,28 70,48 C70,62 76,72 86,78 L114,78 C124,72 130,62 130,48 C130,28 118,12 100,12 Z';
+        var NECK  = 'M88,72 L112,72 L116,92 L84,92 Z';
+        var TORSO = 'M100,80 C119,80 136,84 146,96 C152,104 150,136 146,172 C142,208 138,244 134,270 L66,270 C62,244 58,208 54,172 C50,136 48,104 54,96 C64,84 81,80 100,80 Z';
+        var ARML  = 'M58,94 C44,104 36,136 34,176 C31,210 36,244 44,256 L60,252 C53,220 53,184 57,152 C60,124 66,106 70,98 Z';
+        var ARMR  = 'M142,94 C156,104 164,136 166,176 C169,210 164,244 156,256 L140,252 C147,220 147,184 143,152 C140,124 134,106 130,98 Z';
+        var LEGL  = 'M66,266 L98,266 L97,410 C97,428 93,442 86,442 L66,442 C60,442 58,428 58,410 Z';
+        var LEGR  = 'M102,266 L134,266 L142,410 C142,428 140,442 134,442 L114,442 C107,442 103,428 103,410 Z';
+
+        var PANELS = {
+            front:
+                '<path d="M78,100 L122,100 L116,134 L100,148 L84,134 Z"/>' +
+                '<path d="M36,198 L54,203 L51,230 L33,225 Z"/>' +
+                '<path d="M164,198 L146,203 L149,230 L167,225 Z"/>' +
+                '<path d="M58,150 L66,156 L60,238 L53,234 Z"/>' +
+                '<path d="M142,150 L134,156 L140,238 L147,234 Z"/>' +
+                '<path d="M66,336 L92,336 L91,396 L66,396 Z"/>' +
+                '<path d="M108,336 L134,336 L134,396 L109,396 Z"/>',
+            back:
+                '<path d="M94,84 L106,84 L106,264 L94,264 Z"/>' +
+                '<path d="M72,90 L128,90 L126,108 L74,108 Z"/>' +
+                '<path d="M58,150 L66,156 L60,238 L53,234 Z"/>' +
+                '<path d="M142,150 L134,156 L140,238 L147,234 Z"/>' +
+                '<path d="M66,342 L96,342 L96,366 L66,366 Z"/>' +
+                '<path d="M104,342 L134,342 L134,366 L104,366 Z"/>',
+            side:
+                '<path d="M84,98 L118,98 L120,204 L82,204 Z"/>' +
+                '<path d="M84,212 L120,212 L116,264 L86,264 Z"/>' +
+                '<path d="M36,198 L54,203 L51,230 L33,225 Z"/>' +
+                '<path d="M64,332 L96,332 L94,400 L64,400 Z"/>'
+        };
+
+        function svgFor(view) {
+            var stroke = 'stroke="rgba(255,255,255,0.14)" stroke-width="1"';
+            var mask = view === 'front'
+                ? '<g pointer-events="none"><rect x="70" y="41" width="60" height="11" rx="3" fill="rgba(8,12,16,0.55)"/>' +
+                  '<rect x="80" y="41" width="18" height="9" rx="2" fill="#0d2436" stroke="rgba(0,163,255,0.5)" stroke-width="0.8"/>' +
+                  '<rect x="102" y="41" width="18" height="9" rx="2" fill="#0d2436" stroke="rgba(0,163,255,0.5)" stroke-width="0.8"/></g>'
+                : '';
+            return '<svg viewBox="0 0 200 460" xmlns="http://www.w3.org/2000/svg">' +
+                '<defs><linearGradient id="suitShade" x1="0" y1="0" x2="1" y2="1">' +
+                '<stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>' +
+                '<stop offset="52%" stop-color="#ffffff" stop-opacity="0.03"/>' +
+                '<stop offset="100%" stop-color="#000000" stop-opacity="0.34"/>' +
+                '</linearGradient></defs>' +
+                '<g fill="var(--suit-body)" ' + stroke + '>' +
+                '<path d="' + NECK + '"/><path d="' + HOOD + '"/><path d="' + TORSO + '"/>' +
+                '<path d="' + ARML + '"/><path d="' + ARMR + '"/><path d="' + LEGL + '"/><path d="' + LEGR + '"/></g>' +
+                mask +
+                '<g fill="var(--suit-panel)" opacity="0.94" ' + stroke + '>' + PANELS[view] + '</g>' +
+                '<path d="' + TORSO + '" fill="url(#suitShade)" pointer-events="none"/>' +
+                '<path d="' + LEGL + '" fill="url(#suitShade)" opacity="0.6" pointer-events="none"/>' +
+                '<path d="' + LEGR + '" fill="url(#suitShade)" opacity="0.6" pointer-events="none"/>' +
+                '</svg>';
+        }
+
+        /* --- rotation state --- */
+        var VIEWS = ['front', 'side', 'back', 'side'];
+        var vi = 0, rot = 0;
+
+        function paint() {
+            var body = find(COLORS, state.body).hex;
+            var panel = find(COLORS, state.panel).hex;
+            inner.style.setProperty('--suit-body', body);
+            inner.style.setProperty('--suit-panel', panel);
+            inner.innerHTML = svgFor(VIEWS[vi]);
+            inner.style.transform = 'rotateY(' + Math.max(-60, Math.min(60, rot)) + 'deg)';
+            var btns = document.querySelectorAll('#viewBtns .view-btn');
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].classList.toggle('active', btns[i].getAttribute('data-view') === VIEWS[vi]);
+            }
+        }
+
+        /* --- drag to rotate --- */
+        var wrap = document.getElementById('suitWrap');
+        var dragging = false, lastX = 0;
+        function startDrag(x) { dragging = true; lastX = x; wrap.classList.add('dragging'); }
+        function moveDrag(x) {
+            if (!dragging) return;
+            var d = (x - lastX) * 0.55;
+            lastX = x;
+            rot += d;
+            if (rot > 60) { vi = (vi + 1) % 4; rot = -60; }
+            if (rot < -60) { vi = (vi + 3) % 4; rot = 60; }
+            paint();
+        }
+        function endDrag() { dragging = false; wrap.classList.remove('dragging'); }
+        wrap.addEventListener('mousedown', function (e) { startDrag(e.clientX); e.preventDefault(); });
+        document.addEventListener('mousemove', function (e) { moveDrag(e.clientX); });
+        document.addEventListener('mouseup', endDrag);
+        wrap.addEventListener('touchstart', function (e) { startDrag(e.touches[0].clientX); }, { passive: true });
+        wrap.addEventListener('touchmove', function (e) { moveDrag(e.touches[0].clientX); }, { passive: true });
+        wrap.addEventListener('touchend', endDrag);
+
+        var vbtns = document.querySelectorAll('#viewBtns .view-btn');
+        for (var b = 0; b < vbtns.length; b++) {
+            vbtns[b].addEventListener('click', function () {
+                var v = this.getAttribute('data-view');
+                vi = (v === 'front') ? 0 : (v === 'side') ? 1 : 2;
+                rot = 0;
+                paint();
+            });
+        }
+
+        /* --- option rendering --- */
+        function chipRow(host, list, key) {
+            var html = '';
+            for (var i = 0; i < list.length; i++) {
+                html += '<button class="opt-chip' + (state[key] === list[i].id ? ' active' : '') + '" data-id="' + list[i].id + '">' + list[i].label + '</button>';
+            }
+            host.innerHTML = html;
+            host.onclick = function (e) {
+                var t = e.target;
+                if (!t.classList.contains('opt-chip')) return;
+                state[key] = t.getAttribute('data-id');
+                for (var j = 0; j < host.children.length; j++) { host.children[j].classList.remove('active'); }
+                t.classList.add('active');
+                update();
+            };
+        }
+
+        function swatchRow(host, key) {
+            var html = '';
+            for (var i = 0; i < COLORS.length; i++) {
+                html += '<button class="swatch' + (state[key] === COLORS[i].id ? ' active' : '') + '" data-id="' + COLORS[i].id + '" title="' + COLORS[i].name + '" aria-label="' + COLORS[i].name + '" style="background:' + COLORS[i].hex + '"></button>';
+            }
+            host.innerHTML = html;
+            host.onclick = function (e) {
+                var t = e.target;
+                if (!t.classList.contains('swatch')) return;
+                state[key] = t.getAttribute('data-id');
+                for (var j = 0; j < host.children.length; j++) { host.children[j].classList.remove('active'); }
+                t.classList.add('active');
+                update();
+            };
+        }
+
+        var extrasHost = document.getElementById('optExtras');
+        (function () {
+            var html = '';
+            for (var i = 0; i < EXTRAS.length; i++) {
+                html += '<label class="extra-item"><input type="checkbox" value="' + EXTRAS[i].id + '"' +
+                        (state.extras.indexOf(EXTRAS[i].id) > -1 ? ' checked' : '') + '><span>' + EXTRAS[i].label + '</span></label>';
+            }
+            extrasHost.innerHTML = html;
+            extrasHost.onchange = function () {
+                var boxes = extrasHost.querySelectorAll('input');
+                state.extras = [];
+                for (var j = 0; j < boxes.length; j++) { if (boxes[j].checked) state.extras.push(boxes[j].value); }
+                update();
+            };
+        })();
+
+        /* --- summary --- */
+        function update() {
+            var sport = find(SPORTS, state.sport);
+            var thick = find(THICKS, state.thick);
+            var lining = find(LININGS, state.lining);
+            var stitch = find(STITCHES, state.stitch);
+            var total = sport.base + thick.add + lining.add + stitch.add;
+            var names = [];
+            for (var i = 0; i < state.extras.length; i++) {
+                var ex = find(EXTRAS, state.extras[i]);
+                total += ex.add;
+                names.push(ex.label.split('  +$')[0]);
+            }
+            document.getElementById('sumPrice').innerHTML = '$' + total + '<span>' + (sport.id === 'team' ? 'PER SUIT / 5 SUITS MIN.' : 'EST. FROM / MADE TO MEASURE') + '</span>';
+            document.getElementById('sumMeta').innerHTML = 'Lead time ' + sport.lead + ' &middot; 2 fitting revisions included &middot; Free repair within 3 years';
+            document.getElementById('sumSpec').innerHTML = sport.label + ' &middot; ' + thick.label + ' &middot; ' +
+                lining.label + ' &middot; ' + stitch.label +
+                (names.length ? ' &middot; ' + names.join(', ') : '') +
+                ' &middot; Body ' + find(COLORS, state.body).name + ' / Panels ' + find(COLORS, state.panel).name;
+            paint();
+        }
+
+        chipRow(document.getElementById('optSport'), SPORTS, 'sport');
+        chipRow(document.getElementById('optThick'), THICKS, 'thick');
+        chipRow(document.getElementById('optLining'), LININGS, 'lining');
+        chipRow(document.getElementById('optStitch'), STITCHES, 'stitch');
+        swatchRow(document.getElementById('swBody'), 'body');
+        swatchRow(document.getElementById('swPanel'), 'panel');
+        update();
+    })();
     </script>
 </body>
 </html>
