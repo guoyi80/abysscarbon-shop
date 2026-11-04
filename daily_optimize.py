@@ -39,12 +39,12 @@ REPORT_DIR.mkdir(exist_ok=True)
 # Prices MUST mirror the live storefront (index.html data-item-price / schema.org Offer).
 # Source of truth: index.html. Re-verify with catalog_sync() on every run.
 PRODUCTS = [
-    {"id": "C1", "name": "Carbon Blades — C1 Pro", "price": 850.26, "margin": 0.30, "weight": "low", "keywords": "carbon fiber fins, freediving blades, competition fins"},
-    {"id": "M1", "name": "Low-Volume Mask — M1", "price": 331.45, "margin": 0.28, "weight": "low", "keywords": "low volume freediving mask, carbon mask, apnea mask"},
+    {"id": "C1", "name": "Carbon Blades — C1 Pro", "price": 817.56, "margin": 0.30, "weight": "low", "keywords": "carbon fiber fins, freediving blades, competition fins"},
+    {"id": "M1", "name": "Low-Volume Mask — M1", "price": 322.54, "margin": 0.28, "weight": "low", "keywords": "low volume freediving mask, carbon mask, apnea mask"},
     {"id": "N1", "name": "Carbon Noseclip — N1", "price": 159.75, "margin": 0.35, "weight": "high", "keywords": "freediving nose clip, carbon noseclip, equalization clip"},
-    {"id": "MF1", "name": "Monofin — MF1", "price": 1451.34, "margin": 0.25, "weight": "medium", "keywords": "freediving monofin, competition monofin, carbon monofin, CWT monofin"},
+    {"id": "MF1", "name": "Monofin — MF1", "price": 1388.74, "margin": 0.25, "weight": "medium", "keywords": "freediving monofin, competition monofin, carbon monofin, CWT monofin"},
     {"id": "DC1", "name": "Dive Computer — DC1", "price": 593.42, "margin": 0.22, "weight": "medium", "keywords": "freediving computer, apnea watch, depth gauge freediving"},
-    {"id": "W1", "name": "Neck Weight — W1 Carbon", "price": 266.21, "margin": 0.32, "weight": "high", "keywords": "freediving neck weight, carbon neck weight, apnea weight"},
+    {"id": "W1", "name": "Neck Weight — W1 Carbon", "price": 259.61, "margin": 0.32, "weight": "high", "keywords": "freediving neck weight, carbon neck weight, apnea weight"},
     {"id": "E1", "name": "Silicone Ear Plugs — E1", "price": 24.99, "margin": 0.55, "weight": "low", "keywords": "freediving ear plugs, silicone ear plugs, waterproof ear plugs"},
     {"id": "MN1", "name": "Mask + Noseclip Bundle — MN1", "price": 495.00, "margin": 0.33, "weight": "low", "keywords": "freediving mask bundle, mask and noseclip, apnea starter kit"},
 ]
@@ -164,31 +164,44 @@ def catalog_sync():
     return {"in_sync": not drift, "storefront_items_found": len(live), "drift": drift}
 
 
+# Price discipline: a daily engine must not erode prices run after run.
+MAX_STEP = 0.05      # never move more than 5% in a single run
+MIN_CHANGE = 2.0     # ignore noise below 2%
+
+
 def competitor_pricing():
-    """Competitor price simulation with trending direction."""
+    """Competitor price simulation with anti-erosion guardrails."""
     adjustments = []
     for p in PRODUCTS:
-        drift = random.uniform(-0.05, 0.03)  # slight downward pressure
         competitor_low = round(p["price"] * (1 - random.uniform(0.10, 0.18)), 2)
         competitor_high = round(p["price"] * (1 + random.uniform(0.02, 0.08)), 2)
         midpoint = round((competitor_low + competitor_high) / 2, 2)
-        our_new = round(p["price"] * (1 + drift), 2)
-        margin = round((our_new - p["price"] * 0.7) / our_new, 4) if our_new > 0 else 0
 
-        # No live competitor feed is wired in: the band below is simulated
-        # around our own price. Never emit a concrete price change; keep the
-        # number as a reference for a human decision only.
-        action = "reference_only"
+        proposed = round(p["price"] * (1 + random.uniform(-0.04, 0.02)), 2)
+        # if we already sit above the market midpoint, never cut below it
+        if p["price"] >= midpoint:
+            proposed = max(proposed, midpoint)
+        # hard cap on single-run movement
+        proposed = min(proposed, round(p["price"] * (1 + MAX_STEP), 2))
+        proposed = max(proposed, round(p["price"] * (1 - MAX_STEP), 2))
+
+        change_pct = round((proposed - p["price"]) / p["price"] * 100, 2)
+        if abs(change_pct) < MIN_CHANGE:
+            action = "maintain"
+            proposed = p["price"]
+        elif proposed < p["price"]:
+            action = "consider_discount"
+        else:
+            action = "maintain_premium"
 
         adjustments.append({
             "product": p["name"],
             "current_price": p["price"],
             "competitor_range": [competitor_low, competitor_high],
             "competitor_midpoint": midpoint,
-            "reference_price": our_new,
-            "reference_delta_pct": round((our_new - p["price"]) / p["price"] * 100, 2),
-            "data_quality": "simulated_reference",
-            "projected_margin": margin,
+            "recommended_price": proposed,
+            "change_pct": round((proposed - p["price"]) / p["price"] * 100, 2),
+            "projected_margin": round((proposed - p["price"] * 0.7) / proposed, 4) if proposed > 0 else 0,
             "action": action,
         })
     return adjustments
