@@ -40,7 +40,7 @@ REPORT_DIR.mkdir(exist_ok=True)
 # Source of truth: index.html. Re-verify with catalog_sync() on every run.
 PRODUCTS = [
     {"id": "C1", "name": "Carbon Blades — C1 Pro", "price": 850.26, "margin": 0.30, "weight": "low", "keywords": "carbon fiber fins, freediving blades, competition fins"},
-    {"id": "M1", "name": "Low-Volume Mask — M1", "price": 337.00, "margin": 0.28, "weight": "low", "keywords": "low volume freediving mask, carbon mask, apnea mask"},
+    {"id": "M1", "name": "Low-Volume Mask — M1", "price": 331.45, "margin": 0.28, "weight": "low", "keywords": "low volume freediving mask, carbon mask, apnea mask"},
     {"id": "N1", "name": "Carbon Noseclip — N1", "price": 159.75, "margin": 0.35, "weight": "high", "keywords": "freediving nose clip, carbon noseclip, equalization clip"},
     {"id": "MF1", "name": "Monofin — MF1", "price": 1451.34, "margin": 0.25, "weight": "medium", "keywords": "freediving monofin, competition monofin, carbon monofin, CWT monofin"},
     {"id": "DC1", "name": "Dive Computer — DC1", "price": 593.42, "margin": 0.22, "weight": "medium", "keywords": "freediving computer, apnea watch, depth gauge freediving"},
