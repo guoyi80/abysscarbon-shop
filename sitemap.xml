@@ -25,22 +25,40 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://abysscarbon.com/privacy.html</loc>
+    <loc>https://abysscarbon.com/blog/carbon-vs-fiberglass-vs-plastic-fins.html</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://abysscarbon.com/terms.html</loc>
+    <loc>https://abysscarbon.com/blog/freediving-mistakes-beginners-make.html</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://abysscarbon.com/refunds.html</loc>
+    <loc>https://abysscarbon.com/blog/freediving-training-equipment-guide.html</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://abysscarbon.com/blog/index.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://abysscarbon.com/blog/monofin-vs-bifins-freediving.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://abysscarbon.com/compare/freediving-fins-comparison-2026.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://abysscarbon.com/guide/best-freediving-gear-2026.html</loc>
@@ -55,21 +73,21 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://abysscarbon.com/compare/freediving-fins-comparison-2026.html</loc>
-    <lastmod>2026-11-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://abysscarbon.com/blog/freediving-training-equipment-guide.html</loc>
+    <loc>https://abysscarbon.com/privacy.html</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://abysscarbon.com/blog/carbon-vs-fiberglass-vs-plastic-fins.html</loc>
+    <loc>https://abysscarbon.com/refunds.html</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://abysscarbon.com/terms.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

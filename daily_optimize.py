@@ -27,13 +27,17 @@ GIT = r"C:\Program Files\Git\bin\git.exe"
 REPORT_DIR.mkdir(exist_ok=True)
 
 # ── Product Catalog ──────────────────────────────────────────
+# Prices MUST mirror the live storefront (index.html data-item-price / schema.org Offer).
+# Source of truth: index.html. Verified 2026-11-04 by parsing data-item-price values.
 PRODUCTS = [
-    {"id": "C1", "name": "Carbon Blades — C1 Pro", "price": 895, "margin": 0.30, "weight": "low", "keywords": "carbon fiber fins, freediving blades, competition fins"},
-    {"id": "M1", "name": "Low-Volume Mask — M1", "price": 345, "margin": 0.28, "weight": "low", "keywords": "low volume freediving mask, carbon mask, apnea mask"},
-    {"id": "N1", "name": "Carbon Noseclip — N1", "price": 165, "margin": 0.35, "weight": "high", "keywords": "freediving nose clip, carbon noseclip, equalization clip"},
-    {"id": "MF1", "name": "Monofin — MF1", "price": 1495, "margin": 0.25, "weight": "medium", "keywords": "freediving monofin, competition monofin, carbon monofin, CWT monofin"},
-    {"id": "DC1", "name": "Dive Computer — DC1", "price": 620, "margin": 0.22, "weight": "medium", "keywords": "freediving computer, apnea watch, depth gauge freediving"},
-    {"id": "W1", "name": "Neck Weight — W1 Carbon", "price": 285, "margin": 0.32, "weight": "high", "keywords": "freediving neck weight, carbon neck weight, apnea weight"},
+    {"id": "C1", "name": "Carbon Blades — C1 Pro", "price": 850.26, "margin": 0.30, "weight": "low", "keywords": "carbon fiber fins, freediving blades, competition fins"},
+    {"id": "M1", "name": "Low-Volume Mask — M1", "price": 331.45, "margin": 0.28, "weight": "low", "keywords": "low volume freediving mask, carbon mask, apnea mask"},
+    {"id": "N1", "name": "Carbon Noseclip — N1", "price": 159.75, "margin": 0.35, "weight": "high", "keywords": "freediving nose clip, carbon noseclip, equalization clip"},
+    {"id": "MF1", "name": "Monofin — MF1", "price": 1421.37, "margin": 0.25, "weight": "medium", "keywords": "freediving monofin, competition monofin, carbon monofin, CWT monofin"},
+    {"id": "DC1", "name": "Dive Computer — DC1", "price": 593.42, "margin": 0.22, "weight": "medium", "keywords": "freediving computer, apnea watch, depth gauge freediving"},
+    {"id": "W1", "name": "Neck Weight — W1 Carbon", "price": 275.15, "margin": 0.32, "weight": "high", "keywords": "freediving neck weight, carbon neck weight, apnea weight"},
+    {"id": "E1", "name": "Silicone Ear Plugs — E1", "price": 24.99, "margin": 0.55, "weight": "low", "keywords": "freediving ear plugs, silicone ear plugs, waterproof ear plugs"},
+    {"id": "MN1", "name": "Mask + Noseclip Bundle — MN1", "price": 495.00, "margin": 0.33, "weight": "low", "keywords": "freediving mask bundle, mask and noseclip, apnea starter kit"},
 ]
 
 ANNUAL_TARGET = 100000
@@ -92,30 +96,36 @@ def seo_audit():
     return {"checks": checks, "score": score, "max": len(checks)}
 
 def competitor_pricing():
-    """Competitor price simulation with trending direction."""
+    """Competitor pricing snapshot.
+
+    DATA QUALITY WARNING: no live competitor price feed is wired in.
+    The band below is a *simulation* around our own price and must never be
+    used to justify changing live prices. This function therefore emits
+    `reference_only` and never recommends a concrete price change.
+    """
     adjustments = []
     for p in PRODUCTS:
-        drift = random.uniform(-0.05, 0.03)  # slight downward pressure
         competitor_low = round(p["price"] * (1 - random.uniform(0.10, 0.18)), 2)
         competitor_high = round(p["price"] * (1 + random.uniform(0.02, 0.08)), 2)
         midpoint = round((competitor_low + competitor_high) / 2, 2)
-        our_new = round(p["price"] * (1 + drift), 2)
-        margin = round((our_new - p["price"] * 0.7) / our_new, 4) if our_new > 0 else 0
-        
-        if abs(our_new - p["price"]) / p["price"] < 0.02:
-            action = "maintain"
-        elif our_new < p["price"]:
-            action = "consider_discount"
+        margin = round((p["price"] - p["price"] * 0.7) / p["price"], 4) if p["price"] > 0 else 0
+
+        if p["price"] > midpoint:
+            position = "above_simulated_midpoint"
+        elif p["price"] < midpoint:
+            position = "below_simulated_midpoint"
         else:
-            action = "maintain_premium"
-        
+            position = "at_simulated_midpoint"
+
         adjustments.append({
             "product": p["name"],
             "current_price": p["price"],
-            "competitor_range": [competitor_low, competitor_high],
-            "recommended_price": our_new,
+            "simulated_competitor_range": [competitor_low, competitor_high],
+            "simulated_midpoint": midpoint,
+            "position": position,
             "projected_margin": margin,
-            "action": action
+            "action": "reference_only",
+            "data_quality": "simulated"
         })
     return adjustments
 
@@ -173,62 +183,43 @@ def conversion_analysis():
     }
 
 def content_freshness():
-    """Score content freshness and auto-touch a stale page to signal activity."""
+    """Score content freshness. Report-only: never rewrites live pages.
+
+    v3.1 used to random-touch one stale page with a comment and let git push
+    it. That produced empty commits, polluted history and masked real
+    staleness, so auto-touch was removed in v3.2.
+    """
     checks = []
     now = datetime.now()
-    
-    files_to_check = [INDEX_PATH] + list(BASE_DIR.glob("*.html"))
-    # Also check guide, compare, blog subdirectories
+    seen = set()
+    files_to_check = []
+    for fp in [INDEX_PATH] + list(BASE_DIR.glob("*.html")):
+        if fp.resolve() not in seen:
+            seen.add(fp.resolve())
+            files_to_check.append(fp)
     for sub in ["guide", "compare", "blog"]:
         sub_path = BASE_DIR / sub
         if sub_path.exists():
-            files_to_check.extend(sub_path.glob("*.html"))
-    
-    stale_candidates = []
+            for fp in sorted(sub_path.glob("*.html")):
+                if fp.resolve() not in seen:
+                    seen.add(fp.resolve())
+                    files_to_check.append(fp)
+
+    stale = []
     for fp in files_to_check:
+        rel = str(fp.relative_to(BASE_DIR))
         mtime = datetime.fromtimestamp(fp.stat().st_mtime)
         age_days = (now - mtime).days
         if age_days > 30:
-            checks.append({"file": fp.name, "age_days": age_days, "action": "needs_update"})
-            stale_candidates.append(fp)
+            action = "needs_update"
+            stale.append(rel)
         elif age_days > 14:
-            checks.append({"file": fp.name, "age_days": age_days, "action": "review"})
+            action = "review"
         else:
-            checks.append({"file": fp.name, "age_days": age_days, "action": "fresh"})
-    
-    # Randomly pick one stale page and refresh it (touch lastmod or add freshness comment)
-    touched = None
-    if stale_candidates:
-        target = random.choice(stale_candidates)
-        content = target.read_text(encoding="utf-8")
-        today_str = now.strftime("%Y-%m-%d")
-        
-        # Try to update a <meta> last-modified or add a freshness marker comment
-        if '<meta name="last-modified"' in content:
-            content = re.sub(
-                r'<meta name="last-modified" content="[^"]*"',
-                f'<meta name="last-modified" content="{today_str}"',
-                content
-            )
-        elif '<!-- lastmod:' in content:
-            content = re.sub(
-                r'<!-- lastmod: [^>]* -->',
-                f'<!-- lastmod: {today_str} -->',
-                content
-            )
-        else:
-            # Inject a freshness marker before </head> or at end of <head>
-            content = re.sub(
-                r'(</head>)',
-                f'<!-- freshness: {today_str} -->\n\\1',
-                content,
-                count=1
-            )
-        
-        target.write_text(content, encoding="utf-8")
-        touched = str(target.relative_to(BASE_DIR))
-    
-    return checks, touched
+            action = "fresh"
+        checks.append({"file": rel, "age_days": age_days, "action": action})
+
+    return checks, stale
 
 def legal_compliance():
     """Verify legal pages are present and linked."""
@@ -245,23 +236,37 @@ def legal_compliance():
     }
 
 def generate_sitemap():
-    """Generate up-to-date sitemap.xml for abysscarbon.com."""
+    """Generate sitemap.xml by scanning the real file tree (no hardcoded list)."""
     BASE_URL = "https://abysscarbon.com"
     pages = [
         (f"{BASE_URL}/", "1.0", "daily"),
         (f"{BASE_URL}/#products", "0.9", "weekly"),
         (f"{BASE_URL}/#about", "0.7", "monthly"),
         (f"{BASE_URL}/#contact", "0.6", "monthly"),
-        (f"{BASE_URL}/privacy.html", "0.4", "monthly"),
-        (f"{BASE_URL}/terms.html", "0.4", "monthly"),
-        (f"{BASE_URL}/refunds.html", "0.5", "monthly"),
-        # AI-indexable content pages
-        (f"{BASE_URL}/guide/best-freediving-gear-2026.html", "0.8", "weekly"),
-        (f"{BASE_URL}/guide/carbon-fiber-freediving.html", "0.8", "weekly"),
-        (f"{BASE_URL}/compare/freediving-fins-comparison-2026.html", "0.85", "weekly"),
-        (f"{BASE_URL}/blog/freediving-training-equipment-guide.html", "0.75", "monthly"),
-        (f"{BASE_URL}/blog/carbon-vs-fiberglass-vs-plastic-fins.html", "0.75", "monthly"),
     ]
+    skip_dirs = {"reports", "temp", "img", "css", "js", "__pycache__", ".git"}
+    for fp in sorted(BASE_DIR.rglob("*.html")):
+        rel = fp.relative_to(BASE_DIR).as_posix()
+        if rel == "index.html":
+            continue
+        if any(part in skip_dirs for part in rel.split("/")[:-1]):
+            continue
+        if rel in ("privacy.html", "terms.html"):
+            prio, freq = "0.4", "monthly"
+        elif rel == "refunds.html":
+            prio, freq = "0.5", "monthly"
+        elif rel == "blog/index.html":
+            prio, freq = "0.6", "weekly"
+        elif rel.startswith("compare/"):
+            prio, freq = "0.85", "weekly"
+        elif rel.startswith("guide/"):
+            prio, freq = "0.8", "weekly"
+        elif rel.startswith("blog/"):
+            prio, freq = "0.75", "monthly"
+        else:
+            prio, freq = "0.6", "monthly"
+        pages.append((f"{BASE_URL}/{rel}", prio, freq))
+
     today = datetime.now().strftime("%Y-%m-%d")
     xml = ['<?xml version="1.0" encoding="UTF-8"?>']
     xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
@@ -274,50 +279,115 @@ def generate_sitemap():
         xml.append("  </url>")
     xml.append("</urlset>")
     SITEMAP_PATH.write_text("\n".join(xml), encoding="utf-8")
-    return str(SITEMAP_PATH)
+    return str(SITEMAP_PATH), len(pages)
 
 
 def ping_google():
-    """Ping search engines with the sitemap URL to trigger re-crawl.
+    """Sitemap ping status.
 
-    Google sitemaps ping endpoint was deprecated in June 2023 and now returns
-    HTTP 404.  Google Sitemaps ping has been marked as deprecated and is
-    silently skipped.  Bing is pinged instead as the primary search engine.
+    Google retired the /ping endpoint in June 2023 (404). Microsoft retired the
+    Bing /ping endpoint as well (410 Gone). Both are reported as `deprecated`
+    instead of being counted as a site failure; IndexNow is the supported
+    replacement and is auto-detected when a key file is present.
     """
     sitemap_url = "https://abysscarbon.com/sitemap.xml"
 
-    # ── Google ping — deprecated (returns 404 since June 2023) ──────────
-    google_url = f"https://www.google.com/ping?sitemap={sitemap_url}"
     google_result = {
-        "ping_url": google_url,
+        "ping_url": f"https://www.google.com/ping?sitemap={sitemap_url}",
         "status": "deprecated",
-        "response": "Google Sitemaps ping deprecated — silently skipped. "
-                    "See https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping."
+        "response": "Google Sitemaps ping deprecated since June 2023 - skipped."
     }
 
-    # ── Bing ping — active ──────────────────────────────────────────────
     bing_url = f"https://www.bing.com/ping?sitemap={sitemap_url}"
+    bing_code = 0
+    bing_body = ""
     try:
         req = urllib.request.Request(bing_url, method="GET")
         with urllib.request.urlopen(req, timeout=15) as resp:
-            bing_status = resp.status
+            bing_code = resp.status
             bing_body = resp.read().decode("utf-8", errors="replace")[:200]
+    except urllib.error.HTTPError as e:
+        bing_code = e.code
+        bing_body = f"HTTP {e.code}: {e.reason}"
+        if e.code in (404, 410):
+            bing_body += " - Bing sitemap ping endpoint retired; use IndexNow."
     except Exception as e:
-        bing_status = 0
+        bing_code = 0
         bing_body = str(e)
 
+    bing_deprecated = bing_code in (403, 404, 410)
     bing_result = {
         "ping_url": bing_url,
-        "status": bing_status,
+        "status": "deprecated" if bing_deprecated else bing_code,
+        "http_code": bing_code,
         "response": bing_body
+    }
+
+    key_files = [f.name for f in BASE_DIR.glob("*.txt")
+                 if re.fullmatch(r"[0-9a-fA-F]{8,128}", f.stem)]
+    indexnow = {
+        "configured": bool(key_files),
+        "key_files": key_files,
+        "hint": ("ready" if key_files else
+                 "Add an IndexNow key file to enable instant Bing/Yandex submission "
+                 "(https://www.indexnow.org/documentation).")
     }
 
     return {
         "google": google_result,
         "bing": bing_result,
-        "status": bing_status,
+        "indexnow": indexnow,
+        "status": bing_result["status"],
         "ping_url": bing_url,
         "response": bing_body
+    }
+
+
+def check_price_consistency():
+    """Verify PRODUCTS match the live storefront data-item-price values."""
+    content = INDEX_PATH.read_text(encoding="utf-8")
+    live = {}
+    for m in re.finditer(r'data-item-price="([\d.]+)"[^>]*\s*data-item-name="([^"]+)"', content):
+        live[m.group(2).strip()] = float(m.group(1))
+    for m in re.finditer(r'data-item-name="([^"]+)"[^>]*\s*data-item-price="([\d.]+)"', content):
+        live.setdefault(m.group(1).strip(), float(m.group(2)))
+
+    mismatches = []
+    for p in PRODUCTS:
+        found = live.get(p["name"])
+        if found is None:
+            mismatches.append({"product": p["name"], "issue": "not_found_on_storefront",
+                               "script_price": p["price"], "storefront_price": None})
+        elif abs(found - p["price"]) > 0.01:
+            mismatches.append({"product": p["name"], "issue": "price_mismatch",
+                               "script_price": p["price"], "storefront_price": found})
+
+    visible = []
+    for x in re.findall(r'<span class="price">\$([\d,\.]+)</span>', content):
+        try:
+            v = float(x.replace(",", ""))
+        except ValueError:
+            continue
+        if v > 1:
+            visible.append(v)
+
+    display_drift = []
+    for p in PRODUCTS:
+        if any(abs(d - p["price"]) < 0.02 for d in visible):
+            continue
+        near = [d for d in visible if p["price"] * 0.5 < d < p["price"] * 2]
+        if near:
+            closest = min(near, key=lambda n: abs(n - p["price"]))
+            display_drift.append({"product": p["name"],
+                                  "storefront_price": p["price"],
+                                  "visible_price": closest})
+
+    return {
+        "checked": len(PRODUCTS),
+        "storefront_skus_found": len(live),
+        "mismatches": mismatches,
+        "display_drift": display_drift,
+        "ok": not mismatches and not display_drift
     }
 
 
@@ -355,64 +425,102 @@ def git_sync():
         result["error"] = str(e)
     return result
 
+
+def git_commit_report(report_path):
+    """Commit the freshly written report JSON (it is written after git_sync)."""
+    out = {"staged": [], "committed": False, "pushed": False, "error": None}
+    try:
+        subprocess.run([GIT, "add", str(report_path)], cwd=str(BASE_DIR),
+                       capture_output=True, text=True, timeout=30, check=True)
+        staged = subprocess.run([GIT, "diff", "--cached", "--name-only"], cwd=str(BASE_DIR),
+                                capture_output=True, text=True, timeout=30, check=True)
+        out["staged"] = [f.strip() for f in staged.stdout.splitlines() if f.strip()]
+        if out["staged"]:
+            subprocess.run([GIT, "commit", "-m",
+                            "Daily optimization report " + datetime.now().strftime("%Y-%m-%d %H:%M:%S")],
+                           cwd=str(BASE_DIR), capture_output=True, text=True, timeout=30, check=True)
+            out["committed"] = True
+            subprocess.run([GIT, "push"], cwd=str(BASE_DIR),
+                           capture_output=True, text=True, timeout=60, check=True)
+            out["pushed"] = True
+    except subprocess.CalledProcessError as e:
+        out["error"] = (e.stderr[:300] if e.stderr else str(e))
+    except Exception as e:
+        out["error"] = str(e)
+    return out
+
+
 def generate_report():
     """Generate full daily optimization report."""
-    today = datetime.now().strftime("%Y%m%d_%H%M")
-    report_path = REPORT_DIR / f"opt_{today}.json"
-    
+    stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    report_path = REPORT_DIR / f"opt_{stamp}.json"
+    seq = 2
+    while report_path.exists():
+        report_path = REPORT_DIR / f"opt_{stamp}_{seq}.json"
+        seq += 1
+
     validation = validate_site()
     seo = seo_audit()
     pricing = competitor_pricing()
     revenue = revenue_tracker()
     conversion = conversion_analysis()
-    freshness, touched_page = content_freshness()
+    freshness, stale_pages = content_freshness()
     legal = legal_compliance()
-    sitemap = generate_sitemap()
+    prices = check_price_consistency()
+    sitemap_path, sitemap_pages = generate_sitemap()
     ping = ping_google()
     git = git_sync()
-    
+
     all_valid = all(f["status"] == "OK" for f in validation)
-    
-    # Identify actionable items
+
     actions = []
     if not all_valid:
         missing = [f["file"] for f in validation if f["status"] == "MISSING"]
         actions.append(f"RESTORE missing files: {', '.join(missing)}")
-    
-    for pa in pricing:
-        if pa["action"] != "maintain":
-            actions.append(f"PRICE {pa['product']}: ${pa['current_price']} → ${pa['recommended_price']} ({pa['action']})")
-    
-    for fc in freshness:
-        if fc["action"] in ("needs_update", "review"):
-            actions.append(f"CONTENT {fc['file']}: {fc['age_days']}d old — {fc['action']}")
-    
-    if touched_page:
-        actions.append(f"CONTENT auto-refreshed: {touched_page}")
-    
+
+    for mm in prices["mismatches"]:
+        actions.append(f"PRICE SYNC {mm['product']}: script=${mm['script_price']} "
+                       f"storefront=${mm['storefront_price']} ({mm['issue']})")
+    for dd in prices["display_drift"]:
+        actions.append(f"PRICE DISPLAY {dd['product']}: visible ${dd['visible_price']} "
+                       f"vs checkout ${dd['storefront_price']} - align display and data-item-price")
+
+    if stale_pages:
+        actions.append("CONTENT stale (>30d, manual refresh recommended): " + ", ".join(stale_pages))
+
     if not all(legal.values()):
-        bad = [k for k,v in legal.items() if not v]
+        bad = [k for k, v in legal.items() if not v]
         actions.append(f"LEGAL issues: {', '.join(bad)}")
-    
+
+    if ping["bing"]["status"] != "deprecated" and ping["bing"]["http_code"] not in (200, 202):
+        actions.append(f"SEO ping: Bing returned HTTP {ping['bing']['http_code']}")
+    if not ping["indexnow"]["configured"]:
+        actions.append("SEO IndexNow not configured - sitemap ping endpoints are retired, "
+                       "add an IndexNow key file for instant indexing")
+
     if git["staged"]:
         actions.append(f"GIT staged {len(git['staged'])} files, committed={git['committed']}, pushed={git['pushed']}")
     if git["error"]:
         actions.append(f"GIT error: {git['error']}")
-    
+
     report = {
         "site": "AbyssCarbon",
+        "engine_version": "3.2",
         "generated_at": datetime.now().isoformat(),
         "site_validation": validation,
         "all_files_valid": all_valid,
         "seo_audit": seo,
+        "price_consistency": prices,
         "pricing_analysis": pricing,
+        "pricing_data_quality": "simulated - no live competitor feed; reference only",
         "revenue_tracking": revenue,
         "conversion_funnel": conversion,
         "content_freshness": freshness,
-        "content_touched": touched_page,
+        "content_stale": stale_pages,
+        "content_touched": None,
         "legal_compliance": legal,
-        "sitemap": sitemap,
-        "google_ping": ping,
+        "sitemap": {"path": sitemap_path, "url_count": sitemap_pages},
+        "ping": ping,
         "git_sync": git,
         "actions_required": actions,
         "summary": {
@@ -421,31 +529,42 @@ def generate_report():
             "monthly_target": round(MONTHLY_TARGET, 2),
             "products_tracked": len(PRODUCTS),
             "seo_score": f"{seo['score']}/{seo['max']}",
+            "price_consistency_ok": prices["ok"],
             "on_track": revenue["on_track"],
             "actions_count": len(actions),
-            "google_ping_status": ping["status"],
+            "sitemap_urls": sitemap_pages,
+            "bing_ping_status": ping["bing"]["status"],
+            "indexnow_configured": ping["indexnow"]["configured"],
             "git_pushed": git["pushed"]
         }
     }
-    
+
     report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+    rc = git_commit_report(report_path)
+    report["report_commit"] = rc
+    report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+    if rc["committed"]:
+        git_commit_report(report_path)
     return report, str(report_path)
+
 
 if __name__ == "__main__":
     report, path = generate_report()
-    print(f"[AbyssCarbon] 360 Optimization v3.1 — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print(f"[AbyssCarbon] 360 Optimization v3.2 - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print(f"  Report: {path}")
     print(f"  Files: {'ALL OK' if report['all_files_valid'] else 'ISSUES FOUND'}")
     print(f"  SEO Score: {report['seo_audit']['score']}/{report['seo_audit']['max']}")
+    print(f"  Price consistent: {report['price_consistency']['ok']}")
     print(f"  Revenue on track: {report['revenue_tracking']['on_track']}")
     print(f"  Est. daily conversions: {report['conversion_funnel']['estimated_conversions']}")
     print(f"  Est. daily revenue: ${report['conversion_funnel']['daily_revenue_est']}")
     print(f"  Est. YTD revenue: ${report['revenue_tracking']['simulated_actual']:,}")
-    print(f"  Content touched: {report.get('content_touched', 'none')}")
-    ping = report["google_ping"]
-    print(f"  Google ping: {ping['google']['status'].upper()}")
-    print(f"  Bing ping: HTTP {ping['bing']['status']}")
+    print(f"  Sitemap URLs: {report['summary']['sitemap_urls']}")
+    print(f"  Google ping: {report['ping']['google']['status'].upper()}")
+    print(f"  Bing ping: {report['ping']['bing']['status']} (HTTP {report['ping']['bing']['http_code']})")
+    print(f"  IndexNow: {'configured' if report['ping']['indexnow']['configured'] else 'NOT configured'}")
     print(f"  Git: staged={len(report['git_sync']['staged'])} committed={report['git_sync']['committed']} pushed={report['git_sync']['pushed']}")
+    print(f"  Report commit: committed={report['report_commit']['committed']} pushed={report['report_commit']['pushed']}")
     print(f"  Actions: {len(report['actions_required'])}")
     for act in report["actions_required"]:
-        print(f"    → {act}")
+        print(f"    -> {act}")

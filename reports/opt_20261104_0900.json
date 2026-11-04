@@ -1,6 +1,6 @@
 {
   "site": "AbyssCarbon",
-  "generated_at": "2026-11-04T09:00:33.260227",
+  "generated_at": "2026-11-04T09:00:39.214323",
   "site_validation": [
     {
       "file": "index.html",
@@ -71,8 +71,8 @@
     {
       "file": "blog\\carbon-vs-fiberglass-vs-plastic-fins.html",
       "status": "OK",
-      "size_bytes": 20717,
-      "sha256": "4de30759f6393525"
+      "size_bytes": 20749,
+      "sha256": "a7bddf63c5980d59"
     }
   ],
   "all_files_valid": true,
@@ -99,66 +99,66 @@
       "product": "Carbon Blades — C1 Pro",
       "current_price": 895,
       "competitor_range": [
-        752.97,
-        917.54
+        791.78,
+        922.32
       ],
-      "recommended_price": 858.34,
-      "projected_margin": 0.2701,
-      "action": "consider_discount"
+      "recommended_price": 889.0,
+      "projected_margin": 0.2953,
+      "action": "maintain"
     },
     {
       "product": "Low-Volume Mask — M1",
       "current_price": 345,
       "competitor_range": [
-        289.86,
-        360.77
+        297.91,
+        352.08
       ],
-      "recommended_price": 331.83,
-      "projected_margin": 0.2722,
-      "action": "consider_discount"
+      "recommended_price": 341.7,
+      "projected_margin": 0.2932,
+      "action": "maintain"
     },
     {
       "product": "Carbon Noseclip — N1",
       "current_price": 165,
       "competitor_range": [
-        144.2,
-        174.58
+        138.1,
+        173.28
       ],
-      "recommended_price": 165.89,
-      "projected_margin": 0.3038,
+      "recommended_price": 163.31,
+      "projected_margin": 0.2928,
       "action": "maintain"
     },
     {
       "product": "Monofin — MF1",
       "current_price": 1495,
       "competitor_range": [
-        1267.18,
-        1571.1
+        1316.19,
+        1580.29
       ],
-      "recommended_price": 1493.16,
-      "projected_margin": 0.2991,
-      "action": "maintain"
+      "recommended_price": 1526.52,
+      "projected_margin": 0.3145,
+      "action": "maintain_premium"
     },
     {
       "product": "Dive Computer — DC1",
       "current_price": 620,
       "competitor_range": [
-        512.72,
-        648.38
+        556.86,
+        667.33
       ],
-      "recommended_price": 602.25,
-      "projected_margin": 0.2794,
-      "action": "consider_discount"
+      "recommended_price": 616.16,
+      "projected_margin": 0.2956,
+      "action": "maintain"
     },
     {
       "product": "Neck Weight — W1 Carbon",
       "current_price": 285,
       "competitor_range": [
-        250.83,
-        291.3
+        236.49,
+        290.73
       ],
-      "recommended_price": 271.55,
-      "projected_margin": 0.2653,
+      "recommended_price": 275.74,
+      "projected_margin": 0.2765,
       "action": "consider_discount"
     }
   ],
@@ -168,23 +168,23 @@
     "days_remaining": 57,
     "annual_target": 100000,
     "projected_ytd": 84383.56,
-    "simulated_actual": 72764.11,
+    "simulated_actual": 82182.12,
     "remaining_needed": 15616.44,
     "on_track": false,
     "pace_pct": 84.4,
     "avg_order_value": 634.17,
-    "estimated_orders_ytd": 114,
+    "estimated_orders_ytd": 129,
     "daily_target": 273.97
   },
   "conversion_funnel": {
-    "estimated_daily_visitors": 158,
-    "page_views": 619,
-    "cart_additions": 5,
-    "cart_rate": 3.16,
-    "checkouts_started": 2,
-    "checkout_rate": 40.0,
+    "estimated_daily_visitors": 105,
+    "page_views": 442,
+    "cart_additions": 6,
+    "cart_rate": 5.71,
+    "checkouts_started": 3,
+    "checkout_rate": 50.0,
     "estimated_conversions": 1,
-    "conversion_rate": 0.63,
+    "conversion_rate": 0.95,
     "daily_revenue_est": 634.17
   },
   "content_freshness": [
@@ -230,8 +230,8 @@
     },
     {
       "file": "carbon-vs-fiberglass-vs-plastic-fins.html",
-      "age_days": 148,
-      "action": "needs_update"
+      "age_days": 0,
+      "action": "fresh"
     },
     {
       "file": "freediving-mistakes-beginners-make.html",
@@ -254,7 +254,7 @@
       "action": "needs_update"
     }
   ],
-  "content_touched": "blog\\carbon-vs-fiberglass-vs-plastic-fins.html",
+  "content_touched": "guide\\carbon-fiber-freediving.html",
   "legal_compliance": {
     "privacy_linked": true,
     "terms_linked": true,
@@ -283,18 +283,16 @@
   },
   "git_sync": {
     "staged": [
-      "blog/carbon-vs-fiberglass-vs-plastic-fins.html",
-      "sitemap.xml"
+      "guide/carbon-fiber-freediving.html",
+      "reports/opt_20261104_0900.json"
     ],
     "committed": true,
     "pushed": true,
     "error": null
   },
   "actions_required": [
-    "PRICE Carbon Blades — C1 Pro: $895 → $858.34 (consider_discount)",
-    "PRICE Low-Volume Mask — M1: $345 → $331.83 (consider_discount)",
-    "PRICE Dive Computer — DC1: $620 → $602.25 (consider_discount)",
-    "PRICE Neck Weight — W1 Carbon: $285 → $271.55 (consider_discount)",
+    "PRICE Monofin — MF1: $1495 → $1526.52 (maintain_premium)",
+    "PRICE Neck Weight — W1 Carbon: $285 → $275.74 (consider_discount)",
     "CONTENT index.html: 141d old — needs_update",
     "CONTENT index.html: 141d old — needs_update",
     "CONTENT privacy.html: 149d old — needs_update",
@@ -303,11 +301,10 @@
     "CONTENT best-freediving-gear-2026.html: 148d old — needs_update",
     "CONTENT carbon-fiber-freediving.html: 148d old — needs_update",
     "CONTENT freediving-fins-comparison-2026.html: 148d old — needs_update",
-    "CONTENT carbon-vs-fiberglass-vs-plastic-fins.html: 148d old — needs_update",
     "CONTENT freediving-mistakes-beginners-make.html: 148d old — needs_update",
     "CONTENT freediving-training-equipment-guide.html: 148d old — needs_update",
     "CONTENT monofin-vs-bifins-freediving.html: 148d old — needs_update",
-    "CONTENT auto-refreshed: blog\\carbon-vs-fiberglass-vs-plastic-fins.html",
+    "CONTENT auto-refreshed: guide\\carbon-fiber-freediving.html",
     "GIT staged 2 files, committed=True, pushed=True"
   ],
   "summary": {
@@ -317,7 +314,7 @@
     "products_tracked": 6,
     "seo_score": "12/12",
     "on_track": false,
-    "actions_count": 18,
+    "actions_count": 15,
     "google_ping_status": 0,
     "git_pushed": true
   }
