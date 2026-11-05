@@ -854,10 +854,63 @@
             color: #555;
             line-height: 1.7;
         }
+        /* ── Pledge Ledger: turns "we publish where it goes" into a checkable rule ── */
+        .pledge-ledger {
+            margin-top: 24px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+        .ledger-row {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 18px 24px;
+            border-top: 1px solid var(--border);
+        }
+        .ledger-row:first-child { border-top: 0; }
+        .ledger-key {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-dim);
+        }
+        .ledger-val {
+            font-size: 12.5px;
+            line-height: 1.75;
+            color: #777;
+        }
+        .ledger-val a {
+            color: var(--text-bright);
+            border-bottom: 1px solid var(--accent-dim);
+            transition: color 0.25s ease, border-color 0.25s ease;
+        }
+        .ledger-val a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+        @media(min-width:768px) {
+            .ledger-row {
+                flex-direction: row;
+                align-items: baseline;
+                gap: 24px;
+                padding: 16px 26px;
+            }
+            .ledger-key { flex: 0 0 132px; }
+        }
         .pledge-action {
             text-align: center;
             margin-top: 32px;
         }
+        .pledge-action-note {
+            display: block;
+            margin-top: 14px;
+            font-size: 11px;
+            letter-spacing: 0.4px;
+            color: #4a4a4a;
+        }
+        .pledge-action-note a { color: #7a7a7a; border-bottom: 1px solid #2a2a2a; }
+        .pledge-action-note a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
         /* ============================================================
            WHO IT'S FOR — DISCIPLINES
@@ -1309,8 +1362,24 @@
                 <p>Workshop clean-ups and dive-site sweeps with our ambassadors. Come dive with us — and take a bag of someone else's rubbish home.</p>
             </div>
         </div>
+        <!-- Pledge Ledger — the 1% claim, stated as a rule you can check -->
+        <div class="pledge-ledger">
+            <div class="ledger-row">
+                <span class="ledger-key">Set aside</span>
+                <span class="ledger-val">1% of every order value &mdash; on every order, at every price, including the small ones</span>
+            </div>
+            <div class="ledger-row">
+                <span class="ledger-key">Goes to</span>
+                <span class="ledger-val">Kelp reforestation &middot; reef restoration &middot; coastal clean-up, run with local marine partners</span>
+            </div>
+            <div class="ledger-row">
+                <span class="ledger-key">You can check</span>
+                <span class="ledger-val">Field notes in the <a href="blog/index.html">journal</a>, updated monthly &mdash; or <a href="#contact">ask us</a> with your order number and we tell you which programme that order&rsquo;s 1% went to</span>
+            </div>
+        </div>
         <div class="pledge-action">
             <a href="#contact" class="btn-outline">Partner With Us</a>
+            <span class="pledge-action-note">Reading the ledger and finding it thin? Tell us &mdash; <a href="#contact">say so here</a>.</span>
         </div>
     </section>
 
