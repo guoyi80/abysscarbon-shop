@@ -1078,6 +1078,7 @@
             display: block;
         }
         .suit-inner svg { display: block; width: 168px; height: 292px; }
+        .fit-canvas { height: 360px; }
         .view-btns {
             display: flex;
             gap: 8px;
@@ -1239,6 +1240,116 @@
         .range-card a.range-link { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent-dim); text-decoration: none; }
         .range-card a.range-link:hover { color: var(--accent); }
 
+        /* ---- fitting room: sliders, stage tools, fit report ---- */
+        .fit-canvas { width: 100%; height: 420px; position: relative; z-index: 1; }
+        .fit-canvas canvas { display: block; width: 100% !important; height: 100% !important; }
+        .stage-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 14px;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        .fit-flag {
+            display: none;
+            color: #e2543a;
+            font-size: 11px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .fit-flag.show { display: block; }
+        .slider-row { margin-bottom: 12px; }
+        .slider-row label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #7a7a7a;
+            letter-spacing: 0.4px;
+            margin-bottom: 6px;
+        }
+        .slider-row label b { color: var(--text-bright); font-weight: 500; }
+        .slider-row input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 2px;
+            background: #262626;
+            outline: none;
+            cursor: pointer;
+        }
+        .slider-row input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid #050505;
+            box-shadow: 0 0 0 1px rgba(0,163,255,0.5);
+        }
+        .slider-row input[type=range]::-moz-range-thumb {
+            width: 13px; height: 13px; border-radius: 50%;
+            background: var(--accent); border: 2px solid #050505;
+        }
+        .preset-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 4px; }
+        .fit-report {
+            max-width: 1180px;
+            margin: 34px auto 0;
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+        .fit-verdict {
+            padding: 22px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .fit-verdict .fv-tag {
+            font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #5a5a5a;
+        }
+        .fit-verdict .fv-main {
+            font-size: 20px; font-weight: 300; color: var(--text-bright); letter-spacing: 0.5px;
+        }
+        .fit-verdict .fv-sub { font-size: 12px; color: #8b8b8b; line-height: 1.8; }
+        @media(max-width:720px) { .fit-verdict .fv-sub { font-size: 12.5px; color: #9a9a9a; line-height: 1.75; } }
+        .fit-verdict .fv-main.ok { color: #4adf9b; }
+        .fit-verdict .fv-main.warn { color: #f0b64c; }
+        .fit-verdict .fv-main.bad { color: #f26a4c; }
+        .fit-cols { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+        .fit-block { padding: 22px 24px; border-top: 1px solid var(--border); min-width: 0; }
+        .fit-block h4 {
+            font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+            color: #5a5a5a; margin-bottom: 14px; font-weight: 500;
+        }
+        .fit-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .fit-table { width: 100%; border-collapse: collapse; }
+        @media(max-width:720px) {
+            .fit-table th, .fit-table td { font-size: 10px; padding: 6px 3px; }
+            .fit-table th { font-size: 8.5px; letter-spacing: .5px; }
+            .st { font-size: 9px; letter-spacing: .3px; display: inline-block; line-height: 1.3; }
+        }
+        .fit-table th, .fit-table td {
+            text-align: left; font-size: 11.5px; padding: 7px 6px;
+            border-bottom: 1px solid #191919; color: #8a8a8a;
+        }
+        .fit-table th { color: #4f4f4f; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; font-size: 9.5px; }
+        .fit-table td.num { color: var(--text-bright); }
+        .st { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
+        .st.ok { color: #4adf9b; font-weight: 600; }
+        .st.warn { color: #f0b64c; font-weight: 600; }
+        .st.bad { color: #f26a4c; font-weight: 600; }
+        .fit-foot { margin: 10px 0 0; font-size: 10.5px; color: #565656; line-height: 1.6; }
+        .fit-notes { list-style: none; margin: 0; padding: 0; }
+        .fit-notes li {
+            font-size: 12px; color: #7c7c7c; line-height: 1.7;
+            padding: 7px 0 7px 16px; position: relative;
+        }
+        .fit-notes li::before {
+            content: '—'; position: absolute; left: 0; color: var(--accent-dim);
+        }
+
         @media(min-width:640px) {
             .builder-grid { grid-template-columns: 1fr 1fr; }
             .range-grid { grid-template-columns: 1fr 1fr; }
@@ -1251,6 +1362,8 @@
             .range-grid { grid-template-columns: repeat(4, 1fr); }
             .suit-inner svg { width: 300px; height: 500px; }
             .builder-stage { min-height: 620px; }
+            .fit-canvas { height: 560px; }
+            .fit-cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
         }
 </style>
 </head>
@@ -1412,60 +1525,111 @@
         </div>
     </section>
 
-    <!-- ===== MADE-TO-MEASURE 3D SUIT BUILDER (CORE BUSINESS) ===== -->
+    <!-- ===== PARAMETRIC 3D FITTING ROOM (CORE BUSINESS) ===== -->
     <section id="custom" class="custom-builder">
-        <p class="section-tag">MADE TO MEASURE</p>
-        <h2>Build Your Suit in 3D</h2>
-        <p class="builder-lead">Every AbyssCarbon suit is cut to your body, not to a size chart. Pick your discipline, thickness and finish &mdash; the 3D preview updates as you build. Final quote is confirmed by the workshop after your measurements are reviewed.</p>
+        <p class="section-tag">VIRTUAL FITTING ROOM</p>
+        <h2>Trial Fit on Your Own Body</h2>
+        <p class="builder-lead">Enter height and weight, then fine-tune the parts of your body that a size chart never accounts for. The parametric 3D body updates live, the suit is draped over it, and the report below tells you exactly where the pattern will pull, gap, compress or ride up &mdash; before a single panel is cut.</p>
         <div class="builder-grid">
             <div class="builder-stage">
-                <div class="suit-wrap" id="suitWrap" role="img" aria-label="Interactive 3D preview of a made-to-measure wetsuit">
-                    <div class="suit-inner" id="suitInner"></div>
+                <div class="fit-canvas" id="fitCanvas" aria-label="Interactive 3D fitting room"></div>
+                <div class="stage-tools" id="viewBtns">
+                    <button class="view-btn active" data-act="suit">Suit on</button>
+                    <button class="view-btn" data-act="body">Body only</button>
+                    <button class="view-btn" data-act="spin">Auto-spin</button>
+                    <button class="view-btn" data-act="front">Front</button>
+                    <button class="view-btn" data-act="side">Side</button>
+                    <button class="view-btn" data-act="back">Back</button>
                 </div>
-                <div class="view-btns" id="viewBtns">
-                    <button class="view-btn active" data-view="front">Front</button>
-                    <button class="view-btn" data-view="side">Side</button>
-                    <button class="view-btn" data-view="back">Back</button>
-                </div>
-                <p class="builder-hint">Drag to rotate</p>
+                <p class="builder-hint">Drag to orbit &middot; scroll to zoom</p>
+                <p class="fit-flag" id="fitFlag">WebGL is unavailable on this device &mdash; the fit report below still works.</p>
             </div>
             <div class="builder-panel">
                 <div class="opt-group">
-                    <span class="opt-label">01 &middot; Discipline</span>
+                    <span class="opt-label">01 &middot; Height &amp; Weight</span>
+                    <div class="slider-row">
+                        <label>Height <b><span id="vHeight">175</span> cm</b></label>
+                        <input type="range" id="sHeight" min="150" max="205" step="1" value="175">
+                    </div>
+                    <div class="slider-row">
+                        <label>Weight <b><span id="vWeight">72</span> kg</b></label>
+                        <input type="range" id="sWeight" min="45" max="110" step="1" value="72">
+                    </div>
+                    <div class="preset-row" id="presetRow">
+                        <button class="view-btn" data-preset="std">Average</button>
+                        <button class="view-btn" data-preset="top">Top-heavy</button>
+                        <button class="view-btn" data-preset="belly">Belly</button>
+                        <button class="view-btn" data-preset="longlegs">Long legs</button>
+                        <button class="view-btn" data-preset="petite">Petite</button>
+                    </div>
+                </div>
+                <div class="opt-group">
+                    <span class="opt-label">02 &middot; Circumference Fine-tune</span>
+                    <div class="slider-row">
+                        <label>Chest <b><span id="vChest">91</span> cm</b></label>
+                        <input type="range" id="sChest" min="78" max="125" step="1" value="91">
+                    </div>
+                    <div class="slider-row">
+                        <label>Waist <b><span id="vWaist">72</span> cm</b></label>
+                        <input type="range" id="sWaist" min="62" max="118" step="1" value="72">
+                    </div>
+                    <div class="slider-row">
+                        <label>Hip <b><span id="vHip">90</span> cm</b></label>
+                        <input type="range" id="sHip" min="82" max="126" step="1" value="90">
+                    </div>
+                    <div class="slider-row">
+                        <label>Shoulder width <b><span id="vShoulder">45</span> cm</b></label>
+                        <input type="range" id="sShoulder" min="36" max="56" step="1" value="45">
+                    </div>
+                    <div class="slider-row">
+                        <label>Arm length <b><span id="vArm">58</span> cm</b></label>
+                        <input type="range" id="sArm" min="50" max="74" step="1" value="58">
+                    </div>
+                    <div class="slider-row">
+                        <label>Inseam <b><span id="vLeg">80</span> cm</b></label>
+                        <input type="range" id="sLeg" min="66" max="96" step="1" value="80">
+                    </div>
+                </div>
+                <div class="opt-group">
+                    <span class="opt-label">03 &middot; Body Traits</span>
+                    <div class="slider-row">
+                        <label>Belly protrusion <b><span id="vBelly">0</span> cm</b></label>
+                        <input type="range" id="sBelly" min="0" max="12" step="1" value="0">
+                    </div>
+                    <div class="slider-row">
+                        <label>Muscle mass <b><span id="vMuscle">40</span> / 100</b></label>
+                        <input type="range" id="sMuscle" min="0" max="100" step="5" value="40">
+                    </div>
+                </div>
+                <div class="opt-group">
+                    <span class="opt-label">04 &middot; Discipline</span>
                     <div class="chip-row" id="optSport"></div>
                 </div>
                 <div class="opt-group">
-                    <span class="opt-label">02 &middot; Thickness</span>
+                    <span class="opt-label">05 &middot; Thickness</span>
                     <div class="chip-row" id="optThick"></div>
                 </div>
                 <div class="opt-group">
-                    <span class="opt-label">03 &middot; Neoprene &amp; Lining</span>
-                    <div class="chip-row" id="optLining"></div>
-                </div>
-                <div class="opt-group">
-                    <span class="opt-label">04 &middot; Seam Construction</span>
-                    <div class="chip-row" id="optStitch"></div>
-                </div>
-                <div class="opt-group">
-                    <span class="opt-label">05 &middot; Body Colour</span>
+                    <span class="opt-label">06 &middot; Body Colour</span>
                     <div class="swatch-row" id="swBody"></div>
                 </div>
                 <div class="opt-group">
-                    <span class="opt-label">06 &middot; Panel Colour</span>
+                    <span class="opt-label">07 &middot; Panel Colour</span>
                     <div class="swatch-row" id="swPanel"></div>
                 </div>
                 <div class="opt-group">
-                    <span class="opt-label">07 &middot; Add-ons</span>
-                    <div class="extra-row" id="optExtras"></div>
+                    <span class="opt-label">08 &middot; Add-ons</span>
+                    <div class="chip-row" id="optExtras"></div>
                 </div>
                 <div class="builder-summary">
                     <p class="builder-price" id="sumPrice">$460<span>EST. FROM / MADE TO MEASURE</span></p>
                     <p class="builder-meta" id="sumMeta">Lead time 4&ndash;6 weeks &middot; 2 fitting revisions included &middot; Free repair within 3 years</p>
                     <p class="builder-spec" id="sumSpec"></p>
-                    <a href="#contact" class="btn" style="display:block;text-align:center;">Request Measurement Kit</a>
+                    <a href="#contact" class="btn" style="display:block;text-align:center;">Send Measurements to Workshop</a>
                 </div>
             </div>
         </div>
+        <div class="fit-report" id="fitReport"></div>
     </section>
 
     <!-- ===== PRODUCTS ===== -->
@@ -2244,247 +2408,621 @@
         });
     </script>
 
-    <!-- ===== 3D SUIT BUILDER LOGIC (no external libs, no model files) ===== -->
-    <script>
-    (function () {
-        var inner = document.getElementById('suitInner');
-        if (!inner) return;
-
-        var COLORS = [
-            { id: 'carbon', name: 'Carbon Black', hex: '#0c0d0f' },
-            { id: 'navy',   name: 'Deep Navy',    hex: '#17233d' },
-            { id: 'blue',   name: 'Electric Blue',hex: '#0a6fd8' },
-            { id: 'steel',  name: 'Storm Grey',   hex: '#4b5157' },
-            { id: 'coral',  name: 'Coral',        hex: '#e2543a' },
-            { id: 'sand',   name: 'Sand',         hex: '#c3b299' },
-            { id: 'olive',  name: 'Camo Olive',   hex: '#424b36' },
-            { id: 'bone',   name: 'Bone White',   hex: '#e8e6df' }
-        ];
-        var SPORTS = [
-            { id: 'freedive', label: 'Freediving',     base: 420, lead: '4-6 weeks' },
-            { id: 'spear',    label: 'Spearfishing',   base: 460, lead: '4-6 weeks' },
-            { id: 'scuba',    label: 'Scuba / Travel', base: 430, lead: '4-6 weeks' },
-            { id: 'surf',     label: 'Surf & Water',   base: 400, lead: '4-6 weeks' },
-            { id: 'swim',     label: 'Swimwear',       base: 180, lead: '3-4 weeks' },
-            { id: 'tri',      label: 'Triathlon',      base: 320, lead: '4-5 weeks' },
-            { id: 'kids',     label: 'Kids / Junior',  base: 220, lead: '3-4 weeks' },
-            { id: 'team',     label: 'Team / Club',    base: 380, lead: '5-7 weeks' }
-        ];
-        var THICKS = [
-            { id: '1.5', label: '1.5 mm', add: 0 },
-            { id: '3',   label: '3 mm',   add: 40 },
-            { id: '5',   label: '5 mm',   add: 60 },
-            { id: '7',   label: '7 mm',   add: 80 }
-        ];
-        var LININGS = [
-            { id: 'std',     label: 'Open-cell + nylon', add: 0 },
-            { id: 'ultra',   label: 'UltraSpan 4-way',   add: 30 },
-            { id: 'titan',   label: 'Titanium coated',   add: 45 },
-            { id: 'thermal', label: 'Thermal fleece',    add: 60 }
-        ];
-        var STITCHES = [
-            { id: 'blind',  label: 'Glued & blind-stitched', add: 0 },
-            { id: 'flat',   label: 'Flatlock',               add: 10 },
-            { id: 'liquid', label: 'Liquid sealed',          add: 35 }
-        ];
-        var EXTRAS = [
-            { id: 'hood',    label: 'Integrated hood  +$45',     add: 45 },
-            { id: 'pad',     label: 'Chest loading pad  +$35',   add: 35 },
-            { id: 'pocket',  label: 'Thigh pocket  +$25',        add: 25 },
-            { id: 'reflect', label: 'Reflective markings  +$15', add: 15 },
-            { id: 'name',    label: 'Name embroidery  +$12',     add: 12 }
-        ];
-
-        var state = { sport: 'spear', thick: '3', lining: 'ultra', stitch: 'blind', body: 'carbon', panel: 'blue', extras: ['pad'] };
-
-        function find(list, id) {
-            for (var i = 0; i < list.length; i++) { if (list[i].id === id) { return list[i]; } }
-            return list[0];
+    <!-- ===== PARAMETRIC FITTING ROOM (three.js shell, no local model files) ===== -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
         }
+    }
+    </script>
+    <script type="module">
+    const COLORS = [
+        { id: 'carbon', name: 'Carbon Black',  hex: '#0c0d0f' },
+        { id: 'navy',   name: 'Deep Navy',     hex: '#17233d' },
+        { id: 'blue',   name: 'Electric Blue', hex: '#0a6fd8' },
+        { id: 'steel',  name: 'Storm Grey',    hex: '#4b5157' },
+        { id: 'coral',  name: 'Coral',         hex: '#e2543a' },
+        { id: 'sand',   name: 'Sand',          hex: '#c8b28f' }
+    ];
+    const SPORTS = [
+        { id: 'freedive',    label: 'Freedive',     base: 480 },
+        { id: 'spear',       label: 'Spearfishing', base: 520 },
+        { id: 'scuba',       label: 'Scuba',        base: 540 },
+        { id: 'surf',        label: 'Surf',         base: 430 },
+        { id: 'triathlon',   label: 'Triathlon',    base: 390 },
+        { id: 'openwater',   label: 'Open Water',   base: 450 }
+    ];
+    const THICKS = [
+        { id: '1.5', label: '1.5 mm', add: 0,  temp: '24-31' },
+        { id: '3',   label: '3 mm',   add: 30, temp: '17-24' },
+        { id: '5',   label: '5 mm',   add: 60, temp: '10-18' },
+        { id: '7',   label: '7 mm',   add: 90, temp: '4-11'  }
+    ];
+    const EXTRAS = [
+        { id: 'hood',   label: 'Attached hood',  add: 35 },
+        { id: 'pad',    label: 'Chest loading pad', add: 18 },
+        { id: 'pocket', label: 'Key pocket',     add: 12 },
+        { id: 'knee',   label: 'Knee pads',      add: 22 }
+    ];
+    const CHART = [
+        { size: 'XS',  h: [155, 164], chest: [84, 89],   waist: [68, 73],   hip: [88, 93]   },
+        { size: 'S',   h: [162, 170], chest: [89, 94],   waist: [73, 78],   hip: [93, 98]   },
+        { size: 'M',   h: [168, 176], chest: [94, 100],  waist: [78, 84],   hip: [98, 103]  },
+        { size: 'L',   h: [174, 182], chest: [100, 107], waist: [84, 91],   hip: [103, 109] },
+        { size: 'XL',  h: [180, 188], chest: [107, 114], waist: [91, 98],   hip: [109, 116] },
+        { size: 'XXL', h: [186, 196], chest: [114, 122], waist: [98, 106],  hip: [116, 124] }
+    ];
 
-        /* --- silhouette + panel layout per view --- */
-        var HOOD  = 'M100,12 C82,12 70,28 70,48 C70,62 76,72 86,78 L114,78 C124,72 130,62 130,48 C130,28 118,12 100,12 Z';
-        var NECK  = 'M88,72 L112,72 L116,92 L84,92 Z';
-        var TORSO = 'M100,80 C119,80 136,84 146,96 C152,104 150,136 146,172 C142,208 138,244 134,270 L66,270 C62,244 58,208 54,172 C50,136 48,104 54,96 C64,84 81,80 100,80 Z';
-        var ARML  = 'M58,94 C44,104 36,136 34,176 C31,210 36,244 44,256 L60,252 C53,220 53,184 57,152 C60,124 66,106 70,98 Z';
-        var ARMR  = 'M142,94 C156,104 164,136 166,176 C169,210 164,244 156,256 L140,252 C147,220 147,184 143,152 C140,124 134,106 130,98 Z';
-        var LEGL  = 'M66,266 L98,266 L97,410 C97,428 93,442 86,442 L66,442 C60,442 58,428 58,410 Z';
-        var LEGR  = 'M102,266 L134,266 L142,410 C142,428 140,442 134,442 L114,442 C107,442 103,428 103,410 Z';
+    const state = {
+        height: 175, weight: 72, chest: 91, waist: 72, hip: 90,
+        shoulder: 45, arm: 58, leg: 80, belly: 0, muscle: 40,
+        sport: 'freedive', thick: '3', body: 'carbon', panel: 'blue',
+        extras: ['pad'], suit: true, spin: false, autoFit: true
+    };
 
-        var PANELS = {
-            front:
-                '<path d="M78,100 L122,100 L116,134 L100,148 L84,134 Z"/>' +
-                '<path d="M36,198 L54,203 L51,230 L33,225 Z"/>' +
-                '<path d="M164,198 L146,203 L149,230 L167,225 Z"/>' +
-                '<path d="M58,150 L66,156 L60,238 L53,234 Z"/>' +
-                '<path d="M142,150 L134,156 L140,238 L147,234 Z"/>' +
-                '<path d="M66,336 L92,336 L91,396 L66,396 Z"/>' +
-                '<path d="M108,336 L134,336 L134,396 L109,396 Z"/>',
-            back:
-                '<path d="M94,84 L106,84 L106,264 L94,264 Z"/>' +
-                '<path d="M72,90 L128,90 L126,108 L74,108 Z"/>' +
-                '<path d="M58,150 L66,156 L60,238 L53,234 Z"/>' +
-                '<path d="M142,150 L134,156 L140,238 L147,234 Z"/>' +
-                '<path d="M66,342 L96,342 L96,366 L66,366 Z"/>' +
-                '<path d="M104,342 L134,342 L134,366 L104,366 Z"/>',
-            side:
-                '<path d="M84,98 L118,98 L120,204 L82,204 Z"/>' +
-                '<path d="M84,212 L120,212 L116,264 L86,264 Z"/>' +
-                '<path d="M36,198 L54,203 L51,230 L33,225 Z"/>' +
-                '<path d="M64,332 L96,332 L94,400 L64,400 Z"/>'
-        };
+    const find = (arr, id) => arr.find(o => o.id === id);
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const money = n => '$' + n;
 
-        function svgFor(view) {
-            var stroke = 'stroke="rgba(255,255,255,0.14)" stroke-width="1"';
-            var mask = view === 'front'
-                ? '<g pointer-events="none"><rect x="70" y="41" width="60" height="11" rx="3" fill="rgba(8,12,16,0.55)"/>' +
-                  '<rect x="80" y="41" width="18" height="9" rx="2" fill="#0d2436" stroke="rgba(0,163,255,0.5)" stroke-width="0.8"/>' +
-                  '<rect x="102" y="41" width="18" height="9" rx="2" fill="#0d2436" stroke="rgba(0,163,255,0.5)" stroke-width="0.8"/></g>'
-                : '';
-            return '<svg viewBox="0 0 200 460" xmlns="http://www.w3.org/2000/svg">' +
-                '<defs><linearGradient id="suitShade" x1="0" y1="0" x2="1" y2="1">' +
-                '<stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>' +
-                '<stop offset="52%" stop-color="#ffffff" stop-opacity="0.03"/>' +
-                '<stop offset="100%" stop-color="#000000" stop-opacity="0.34"/>' +
-                '</linearGradient></defs>' +
-                '<g fill="var(--suit-body)" ' + stroke + '>' +
-                '<path d="' + NECK + '"/><path d="' + HOOD + '"/><path d="' + TORSO + '"/>' +
-                '<path d="' + ARML + '"/><path d="' + ARMR + '"/><path d="' + LEGL + '"/><path d="' + LEGR + '"/></g>' +
-                mask +
-                '<g fill="var(--suit-panel)" opacity="0.94" ' + stroke + '>' + PANELS[view] + '</g>' +
-                '<path d="' + TORSO + '" fill="url(#suitShade)" pointer-events="none"/>' +
-                '<path d="' + LEGL + '" fill="url(#suitShade)" opacity="0.6" pointer-events="none"/>' +
-                '<path d="' + LEGR + '" fill="url(#suitShade)" opacity="0.6" pointer-events="none"/>' +
-                '</svg>';
-        }
+    /* ---------- 1. control wiring (no WebGL needed) ---------- */
+    const SLIDERS = [
+        ['sHeight', 'height', 'vHeight'], ['sWeight', 'weight', 'vWeight'],
+        ['sChest', 'chest', 'vChest'], ['sWaist', 'waist', 'vWaist'], ['sHip', 'hip', 'vHip'],
+        ['sShoulder', 'shoulder', 'vShoulder'], ['sArm', 'arm', 'vArm'], ['sLeg', 'leg', 'vLeg'],
+        ['sBelly', 'belly', 'vBelly'], ['sMuscle', 'muscle', 'vMuscle']
+    ];
+    const AUTO_FROM_WEIGHT = ['chest', 'waist', 'hip'];
 
-        /* --- rotation state --- */
-        var VIEWS = ['front', 'side', 'back', 'side'];
-        var vi = 0, rot = 0;
+    function syncHeightWeight() {
+        if (!state.autoFit) return;
+        const w = state.weight, hf = 1 + (state.height - 175) * 0.0012;
+        state.chest = Math.round((55 + 0.5 * w) * hf);
+        state.waist = Math.round((40 + 0.45 * w) * hf);
+        state.hip = Math.round((60 + 0.42 * w) * hf);
+        document.getElementById('sChest').value = state.chest;
+        document.getElementById('sWaist').value = state.waist;
+        document.getElementById('sHip').value = state.hip;
+    }
 
-        function paint() {
-            var body = find(COLORS, state.body).hex;
-            var panel = find(COLORS, state.panel).hex;
-            inner.style.setProperty('--suit-body', body);
-            inner.style.setProperty('--suit-panel', panel);
-            inner.innerHTML = svgFor(VIEWS[vi]);
-            inner.style.transform = 'rotateY(' + Math.max(-60, Math.min(60, rot)) + 'deg)';
-            var btns = document.querySelectorAll('#viewBtns .view-btn');
-            for (var i = 0; i < btns.length; i++) {
-                btns[i].classList.toggle('active', btns[i].getAttribute('data-view') === VIEWS[vi]);
-            }
-        }
+    SLIDERS.forEach(([sid, key, vid]) => {
+        const el = document.getElementById(sid);
+        if (!el) return;
+        el.addEventListener('input', () => {
+            state[key] = parseFloat(el.value);
+            if (AUTO_FROM_WEIGHT.includes(key)) state.autoFit = false;
+            if (key === 'height' || key === 'weight') { syncHeightWeight(); refreshSliderLabels(); }
+            document.getElementById(vid).textContent = state[key];
+            commit();
+        });
+    });
 
-        /* --- drag to rotate --- */
-        var wrap = document.getElementById('suitWrap');
-        var dragging = false, lastX = 0;
-        function startDrag(x) { dragging = true; lastX = x; wrap.classList.add('dragging'); }
-        function moveDrag(x) {
-            if (!dragging) return;
-            var d = (x - lastX) * 0.55;
-            lastX = x;
-            rot += d;
-            if (rot > 60) { vi = (vi + 1) % 4; rot = -60; }
-            if (rot < -60) { vi = (vi + 3) % 4; rot = 60; }
-            paint();
-        }
-        function endDrag() { dragging = false; wrap.classList.remove('dragging'); }
-        wrap.addEventListener('mousedown', function (e) { startDrag(e.clientX); e.preventDefault(); });
-        document.addEventListener('mousemove', function (e) { moveDrag(e.clientX); });
-        document.addEventListener('mouseup', endDrag);
-        wrap.addEventListener('touchstart', function (e) { startDrag(e.touches[0].clientX); }, { passive: true });
-        wrap.addEventListener('touchmove', function (e) { moveDrag(e.touches[0].clientX); }, { passive: true });
-        wrap.addEventListener('touchend', endDrag);
+    function refreshSliderLabels() {
+        document.getElementById('vChest').textContent = state.chest;
+        document.getElementById('vWaist').textContent = state.waist;
+        document.getElementById('vHip').textContent = state.hip;
+    }
 
-        var vbtns = document.querySelectorAll('#viewBtns .view-btn');
-        for (var b = 0; b < vbtns.length; b++) {
-            vbtns[b].addEventListener('click', function () {
-                var v = this.getAttribute('data-view');
-                vi = (v === 'front') ? 0 : (v === 'side') ? 1 : 2;
-                rot = 0;
-                paint();
+    const PRESETS = {
+        std:      { height: 175, weight: 72, shoulder: 45, arm: 58, leg: 80, belly: 0, muscle: 40, autoFit: true },
+        top:      { height: 180, weight: 84, shoulder: 50, arm: 61, leg: 82, belly: 2, muscle: 78, autoFit: false, chest: 106, waist: 80, hip: 96 },
+        belly:    { height: 174, weight: 88, shoulder: 46, arm: 57, leg: 78, belly: 9, muscle: 30, autoFit: false, chest: 102, waist: 96, hip: 100 },
+        longlegs: { height: 184, weight: 74, shoulder: 45, arm: 61, leg: 90, belly: 0, muscle: 45, autoFit: true },
+        petite:   { height: 159, weight: 54, shoulder: 38, arm: 52, leg: 72, belly: 2, muscle: 25, autoFit: false, chest: 84, waist: 66, hip: 88 }
+    };
+    document.querySelectorAll('[data-preset]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const preset = PRESETS[btn.dataset.preset];
+            if (!preset) return;
+            Object.assign(state, preset);
+            SLIDERS.forEach(([sid, key, vid]) => {
+                document.getElementById(sid).value = state[key];
+                document.getElementById(vid).textContent = state[key];
             });
+            document.querySelectorAll('[data-preset]').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            commit();
+        });
+    });
+
+    function chipRow(host, arr, key, multi) {
+        if (!host) return;
+        host.innerHTML = '';
+        arr.forEach(item => {
+            const b = document.createElement('button');
+            b.className = 'opt-chip' + ((multi ? state[key].includes(item.id) : state[key] === item.id) ? ' active' : '');
+            b.textContent = item.label;
+            b.addEventListener('click', () => {
+                if (multi) {
+                    const arr2 = state[key];
+                    state[key] = arr2.includes(item.id) ? arr2.filter(x => x !== item.id) : arr2.concat([item.id]);
+                } else {
+                    state[key] = item.id;
+                }
+                host.querySelectorAll('.opt-chip').forEach(c => c.classList.remove('active'));
+                if (multi) {
+                    host.querySelectorAll('.opt-chip').forEach((c, i) => {
+                        if (state[key].includes(arr[i].id)) c.classList.add('active');
+                    });
+                } else {
+                    b.classList.add('active');
+                }
+                commit();
+            });
+            host.appendChild(b);
+        });
+    }
+
+    function swatchRow(host, key) {
+        if (!host) return;
+        host.innerHTML = '';
+        COLORS.forEach(c => {
+            const b = document.createElement('button');
+            b.className = 'swatch' + (state[key] === c.id ? ' active' : '');
+            b.style.background = c.hex;
+            b.title = c.name;
+            b.addEventListener('click', () => {
+                state[key] = c.id;
+                host.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+                b.classList.add('active');
+                commit();
+            });
+            host.appendChild(b);
+        });
+    }
+
+    chipRow(document.getElementById('optSport'), SPORTS, 'sport', false);
+    chipRow(document.getElementById('optThick'), THICKS, 'thick', false);
+    chipRow(document.getElementById('optExtras'), EXTRAS, 'extras', true);
+    swatchRow(document.getElementById('swBody'), 'body');
+    swatchRow(document.getElementById('swPanel'), 'panel');
+
+    document.querySelectorAll('[data-act]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const act = btn.dataset.act;
+            if (act === 'suit' || act === 'body') {
+                state.suit = act === 'suit';
+                document.querySelectorAll('[data-act="suit"],[data-act="body"]').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            } else if (act === 'spin') {
+                state.spin = !state.spin;
+                btn.classList.toggle('active', state.spin);
+            } else {
+                applyView(act);
+            }
+            commit();
+        });
+    });
+
+    /* ---------- 2. fit engine ---------- */
+    function zoneStatus(value, band, tol, kind) {
+        const delta = value - clamp(value, band[0], band[1]);
+        const abs = Math.abs(delta), up = delta > 0;
+        const tightLabel = (kind === 'height' || kind === 'length') ? (up ? 'SUIT TOO SHORT' : 'SUIT TOO LONG')
+                        : (up ? 'TIGHT' : 'LOOSE');
+        if (abs <= tol) return { delta, cls: 'ok', label: 'FITS' };
+        if (abs <= tol + 3) return { delta, cls: 'warn', label: kind === 'girth' ? (up ? 'SLIGHTLY TIGHT' : 'SLIGHTLY LOOSE') : tightLabel };
+        return { delta, cls: 'bad', label: kind === 'girth' ? (up ? 'WILL NOT CLOSE' : 'WILL GAP') : tightLabel };
+    }
+
+    function analyse() {
+        const s = state;
+        const thick = parseFloat(s.thick);
+        const tol = Math.max(1.2, 2.8 - 0.16 * thick);
+        let best = null;
+        CHART.forEach(c => {
+            const dChest = Math.abs(s.chest - clamp(s.chest, c.chest[0], c.chest[1]));
+            const dWaist = Math.abs(s.waist - clamp(s.waist, c.waist[0], c.waist[1]));
+            const dHip = Math.abs(s.hip - clamp(s.hip, c.hip[0], c.hip[1]));
+            const dH = Math.abs(s.height - clamp(s.height, c.h[0], c.h[1]));
+            const score = dChest * 0.9 + dWaist * 0.85 + dHip * 0.8 + dH * 3.2;
+            if (!best || score < best.score) best = { c, score };
+        });
+        const chart = best.c;
+        const midH = (chart.h[0] + chart.h[1]) / 2;
+        const grade = (ratio, spread) => { const v = ratio * midH; return [Math.round(v - spread), Math.round(v + spread)]; };
+        const zones = [
+            { name: 'Height',      value: s.height,   band: chart.h,           kind: 'height' },
+            { name: 'Chest',       value: s.chest,    band: chart.chest,       kind: 'girth' },
+            { name: 'Waist',       value: s.waist,    band: chart.waist,       kind: 'girth' },
+            { name: 'Hip',         value: s.hip,      band: chart.hip,         kind: 'girth' },
+            { name: 'Shoulder',    value: s.shoulder, band: grade(0.249, 1.5), kind: 'girth' },
+            { name: 'Arm length',  value: s.arm,      band: grade(0.325, 1.5), kind: 'length' },
+            { name: 'Inseam',      value: s.leg,      band: grade(0.449, 1.5), kind: 'length' }
+        ].map(z => Object.assign(z, zoneStatus(z.value, z.band, tol, z.kind)));
+
+        const bad = zones.filter(z => z.cls === 'bad').length;
+        const warn = zones.filter(z => z.cls === 'warn').length;
+        return { chart, zones, tol, bad, warn, thick };
+    }
+
+    function measurementSheet() {
+        const s = state;
+        const bmi = s.weight / Math.pow(s.height / 100, 2);
+        const thigh = Math.round(s.hip * 0.62);
+        const calf = Math.round(thigh * 0.74);
+        const neck = Math.round(s.chest * 0.42);
+        const torso = Math.round(s.height * 0.285);
+        const rows = [
+            ['Height', s.height + ' cm'],
+            ['Weight / BMI', s.weight + ' kg / ' + bmi.toFixed(1)],
+            ['Chest', s.chest + ' cm'],
+            ['Waist', s.waist + ' cm'],
+            ['Hip', s.hip + ' cm'],
+            ['Shoulder width', s.shoulder + ' cm'],
+            ['Arm length', s.arm + ' cm'],
+            ['Inseam', s.leg + ' cm'],
+            ['Derived thigh', '~' + thigh + ' cm'],
+            ['Derived calf', '~' + calf + ' cm'],
+            ['Derived neck', '~' + neck + ' cm'],
+            ['Derived torso length', '~' + torso + ' cm']
+        ];
+        if (s.belly > 0) rows.push(['Belly protrusion', '+' + s.belly + ' cm']);
+        return rows;
+    }
+
+    function fitNotes(res) {
+        const s = state, thick = parseFloat(s.thick), notes = [];
+        const thickObj = find(THICKS, s.thick);
+        if (s.belly >= 6) notes.push('Belly protrusion +' + s.belly + ' cm: a stock pattern rides up at the front waist and gaps at the lumbar. We add a front gusset and 2 cm of extra torso length. Anything less and the zip will pull under the chest.');
+        else if (s.belly >= 3) notes.push('Belly protrusion +' + s.belly + ' cm: expect the zip to pull at waist level. Add 1.5 cm of front torso length and taper the lumbar seam.');
+        if (s.muscle >= 75) notes.push('High muscle mass: chest and shoulder need about +2 cm over chart and the armhole should drop 1 cm, otherwise the suit restricts arm raise above shoulder height.');
+        if (s.muscle <= 20) notes.push('Low muscle mass: chart sizes will be loose through the arms and thighs. Expect 1.5-2 cm of play at the biceps and around the knee.');
+        if (s.shoulder >= 50) notes.push('Shoulder width ' + s.shoulder + ' cm is wider than the pattern grading above size L - the seam must be moved 1-1.5 cm over the deltoid or paddling will chafe.');
+        if (s.arm >= 64) notes.push('Arm length ' + s.arm + ' cm needs a longer sleeve: stock sleeves end 2-3 cm above the wrist, which is where cold water enters first.');
+        if (s.leg >= 88) notes.push('Inseam ' + s.leg + ' cm needs the leg extended by 2-4 cm; otherwise the knee pad sits above the kneecap, which is the worst possible place under compression.');
+        if (s.leg <= 74) notes.push('Short inseam ' + s.leg + ' cm: stock legs bunch behind the knee and trap water. We cut 3 cm out of the lower leg.');
+        if (s.height <= 162) notes.push('Compact build: the stock shoulder-to-crotch drop is too long, so the waist line sits low. Torso reduced by 2 cm.');
+        if (s.height >= 192) notes.push('Tall build: torso and leg both exceed the top of the grading. Either extend the pattern or the suit will pull at the crotch on a full breath.');
+        if (res.bad > 0) notes.push('One or more zones sit outside the pattern tolerance at ' + thick + ' mm. In that case we cut from your measurements only - no stock block is used at all.');
+        notes.push(thick + ' mm neoprene stretches roughly 12% and the fit allowance here is ' + res.tol.toFixed(1) + ' cm per zone. At 30 m the panel compresses about ' + Math.round(thick * 0.35 * 10) + ' mm, so the suit tightens roughly ' + (thick * 0.35 * 0.4).toFixed(1) + ' cm at depth - depth comfort is set by the surfacing fit, not the surface fit.');
+        notes.push('Selected ' + thick + ' mm is rated for ' + thickObj.temp + ' \u00b0C water. Thicker neoprene cuts tolerance: the same body is ' + (res.tol > 2.2 ? 'acceptable' : 'noticeably less forgiving') + ' in this thickness.');
+        return notes;
+    }
+
+    function renderReport() {
+        const host = document.getElementById('fitReport');
+        if (!host) return;
+        const res = analyse();
+        const cls = res.bad ? 'bad' : (res.warn ? 'warn' : 'ok');
+        const main = res.bad
+            ? 'Not a stock size - we cut from your measurements'
+            : (res.warn ? 'Stock size ' + res.chart.size + ' is close, but the pattern needs edits'
+                        : 'Stock size ' + res.chart.size + ' fits this body');
+        const sub = 'Nearest stock block: ' + res.chart.size + ' (' + res.chart.h[0] + '-' + res.chart.h[1] + ' cm). '
+            + (res.bad + res.warn) + ' of ' + res.zones.length + ' zones sit outside the \u00b1' + res.tol.toFixed(1) + ' cm allowance at ' + res.thick + ' mm. '
+            + 'Made-to-measure is included at no extra cost, so the safest order is still your own numbers.';
+
+        const rows = res.zones.map(z => {
+            const gap = (z.delta > 0 ? '+' : '') + z.delta.toFixed(1);
+            const gapTxt = Math.abs(z.delta) < 0.05 ? '0.0' : gap;
+            return '<tr><td>' + z.name + '</td><td class="num">' + z.value + ' cm</td><td>'
+                + z.band[0] + '-' + z.band[1] + ' cm</td><td class="num">' + gapTxt + '</td>'
+                + '<td><span class="st ' + z.cls + '">' + z.label + '</span></td></tr>';
+        }).join('');
+
+        const sheet = measurementSheet().map(r => '<tr><td>' + r[0] + '</td><td class="num">' + r[1] + '</td></tr>').join('');
+        const notes = fitNotes(res).map(n => '<li>' + n + '</li>').join('');
+
+        host.innerHTML =
+            '<div class="fit-verdict">'
+            + '<span class="fv-tag">Trial fit result</span>'
+            + '<span class="fv-main ' + cls + '">' + main + '</span>'
+            + '<span class="fv-sub">' + sub + '</span>'
+            + '</div>'
+            + '<div class="fit-cols">'
+            + '<div class="fit-block"><h4>Against the nearest stock block</h4>'
+            + '<div class="fit-scroll"><table class="fit-table"><thead><tr><th>Zone</th><th>You</th><th>' + res.chart.size + ' range</th><th>Gap</th><th>Fit</th></tr></thead><tbody>' + rows + '</tbody></table>'
+            + '<p class="fit-foot">Shoulder, arm and inseam ranges are graded from the block height - they are not charted numbers.</p></div></div>'
+            + '<div class="fit-block"><h4>Your cutting sheet</h4>'
+            + '<div class="fit-scroll"><table class="fit-table"><tbody>' + sheet + '</tbody></table></div></div>'
+            + '</div>'
+            + '<div class="fit-block"><h4>Where the pattern will fight you</h4><ul class="fit-notes">' + notes + '</ul></div>';
+
+        const thickObj = find(THICKS, state.thick), sport = find(SPORTS, state.sport);
+        let price = sport.base + thickObj.add;
+        state.extras.forEach(id => { price += find(EXTRAS, id).add; });
+        const priceEl = document.getElementById('sumPrice');
+        if (priceEl) priceEl.innerHTML = money(price) + '<span>EST. FROM / MADE TO MEASURE</span>';
+        const specEl = document.getElementById('sumSpec');
+        if (specEl) {
+            const names = state.extras.map(id => find(EXTRAS, id).label);
+            specEl.innerHTML = sport.label + ' &middot; ' + thickObj.label + ' &middot; Body ' + find(COLORS, state.body).name
+                + ' / Panels ' + find(COLORS, state.panel).name + (names.length ? ' &middot; ' + names.join(', ') : '');
+        }
+    }
+
+    /* ---------- 3. three.js parametric body ---------- */
+    let THREE = null, OrbitControls = null;
+    let renderer, scene, camera, controls, root, figure = null, host = null;
+    let mannequinMat, suitMat, panelMat;
+
+    function dims() {
+        const s = state, muscle = s.muscle / 100;
+        return {
+            hipR: s.hip / (2 * Math.PI),
+            waistR: Math.max(6, s.waist / (2 * Math.PI) - muscle * 0.8),
+            chestR: (s.chest / (2 * Math.PI)) * (1 + 0.05 * muscle),
+            shoulderR: Math.max(s.shoulder * 0.46, (s.chest / (2 * Math.PI)) * 1.03),
+            torsoLen: s.height * 0.285,
+            legLen: s.leg,
+            armLen: s.arm,
+            headR: s.height * 0.052,
+            neckR: Math.max(4.5, s.chest * 0.042)
+        };
+    }
+
+    const v2 = a => new THREE.Vector2(Math.max(1.2, a[0]), a[1]);
+
+    function torsoGeo(d, off) {
+        const T = d.torsoLen;
+        const pts = [
+            [d.hipR * 0.96 + off, 0], [d.hipR + off, T * 0.12], [d.waistR + off, T * 0.34],
+            [d.waistR * 1.03 + off, T * 0.50], [d.chestR * 0.96 + off, T * 0.68],
+            [d.chestR + off, T * 0.85], [d.shoulderR + off, T]
+        ].map(v2);
+        const g = new THREE.LatheGeometry(pts, 56);
+        g.scale(1, 1, 0.72);
+        return g;
+    }
+
+    function legGeo(d, off) {
+        const L = d.legLen, thighR = d.hipR * 0.56 + off;
+        const kneeR = thighR * 0.66, calfR = thighR * 0.76, ankleR = thighR * 0.34;
+        const pts = [
+            [ankleR, 0], [ankleR * 1.2, L * 0.07], [calfR, L * 0.27], [calfR * 0.9, L * 0.40],
+            [kneeR, L * 0.53], [kneeR * 1.3, L * 0.68], [thighR, L * 0.90], [thighR * 1.04, L]
+        ].map(v2);
+        return new THREE.LatheGeometry(pts, 40);
+    }
+
+    function armGeo(d, off) {
+        const L = d.armLen, shR = Math.max(5, d.chestR * 0.34) + off;
+        const biR = shR * 0.92, elR = shR * 0.74, wrR = shR * 0.46;
+        const pts = [
+            [wrR, 0], [wrR * 1.1, L * 0.08], [elR, L * 0.42], [biR, L * 0.66], [shR, L * 0.92], [shR * 0.96, L]
+        ].map(v2);
+        return new THREE.LatheGeometry(pts, 32);
+    }
+
+    function applyBelly(geo, d, belly) {
+        if (!belly) return geo;
+        const pos = geo.attributes.position, T = d.torsoLen;
+        for (let i = 0; i < pos.count; i++) {
+            const y = pos.getY(i), z = pos.getZ(i), tt = y / T;
+            if (tt > 0.16 && tt < 0.68 && z > 0) {
+                const f = 1 + (belly / 12) * 0.82 * Math.sin(Math.PI * (tt - 0.16) / 0.52);
+                pos.setZ(i, z * f);
+            }
+        }
+        pos.needsUpdate = true;
+        geo.computeVertexNormals();
+        return geo;
+    }
+
+    function buildFigure(off, isSuit) {
+        const s = state, d = dims();
+        const g = new THREE.Group();
+        const mat = isSuit ? suitMat : mannequinMat;
+
+        const torso = new THREE.Mesh(applyBelly(torsoGeo(d, off), d, s.belly), mat);
+        torso.position.y = d.legLen;
+        g.add(torso);
+
+        [-1, 1].forEach(sx => {
+            const leg = new THREE.Mesh(legGeo(d, off), mat);
+            leg.position.set(sx * d.hipR * 0.46, 0, 0);
+            g.add(leg);
+
+            const foot = new THREE.Mesh(new THREE.BoxGeometry(d.hipR * 0.62, 5, 21), mat);
+            foot.position.set(sx * d.hipR * 0.46, 2.5, 7);
+            g.add(foot);
+
+            const pivot = new THREE.Group();
+            pivot.position.set(sx * d.shoulderR * 0.92, d.legLen + d.torsoLen * 0.94, 0);
+            pivot.rotation.z = sx * 0.11;
+            const arm = new THREE.Mesh(armGeo(d, off), mat);
+            arm.position.y = -d.armLen;
+            pivot.add(arm);
+            const hand = new THREE.Mesh(new THREE.SphereGeometry(Math.max(2.6, d.chestR * 0.2), 14, 12), mat);
+            hand.scale.set(0.72, 1.25, 0.45);
+            hand.position.y = -d.armLen - 3;
+            pivot.add(hand);
+            g.add(pivot);
+        });
+
+        const neck = new THREE.Mesh(new THREE.CylinderGeometry(d.neckR + off, d.neckR + off + 0.7, s.height * 0.045, 24), mat);
+        neck.position.y = d.legLen + d.torsoLen + s.height * 0.02;
+        g.add(neck);
+
+        const head = new THREE.Mesh(new THREE.SphereGeometry(d.headR, 26, 20), mat);
+        head.scale.set(0.86, 1.12, 0.94);
+        head.position.y = d.legLen + d.torsoLen + s.height * 0.045 + d.headR * 0.9;
+        g.add(head);
+
+        if (isSuit) {
+            const collarR = d.neckR + off + 0.9;
+            const collar = new THREE.Mesh(new THREE.TorusGeometry(collarR, 1.1, 12, 32), panelMat);
+            collar.rotation.x = Math.PI / 2;
+            collar.position.y = d.legLen + d.torsoLen - 0.6;
+            g.add(collar);
+
+            const chestY = d.legLen + d.torsoLen * 0.78;
+            const bandR = d.chestR + off + 0.35;
+            const band = new THREE.Mesh(new THREE.CylinderGeometry(bandR, bandR * 0.97, d.torsoLen * 0.14, 48, 1, true), panelMat);
+            band.scale.z = 0.74;
+            band.position.y = chestY;
+            g.add(band);
+
+            [-1, 1].forEach(sx => {
+                const stripe = new THREE.Mesh(new THREE.BoxGeometry(1.8, d.torsoLen * 0.62, 1.2), panelMat);
+                stripe.position.set(sx * (d.waistR + off + 0.2), d.legLen + d.torsoLen * 0.44, d.waistR * 0.34 + off);
+                stripe.rotation.y = sx * 0.32;
+                g.add(stripe);
+
+                const kneeBand = new THREE.Mesh(new THREE.CylinderGeometry(d.hipR * 0.56 * 0.7 + off + 0.3, d.hipR * 0.56 * 0.7 + off + 0.3, 3, 32, 1, true), panelMat);
+                kneeBand.position.set(sx * d.hipR * 0.46, d.legLen * 0.5, 0);
+                g.add(kneeBand);
+            });
+
+            [-1, 1].forEach(sx => {
+                const armR = Math.max(4.2, d.chestR * 0.3) + off + 0.2;
+                const armRing = new THREE.Mesh(new THREE.CylinderGeometry(armR, armR * 0.94, d.armLen * 0.2, 24, 1, true), panelMat);
+                armRing.position.set(sx * (d.shoulderR + 1.4), d.legLen + d.torsoLen - d.armLen * 0.24 - d.shoulderR * 0.28, 0);
+                armRing.rotation.z = sx * 0.12;
+                g.add(armRing);
+
+                const thighPanel = new THREE.Mesh(new THREE.BoxGeometry(2.4, d.legLen * 0.52, 1.6), panelMat);
+                thighPanel.position.set(sx * (d.hipR * 0.46 + d.hipR * 0.3), d.legLen * 0.46, d.hipR * 0.28);
+                thighPanel.rotation.z = sx * 0.04;
+                g.add(thighPanel);
+            });
+
+            const zip = new THREE.Mesh(new THREE.BoxGeometry(2.2, d.torsoLen * 0.8, 1), panelMat);
+            zip.position.set(0, d.legLen + d.torsoLen * 0.45, d.chestR * 0.72 + off + 0.4);
+            g.add(zip);
+
+            if (state.extras.includes('hood')) {
+                const hood = new THREE.Mesh(new THREE.SphereGeometry(d.headR * 1.18, 26, 20, 0, Math.PI * 2, 0, Math.PI * 0.62), suitMat);
+                hood.scale.set(1, 1.1, 1.05);
+                hood.position.y = d.legLen + d.torsoLen + s.height * 0.05 + d.headR * 0.95;
+                g.add(hood);
+            }
+            if (state.extras.includes('pad')) {
+                const pad = new THREE.Mesh(new THREE.BoxGeometry(d.chestR * 0.9, 13, 2.4), panelMat);
+                pad.position.set(0, d.legLen + d.torsoLen * 0.88, d.chestR * 0.68 + off + 0.6);
+                g.add(pad);
+            }
+        }
+        return g;
+    }
+
+    function disposeGroup(obj) {
+        if (!obj) return;
+        obj.traverse(o => { if (o.geometry) o.geometry.dispose(); });
+    }
+
+    function frameCamera() {
+        if (!figure) return;
+        const box = new THREE.Box3().setFromObject(figure);
+        const size = new THREE.Vector3(), center = new THREE.Vector3();
+        box.getSize(size);
+        box.getCenter(center);
+        controls.target.set(0, size.y * 0.52, 0);
+        camera.position.set(0, size.y * 0.58, Math.max(size.y * 1.75, size.y * 1.2 + 110));
+        camera.near = 1;
+        camera.far = 4000;
+        camera.updateProjectionMatrix();
+    }
+
+    function rebuild(keepCamera) {
+        if (!root) return;
+        if (figure) { root.remove(figure); disposeGroup(figure); }
+        const thick = parseFloat(state.thick);
+        const off = state.suit ? 0.55 + thick * 0.11 : 0;
+        figure = buildFigure(off, state.suit);
+        root.add(figure);
+        if (!keepCamera) frameCamera();
+        if (suitMat) suitMat.color.set(find(COLORS, state.body).hex);
+        if (panelMat) panelMat.color.set(find(COLORS, state.panel).hex);
+    }
+
+    let pending = false;
+    function commit() {
+        renderReport();
+        if (!renderer) return;
+        if (pending) return;
+        pending = true;
+        requestAnimationFrame(() => { pending = false; rebuild(true); });
+    }
+
+    function applyView(which) {
+        if (!controls || !figure) return;
+        const box = new THREE.Box3().setFromObject(figure);
+        const size = new THREE.Vector3();
+        box.getSize(size);
+        const r = Math.max(size.y * 1.7, 260);
+        const y = size.y * 0.58;
+        if (which === 'front') camera.position.set(0, y, r);
+        if (which === 'side') camera.position.set(r, y, 0.001);
+        if (which === 'back') camera.position.set(0, y, -r);
+        controls.target.set(0, size.y * 0.52, 0);
+        document.querySelectorAll('[data-act="front"],[data-act="side"],[data-act="back"]').forEach(b => b.classList.remove('active'));
+        const btn = document.querySelector('[data-act="' + which + '"]');
+        if (btn) btn.classList.add('active');
+    }
+
+    async function init3D() {
+        host = document.getElementById('fitCanvas');
+        if (!host) return;
+        try {
+            THREE = await import('three');
+            const mod = await import('three/addons/controls/OrbitControls.js');
+            OrbitControls = mod.OrbitControls;
+        } catch (err) {
+            const flag = document.getElementById('fitFlag');
+            if (flag) flag.classList.add('show');
+            return;
+        }
+        const w = host.clientWidth || 480, h = host.clientHeight || 420;
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+        renderer.setSize(w, h, false);
+        host.appendChild(renderer.domElement);
+
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(34, w / h, 1, 4000);
+
+        controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.08;
+        controls.minDistance = 90;
+        controls.maxDistance = 900;
+        controls.maxPolarAngle = Math.PI * 0.92;
+
+        scene.add(new THREE.HemisphereLight(0x506578, 0x05070a, 1.15));
+        const key = new THREE.DirectionalLight(0xffffff, 1.7); key.position.set(120, 280, 200); scene.add(key);
+        const rim = new THREE.DirectionalLight(0x18a4ff, 1.25); rim.position.set(-180, 150, -200); scene.add(rim);
+        const fill = new THREE.DirectionalLight(0xffffff, 0.32); fill.position.set(-140, 60, 180); scene.add(fill);
+
+        const grid = new THREE.GridHelper(320, 12, 0x123244, 0x0a1822);
+        grid.position.y = 0.15;
+        scene.add(grid);
+
+        mannequinMat = new THREE.MeshStandardMaterial({ color: 0x8b949f, roughness: 0.72, metalness: 0.04 });
+        suitMat = new THREE.MeshStandardMaterial({ color: 0x0c0d0f, roughness: 0.36, metalness: 0.14, side: THREE.DoubleSide });
+        panelMat = new THREE.MeshStandardMaterial({ color: 0x0a6fd8, roughness: 0.34, metalness: 0.16, side: THREE.DoubleSide });
+
+        root = new THREE.Group();
+        scene.add(root);
+
+        rebuild(false);
+        if (window.ResizeObserver) {
+            new ResizeObserver(() => {
+                const cw = host.clientWidth || w, chh = host.clientHeight || h;
+                if (!cw || !chh) return;
+                renderer.setSize(cw, chh, false);
+                camera.aspect = cw / chh;
+                camera.updateProjectionMatrix();
+            }).observe(host);
         }
 
-        /* --- option rendering --- */
-        function chipRow(host, list, key) {
-            var html = '';
-            for (var i = 0; i < list.length; i++) {
-                html += '<button class="opt-chip' + (state[key] === list[i].id ? ' active' : '') + '" data-id="' + list[i].id + '">' + list[i].label + '</button>';
-            }
-            host.innerHTML = html;
-            host.onclick = function (e) {
-                var t = e.target;
-                if (!t.classList.contains('opt-chip')) return;
-                state[key] = t.getAttribute('data-id');
-                for (var j = 0; j < host.children.length; j++) { host.children[j].classList.remove('active'); }
-                t.classList.add('active');
-                update();
-            };
-        }
-
-        function swatchRow(host, key) {
-            var html = '';
-            for (var i = 0; i < COLORS.length; i++) {
-                html += '<button class="swatch' + (state[key] === COLORS[i].id ? ' active' : '') + '" data-id="' + COLORS[i].id + '" title="' + COLORS[i].name + '" aria-label="' + COLORS[i].name + '" style="background:' + COLORS[i].hex + '"></button>';
-            }
-            host.innerHTML = html;
-            host.onclick = function (e) {
-                var t = e.target;
-                if (!t.classList.contains('swatch')) return;
-                state[key] = t.getAttribute('data-id');
-                for (var j = 0; j < host.children.length; j++) { host.children[j].classList.remove('active'); }
-                t.classList.add('active');
-                update();
-            };
-        }
-
-        var extrasHost = document.getElementById('optExtras');
-        (function () {
-            var html = '';
-            for (var i = 0; i < EXTRAS.length; i++) {
-                html += '<label class="extra-item"><input type="checkbox" value="' + EXTRAS[i].id + '"' +
-                        (state.extras.indexOf(EXTRAS[i].id) > -1 ? ' checked' : '') + '><span>' + EXTRAS[i].label + '</span></label>';
-            }
-            extrasHost.innerHTML = html;
-            extrasHost.onchange = function () {
-                var boxes = extrasHost.querySelectorAll('input');
-                state.extras = [];
-                for (var j = 0; j < boxes.length; j++) { if (boxes[j].checked) state.extras.push(boxes[j].value); }
-                update();
-            };
+        const clock = new THREE.Clock();
+        (function loop() {
+            requestAnimationFrame(loop);
+            controls.autoRotate = state.spin;
+            controls.autoRotateSpeed = 1.1;
+            controls.update();
+            renderer.render(scene, camera);
         })();
+    }
 
-        /* --- summary --- */
-        function update() {
-            var sport = find(SPORTS, state.sport);
-            var thick = find(THICKS, state.thick);
-            var lining = find(LININGS, state.lining);
-            var stitch = find(STITCHES, state.stitch);
-            var total = sport.base + thick.add + lining.add + stitch.add;
-            var names = [];
-            for (var i = 0; i < state.extras.length; i++) {
-                var ex = find(EXTRAS, state.extras[i]);
-                total += ex.add;
-                names.push(ex.label.split('  +$')[0]);
-            }
-            document.getElementById('sumPrice').innerHTML = '$' + total + '<span>' + (sport.id === 'team' ? 'PER SUIT / 5 SUITS MIN.' : 'EST. FROM / MADE TO MEASURE') + '</span>';
-            document.getElementById('sumMeta').innerHTML = 'Lead time ' + sport.lead + ' &middot; 2 fitting revisions included &middot; Free repair within 3 years';
-            document.getElementById('sumSpec').innerHTML = sport.label + ' &middot; ' + thick.label + ' &middot; ' +
-                lining.label + ' &middot; ' + stitch.label +
-                (names.length ? ' &middot; ' + names.join(', ') : '') +
-                ' &middot; Body ' + find(COLORS, state.body).name + ' / Panels ' + find(COLORS, state.panel).name;
-            paint();
-        }
-
-        chipRow(document.getElementById('optSport'), SPORTS, 'sport');
-        chipRow(document.getElementById('optThick'), THICKS, 'thick');
-        chipRow(document.getElementById('optLining'), LININGS, 'lining');
-        chipRow(document.getElementById('optStitch'), STITCHES, 'stitch');
-        swatchRow(document.getElementById('swBody'), 'body');
-        swatchRow(document.getElementById('swPanel'), 'panel');
-        update();
-    })();
+    /* ---------- 4. boot ---------- */
+    syncHeightWeight();
+    refreshSliderLabels();
+    renderReport();
+    init3D();
     </script>
 </body>
 </html>
