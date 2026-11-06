@@ -39,14 +39,14 @@ REPORT_DIR.mkdir(exist_ok=True)
 # Prices MUST mirror the live storefront (index.html data-item-price / schema.org Offer).
 # Source of truth: index.html. Re-verify with catalog_sync() on every run.
 PRODUCTS = [
-    {"id": "C1", "name": "Carbon Blades — C1 Pro", "price": 817.56, "margin": 0.30, "weight": "low", "keywords": "carbon fiber fins, freediving blades, competition fins"},
-    {"id": "M1", "name": "Low-Volume Mask — M1", "price": 322.54, "margin": 0.28, "weight": "low", "keywords": "low volume freediving mask, carbon mask, apnea mask"},
-    {"id": "N1", "name": "Carbon Noseclip — N1", "price": 159.75, "margin": 0.35, "weight": "high", "keywords": "freediving nose clip, carbon noseclip, equalization clip"},
-    {"id": "MF1", "name": "Monofin — MF1", "price": 1388.74, "margin": 0.25, "weight": "medium", "keywords": "freediving monofin, competition monofin, carbon monofin, CWT monofin"},
-    {"id": "DC1", "name": "Dive Computer — DC1", "price": 593.42, "margin": 0.22, "weight": "medium", "keywords": "freediving computer, apnea watch, depth gauge freediving"},
-    {"id": "W1", "name": "Neck Weight — W1 Carbon", "price": 259.61, "margin": 0.32, "weight": "high", "keywords": "freediving neck weight, carbon neck weight, apnea weight"},
+    {"id": "C1", "name": "Carbon Blades — C1 Pro", "price": 818.00, "margin": 0.30, "weight": "low", "keywords": "carbon fiber fins, freediving blades, competition fins"},
+    {"id": "M1", "name": "Low-Volume Mask — M1", "price": 323.00, "margin": 0.28, "weight": "low", "keywords": "low volume freediving mask, carbon mask, apnea mask"},
+    {"id": "N1", "name": "Carbon Noseclip — N1", "price": 160.00, "margin": 0.35, "weight": "high", "keywords": "freediving nose clip, carbon noseclip, equalization clip"},
+    {"id": "MF1", "name": "Monofin — MF1", "price": 1389.00, "margin": 0.25, "weight": "medium", "keywords": "freediving monofin, competition monofin, carbon monofin, CWT monofin"},
+    {"id": "DC1", "name": "Dive Computer — DC1", "price": 593.00, "margin": 0.22, "weight": "medium", "keywords": "freediving computer, apnea watch, depth gauge freediving"},
+    {"id": "W1", "name": "Neck Weight — W1 Carbon", "price": 260.00, "margin": 0.32, "weight": "high", "keywords": "freediving neck weight, carbon neck weight, apnea weight"},
     {"id": "E1", "name": "Silicone Ear Plugs — E1", "price": 24.99, "margin": 0.55, "weight": "low", "keywords": "freediving ear plugs, silicone ear plugs, waterproof ear plugs"},
-    {"id": "MN1", "name": "Mask + Noseclip Bundle — MN1", "price": 495.00, "margin": 0.33, "weight": "low", "keywords": "freediving mask bundle, mask and noseclip, apnea starter kit"},
+    {"id": "MN1", "name": "Mask + Noseclip Bundle — MN1", "price": 455.00, "margin": 0.33, "weight": "low", "keywords": "freediving mask bundle, mask and noseclip, apnea starter kit"},
 ]
 
 ANNUAL_TARGET = 100000

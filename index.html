@@ -34,14 +34,14 @@
         "@type": "OfferCatalog",
         "name": "Carbon Fiber Dive & Water Gear",
         "itemListElement": [
-          {"@type": "Product","name": "Carbon Blades — C1 Pro","offers": {"@type": "Offer","price": "817.56","priceCurrency": "USD"}},
-          {"@type": "Product","name": "Low-Volume Mask — M1","offers": {"@type": "Offer","price": "322.54","priceCurrency": "USD"}},
-          {"@type": "Product","name": "Carbon Noseclip — N1","offers": {"@type": "Offer","price": 159.75,"priceCurrency": "USD"}},
-          {"@type": "Product","name": "Monofin — MF1","offers": {"@type": "Offer","price": "1388.74","priceCurrency": "USD"}},
-          {"@type": "Product","name": "Dive Computer — DC1","offers": {"@type": "Offer","price": 593.42,"priceCurrency": "USD"}},
-          {"@type": "Product","name": "Neck Weight — W1 Carbon","offers": {"@type": "Offer","price": "259.61","priceCurrency": "USD"}},
+          {"@type": "Product","name": "Carbon Blades — C1 Pro","offers": {"@type": "Offer","price": "818","priceCurrency": "USD"}},
+          {"@type": "Product","name": "Low-Volume Mask — M1","offers": {"@type": "Offer","price": "323","priceCurrency": "USD"}},
+          {"@type": "Product","name": "Carbon Noseclip — N1","offers": {"@type": "Offer","price": "160","priceCurrency": "USD"}},
+          {"@type": "Product","name": "Monofin — MF1","offers": {"@type": "Offer","price": "1389","priceCurrency": "USD"}},
+          {"@type": "Product","name": "Dive Computer — DC1","offers": {"@type": "Offer","price": "593","priceCurrency": "USD"}},
+          {"@type": "Product","name": "Neck Weight — W1 Carbon","offers": {"@type": "Offer","price": "260","priceCurrency": "USD"}},
           {"@type": "Product","name": "Silicone Ear Plugs — E1","offers": {"@type": "Offer","price": "24.99","priceCurrency": "USD"}},
-          {"@type": "Product","name": "Mask + Noseclip Bundle — MN1","offers": {"@type": "Offer","price": "495.00","priceCurrency": "USD"}}
+          {"@type": "Product","name": "Mask + Noseclip Bundle — MN1","offers": {"@type": "Offer","price": "455","priceCurrency": "USD"}}
         ]
       }
     }
@@ -550,6 +550,9 @@
             border-radius: var(--radius);
             width: 90%;
             max-width: 400px;
+            max-height: 86vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             color: #eee;
             font-family: var(--font-sans);
             position: relative;
@@ -1414,7 +1417,7 @@
                 </div>
                 <div class="hero-stat-card">
                     <span class="hero-stat-value">40+ Countries</span>
-                    <span class="hero-stat-label">Free DHL Shipping</span>
+                    <span class="hero-stat-label">Free DHL Over $500</span>
                 </div>
             </div>
         </div>
@@ -1426,7 +1429,7 @@
 
     <!-- ===== Trust Bar (Updated) ===== -->
     <div class="trust-bar">
-        <div class="trust-item"><span class="trust-icon">&#9678;</span><span>Handcrafted to Order &middot; 256-bit SSL &middot; 30-Day Returns &middot; Free DHL >$500 &middot; 3-Year Warranty &middot; 1% for the Ocean</span></div>
+        <div class="trust-item"><span class="trust-icon">&#9678;</span><span>Handcrafted to Order &middot; Stripe &amp; PayPal &middot; 30-Day Returns &middot; Free DHL >$500 &middot; 3-Year Warranty &middot; 1% for the Ocean</span></div>
     </div>
 
     <!-- ===== WHY ABYSSCARBON Trust Block ===== -->
@@ -1663,13 +1666,15 @@
             </div>
             <div class="wu-item">
                 <span class="wu-icon">&#9202;</span>
-                <span>Ships in <span class="wu-highlight">5&ndash;7 Business Days</span></span>
+                <span>Built in 1&ndash;3 days &middot; <span class="wu-highlight">delivered in 5&ndash;10 business days</span> (US/EU)</span>
             </div>
             <div class="wu-item">
                 <span class="wu-icon">&#9888;</span>
                 <span><span class="wu-highlight">Limited Capacity</span> &mdash; Only a few workshop slots remain this week</span>
             </div>
         </div>
+
+        <p class="promo-note">Launch pricing through 30 November 2026, in USD. Compare-at prices are the pre-launch list price: $895 C1 Pro, $355 M1, $175 N1, $1,495 MF1, $650 DC1, $285 W1. After 30 November items return to list price.</p>
 
         <div class="product-grid">
 
@@ -1708,6 +1713,10 @@
                                 <input type="number" id="diver-weight" placeholder="e.g., 75" min="40" max="150">
                             </div>
                             <div class="input-group">
+                                <label for="diver-height">Height (cm, optional):</label>
+                                <input type="number" id="diver-height" placeholder="e.g., 178" min="140" max="210">
+                            </div>
+                            <div class="input-group">
                                 <label for="dive-style">Primary Discipline:</label>
                                 <select id="dive-style">
                                     <option value="recreational">Recreational / Spearfishing</option>
@@ -1715,10 +1724,38 @@
                                     <option value="dyn">Dynamic Pool</option>
                                 </select>
                             </div>
+                            <div class="input-group">
+                                <label for="max-depth">Typical Working Depth (m):</label>
+                                <input type="number" id="max-depth" placeholder="e.g., 30" min="0" max="130">
+                            </div>
+                            <div class="input-group">
+                                <label for="train-freq">Training Frequency:</label>
+                                <select id="train-freq">
+                                    <option value="low">1x a week or less</option>
+                                    <option value="mid" selected>2&ndash;3x a week</option>
+                                    <option value="high">4x a week or more</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="ankle-mobility">Ankle Mobility:</label>
+                                <select id="ankle-mobility">
+                                    <option value="average" selected>Average</option>
+                                    <option value="stiff">Stiff / old ankle injury</option>
+                                    <option value="flexible">Very flexible</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="water-type">Where You Dive Most:</label>
+                                <select id="water-type">
+                                    <option value="salt" selected>Sea / salt water</option>
+                                    <option value="fresh">Lake / quarry (fresh water)</option>
+                                </select>
+                            </div>
                             <button id="calculate-btn" class="action-btn">Calculate Flex</button>
                             <div id="calc-result" style="display:none;">
                                 <h4>Recommended Flex: <span id="flex-output" class="highlight"></span></h4>
                                 <p id="flex-reason"></p>
+                                <p class="calc-disclaimer">A heuristic, not a guarantee. Weight, working depth, weekly volume, ankle mobility and water type are the drivers &mdash; if you are between two stiffnesses, ask for a fitter review before you spend $800 on a blade. <a href="#contact">Contact us</a>.</p>
                             </div>
                         </div>
                     </div>
@@ -1740,10 +1777,10 @@
 
                     <div class="product-footer">
                         <span class="bestseller-tag">Bestseller</span>
-                        <span class="price">$817.56</span>
+                        <span class="price-was">$895</span><span class="price">$818</span>
                         <button class="btn btn-buy snipcart-add-item"
                             data-item-id="C1-Pro"
-                            data-item-price="817.56"
+                            data-item-price="818"
                             data-item-url="/"
                             data-item-name="Carbon Blades — C1 Pro"
                             data-item-description="Hand-laid carbon fiber freediving blades. 22° angle, variable stiffness."
@@ -1754,7 +1791,7 @@
                             Add to Cart
                         </button>
 
-                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>Stripe &amp; PayPal</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -1796,16 +1833,16 @@
                     <div class="product-footer">
                         <span class="bestseller-tag">Bestseller</span>
                         <span class="flash-sale-tag">FLASH SALE</span>
-                        <span class="price">$322.54</span>
+                        <span class="price-was">$355</span><span class="price">$323</span>
                         <button class="btn btn-buy snipcart-add-item"
                             data-item-id="M1-Mask"
-                            data-item-price="322.54"
+                            data-item-price="323"
                             data-item-url="/"
                             data-item-name="Low-Volume Mask — M1"
                             data-item-description="Ultra-low volume freediving mask. 85ml, carbon frame, 95g.">
                             Add to Cart
                         </button>
-                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>Stripe &amp; PayPal</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -1821,7 +1858,7 @@
                 <div class="product-info">
                     <p class="product-series">Series 03</p>
                     <h3>Carbon Noseclip — N1</h3>
-                    <span class="feature-badge">4g Ultralight</span>
+                    <span class="feature-badge">12g Carbon</span>
                     <p class="product-desc">Carbon composite. 12g. Adjustable tension. Hands-free equalization. Competition legal.</p>
                     <ul class="product-specs">
                         <li>Material: Carbon composite</li>
@@ -1842,16 +1879,16 @@
 
                     <div class="product-footer">
                         <span class="flash-sale-tag">FLASH SALE</span>
-                        <span class="price">$159.75</span>
+                        <span class="price-was">$175</span><span class="price">$160</span>
                         <button class="btn btn-buy snipcart-add-item"
                             data-item-id="N1-Noseclip"
-                            data-item-price="159.75"
+                            data-item-price="160"
                             data-item-url="/"
                             data-item-name="Carbon Noseclip — N1"
                             data-item-description="Carbon composite noseclip. 12g. Adjustable tension.">
                             Add to Cart
                         </button>
-                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>Stripe &amp; PayPal</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -1893,16 +1930,16 @@
 
                     <div class="product-footer">
                         <span class="flash-sale-tag">FLASH SALE</span>
-                        <span class="price">$1,388.74</span>
+                        <span class="price-was">$1,495</span><span class="price">$1,389</span>
                         <button class="btn btn-buy snipcart-add-item"
                             data-item-id="MF1-Monofin"
-                            data-item-price="1388.74"
+                            data-item-price="1389"
                             data-item-url="/"
                             data-item-name="Monofin — MF1"
                             data-item-description="Full carbon competition monofin. 70cm blade. Limited run.">
                             Add to Cart
                         </button>
-                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>Stripe &amp; PayPal</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -1943,16 +1980,16 @@
                 </div>
 
                     <div class="product-footer">
-                        <span class="price">$593.42</span>
+                        <span class="price-was">$650</span><span class="price">$593</span>
                         <button class="btn btn-buy snipcart-add-item"
                             data-item-id="DC1-Computer"
-                            data-item-price="593.42"
+                            data-item-price="593"
                             data-item-url="/"
                             data-item-name="Dive Computer — DC1"
                             data-item-description="Carbon fiber freediving computer. 100m rated. OLED.">
                             Add to Cart
                         </button>
-                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>Stripe &amp; PayPal</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -1992,17 +2029,17 @@
                 </div>
 
                     <div class="product-footer">
-                        <span class="price">$259.61</span>
+                        <span class="price-was">$285</span><span class="price">$260</span>
                         <button class="btn btn-buy snipcart-add-item"
                             data-item-id="W1-Weight"
-                            data-item-price="259.61"
+                            data-item-price="260"
                             data-item-url="/"
                             data-item-name="Neck Weight — W1 Carbon"
                             data-item-description="Carbon fiber neck weight. Modular segments. Quick-release.">
                             Add to Cart
                         </button>
 
-                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>Stripe &amp; PayPal</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -2037,7 +2074,7 @@
                             data-item-description="Medical-grade silicone. 27dB noise reduction. Perfect for freediving equalization.">
                             Add to Cart
                         </button>
-                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>Stripe &amp; PayPal</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -2055,28 +2092,27 @@
                     <p class="product-series">Series 08 · Bundle</p>
                     <h3>Mask + Noseclip Bundle — MN1</h3>
                     <span class="feature-badge">Perfect Equalization Combo</span>
-                    <p class="product-desc">Get the perfect equalization combo. M1 Mask + N1 Noseclip, tuned for freediving. Add $24.99 accessory to unlock Free DHL shipping.</p>
+                    <p class="product-desc">The equalization pair in one box: M1 Mask + N1 Noseclip. $28 less than buying the two separately.</p>
                     <ul class="product-specs">
                         <li>Includes: M1 Mask (85ml, carbon frame)</li>
-                        <li>Includes: N1 Noseclip (carbon composite)</li>
-                        <li>Original Price: $490.31</li>
-                        <li>Bundle Price: $495.00</li>
-                        <li>Shipping: Free DHL on orders >$500*</li>
+                        <li>Includes: N1 Noseclip (12g carbon composite)</li>
+                        <li>Bought separately: $483 ($323 M1 + $160 N1)</li>
+                        <li>Bundle price: $455 &mdash; you save $28</li>
+                        <li>Shipping: $29 DHL flat rate, free over $500</li>
                     </ul>
                     <div class="product-footer">
                         <span class="flash-sale-tag">BUNDLE</span>
-                        <span class="price">$495.00</span>
-                        <span style="text-decoration:line-through;color:#555;font-size:12px;margin-right:8px;">$490.31</span>
+                        <span class="price-was">$483</span><span class="price">$455</span>
                         <button class="btn btn-buy snipcart-add-item"
                             data-item-id="MN1-Bundle"
-                            data-item-price="495.00"
+                            data-item-price="455"
                             data-item-url="/"
                             data-item-name="Mask + Noseclip Bundle — MN1"
                             data-item-description="Get the perfect equalization combo. M1 Mask + N1 Noseclip, tuned for freediving.">
                             Add to Cart
                         </button>
-                        <p style="font-size:10px;color:var(--accent);margin-top:8px;">* Add $24.99 ear plugs to unlock Free DHL shipping (order >$500)</p>
-                        <div class="trust-micro"><span>Handcrafted Quality</span><span>256-bit SSL</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
+                        <p style="font-size:10px;color:#666;margin-top:8px;">Ships in one box. DHL is $29 flat &mdash; free once the order passes $500.</p>
+                        <div class="trust-micro"><span>Handcrafted Quality</span><span>Stripe &amp; PayPal</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
             </div>
@@ -2085,6 +2121,66 @@
     </section>
 
     
+    <!-- ===== DELIVERY TIMELINE + ORDER ASSURANCE ===== -->
+    <section id="delivery" class="delivery-section">
+        <p class="section-tag">FROM WORKSHOP TO WATER</p>
+        <h2>Exactly What Happens After You Order</h2>
+        <p class="range-sub">Made to order means a real timeline, not a number pulled from the air. Every order follows the same four steps.</p>
+        <div class="delivery-steps">
+            <div class="delivery-step">
+                <span class="delivery-step-num">01</span>
+                <h3>Build &mdash; 1&ndash;3 business days</h3>
+                <p>Your flex, size and colour go into the workshop queue. You get a build confirmation with the exact spec we recorded.</p>
+            </div>
+            <div class="delivery-step">
+                <span class="delivery-step-num">02</span>
+                <h3>Final QC &mdash; same week</h3>
+                <p>Flex tested at three points, footpocket fit checked by hand, then packed plastic-free.</p>
+            </div>
+            <div class="delivery-step">
+                <span class="delivery-step-num">03</span>
+                <h3>Dispatch &mdash; tracking within 48h</h3>
+                <p>DHL Express number emailed the moment the parcel leaves the workshop.</p>
+            </div>
+            <div class="delivery-step">
+                <span class="delivery-step-num">04</span>
+                <h3>Delivery &mdash; 5&ndash;10 business days</h3>
+                <p>US and EU in 5&ndash;10 business days, rest of world 7&ndash;15. Duties and import taxes are paid by the receiver.</p>
+            </div>
+        </div>
+        <p class="delivery-note">Checkout to door: roughly 1&ndash;2 weeks for the US/EU, up to 3 weeks elsewhere. Shipping is $29 flat, free on orders over $500. Full terms on <a href="refunds.html">Refunds &amp; Shipping</a>.</p>
+
+        <div class="assurance-grid">
+            <div class="assurance-cell">
+                <h3>In every box</h3>
+                <ul>
+                    <li>The item, built to the spec confirmed at checkout</li>
+                    <li>Protective case (N1, E1) or padded blade sleeve (fins, monofin)</li>
+                    <li>Warranty card with the unit serial and build date</li>
+                    <li>Care sheet &mdash; what not to do to carbon</li>
+                </ul>
+            </div>
+            <div class="assurance-cell">
+                <h3>3-year warranty, three steps</h3>
+                <ul>
+                    <li>1. Email your order number and a photo of the issue</li>
+                    <li>2. We confirm repair or replacement within 2 business days</li>
+                    <li>3. We cover return freight on manufacturing defects</li>
+                </ul>
+                <p class="assurance-link"><a href="refunds.html">Read the full policy</a></p>
+            </div>
+            <div class="assurance-cell">
+                <h3>Before you spend $800+</h3>
+                <ul>
+                    <li>Every card has an open size and flex guide &mdash; read it first</li>
+                    <li>Run the flex calculator, then ask us to sanity-check the result</li>
+                    <li>Ask for the QC sheet of a comparable build before you order</li>
+                </ul>
+                <p class="assurance-link"><a href="#contact">Ask a question</a></p>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== TRUSTED BY WATER PEOPLE — Underwater Visual ===== -->
     <!-- ===== FULL RANGE: SUIT LINES + ACCESSORY LINES ===== -->
     <section id="range" class="full-range">
@@ -2214,8 +2310,8 @@
                 <p>That obsession has widened. The same materials and standards now serve scuba divers, spearfishers, snorkellers and pool athletes &mdash; because good gear should not belong to one discipline. Aerospace-grade carbon fiber, hand layup, individual flex testing, DTC handmade-to-order from partner workshops in Italy, Japan and the US.</p>
                 <p>And because we make our living from the ocean, we owe something back: 1% of every order to coastal restoration, plastic-free shipping, and gear designed to be repaired rather than replaced.</p>
                 <div class="about-stats">
-                    <div class="stat"><span class="stat-value">8</span><span class="stat-label">Products</span></div>
-                    <div class="stat"><span class="stat-value">100m+</span><span class="stat-label">Test Depth</span></div>
+                    <div class="stat"><span class="stat-value">8</span><span class="stat-label">Products &amp; Bundles</span></div>
+                    <div class="stat"><span class="stat-value">30-Day</span><span class="stat-label">Return Window</span></div>
                     <div class="stat"><span class="stat-value">40+</span><span class="stat-label">Countries</span></div>
                     <div class="stat"><span class="stat-value">1%</span><span class="stat-label">Pledged to the Ocean</span></div>
                 </div>
@@ -2329,6 +2425,9 @@
             const resultDiv = document.getElementById('calc-result');
 
             if (openBtn) {
+                // This card sits inside a transformed ancestor, which traps position:fixed inside the
+                // card and pushes the dialog off-screen. Re-parent to <body> so it centers properly.
+                if (modal && modal.parentElement !== document.body) document.body.appendChild(modal);
                 openBtn.onclick = () => modal.style.display = 'flex';
                 closeBtn.onclick = () => {
                     modal.style.display = 'none';
@@ -2338,46 +2437,56 @@
                 };
 
                 calcBtn.onclick = () => {
-                    const weight = parseInt(document.getElementById('diver-weight').value);
+                    const weight = parseFloat(document.getElementById('diver-weight').value);
+                    const height = parseFloat(document.getElementById('diver-height').value);
+                    const depth = parseFloat(document.getElementById('max-depth').value) || 0;
+                    const freq = document.getElementById('train-freq').value;
+                    const ankle = document.getElementById('ankle-mobility').value;
+                    const water = document.getElementById('water-type').value;
                     const style = document.getElementById('dive-style').value;
 
-                    if(!weight || weight < 40 || weight > 150) {
-                        alert("Please enter a valid weight between 40-150kg.");
+                    if (!weight || weight < 40 || weight > 150) {
+                        alert('Please enter a valid weight between 40-150kg.');
                         return;
                     }
 
-                    let flex = "Medium";
-                    let reason = "The optimal balance of propulsion and energy saving for your profile.";
-
-                    if (weight < 65) {
-                        flex = "Soft";
-                        reason = "A softer blade minimizes ankle fatigue for your weight class.";
-                        if (style === 'cwt') {
-                            flex = "Medium";
-                            reason = "Upgraded to Medium for better deep-water propulsion despite lighter weight.";
-                        }
-                    } else if (weight >= 65 && weight <= 85) {
-                        flex = "Medium";
-                        if (style === 'dyn') {
-                            flex = "Soft";
-                            reason = "A softer blade provides better efficiency for dynamic pool disciplines.";
-                        }
-                        if (style === 'cwt') {
-                            flex = "Hard";
-                            reason = "Competitive deep diving requires maximum power transfer.";
-                        }
-                    } else {
-                        flex = "Hard";
-                        reason = "Maximum power transfer needed for your weight class.";
-                        if (style === 'recreational') {
-                            flex = "Medium";
-                            reason = "Stepped down to Medium to ensure all-day comfort for recreational diving.";
-                        }
+                    // Blade load score: positive = stiffer blade justified, negative = stay soft.
+                    let load = (weight - 70) / 10;
+                    load += depth >= 40 ? 1.5 : (depth >= 25 ? 0.75 : 0);
+                    load += freq === 'high' ? 1.2 : (freq === 'mid' ? 0.5 : 0);
+                    load += style === 'cwt' ? 1 : (style === 'dyn' ? -1 : 0);
+                    load += ankle === 'stiff' ? -1.2 : (ankle === 'flexible' ? 0.4 : 0);
+                    load += water === 'fresh' ? 0.3 : 0;
+                    if (!isNaN(height)) {
+                        if (height >= 185) load += 0.3;
+                        if (height <= 165) load -= 0.3;
                     }
+
+                    load = Math.round(load * 10) / 10;   // kill float drift so the thresholds are reproducible
+
+                    let flex = 'Medium';
+                    if (load <= -0.5) flex = 'Soft';
+                    else if (load >= 1.5) flex = 'Hard';
+
+                    const drivers = [];
+                    drivers.push(weight + 'kg body mass suggests ' + (weight < 65 ? 'a softer' : (weight > 85 ? 'a stiffer' : 'a mid-range')) + ' blade');
+                    if (depth) {
+                        drivers.push('working depth ' + depth + 'm ' + (depth >= 40 ? 'adds real power demand' : (depth >= 25 ? 'adds moderate load' : 'asks little of the blade')));
+                    }
+                    drivers.push(freq === 'high' ? 'training 4x+ per week supports a stiffer blade' : (freq === 'mid' ? '2-3 sessions a week suits medium flex' : 'low weekly volume favours an easier kick'));
+                    if (ankle === 'stiff') drivers.push('stiff ankles are the strongest single argument for staying soft');
+                    if (ankle === 'flexible') drivers.push('good ankle range lets you load a stiffer blade safely');
+                    if (style === 'dyn') drivers.push('pool dynamics reward a softer, faster blade');
+                    if (style === 'cwt') drivers.push('competition CWT pushes toward maximum power transfer');
+                    if (water === 'fresh') drivers.push('fresh water is less buoyant, so slightly more blade load');
+
+                    const reason = 'Load score ' + load.toFixed(1) + '. ' + drivers.join('; ') + '.';
 
                     document.getElementById('flex-output').innerText = flex;
                     document.getElementById('flex-reason').innerText = reason;
                     resultDiv.style.display = 'block';
+                    // keep the answer on screen inside the scrolling dialog
+                    setTimeout(function() { resultDiv.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }, 60);
                 };
             }
         });
