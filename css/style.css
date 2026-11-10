@@ -732,15 +732,16 @@ body.dark > section:only-of-type{
 /* ============================================================
    MOBILE HAMBURGER MENU BREAKPOINT
    ============================================================ */
-/* Show hamburger and hide desktop links below 768px */
-@media(max-width:767px){
+/* Show hamburger and hide desktop links below 900px
+   (9 desktop links need ~870px; at 768-899 they clipped the cart button) */
+@media(max-width:959px){
     .nav-links{display:none;}
     .hamburger{display:flex;}
     .nav{padding:0 16px;justify-content:space-between;}
     .nav-logo{margin-right:auto;}
 }
-/* Hide hamburger on tablet+ */
-@media(min-width:768px){
+/* Hide hamburger on desktop */
+@media(min-width:960px){
     .hamburger{display:none!important;}
     .nav-overlay{display:none!important;}
 }
@@ -825,4 +826,13 @@ select,summary,.btn,.cart-btn,
 @media(min-width:768px){
     .delivery-steps{grid-template-columns:repeat(4,1fr);}
     .assurance-grid{grid-template-columns:repeat(3,1fr);}
+}
+
+/* ============================================================
+   TABLET HERO FIT — 768-1000px row was clipping the visual
+   ============================================================ */
+@media(min-width:768px) and (max-width:1000px){
+    .hero{flex-wrap:wrap;}
+    .hero-text{min-width:0;flex:1 1 320px;}
+    .hero-visual{min-width:0;flex:1 1 240px;}
 }

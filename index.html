@@ -713,6 +713,10 @@
             border-bottom: 1px solid rgba(255,255,255,0.03);
             font-size: 11px;
         }
+        .guide-content table { table-layout: fixed; }
+        .guide-content td, .guide-content th { word-break: break-word; }
+        .guide-content ul { margin: 8px 0 0 16px; }
+        .guide-content ul li { margin-bottom: 4px; }
 
         /* ── Workshop Urgency Strip ── */
         .workshop-urgency-strip {
@@ -1682,7 +1686,7 @@
             </div>
             <div class="wu-item">
                 <span class="wu-icon">&#9888;</span>
-                <span><span class="wu-highlight">Limited Capacity</span> &mdash; Only a few workshop slots remain this week</span>
+                <span><span class="wu-highlight">Made to Order</span> &mdash; Build starts the working day your order is confirmed; nothing is pre-built or warehoused</span>
             </div>
         </div>
 
@@ -1696,7 +1700,7 @@
                     <div class="editors-choice">EDITOR'S CHOICE</div>
                     <img src="img/products/c1-pro-blades.webp" alt="Carbon Blades C1 Pro — carbon fiber freediving fins" loading="lazy">
                     <div class="quick-add-overlay">
-                        <a class="configure-btn" href="compare/freediving-fins-comparison-2026.html" target="_self" aria-label="Compare carbon freediving fin models">Compare Fin Models</a>
+                        <a class="configure-btn" href="product/c1-pro.html" target="_self" aria-label="Configure the C1 Pro: fit, landed cost and delivery">Configure C1 Pro &rarr;</a>
                     </div>
                 </div>
                 <div class="product-info">
@@ -1776,20 +1780,59 @@
                 <div class="product-guide">
                     <button class="guide-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Size Guide & Hardness</button>
                     <div class="guide-content">
-                        <h4>Blade Stiffness Guide</h4>
+                        <h4>Blade Stiffness &mdash; weight is one of four inputs</h4>
                         <table>
-                            <tr><th>Stiffness</th><th>Best For</th><th>Weight Range</th></tr>
-                            <tr><td>Soft (CWTB)</td><td>Recreational / Long Dives</td><td>&lt;70kg</td></tr>
-                            <tr><td>Medium (FIM)</td><td>All-around / Bestseller</td><td>65–85kg</td></tr>
-                            <tr><td>Stiff (CWT)</td><td>Competitive / Power</td><td>&gt;80kg</td></tr>
+                            <tr><th>Profile</th><th>Load score</th><th>Flex</th></tr>
+                            <tr><td>Light diver, shallow water, under 2 sessions a week</td><td>below &minus;0.5</td><td>Soft</td></tr>
+                            <tr><td>Most recreational and intermediate divers</td><td>&minus;0.5 to 2.4</td><td>Medium</td></tr>
+                            <tr><td>Heavy diver, or deep water with 4+ sessions a week</td><td>2.5 and above</td><td>Hard</td></tr>
                         </table>
-                        <p style="margin-top:10px;font-size:10px;color:#666;">Need help? Email us your weight + style for a personalized recommendation.</p>
+                        <p style="margin-top:8px;">The calculator above scores seven inputs in one number &mdash; weight, depth, weekly volume, discipline, ankle mobility, water type, height. Worked examples at average ankle mobility in salt water:</p>
+                        <ul>
+                            <li>60kg &middot; 18m &middot; under 2 sessions &rarr; &minus;1.0 &rarr; <strong>Soft</strong></li>
+                            <li>70kg &middot; 20m &middot; 4+ sessions &rarr; 1.2 &rarr; <strong>Medium</strong></li>
+                            <li>76kg &middot; 32m &middot; 2&ndash;3 sessions &rarr; 1.9 &rarr; <strong>Medium</strong></li>
+                            <li>64kg &middot; 45m &middot; 4+ sessions &rarr; 2.1 &rarr; <strong>Medium</strong></li>
+                            <li>95kg &middot; 45m &middot; 4+ sessions &rarr; 5.2 &rarr; <strong>Hard</strong></li>
+                        </ul>
+                        <p style="margin-top:8px;">Depth adds 0.75 at 25&ndash;39m and 1.5 at 40m+. Weekly volume adds 0.5 at 2&ndash;3 sessions and 1.2 at 4+. Competition CWT adds 1, pool dynamic subtracts 1, a stiff ankle subtracts 1.2, very flexible ankles add 0.4, fresh water adds 0.3. Within one grade of a boundary, say so &mdash; we hand-check before cutting.</p>
+
+                        <h4 style="margin-top:14px;">Go one grade softer when</h4>
+                        <ul>
+                            <li>You have a stiff ankle or an old injury &mdash; a blade you cannot load costs you depth</li>
+                            <li>You train fewer than two sessions a week (the blade wins if you overload it)</li>
+                            <li>You dive mostly pool dynamic, or you are moving up from fibreglass</li>
+                        </ul>
+
+                        <h4 style="margin-top:14px;">We confirm by hand when</h4>
+                        <ul>
+                            <li>You land between two stiffness grades &mdash; say so at checkout, we review before cutting</li>
+                            <li>Your profile is heavy (90kg+) but volume is low, or light with competition volume &mdash; these two pull in opposite directions</li>
+                        </ul>
+
+                        <h4 style="margin-top:14px;">Footpocket &mdash; measure, don't convert</h4>
+                        <table>
+                            <tr><th>Foot length (mm)</th><th>With 3mm sock</th><th>Footpocket</th></tr>
+                            <tr><td>236&ndash;250</td><td>239&ndash;253</td><td>EU 38&ndash;39</td></tr>
+                            <tr><td>251&ndash;265</td><td>254&ndash;268</td><td>EU 40&ndash;41</td></tr>
+                            <tr><td>266&ndash;280</td><td>269&ndash;283</td><td>EU 42&ndash;43</td></tr>
+                            <tr><td>281&ndash;295</td><td>284&ndash;298</td><td>EU 44&ndash;45</td></tr>
+                            <tr><td>296&ndash;310</td><td>299&ndash;313</td><td>EU 46</td></tr>
+                        </table>
+                        <p style="margin-top:8px;">Stand on paper, heel to wall, and measure to the tip of your longest toe &mdash; then add your sock thickness in mm (barefoot 0, 3mm sock +3, 5mm sock +5). Rules that matter:</p>
+                        <ul>
+                            <li><strong>Wide foot or high instep:</strong> take the larger band, and tell us &mdash; the pocket is fitted by hand</li>
+                            <li><strong>Left and right differ:</strong> measure both, size to the longer foot</li>
+                            <li><strong>Between two bands:</strong> take the larger band; a tight pocket cannot be stretched into comfort</li>
+                        </ul>
+                        <p style="margin-top:10px;font-size:10px;color:#666;">Custom footpocket sizing is non-refundable unless defective, so measure twice. Full fit configurator, landed cost and pre-cart confirmation: <a href="product/c1-pro.html" style="color:var(--accent);">C1 Pro product page &rarr;</a></p>
                     </div>
                 </div>
 
                     <div class="product-footer">
                         <span class="bestseller-tag">Bestseller</span>
                         <span class="price-was">$895</span><span class="price">$818</span>
+                        <p style="font-size:11px;color:#777;margin:6px 0 8px;line-height:1.6;">Launch price through 30 Nov 2026. At $818 this pair alone clears the $500 free-shipping threshold &mdash; DHL Express $0, 5&ndash;10 business days to US/EU. Import duties are paid by the receiver and shown by DHL before delivery. <a href="product/c1-pro.html" style="color:var(--accent);">Full C1 Pro page: fit configurator, landed cost, pre-cart confirmation &rarr;</a></p>
                         <button class="btn btn-buy snipcart-add-item"
                             data-item-id="C1-Pro"
                             data-item-price="818"
@@ -2123,7 +2166,7 @@
                             data-item-description="Get the perfect equalization combo. M1 Mask + N1 Noseclip, tuned for freediving.">
                             Add to Cart
                         </button>
-                        <p style="font-size:10px;color:#666;margin-top:8px;">Ships in one box. DHL is $29 flat &mdash; free once the order passes $500.</p>
+                        <p style="font-size:10px;color:#666;margin-top:8px;">Ships in one box. Free DHL at $500: this bundle is $455, so $45 of freight remains &mdash; add any accessory above $45 and shipping is free. Fewer than $45 added means $29 flat freight, which costs more than the saving.</p>
                         <div class="trust-micro"><span>Handcrafted Quality</span><span>Stripe &amp; PayPal</span><span>30-Day Returns</span><span>Free DHL >$500</span><span>3-Year Warranty</span></div>
                     </div>
                 </div>
@@ -2482,7 +2525,7 @@
 
                     let flex = 'Medium';
                     if (load <= -0.5) flex = 'Soft';
-                    else if (load >= 1.5) flex = 'Hard';
+                    else if (load >= 2.5) flex = 'Hard';
 
                     const drivers = [];
                     drivers.push(weight + 'kg body mass suggests ' + (weight < 65 ? 'a softer' : (weight > 85 ? 'a stiffer' : 'a mid-range')) + ' blade');

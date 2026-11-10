@@ -266,6 +266,20 @@
                 font-size: 1.1rem;
             }
         }
+    
+        /* mobile nav: let the link bar scroll inside the header instead of widening the page */
+        @media (max-width: 768px) {
+            nav { padding: 0 12px; }
+            .nav-links, nav .links {
+                gap: 0;
+                max-width: calc(100vw - 92px);
+                overflow-x: auto;
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+            }
+            .nav-links::-webkit-scrollbar, nav .links::-webkit-scrollbar { display: none; }
+            .nav-links a, nav .links a { white-space: nowrap; }
+        }
     </style>
 <!-- freshness: 2026-11-03 -->
 </head>

@@ -619,6 +619,24 @@
                 grid-template-columns: 1fr;
             }
         }
+    
+        /* mobile nav: let the link bar scroll inside the header instead of widening the page */
+        @media (max-width: 768px) {
+            nav { padding: 0 12px; }
+            .nav-links, nav .links {
+                gap: 0;
+                max-width: calc(100vw - 92px);
+                overflow-x: auto;
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+            }
+            .nav-links::-webkit-scrollbar, nav .links::-webkit-scrollbar { display: none; }
+            .nav-links a, nav .links a { white-space: nowrap; }
+        }
+
+        /* wide comparison tables scroll sideways instead of breaking the layout on phones */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 20px; }
+        .table-scroll table { margin-bottom: 0; }
     </style>
 </head>
 <body>
@@ -670,7 +688,7 @@
         <p>Before diving into the nuances, here is the high-level picture. Six dimensions where these two fin styles genuinely differ.</p>
 
         <div class="compare-table-wrap">
-            <table class="compare-table">
+            <div class="table-scroll"><table class="compare-table">
                 <thead>
                     <tr>
                         <th>Dimension</th>
@@ -710,7 +728,7 @@
                         <td>$1,000–$2,400 for competition-grade monofins (e.g., MF1: $1,388)</td>
                     </tr>
                 </tbody>
-            </table>
+            </table></div>
         </div>
 
         <!-- Bifins Deep Dive -->
