@@ -177,10 +177,10 @@
                     return '<div class="sku-ship">DHL Express <b>$' + C.flatShip + '</b> flat \u2014 free over $' + C.freeShip + '.<br>' +
                         'Add <b>' + money(gap) + '</b> to reach free freight.' +
                         '<div class="sku-bar" style="margin-top:6px;"><i style="width:' + pct + '%"></i></div>' +
-                        '<div class="sku-gap" style="margin-top:6px;">Transit ' + C.transit + ' after dispatch. <a href="product/c1-pro.html#landed">See full landed cost \u2192</a></div></div>';
+                        '<div class="sku-gap" style="margin-top:6px;">Transit ' + C.transit + ' after dispatch. <a href="product/c1-pro.html#landed">How duty and transit are calculated \u2192</a></div></div>';
                 }
                 return '<div class="sku-ship">DHL Express <b>free</b> (order over $' + C.freeShip + ').<br>' +
-                    '<span class="sku-gap">Transit ' + C.transit + ' after dispatch. Duty and VAT are not included \u2014 collected at delivery where your country charges them. <a href="product/c1-pro.html#landed">See full landed cost \u2192</a></span></div>';
+                    '<span class="sku-gap">Transit ' + C.transit + ' after dispatch. Duty and VAT are not included \u2014 collected at delivery where your country charges them. <a href="product/c1-pro.html#landed">How duty and transit are calculated \u2192</a></span></div>';
             }
 
             function card(s) {
@@ -195,12 +195,17 @@
                     ? '<a class="btn" href="' + s.url + '">' + s.cta.label + '</a>'
                     : '<button class="btn snipcart-add-item" data-item-id="' + s.slug + '" data-item-price="' + s.price + '" data-item-url="/shop.html" data-item-name="' + s.name.replace(/"/g, '&quot;') + '" data-item-image="/' + s.img + '">' + s.cta.label + '</button>';
 
+                var hasPage = s.slug === 'c1-pro';
+                var imgWrap = hasPage
+                    ? '<a class="sku-img" href="' + s.url + '"><img src="' + s.img + '" alt="' + s.name + '" loading="lazy"></a>'
+                    : '<div class="sku-img"><img src="' + s.img + '" alt="' + s.name + '" loading="lazy"></div>';
+                var titleEl = hasPage ? '<h3><a href="' + s.url + '" style="color:inherit;text-decoration:none;">' + s.name + '</a></h3>' : '<h3>' + s.name + '</h3>';
                 return '<article class="sku" data-cat="' + s.cat + '">' +
-                    '<a class="sku-img" href="' + s.url + '"><img src="' + s.img + '" alt="' + s.name + '" loading="lazy"></a>' +
+                    imgWrap +
                     '<div class="sku-body">' +
                         '<div class="sku-top"><span class="sku-cat">' + s.catLabel + '</span>' +
                         '<span class="sku-status' + (s.status === 'In stock' ? '' : ' built') + '">' + s.status + '</span></div>' +
-                        '<h3>' + s.name + '</h3>' +
+                        titleEl +
                         priceBlock +
                         '<p class="sku-for"><b style="color:#cfcfcf;font-weight:500;">Who it is for:</b> ' + s.forWho + '</p>' +
                         '<div class="sku-specs">' + s.specs.map(function (x) { return '<span>' + x + '</span>'; }).join('') + '</div>' +

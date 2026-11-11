@@ -5,6 +5,7 @@
 window.AC_CATALOG = {
   freeShip: 500,
   flatShip: 29,
+  transit: "5\u201310 business days to the US and EU",
   launchEnds: "30 November 2026",
   skus: [
     {
