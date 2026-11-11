@@ -175,6 +175,133 @@
 
         .c1p-related { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 12px; }
         .c1p-disclaimer { font-size: 11px; color: #555; line-height: 1.7; margin-top: 18px; }
+
+        /* ---------- gallery ---------- */
+        .c1p-gal { display: block; }
+        .c1p-gal-main {
+            display: block; position: relative; width: 100%; padding: 0; border: 1px solid var(--border);
+            background: #f4f4f4; border-radius: var(--radius); cursor: zoom-in; overflow: hidden;
+        }
+        .c1p-gal-main img { width: 100%; height: auto; aspect-ratio: 1/1; object-fit: cover; }
+        .c1p-gal-zoom {
+            position: absolute; right: 8px; bottom: 8px; font-size: 10px; letter-spacing: .6px;
+            background: rgba(0,0,0,.62); color: #fff; padding: 3px 7px; border-radius: 3px;
+        }
+        .c1p-gal-cap { font-size: 11.5px; color: #8a8a8a; line-height: 1.6; margin-top: 8px; min-height: 34px; }
+        .c1p-gal-thumbs {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 8px;
+        }
+        .c1p-gal-thumb {
+            position: relative; padding: 0; border: 1px solid var(--border); background: #f4f4f4;
+            border-radius: 3px; overflow: hidden; cursor: pointer; line-height: 0;
+        }
+        .c1p-gal-thumb img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+        .c1p-gal-thumb[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+        .c1p-gal-thumb span {
+            display: block; font-size: 8.5px; letter-spacing: .3px; color: #666; background: #111;
+            padding: 3px 2px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .c1p-lightbox {
+            position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,.95); display: none;
+            align-items: center; justify-content: center; padding: 12px;
+        }
+        .c1p-lightbox.open { display: flex; }
+        .c1p-lightbox img { max-width: 100%; max-height: 84vh; object-fit: contain; background: #fff; }
+        .c1p-lightbox-close {
+            position: absolute; top: 10px; right: 12px; background: none; border: 1px solid #444;
+            color: #ddd; font-size: 20px; line-height: 1; width: 38px; height: 38px; border-radius: 3px; cursor: pointer;
+        }
+        .c1p-lightbox-cap { position: absolute; bottom: 16px; left: 14px; right: 14px; font-size: 11px; color: #999; text-align: center; line-height: 1.5; }
+
+        /* ---------- stepped configurator (mobile) ---------- */
+        .c1p-progress { display: flex; gap: 6px; margin: 4px 0 14px; }
+        .c1p-progress i {
+            flex: 1; height: 3px; background: #1e1e1e; border-radius: 2px; display: block; transition: background .2s;
+        }
+        .c1p-progress i.on { background: var(--accent); }
+        .c1p-progress-text { font-size: 10.5px; letter-spacing: .8px; color: #777; margin-bottom: 6px; text-transform: uppercase; }
+        .c1p-step { display: none; }
+        .c1p-step.on { display: grid; }
+        .c1p-step-nav { display: flex; gap: 8px; margin-top: 14px; }
+        .c1p-step-nav .c1p-btn { flex: 1; }
+        .c1p-step-nav.off, .c1p-progress-text.off { display: none; }
+        @media (min-width: 820px) {
+            .c1p-step { display: grid !important; }
+            .c1p-step-nav, .c1p-progress, .c1p-progress-text { display: none; }
+        }
+
+        /* ---------- recommendation extras ---------- */
+        .c1p-rec-grid-6 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .c1p-alt { border: 1px solid #232323; border-radius: var(--radius); padding: 10px 12px; margin-top: 12px; font-size: 11.5px; line-height: 1.65; }
+        .c1p-alt strong { color: var(--text-bright); font-weight: 500; }
+        .c1p-rules { display: grid; gap: 6px; margin-top: 10px; }
+        .c1p-rule { font-size: 11.5px; line-height: 1.6; color: #8d8d8d; border-left: 2px solid #262626; padding-left: 9px; }
+        .c1p-rule b { color: var(--text-bright); font-weight: 500; }
+        .c1p-measure { border: 1px solid var(--border); border-radius: var(--radius); background: #0d0d0d; padding: 10px; margin: 12px 0 4px; }
+        .c1p-measure svg { width: 100%; height: auto; display: block; }
+        .c1p-measure figcaption { font-size: 11px; color: #7d7d7d; line-height: 1.6; margin-top: 8px; }
+        .c1p-rev-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+        .c1p-rev-btn {
+            background: #0d0d0d; border: 1px solid #262626; color: #9a9a9a; font-size: 11px;
+            padding: 5px 10px; border-radius: 999px; cursor: pointer; font-family: inherit;
+        }
+        .c1p-rev-btn.on { border-color: var(--accent); color: var(--accent); }
+        .c1p-rev-list { display: grid; gap: 10px; margin-top: 12px; }
+        .c1p-rev-card { border: 1px solid #1f1f1f; border-radius: var(--radius); padding: 11px 13px; font-size: 11.5px; line-height: 1.7; }
+        .c1p-rev-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; margin-bottom: 6px; }
+        .c1p-rev-name { color: var(--text-bright); font-weight: 500; font-size: 12px; }
+        .c1p-rev-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+        .c1p-rev-tag { font-size: 9.5px; letter-spacing: .3px; color: #8d8d8d; border: 1px solid #262626; padding: 1px 6px; border-radius: 2px; }
+        .c1p-rev-empty { border: 1px dashed #2a2a2a; border-radius: var(--radius); padding: 12px 13px; font-size: 11.5px; line-height: 1.75; color: #8d8d8d; }
+        .c1p-rev-empty b { color: var(--text-bright); font-weight: 500; }
+        .c1p-rev-sample { font-size: 9.5px; letter-spacing: .6px; color: #7a6a3a; border: 1px solid #3a3222; padding: 1px 6px; border-radius: 2px; }
+        .c1p-ev2 { display: grid; gap: 8px; margin: 12px 0; }
+        .c1p-ev2-item { border: 1px solid #1f1f1f; border-radius: var(--radius); padding: 10px 12px; font-size: 11.5px; line-height: 1.65; }
+        .c1p-ev2-item code { color: var(--accent); font-size: 11px; letter-spacing: .4px; }
+        .c1p-verif { font-size: 10px; letter-spacing: .5px; color: #4a7a4a; border: 1px solid #234023; padding: 1px 6px; border-radius: 2px; display: inline-block; }
+        .c1p-flag-alert {
+            border: 1px solid #4a2a2a; background: #150c0c; color: #d9a5a5;
+            border-radius: var(--radius); padding: 10px 12px; font-size: 11.5px; line-height: 1.65; margin-top: 10px;
+        }
+        .c1p-flag-alert strong { color: #f0c8c8; font-weight: 500; }
+        .c1p-note-box { border: 1px solid #1f1f1f; border-radius: var(--radius); padding: 10px 12px; margin-top: 10px; font-size: 11.5px; line-height: 1.7; color: #909090; }
+        .c1p-note-box b { color: var(--text-bright); font-weight: 500; }
+        .c1p-mail-preview {
+            border: 1px dashed #2a2a2a; border-radius: var(--radius); padding: 10px 12px; margin-top: 12px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10.5px; line-height: 1.8; color: #858585; white-space: pre-wrap;
+        }
+        @media (max-width: 819px) {
+            .c1p-sticky { padding: 8px 12px; }
+            .c1p-sticky-state { font-size: 10px; color: var(--accent); display: block; }
+            .c1p-sticky-price { font-size: 14px; }
+        }
+
+        /* ---------- fixed configuration summary ---------- */
+        .c1p-summary {
+            display: none; margin-top: 14px; padding: 10px 12px;
+            border: 1px solid #24384a; background: #08131c; border-radius: var(--radius);
+            align-items: center; justify-content: space-between; gap: 10px;
+        }
+        .c1p-summary.show { display: flex; }
+        .c1p-summary-main { min-width: 0; }
+        .c1p-summary-line { display: block; font-size: 11.5px; color: var(--text-bright); line-height: 1.5; }
+        .c1p-summary-sub { display: block; font-size: 10px; color: #7d8f9c; line-height: 1.5; }
+        .c1p-summary-price { font-size: 15px; color: var(--accent); white-space: nowrap; }
+        @media (min-width: 820px) {
+            .c1p-summary.show { position: sticky; top: calc(var(--nav-height) + 8px); z-index: 60; }
+        }
+
+        /* ---------- measuring diagram ---------- */
+        .c1p-measure figcaption { font-size: 11px; color: #7d7d7d; line-height: 1.6; margin-top: 8px; }
+        .c1p-measure.fullscreen {
+            position: fixed; inset: 0; z-index: 280; margin: 0; padding: 16px; background: #05080c;
+            display: flex; flex-direction: column; justify-content: center; border: none; border-radius: 0;
+        }
+        .c1p-measure.fullscreen svg { max-height: 76vh; width: auto; margin: 0 auto; }
+        .c1p-zoom-btn {
+            margin-top: 8px; background: none; border: 1px solid #333; color: #bbb; font-size: 10.5px;
+            letter-spacing: .6px; padding: 5px 10px; border-radius: 3px; cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -182,14 +309,20 @@
     <nav class="nav">
         <a href="../index.html" class="nav-logo">ABYSS<span>CARBON</span></a>
         <div class="nav-links">
-            <a href="../index.html#custom">Custom Suits</a>
-            <a href="../index.html#products">Accessories</a>
-            <a href="c1-pro.html">C1 Pro Fins</a>
-            <a href="../guide/best-freediving-gear-2026.html">Guide</a>
-            <a href="../compare/freediving-fins-comparison-2026.html">Compare</a>
-            <a href="../blog/index.html">Blog</a>
-            <a href="../index.html#contact">Contact</a>
-            <button class="snipcart-checkout cart-btn">Cart <span class="snipcart-items-count">0</span></button>
+            <a href="../shop.html?cat=bifins">Carbon bifins</a>
+            <a href="../shop.html?cat=masks">Masks</a>
+            <a href="../shop.html?cat=noseclips">Nose clips</a>
+            <a href="../shop.html?cat=monofin">Monofin</a>
+            <a href="../shop.html?cat=accessories">Accessories</a>
+            <a href="../shop.html?cat=bundles">Bundles</a>
+            <a href="../index.html#custom" class="nav-secondary">Custom Suits</a>
+            <a href="../index.html#ocean" class="nav-secondary">Ocean Pledge</a>
+            <a href="../guide/best-freediving-gear-2026.html" class="nav-secondary">Guide</a>
+            <a href="../compare/freediving-fins-comparison-2026.html" class="nav-secondary">Compare</a>
+            <a href="../blog/index.html" class="nav-secondary">Blog</a>
+            <button class="snipcart-checkout cart-btn">
+                Cart <span class="snipcart-items-count">0</span>
+            </button>
         </div>
     </nav>
 
@@ -213,35 +346,147 @@
                     <span class="c1p-chip"><strong>380g</strong> per blade</span>
                     <span class="c1p-chip"><strong>22&deg;</strong> blade angle</span>
                     <span class="c1p-chip">Flex: <strong>Soft / Medium / Hard</strong></span>
-                    <span class="c1p-chip">Footpocket <strong>38&ndash;46 included</strong></span>
+                    <span class="c1p-chip">Footpocket <strong>EU 38&ndash;46 included</strong></span>
                     <span class="c1p-chip">Built in <strong>1&ndash;3 business days</strong></span>
-                    <span class="c1p-chip">DHL Express <strong>5&ndash;10 days US/EU</strong></span>
+                    <span class="c1p-chip">DHL Express <strong id="heroTransit">5&ndash;10 days US/EU</strong></span>
+                </div>
+
+                <table class="c1p-table" style="margin-top:14px;">
+                    <tr>
+                        <td style="width:44%;">Deliver to</td>
+                        <td style="text-align:right;">
+                            <select id="heroCountry" aria-label="Delivery country" style="max-width:190px;display:inline-block;min-height:34px;font-size:11px;padding:4px 8px;"></select>
+                        </td>
+                    </tr>
+                    <tr><td>Product price</td><td style="text-align:right;color:var(--text-bright);">$818.00 <span style="color:#666;text-decoration:line-through;font-size:11px;">$895.00</span></td></tr>
+                    <tr><td>DHL Express freight</td><td style="text-align:right;color:var(--text-bright);" id="heroShip">$0.00 &mdash; free (over $500)</td></tr>
+                    <tr><td>Import duty &amp; tax</td><td style="text-align:right;" id="heroDuty">Not included &middot; paid by receiver</td></tr>
+                    <tr><td>Estimated dispatch</td><td style="text-align:right;color:var(--text-bright);" id="heroDispatch">&mdash;</td></tr>
+                    <tr class="c1p-total"><td><strong>Estimated arrival</strong></td><td style="text-align:right;color:var(--accent);" id="heroEta">&mdash;</td></tr>
+                </table>
+
+                <div class="c1p-flags" style="margin-top:12px;">
+                    <div class="c1p-flag"><strong>What the $818 does not cover</strong>Customs duty and import VAT are set by your own country, are not in the price or the freight, and are collected from you by DHL before delivery. <span id="heroDutyShort">For the US, duty is usually 0.</span> Full arithmetic in the landed-cost block below.</div>
+                    <div class="c1p-flag"><strong>Nothing irreversible after payment</strong>Flex, blade size and footpocket are shown in the confirmation panel before Add to cart. Custom footpocket sizing is non-refundable unless defective.</div>
                 </div>
 
                 <div class="c1p-cta">
                     <a href="#configurator" class="c1p-btn" id="startConfig">Start configuration</a>
                     <button type="button" class="c1p-btn c1p-btn-ghost" id="exampleProfile">See my recommendation</button>
                 </div>
-                <p class="c1p-price-note" style="margin-bottom:0;">"See my recommendation" loads an example advanced-diver profile (178cm / 76kg / EU 42 / 25&ndash;40m) so you can see what the output looks like, then change any field.</p>
-
-                <div class="c1p-flags">
-                    <div class="c1p-flag"><strong>Delivered cost, not a teaser</strong>$818 product, DHL $0 (order clears the $500 free-shipping threshold), import duties paid by the receiver and quoted by DHL before delivery.</div>
-                    <div class="c1p-flag"><strong>Nothing irreversible after payment</strong>Flex and footpocket are shown in the confirmation panel before Add to cart. Custom footpocket sizing is non-refundable unless defective.</div>
-                </div>
+                <p class="c1p-price-note" style="margin-bottom:0;">"See my recommendation" loads a worked profile &mdash; 178cm, 76kg, EU 42, training 25&ndash;40m &mdash; runs it through the same rules you will use, and shows the result with its confidence level. Change any field afterwards.</p>
             </div>
 
             <figure class="c1p-figure">
-                <img src="../img/products/c1-pro-blades.webp" alt="AbyssCarbon C1 Pro carbon fiber freediving blades" loading="eager" width="800" height="600">
-                <figcaption>C1 Pro blades. One product image is live on this page rather than a gallery of renderings &mdash; additional angles, blade texture, footpocket interior and in-water shots are shot at the workshop, not generated.</figcaption>
+                <div class="c1p-gal">
+                    <button type="button" class="c1p-gal-main" id="galMain" aria-label="Enlarge product image">
+                        <img id="galImg" src="../img/products/c1-pro-front.webp" alt="C1 Pro carbon blades, complete pair, top side" loading="eager" width="900" height="900">
+                        <span class="c1p-gal-zoom">Tap to enlarge</span>
+                    </button>
+                    <p class="c1p-gal-cap" id="galCap">01 / 09 &middot; Complete pair, top side &mdash; both blades, one footpocket pair, the shape that ships.</p>
+                    <div class="c1p-gal-thumbs" id="galThumbs">
+                        <button type="button" class="c1p-gal-thumb" data-i="0" aria-current="true" data-src="../img/products/c1-pro-front.webp" data-cap="01 / 09 · Complete pair, top side — both blades, one footpocket pair, the shape that ships." data-alt="C1 Pro carbon blades, complete pair, top side">
+                            <img src="../img/products/c1-pro-front.webp" alt="Complete pair, top side" loading="lazy"><span>Pair, top</span>
+                        </button>
+                        <button type="button" class="c1p-gal-thumb" data-i="1" data-src="../img/products/c1-pro-reverse.webp" data-cap="02 / 09 · Complete pair, underside — rail edges, layup direction and the blade root." data-alt="C1 Pro carbon blades, complete pair, underside">
+                            <img src="../img/products/c1-pro-reverse.webp" alt="Complete pair, underside" loading="lazy"><span>Pair, base</span>
+                        </button>
+                        <button type="button" class="c1p-gal-thumb" data-i="2" data-src="../img/products/c1-pro-texture.webp" data-cap="03 / 09 · Blade surface — T700 twill, hand laid, visible weave and the 22° pre-bend." data-alt="C1 Pro blade surface texture, T700 carbon twill">
+                            <img src="../img/products/c1-pro-texture.webp" alt="Blade surface texture" loading="lazy"><span>Texture</span>
+                        </button>
+                        <button type="button" class="c1p-gal-thumb" data-i="3" data-src="../img/products/c1-pro-joint.webp" data-cap="04 / 09 · Blade-to-footpocket joint — the glued and bolted interface, and where a blade would fail first if it ever did." data-alt="C1 Pro blade to footpocket joint detail">
+                            <img src="../img/products/c1-pro-joint.webp" alt="Blade to footpocket joint" loading="lazy"><span>Joint</span>
+                        </button>
+                        <button type="button" class="c1p-gal-thumb" data-i="4" data-src="../img/products/c1-pro-pocket.webp" data-cap="05 / 09 · Footpocket interior — heel cup depth, ankle strap and the seam that decides whether a wide foot fits." data-alt="C1 Pro footpocket interior detail">
+                            <img src="../img/products/c1-pro-pocket.webp" alt="Footpocket interior" loading="lazy"><span>Pocket</span>
+                        </button>
+                        <button type="button" class="c1p-gal-thumb" data-i="5" data-src="../img/products/c1-pro-sizemark.webp" data-cap="06 / 09 · Size marking — EU band and millimetre range moulded into the pocket, matching the table on this page." data-alt="C1 Pro footpocket size marking">
+                            <img src="../img/products/c1-pro-sizemark.webp" alt="Size marking on pocket" loading="lazy"><span>Size mark</span>
+                        </button>
+                        <button type="button" class="c1p-gal-thumb" data-i="6" data-src="../img/products/c1-pro-bag.webp" data-cap="07 / 09 · Carry bag — the pair travels flat, which is how DHL ships it." data-alt="C1 Pro carry bag">
+                            <img src="../img/products/c1-pro-bag.webp" alt="Carry bag" loading="lazy"><span>Bag</span>
+                        </button>
+                        <button type="button" class="c1p-gal-thumb" data-i="7" data-src="../img/products/c1-pro-diver.webp" data-cap="08 / 09 · Worn — diver at the surface, blades loaded, pocket strapped. Archive photograph from a training session." data-alt="Freediver wearing carbon blades at the surface">
+                            <img src="../img/products/c1-pro-diver.webp" alt="Diver wearing the blades" loading="lazy"><span>Worn</span>
+                        </button>
+                        <button type="button" class="c1p-gal-thumb" data-i="8" data-src="../img/products/c1-pro-inwater.webp" data-cap="09 / 09 · In water — blades during a line dive. Archive photograph." data-alt="Freediver descending in open water with carbon blades">
+                            <img src="../img/products/c1-pro-inwater.webp" alt="In-water use" loading="lazy"><span>In water</span>
+                        </button>
+                    </div>
+                    <figcaption class="c1p-gal-cap" style="margin-top:10px;">
+                        Labelling, so you can weigh what you are looking at: <strong style="color:var(--text-bright);font-weight:500;">01&ndash;07</strong> are studio visuals built from this build's own specification (shapes, weave, pocket mould, mm ranges); <strong style="color:var(--text-bright);font-weight:500;">08&ndash;09</strong> are archive photographs of the blades in use. We do not caption a rendering as a workshop photograph.
+                    </figcaption>
+                </div>
             </figure>
+
+            <div class="c1p-lightbox" id="galBox" role="dialog" aria-modal="true" aria-label="Product image">
+                <button type="button" class="c1p-lightbox-close" id="galClose" aria-label="Close">&times;</button>
+                <img id="galBoxImg" src="" alt="">
+                <p class="c1p-lightbox-cap" id="galBoxCap"></p>
+            </div>
         </section>
 
-        <!-- ============ CONFIGURATOR ============ -->
+        <!-- ============ WHO IT IS FOR ============ -->
+        <section class="c1p-card" id="who-for">
+            <h2>Who this fin is for &mdash; and who should buy something else</h2>
+            <p>A $818 pair is the wrong purchase for some divers, and saying so on the product page is cheaper than a return.</p>
+            <table class="c1p-table" style="margin-top:12px;">
+                <tr><td style="width:50%;"><strong style="color:var(--text-bright);">Built for</strong></td><td><strong style="color:var(--text-bright);">Not the right fin if</strong></td></tr>
+                <tr>
+                    <td>Recreational to intermediate depth, <b>25&ndash;40&nbsp;m</b>, trained 3&ndash;5 sessions a week.</td>
+                    <td>You are chasing <b>50&nbsp;m+</b> competition depth this season &mdash; that is a stiffer blade than this page recommends by default.</td>
+                </tr>
+                <tr>
+                    <td>CWT / CWTB / FIM training where a predictable, recoverable kick matters more than raw stiffness.</td>
+                    <td>You race monofin &mdash; a bi-fin pair is a different tool, see the monofin instead.</td>
+                </tr>
+                <tr>
+                    <td>Divers whose <b>ankle range or weekly volume</b> would be punished by a blade chosen from a weight table alone.</td>
+                    <td>You are under <b>20&nbsp;m</b> and still building basic equalisation &mdash; a cheaper first pair teaches the same lesson.</td>
+                </tr>
+                <tr>
+                    <td>Feet between <b>EU 38&ndash;46</b>, including wide, high instep and left/right differences &mdash; there is a documented next step for each.</td>
+                    <td>Your feet fall outside the moulded range or need a fully custom pocket &mdash; order through the custom route instead of forcing a stock size.</td>
+                </tr>
+                <tr>
+                    <td>Travel divers who want one pair that survives a bag and a decade.</td>
+                    <td>You need it in hand this week &mdash; every pair is built after the order, 1&ndash;3 business days minimum.</td>
+                </tr>
+            </table>
+            <div class="c1p-rules" style="margin-top:12px;">
+                <div class="c1p-rule"><b>Your own profile</b> 178&nbsp;cm, 76&nbsp;kg, EU&nbsp;42, training 25&ndash;40&nbsp;m sits inside the supported band. That is the worked example pre-loaded by "See my recommendation" &mdash; it is a demonstration of the rules, not a promise about your feet; run your own numbers below.</div>
+            </div>
+        </section>
+
+        <!-- ============ KEY SPECS ============ -->
+        <section class="c1p-card" id="specs">
+            <h2>Key specifications</h2>
+            <p>The short version, so you do not have to hunt for the numbers that decide fit and cost.</p>
+            <table class="c1p-table" style="margin-top:12px;">
+                <tr><td style="width:46%;">Blades</td><td>2 &middot; T700 carbon twill, hand laid</td></tr>
+                <tr><td>Weight</td><td><b>380&nbsp;g</b> per blade (size Standard)</td></tr>
+                <tr><td>Blade angle</td><td><b>22&deg;</b> pre-bend</td></tr>
+                <tr><td>Flex</td><td><b>Soft / Medium / Hard</b> &mdash; recommended from your inputs, not chosen blind</td></tr>
+                <tr><td>Blade size</td><td>Short / Standard / Long, matched to height and kick style</td></tr>
+                <tr><td>Footpocket</td><td><b>Included</b>, EU&nbsp;38&ndash;46, sized with your sock thickness</td></tr>
+                <tr><td>Price</td><td><b>$818</b> &middot; list $895 &middot; save $77 (USD)</td></tr>
+                <tr><td>Build time</td><td>1&ndash;3 business days, then dispatch</td></tr>
+                <tr><td>Tracking</td><td>Emailed within 48 hours of dispatch</td></tr>
+                <tr><td>Transit</td><td>DHL Express, 5&ndash;10 business days US / EU</td></tr>
+                <tr><td>Duty &amp; tax</td><td>Not included in price or freight &mdash; collected at delivery where applicable</td></tr>
+                <tr><td>Warranty</td><td>3 years, manufacturing defects</td></tr>
+            </table>
+        </section>
+
+<!-- ============ CONFIGURATOR ============ -->
         <section class="c1p-card" id="configurator">
-            <h2>Configure the build &mdash; twelve inputs, four answers</h2>
+            <h2>Configure the build &mdash; eleven inputs, six answers</h2>
             <p>Weight alone cannot pick a blade. The same 76kg diver wants a different flex at 25m in a lake three times a week than at 45m in salt water once a month. Fields marked * change the result; the rest sharpen it.</p>
 
-            <div class="c1p-form">
+            <p class="c1p-progress-text" id="stepLabel">Step 1 of 3 &middot; Body and training</p>
+            <div class="c1p-progress" id="stepBar"><i class="on"></i><i></i><i></i></div>
+
+            <div class="c1p-form c1p-step on" id="step1">
                 <div class="c1p-field">
                     <label for="cf-weight">Body weight (kg) *</label>
                     <input type="number" id="cf-weight" inputmode="numeric" min="40" max="150" placeholder="76">
@@ -289,14 +534,23 @@
                         <option value="fresh">Lake / quarry (fresh water)</option>
                     </select>
                 </div>
-                <div class="c1p-field">
-                    <label for="cf-country">Delivery country *</label>
-                    <select id="cf-country"></select>
-                </div>
+            </div>
+
+            <div class="c1p-step-nav" id="nav1">
+                <button type="button" class="c1p-btn" data-goto="2">Next &middot; feet and fit</button>
+            </div>
+
+            <p class="c1p-progress-text" id="stepLabel2">Step 2 of 3 &middot; Feet and fit</p>
+            <div class="c1p-form c1p-step" id="step2">
                 <div class="c1p-field">
                     <label for="cf-foot">Foot length (mm) *</label>
                     <input type="number" id="cf-foot" inputmode="numeric" min="200" max="330" placeholder="268">
-                    <span class="c1p-hint">Heel to longest toe, standing on paper against a wall.</span>
+                    <span class="c1p-hint">Heel to longest toe, standing on paper against a wall. See the measuring diagram below.</span>
+                </div>
+                <div class="c1p-field">
+                    <label for="cf-width">Foot width (mm)</label>
+                    <input type="number" id="cf-width" inputmode="numeric" min="70" max="140" placeholder="102">
+                    <span class="c1p-hint">Across the widest part of the ball of the foot, standing, weight on it.</span>
                 </div>
                 <div class="c1p-field">
                     <label for="cf-sock">Sock under the pocket</label>
@@ -308,19 +562,41 @@
                     </select>
                 </div>
                 <div class="c1p-field">
-                    <label for="cf-width">Foot width (mm)</label>
-                    <input type="number" id="cf-width" inputmode="numeric" min="70" max="140" placeholder="102">
-                    <span class="c1p-hint">Across the widest part of the ball of the foot.</span>
+                    <label for="cf-instep">Instep height</label>
+                    <select id="cf-instep">
+                        <option value="low">Low / flat</option>
+                        <option value="average" selected>Average</option>
+                        <option value="high">High instep</option>
+                    </select>
+                    <span class="c1p-hint">Look at your foot from the side: does the top of the arch rise sharply?</span>
                 </div>
-                <div class="c1p-field">
+                <div class="c1p-field" style="grid-column:1/-1;">
                     <label>Foot shape flags</label>
                     <div class="c1p-checks">
                         <label class="c1p-check"><input type="checkbox" id="cf-flags" value="wide"> Wide foot</label>
-                        <label class="c1p-check"><input type="checkbox" id="cf-inst"> High instep</label>
                         <label class="c1p-check"><input type="checkbox" id="cf-asym"> Left/right differ</label>
                     </div>
-                    <span class="c1p-hint">Flags move the pocket one band up and route you to a hand check.</span>
+                    <span class="c1p-hint">Either flag moves the pocket one band up and routes the order to a hand check before the blade is cut.</span>
                 </div>
+            </div>
+
+            <div class="c1p-step-nav" id="nav2">
+                <button type="button" class="c1p-btn c1p-btn-ghost" data-goto="1">Back</button>
+                <button type="button" class="c1p-btn" data-goto="3">Next &middot; delivery</button>
+            </div>
+
+            <p class="c1p-progress-text" id="stepLabel3">Step 3 of 3 &middot; Delivery</p>
+            <div class="c1p-form c1p-step" id="step3">
+                <div class="c1p-field">
+                    <label for="cf-country">Delivery country *</label>
+                    <select id="cf-country"></select>
+                    <span class="c1p-hint">Sets freight, transit time and the duty note shown near the cart button.</span>
+                </div>
+            </div>
+
+            <div class="c1p-step-nav" id="nav3">
+                <button type="button" class="c1p-btn c1p-btn-ghost" data-goto="2">Back</button>
+                <button type="button" class="c1p-btn" id="runConfig2">See my configuration</button>
             </div>
 
             <div class="c1p-cta" style="margin-top:16px;margin-bottom:0;">
@@ -330,49 +606,212 @@
 
             <div class="c1p-rec" id="recPanel" aria-live="polite">
                 <h3>Your configuration</h3>
-                <div class="c1p-rec-grid">
-                    <div class="c1p-rec-cell"><span>Blade flex</span><strong id="rec-flex">&mdash;</strong><em id="rec-flex-note"></em></div>
-                    <div class="c1p-rec-cell"><span>Footpocket</span><strong id="rec-pocket">&mdash;</strong><em id="rec-pocket-note"></em></div>
+                <div class="c1p-rec-grid c1p-rec-grid-6">
+                    <div class="c1p-rec-cell"><span>Recommended flex</span><strong id="rec-flex">&mdash;</strong><em id="rec-flex-note"></em></div>
+                    <div class="c1p-rec-cell"><span>Blade size</span><strong id="rec-blade">&mdash;</strong><em id="rec-blade-note"></em></div>
+                    <div class="c1p-rec-cell"><span>Footpocket size</span><strong id="rec-pocket">&mdash;</strong><em id="rec-pocket-note"></em></div>
+                    <div class="c1p-rec-cell"><span>Built for</span><strong id="rec-scenario">&mdash;</strong><em id="rec-scenario-note"></em></div>
                     <div class="c1p-rec-cell"><span>Confidence</span><strong id="rec-conf">&mdash;</strong><em id="rec-conf-note"></em></div>
+                    <div class="c1p-rec-cell"><span>Needs a human?</span><strong id="rec-review">&mdash;</strong><em id="rec-review-note"></em></div>
                 </div>
-                <p style="margin-top:14px;margin-bottom:4px;color:var(--text-bright);font-size:12px;">Why these answers</p>
+
+                <p style="margin-top:14px;margin-bottom:4px;color:var(--text-bright);font-size:12px;">Why these answers &mdash; each input, and which way it pushed</p>
                 <ul class="c1p-reasons" id="rec-reasons"></ul>
+
+                <div class="c1p-alt" id="rec-alt"></div>
                 <div class="c1p-alert" id="rec-alert" style="display:none;"></div>
+
+                <div class="c1p-note-box" id="rec-downgrade"></div>
+
+                <div class="c1p-note-box" id="rec-handcheck">
+                    <b>Not sure, or between two answers?</b> Use the review request in the confirmation block at the bottom of this page. It sends these numbers to a human before the blade is cut; it does not hold up the order, and it does not commit you to buying.
+                </div>
+            </div>
+
+            <div class="c1p-summary" id="cfgSummary">
+                <div class="c1p-summary-main">
+                    <span class="c1p-summary-line"><b id="sumFlex">Flex &mdash;</b> &middot; <span id="sumBlade">blade &mdash;</span> &middot; <span id="sumPocket">pocket &mdash;</span></span>
+                    <span class="c1p-summary-sub" id="sumDates">Dispatch &mdash; &middot; arrival &mdash;</span>
+                </div>
+                <span class="c1p-summary-price" id="sumTotal">$818.00</span>
             </div>
         </section>
 
         <!-- ============ SIZING RULES ============ -->
-        <section class="c1p-card">
-            <h2>What moves the answer, and when we confirm by hand</h2>
-            <p>The calculator turns your inputs into one load score. The score bands are the whole rule:</p>
+        <section class="c1p-card" id="sizing">
+            <h2>How the answer is built &mdash; and what happens if your feet are not average</h2>
+            <p>Every result in the configurator is a sum of the inputs below, not a body-weight lookup. Weight is one line of eleven. This block is the rule set in full, so you can audit the recommendation rather than trust it.</p>
+
+            <h3 style="font-size:13px;color:var(--text-bright);margin:16px 0 6px;font-weight:500;">1 &middot; What each input does to the answer</h3>
             <table class="c1p-table">
-                <tr><th>Profile</th><th>Load score</th><th>Flex</th></tr>
-                <tr><td>Light diver, shallow water, under 2 sessions a week</td><td>below &minus;0.5</td><td>Soft</td></tr>
-                <tr><td>Most recreational and intermediate divers</td><td>&minus;0.5 to 2.4</td><td>Medium</td></tr>
-                <tr><td>Heavy diver, or deep water with 4+ sessions a week</td><td>2.5 and above</td><td>Hard</td></tr>
+                <tr><th>Input</th><th>Moves flex</th><th>Moves footpocket</th><th>Where you see it</th></tr>
+                <tr><td>Body weight</td><td>+0.1 load per kg above 70, &minus;0.1 per kg below</td><td>none</td><td>First "why" line</td></tr>
+                <tr><td>Height</td><td>&plusmn;0.3 at the extremes (185cm+ / 165cm&minus;)</td><td>Sets the blade size band</td><td>Blade size cell</td></tr>
+                <tr><td>Working depth</td><td>+1.5 at 40m+, +0.75 at 25&ndash;39m</td><td>none</td><td>"Why" line</td></tr>
+                <tr><td>Sessions per week</td><td>+1.2 at 4+, +0.5 at 2&ndash;3</td><td>none</td><td>"Why" line</td></tr>
+                <tr><td>Discipline</td><td>Competition CWT +1.0, pool dynamic &minus;1.0, FIM and spearfishing change the wording only</td><td>none</td><td>Built-for cell</td></tr>
+                <tr><td>Ankle mobility</td><td>Stiff &minus;1.2 (the strongest single input), very flexible +0.4</td><td>none</td><td>"Why" line + downgrade rule</td></tr>
+                <tr><td>Water</td><td>Fresh water +0.3 (less buoyant)</td><td>none</td><td>"Why" line</td></tr>
+                <tr><td>Foot length</td><td>none</td><td>Base band (mm ranges below)</td><td>Footpocket cell</td></tr>
+                <tr><td>Foot width</td><td>none</td><td>+1 band at 105mm and above</td><td>Footpocket note</td></tr>
+                <tr><td>Sock thickness</td><td>none</td><td>Added to length before banding (2/3/5mm)</td><td>"Why" line</td></tr>
+                <tr><td>Instep height</td><td>none</td><td>+1 band if high</td><td>Footpocket note</td></tr>
+                <tr><td>Wide-foot / left-right flags</td><td>none</td><td>+1 band and a mandatory hand check</td><td>Needs-a-human cell</td></tr>
             </table>
-            <p style="margin-top:10px;">Worked examples, average ankle mobility, salt water:</p>
+
+            <h3 style="font-size:13px;color:var(--text-bright);margin:18px 0 6px;font-weight:500;">2 &middot; Blade size, chosen the same way</h3>
             <table class="c1p-table">
-                <tr><th>Weight</th><th>Depth</th><th>Volume</th><th>Score</th><th>Flex</th></tr>
-                <tr><td>60kg</td><td>18m</td><td>Under 2</td><td>&minus;1.0</td><td>Soft</td></tr>
-                <tr><td>70kg</td><td>20m</td><td>4+</td><td>1.2</td><td>Medium</td></tr>
-                <tr><td>76kg</td><td>32m</td><td>2&ndash;3</td><td>1.9</td><td>Medium</td></tr>
-                <tr><td>64kg</td><td>45m</td><td>4+</td><td>2.1</td><td>Medium</td></tr>
-                <tr><td>95kg</td><td>45m</td><td>4+</td><td>5.2</td><td>Hard</td></tr>
+                <tr><th>Your profile</th><th>Blade size</th><th>Reasoning</th></tr>
+                <tr><td>Under 167cm, or pool dynamic is your main discipline</td><td>Short</td><td>Shorter blade, higher kick rate, less ankle torque per stroke.</td></tr>
+                <tr><td>168&ndash;182cm, recreational to intermediate depth</td><td>Standard</td><td>The band most divers land in; enough surface area for 25&ndash;40m.</td></tr>
+                <tr><td>183cm and above, or 40m+ at 4+ sessions a week</td><td>Long</td><td>More area at depth, where each kick has to do more work.</td></tr>
             </table>
-            <p style="margin-top:10px;">Each input's direction, so you can see what a correction would do:</p>
+            <p class="c1p-card-note">The exact cut length for your band is written on the order sheet in your confirmation email, because each blade is cut for the order. If your height and discipline disagree (short diver, competition CWT), the configurator tells you both and the hand check decides.</p>
+
+            <h3 style="font-size:13px;color:var(--text-bright);margin:18px 0 6px;font-weight:500;">3 &middot; Which flex suits which training</h3>
             <table class="c1p-table">
-                <tr><th>Input</th><th>Pushes stiffer</th><th>Pushes softer</th></tr>
-                <tr><td>Body weight</td><td>Above 85kg</td><td>Below 65kg</td></tr>
-                <tr><td>Working depth</td><td>40m and deeper</td><td>Under 25m</td></tr>
-                <tr><td>Weekly volume</td><td>4+ sessions</td><td>Fewer than 2</td></tr>
-                <tr><td>Discipline</td><td>Competition CWT</td><td>Pool dynamic</td></tr>
-                <tr><td>Ankle range</td><td>Very flexible</td><td>Stiff or old injury</td></tr>
-                <tr><td>Water</td><td>Fresh water (less buoyant)</td><td>Salt water</td></tr>
+                <tr><th>Flex</th><th>Built for</th><th>Wrong choice when</th></tr>
+                <tr><td><strong style="color:var(--text-bright);">Soft</strong></td><td>Under 2 sessions a week, 25m or less, stiff ankles, first carbon blade, long surface swims while spearfishing.</td><td>You are strong, dive 40m and want power at the bottom &mdash; a soft blade folds instead of driving.</td></tr>
+                <tr><td><strong style="color:var(--text-bright);">Medium</strong></td><td>25&ndash;40m training, 2&ndash;3 sessions a week, 65&ndash;85kg, average ankle range. The default for good reason.</td><td>Your ankles are stiff, or you are coming off fibreglass and have not built the ankle load yet.</td></tr>
+                <tr><td><strong style="color:var(--text-bright);">Hard</strong></td><td>40m+ regular work, 4+ sessions a week, 85kg+, competition CWT, strong ankles.</td><td>Volume is low or the ankle does not load &mdash; you will fight the blade and lose depth.</td></tr>
             </table>
-            <p style="margin-top:12px;"><strong style="color:var(--text-bright);font-weight:500;">Go one grade softer when</strong> the ankle is stiff, weekly volume is under two sessions, or you are stepping up from fibreglass. A blade you cannot load costs depth that a stiffer layup never returns.</p>
-            <p><strong style="color:var(--text-bright);font-weight:500;">We want a hand check when</strong> you land between two grades, or your profile pulls in opposite directions (90kg+ with low volume, or sub-65kg with competition volume). Say so in the order notes &mdash; the build pauses before the blades are cut.</p>
-            <p style="margin-bottom:0;"><strong style="color:var(--text-bright);font-weight:500;">Footpocket rules:</strong> size from measured foot length plus sock thickness, never from a shoe size. Wide foot or high instep: one band up. Left and right differ: size to the longer foot. Between two bands: take the larger &mdash; a tight pocket cannot be stretched into comfort.</p>
+
+            <h3 style="font-size:13px;color:var(--text-bright);margin:18px 0 6px;font-weight:500;">4 &middot; Measure your foot, do not convert your shoe size</h3>
+            <figure class="c1p-measure" id="measureFig">
+                <svg viewBox="0 0 360 420" role="img" aria-label="How to measure foot length and foot width">
+                    <rect x="0" y="0" width="360" height="420" fill="#0d0d0d"/>
+                    <path d="M150 60 C150 40 165 34 180 34 C200 34 210 46 210 64 C210 84 205 100 206 120 C208 150 214 170 212 200 C210 240 205 280 200 310 C196 340 190 372 172 374 C152 376 140 350 138 318 C136 280 134 240 136 200 C138 165 145 140 146 115 C147 92 150 78 150 60 Z"
+                          fill="none" stroke="#3a5a72" stroke-width="2"/>
+                    <path d="M150 60 C150 40 165 34 180 34 C200 34 210 46 210 64" fill="none" stroke="#00A3FF" stroke-width="2" opacity="0.5"/>
+                    <line x1="250" y1="34" x2="250" y2="374" stroke="#00A3FF" stroke-width="1.5" stroke-dasharray="4 3"/>
+                    <line x1="243" y1="34" x2="257" y2="34" stroke="#00A3FF" stroke-width="1.5"/>
+                    <line x1="243" y1="374" x2="257" y2="374" stroke="#00A3FF" stroke-width="1.5"/>
+                    <text x="262" y="200" fill="#00A3FF" font-size="12" font-family="Inter, sans-serif">A</text>
+                    <text x="262" y="216" fill="#7d7d7d" font-size="10" font-family="Inter, sans-serif">length</text>
+                    <line x1="132" y1="132" x2="212" y2="132" stroke="#4a7c59" stroke-width="1.5" stroke-dasharray="4 3"/>
+                    <line x1="132" y1="125" x2="132" y2="139" stroke="#4a7c59" stroke-width="1.5"/>
+                    <line x1="212" y1="125" x2="212" y2="139" stroke="#4a7c59" stroke-width="1.5"/>
+                    <text x="96" y="136" fill="#4a7c59" font-size="12" font-family="Inter, sans-serif">B</text>
+                    <text x="68" y="152" fill="#7d7d7d" font-size="10" font-family="Inter, sans-serif">width</text>
+                    <text x="20" y="396" fill="#8a8a8a" font-size="11" font-family="Inter, sans-serif">A = heel to longest toe, standing, weight on the foot</text>
+                    <text x="20" y="412" fill="#8a8a8a" font-size="11" font-family="Inter, sans-serif">B = across the ball of the foot, same stance</text>
+                </svg>
+                <figcaption>Use a wall and a sheet of paper: heel against the wall, longest toe marked, measure both feet and take the longer. Then add your sock thickness in millimetres &mdash; the pocket is sized with the sock on, which is why the configurator asks for it.</figcaption>
+                <button type="button" class="c1p-zoom-btn" id="measureZoom">Enlarge diagram</button>
+            </figure>
+
+            <table class="c1p-table">
+                <tr><th>Measured length + sock</th><th>Footpocket band</th></tr>
+                <tr><td>236&ndash;250mm</td><td>EU 38&ndash;39</td></tr>
+                <tr><td>251&ndash;265mm</td><td>EU 40&ndash;41</td></tr>
+                <tr><td>266&ndash;280mm</td><td>EU 42&ndash;43</td></tr>
+                <tr><td>281&ndash;295mm</td><td>EU 44&ndash;45</td></tr>
+                <tr><td>296&ndash;310mm</td><td>EU 46</td></tr>
+                <tr><td>Below 236mm or above 310mm</td><td>Outside the mould range &mdash; hand check required</td></tr>
+            </table>
+
+            <h3 style="font-size:13px;color:var(--text-bright);margin:18px 0 6px;font-weight:500;">5 &middot; If your feet are not average, this is the next step</h3>
+            <table class="c1p-table">
+                <tr><th>Situation</th><th>What the calculator does</th><th>Your next step</th></tr>
+                <tr><td>Wide foot (105mm+ measured, or flagged)</td><td>One band up, confidence drops to Medium</td><td>Order the band shown and tick "please review fit" in the order notes; we re-check the pocket before cutting.</td></tr>
+                <tr><td>High instep</td><td>One band up</td><td>Nothing extra &mdash; but say so in the notes if the instep is very high, because the strap sits there.</td></tr>
+                <tr><td>Left and right differ by more than 5mm</td><td>One band up, flagged for review</td><td>Measure both feet, enter the longer one, and put both numbers in the order notes.</td></tr>
+                <tr><td>3mm neoprene sock</td><td>Adds 3mm before banding</td><td>None. This is the default assumption on this page.</td></tr>
+                <tr><td>5mm neoprene sock</td><td>Adds 5mm before banding, often one band up</td><td>None, unless the result lands on a band edge &mdash; then a hand check.</td></tr>
+                <tr><td>Within 2mm of a band edge (between two sizes)</td><td>Takes the larger band, says so in the result</td><td>Nothing. A tight pocket cannot be stretched into comfort; the larger band is the recoverable choice.</td></tr>
+                <tr><td>Outside 236&ndash;310mm</td><td>Refuses to guess, confidence set to Manual review</td><td>Use the review request below with your two measurements; we answer with the mould we can actually cut.</td></tr>
+            </table>
+
+            <div class="c1p-note-box">
+                <b>Drop one flex grade when</b> the ankle is stiff or injured, weekly volume is under two sessions, you are moving up from fibreglass, or the calculator lands within 0.25 of a flex boundary. A blade you cannot load costs depth that a stiffer layup never gives back.
+            </div>
+            <div class="c1p-note-box">
+                <b>A human confirms before the cut when</b> you sit between two flex grades, two footpocket bands, or your profile pulls in opposite directions (90kg+ with low volume, sub-65kg with competition volume, short diver with long-blade discipline). The build pauses at the point where the blade would be cut &mdash; not after.
+            </div>
+        </section>
+
+        <!-- ============ EVIDENCE / PROCESS ============ -->
+        <section class="c1p-card" id="evidence">
+            <h2>What you can verify about this pair</h2>
+            <p>Three claims, each checkable rather than decorative.</p>
+
+            <details class="c1p-details" open>
+                <summary>1 &middot; Manufacture &mdash; who builds it and how it is checked</summary>
+                <div class="c1p-details-body">
+                    <ul class="c1p-list">
+                        <li><strong>T700 aerospace-grade carbon</strong>, hand laid in our partner workshops in Italy, Japan and the US. No warehouse stock: the build starts the working day your order is confirmed.</li>
+                        <li><strong>Flex tested at three points</strong> along each blade before packing &mdash; the step that catches a layup that cures stiffer on one side.</li>
+                        <li><strong>Footpocket fit checked by hand</strong> against the size recorded on your order.</li>
+                        <li><strong>Warranty card in the box</strong> with the unit serial and build date, so a warranty question starts from an identifiable pair.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="c1p-details">
+                <summary>2 &middot; Fit &mdash; why the recommendation is yours, not a template</summary>
+                <div class="c1p-details-body">
+                    <ul class="c1p-list">
+                        <li>Every result on this page names the inputs that moved it. If weight says Medium and your ankle says Soft, you see both, not just the output.</li>
+                        <li>Special foot shapes (wide, high instep, asymmetric) get a specific next step &mdash; one band up plus a hand check &mdash; instead of "contact us".</li>
+                        <li>Between two grades we tell you which way to fall and why: the softer grade is the recoverable mistake, the stiffer one is not.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <div class="c1p-ev2">
+                <div class="c1p-ev2-item"><strong>Unit serial &mdash; on the card in the box</strong><br>
+                    <code>AC-C1P-26-0147</code> <span class="c1p-verif">PRINTED ON WARRANTY CARD</span><br>
+                    Format <code>AC-C1P-YY-NNNN</code>: brand, model, build year, unit. The same string appears in your order confirmation mail, so warranty, resale and "is this pair really a C1 Pro" questions all start from one identifiable number.
+                </div>
+                <div class="c1p-ev2-item"><strong>Build date &mdash; layup date, not ship date</strong><br>
+                    <code>2026-11-13</code> <span class="c1p-verif">SAME CARD</span><br>
+                    If a pair reaches you more than 30 days after this date, the build sat somewhere. Ask why before accepting delivery &mdash; that is a question the card lets you ask.
+                </div>
+                <div class="c1p-ev2-item"><strong>Three-point deflection test &mdash; what is measured</strong><br>
+                    Each blade is supported at root and tip and loaded at the mid-point, then repeated at three stations along the blade. Deflection is read in millimetres; the pair is only packed when left and right match inside tolerance.
+                    <div style="margin-top:8px;"><svg viewBox="0 0 320 96" role="img" aria-label="Three point deflection test: blade supported at root and tip, loaded at mid span">
+                        <defs><marker id="arw" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#4a90c2"/></marker></defs>
+                        <path d="M24 42 Q160 30 296 40" stroke="#5a5a5a" stroke-width="7" fill="none" stroke-linecap="round"/>
+                        <path d="M24 42 Q160 40 296 40" stroke="#4a90c2" stroke-width="1.2" fill="none" stroke-dasharray="4 4"/>
+                        <circle cx="60" cy="38" r="3.4" fill="#8a8a8a"/><circle cx="160" cy="34" r="3.4" fill="#8a8a8a"/><circle cx="262" cy="39" r="3.4" fill="#8a8a8a"/>
+                        <line x1="160" y1="12" x2="160" y2="30" stroke="#4a90c2" stroke-width="1.4" marker-end="url(#arw)"/>
+                        <text x="160" y="10" fill="#8d8d8d" font-size="7" text-anchor="middle">2 kg load</text>
+                        <text x="60" y="56" fill="#7d7d7d" font-size="6.5" text-anchor="middle">root</text>
+                        <text x="160" y="56" fill="#7d7d7d" font-size="6.5" text-anchor="middle">mid</text>
+                        <text x="262" y="56" fill="#7d7d7d" font-size="6.5" text-anchor="middle">tip</text>
+                        <text x="160" y="82" fill="#4a90c2" font-size="7" text-anchor="middle">deflection read in mm, left and right compared</text>
+                    </svg></div>
+                </div>
+                <div class="c1p-ev2-item"><strong>Acceptable range and what happens outside it</strong><br>
+                    Measured at a fixed 2&nbsp;kg load, 20&nbsp;&deg;C, blades at rest 24&nbsp;h after cure:
+                    <ul class="c1p-list" style="margin-top:6px;">
+                        <li>Tip station: <b>22&ndash;28&nbsp;mm</b> deflection</li>
+                        <li>Mid station: <b>14&ndash;18&nbsp;mm</b></li>
+                        <li>Root station: <b>6&ndash;9&nbsp;mm</b></li>
+                        <li>Left/right difference: <b>within 8%</b> at every station</li>
+                    </ul>
+                    A blade outside the band, or a pair mismatched beyond 8%, is not packed: it is re-laid or scrapped, and your build date moves rather than your standard.
+                </div>
+                <div class="c1p-ev2-item"><strong>The test card you receive</strong><br>
+                    <code>Unit AC-C1P-26-0147 &middot; built 2026-11-13 &middot; flex Medium<br>L  tip 25.1  mid 16.4  root 7.8<br>R  tip 25.4  mid 16.1  root 7.6<br>delta 1.2% / 1.8% / 2.6% &middot; PASS</code><br>
+                    One card per pair, filled by the person who tested it, not a generic certificate printed with the batch.
+                </div>
+            </div>
+
+            <details class="c1p-details">
+                <summary>3 &middot; Use &mdash; competition legality and aftercare</summary>
+                <div class="c1p-details-body">
+                    <ul class="c1p-list">
+                        <li>C1 Pro blades are built to AIDA and CMAS freediving competition equipment rules. Both federations publish and revise their own rulebooks, so we link the source instead of quoting a clause that may be renumbered:
+                            <a href="https://www.aida-international.org/" target="_blank" rel="noopener">AIDA International</a> &middot;
+                            <a href="https://www.cmas.org/" target="_blank" rel="noopener">CMAS</a>.
+                            Before a record attempt or championship entry, mail us the event and we send the compliance sheet for this model plus the organiser contact &mdash; a written answer you can forward to the jury, not a badge on a page.</li>
+                        <li>3-year warranty on manufacturing defects: send the order number and a photo, we confirm repair or replacement within 2 business days, and we cover return freight on defects.</li>
+                        <li>Replaceable footpockets and spare parts held for years &mdash; a fin that lasts a decade beats one that is recycled.</li>
+                        <li>1% of every order goes to coastal restoration. Plastic-free packing.</li>
+                    </ul>
+                </div>
+            </details>
         </section>
 
         <!-- ============ LANDED COST ============ -->
@@ -388,11 +827,18 @@
 
             <table class="c1p-table" id="landedTable">
                 <tr><td>C1 Pro blades (launch price)</td><td style="text-align:right;color:var(--text-bright);">$818.00</td></tr>
+                <tr><td>List price before 1 Dec 2026</td><td style="text-align:right;color:#777;text-decoration:line-through;">$895.00</td></tr>
                 <tr><td>DHL Express freight</td><td style="text-align:right;color:var(--text-bright);" id="lc-ship">$0.00</td></tr>
-                <tr><td>Free-shipping threshold</td><td style="text-align:right;" id="lc-threshold">$500 &mdash; cleared</td></tr>
+                <tr><td>Free-shipping threshold</td><td style="text-align:right;" id="lc-threshold">$500 &mdash; cleared by the blades alone</td></tr>
                 <tr><td>Import duty &amp; tax</td><td style="text-align:right;" id="lc-duty">Not included &middot; paid by receiver</td></tr>
+                <tr><td>Who pays duty and tax</td><td style="text-align:right;color:var(--text-bright);">You, to DHL, before delivery</td></tr>
+                <tr><td>Return freight if you change your mind</td><td style="text-align:right;color:#999;">Yours; outbound freight is not refunded</td></tr>
                 <tr class="c1p-total"><td><strong>Landed total before duty</strong></td><td style="text-align:right;color:var(--accent);font-size:14px;" id="lc-total">$818.00</td></tr>
             </table>
+
+            <div class="c1p-flag-alert" id="lcAlert">
+                <strong>Duty is charged to you at delivery &mdash; it is not in the number above.</strong> <span id="lcAlertText">This destination collects import duty and tax from the receiver.</span> DHL quotes the amount before delivery; refusing the parcel sends it back and the duty is not refunded.
+            </div>
 
             <table class="c1p-table">
                 <tr><th>Step</th><th>Timing</th><th id="lc-when-head">Your dates</th></tr>
@@ -457,49 +903,69 @@
                 Add to cart — $818
             </button>
 
-            <p class="c1p-card-note" style="margin-top:12px;">Not certain about the pocket, or between two flex grades? <a href="../index.html#contact">Send us the configuration and your measured foot length</a> &mdash; we check it by hand before cutting. It does not block the order: add to cart, and note "please review fit" in the order comments.</p>
-            <p class="c1p-card-note" style="margin-top:6px;">The order confirmation email repeats this exact spec list. The warranty card in the box carries the unit serial and build date.</p>
+            <div class="c1p-flag-alert" style="margin-top:12px;">
+                <strong>Before you pay:</strong> duty and import tax for <span id="cfm-duty-country">your country</span> are not in the $818 and are collected by DHL from you at delivery. <span id="cfm-dates2">Dispatch and arrival dates are shown in the table above.</span> Nothing in this order is reversible after the blade is cut &mdash; flex, blade size and footpocket are fixed at that point.
+            </div>
+
+            <div class="c1p-cta" style="margin-top:12px;margin-bottom:0;">
+                <button type="button" class="c1p-btn c1p-btn-ghost" id="notSureBtn">I am not sure about the size</button>
+                <button type="button" class="c1p-btn c1p-btn-ghost" id="copySpecBtn">Copy my spec list</button>
+            </div>
+
+            <div class="c1p-note-box" id="notSureBox" style="display:none;">
+                <b>Review request &mdash; it does not block the order.</b> Copy the spec below into the order comments, or send it to us with your two foot measurements. We check it by hand before the blade is cut and reply within 2 business days. You can add to cart first: nothing is cut until the review is answered or you tell us to proceed.
+                <div class="c1p-mail-preview" id="specBlock">—</div>
+            </div>
+
+            <div class="c1p-note-box">
+                <b>Why a custom footpocket cannot be returned like a stock item.</b> The pocket is moulded and glued to the blade in your band and your sock thickness; once cut, it cannot be resold to anyone else. So: (1) the band is shown above before you pay, (2) you confirm the measurement in the order comments, (3) we re-check any flagged shape by hand <em>before</em> the cut, and (4) a manufacturing defect is still covered &mdash; 3-year warranty, return freight paid by us, repair or replacement confirmed within 2 business days.
+            </div>
+
+            <p class="c1p-card-note" style="margin-top:10px;">Your order confirmation email repeats this exact spec list &mdash; the same block you can copy above. The warranty card in the box carries the unit serial and build date.</p>
+            <div class="c1p-mail-preview">ORDER CONFIRMATION — SPEC LIST PREVIEW
+Item      Carbon Blades — C1 Pro (pair)
+Flex      <span id="prevFlex">Medium</span>
+Blade     <span id="prevBlade">Standard</span>
+Pocket    <span id="prevPocket">EU 42–43</span>
+Sock      <span id="prevSock">3mm neoprene sock</span>
+Ship to   <span id="prevCountry">United States</span>
+Dispatch  <span id="prevDispatch">—</span>
+Arrival   <span id="prevEta">—</span>
+Total     <span id="prevTotal">$818.00</span> before duty
+Warranty  3 years, manufacturing defects</div>
         </section>
 
-        <!-- ============ EVIDENCE / PROCESS ============ -->
-        <section class="c1p-card" id="evidence">
-            <h2>What you can verify about this pair</h2>
-            <p>Three claims, each checkable rather than decorative.</p>
+        <!-- ============ RETURNS / GUARANTEE ============ -->
+        <section class="c1p-card" id="returns">
+            <h2>Returns, custom builds and the three-year line</h2>
+            <table class="c1p-table" style="margin-top:10px;">
+                <tr><td style="width:46%;">Stock configuration, unused</td><td>30 days from delivery, original packaging, refund minus outbound freight; return freight yours.</td></tr>
+                <tr><td>Custom footpocket sizing</td><td><b>Non-refundable once production starts</b> &mdash; the pocket is moulded to your numbers and cannot be resold. That is why the confirmation panel exists before payment.</td></tr>
+                <tr><td>How to confirm before production</td><td>Submit the sizing summary for a hand check; we confirm by mail within one business day and the build waits until you approve.</td></tr>
+                <tr><td>Manufacturing defect</td><td>3-year warranty: photo plus order number, repair or replacement confirmed within 2 business days, return freight covered by us.</td></tr>
+                <tr><td>Damage in transit</td><td>Photograph the box before opening; we claim from DHL and rebuild, you are not the one arguing with the courier.</td></tr>
+                <tr><td>Duty and VAT on a return</td><td>Duty and import VAT paid to your customs are not refundable by us &mdash; they were collected by your government, not by us.</td></tr>
+            </table>
+        </section>
 
-            <details class="c1p-details" open>
-                <summary>1 &middot; Manufacture &mdash; who builds it and how it is checked</summary>
-                <div class="c1p-details-body">
-                    <ul class="c1p-list">
-                        <li><strong>T700 aerospace-grade carbon</strong>, hand laid in our partner workshops in Italy, Japan and the US. No warehouse stock: the build starts the working day your order is confirmed.</li>
-                        <li><strong>Flex tested at three points</strong> along each blade before packing &mdash; the step that catches a layup that cures stiffer on one side.</li>
-                        <li><strong>Footpocket fit checked by hand</strong> against the size recorded on your order.</li>
-                        <li><strong>Warranty card in the box</strong> with the unit serial and build date, so a warranty question starts from an identifiable pair.</li>
-                    </ul>
-                </div>
-            </details>
+<!-- ============ FIELD REPORTS / REVIEWS ============ -->
+        <section class="c1p-card" id="reviews">
+            <h2>Field reports &mdash; filtered by the things that change the answer</h2>
+            <p>Freediving reviews are only useful if the reviewer's body and training match yours. Every entry is filtered and labelled on five dimensions: discipline, weight and flex, working depth, foot shape, and how long the fin has been in use.</p>
 
-            <details class="c1p-details">
-                <summary>2 &middot; Fit &mdash; why the recommendation is yours, not a template</summary>
-                <div class="c1p-details-body">
-                    <ul class="c1p-list">
-                        <li>Every result on this page names the inputs that moved it. If weight says Medium and your ankle says Soft, you see both, not just the output.</li>
-                        <li>Special foot shapes (wide, high instep, asymmetric) get a specific next step &mdash; one band up plus a hand check &mdash; instead of "contact us".</li>
-                        <li>Between two grades we tell you which way to fall and why: the softer grade is the recoverable mistake, the stiffer one is not.</li>
-                    </ul>
-                </div>
-            </details>
+            <div class="c1p-rules" style="margin-top:12px;">
+                <div class="c1p-rule"><b>What every entry must show</b> verified purchase (order number on file), the exact configuration bought, country of purchase, and months in use. Entries containing a photo or a training background appear first.</div>
+            </div>
 
-            <details class="c1p-details">
-                <summary>3 &middot; Use &mdash; competition legality and aftercare</summary>
-                <div class="c1p-details-body">
-                    <ul class="c1p-list">
-                        <li>C1 Pro blades are AIDA / CMAS legal. For world-championship level events, ask us for compliance verification before you enter.</li>
-                        <li>3-year warranty on manufacturing defects: send the order number and a photo, we confirm repair or replacement within 2 business days, and we cover return freight on defects.</li>
-                        <li>Replaceable footpockets and spare parts held for years &mdash; a fin that lasts a decade beats one that is recycled.</li>
-                        <li>1% of every order goes to coastal restoration. Plastic-free packing.</li>
-                    </ul>
-                </div>
-            </details>
+            <div class="c1p-rev-filters" id="revFilters">
+                <button class="c1p-rev-btn on" data-dim="all" type="button">All</button>
+                <button class="c1p-rev-btn" data-dim="disc" type="button">Discipline</button>
+                <button class="c1p-rev-btn" data-dim="flex" type="button">Weight / flex</button>
+                <button class="c1p-rev-btn" data-dim="depth" type="button">Depth</button>
+                <button class="c1p-rev-btn" data-dim="foot" type="button">Foot shape</button>
+                <button class="c1p-rev-btn" data-dim="photo" type="button">Has photo</button>
+            </div>
+            <div class="c1p-rev-list" id="revList"></div>
         </section>
 
         <!-- ============ FAQ ============ -->
@@ -636,6 +1102,10 @@
                 opts += '<option value="' + COUNTRIES[i].code + '"' + (COUNTRIES[i].code === 'US' ? ' selected' : '') + '>' + COUNTRIES[i].name + '</option>';
             }
             if ($('cf-country')) $('cf-country').innerHTML = opts;
+            if ($('heroCountry')) {
+                $('heroCountry').innerHTML = opts;
+                $('heroCountry').value = $('cf-country') ? $('cf-country').value : 'US';
+            }
             if ($('cf-country2')) {
                 $('cf-country2').innerHTML = opts;
                 $('cf-country2').value = $('cf-country') ? $('cf-country').value : 'US';
@@ -710,6 +1180,28 @@
             if ($('cfm-dispatch')) $('cfm-dispatch').textContent = fmtDate(shipBy);
             if ($('cfm-eta')) $('cfm-eta').textContent = fmtRange(etaA, etaB);
             if ($('cfm-total')) $('cfm-total').textContent = money(total);
+
+            var EU = ['DE', 'FR', 'IT', 'ES', 'NL', 'BE', 'AT', 'PT', 'PL', 'SE', 'DK', 'FI', 'IE', 'GR'];
+            var dnote;
+            if (EU.indexOf(c.code) >= 0) dnote = 'EU: import VAT is collected by DHL from you before delivery; this freight line is not a VAT invoice.';
+            else if (c.code === 'US') dnote = 'US: the $800 de minimis does not cover an $818 order, so CBP can assess duty and DHL bills it to you.';
+            else dnote = c.name + ': duty and import tax are collected from you by DHL before delivery.';
+            if ($('lcAlertText')) $('lcAlertText').textContent = dnote;
+            if ($('heroCountry')) $('heroCountry').value = c.code;
+            if ($('heroDutyShort')) {
+                if (c.code === 'US') $('heroDutyShort').textContent = 'For the US the $800 de minimis does not cover an $818 order, so duty can be assessed.';
+                else if (EU.indexOf(c.code) >= 0) $('heroDutyShort').textContent = 'For the EU, import VAT is collected by DHL before delivery.';
+                else $('heroDutyShort').textContent = 'For ' + c.name + ', duty and tax are collected at delivery.';
+            }
+            if ($('lc-duty')) $('lc-duty').textContent = 'Not included \u00b7 paid by receiver';
+
+
+            if ($('heroShip')) $('heroShip').textContent = ship === 0 ? 'Free (over $500)' : money(ship);
+            if ($('heroDuty')) $('heroDuty').textContent = 'Paid by you at delivery';
+            if ($('heroDispatch')) $('heroDispatch').textContent = fmtDate(shipBy);
+            if ($('heroEta')) $('heroEta').textContent = fmtRange(etaA, etaB);
+
+            window.C1P_LANDED = { dispatch: fmtDate(shipBy), eta: fmtRange(etaA, etaB), total: money(total), country: c.name };
         }
 
         function recommend() {
@@ -740,7 +1232,7 @@
             var width = num('cf-width');
             var flags = [];
             if ($('cf-flags') && $('cf-flags').checked) flags.push('wide foot');
-            if ($('cf-inst') && $('cf-inst').checked) flags.push('high instep');
+            if (val('cf-instep') === 'high') flags.push('high instep');
             if ($('cf-asym') && $('cf-asym').checked) flags.push('left/right differ');
             if (width && width >= 105 && flags.indexOf('wide foot') === -1) flags.push('measured width ' + width + 'mm');
 
@@ -785,12 +1277,61 @@
             if (foot) reasons.push('Foot length ' + foot + 'mm plus a ' + sock.mm + 'mm sock puts you in ' + (pocketIdx !== null ? BANDS[pocketIdx].label : '\u2014') + '.');
             if (flags.length) reasons.push('Special shape flagged (' + flags.join(', ') + ') \u2014 one band up, then a hand check.');
 
+            // ---------- blade size ----------
+            var blade, bladeNote;
+            if (!v.height) {
+                blade = 'Measure first';
+                bladeNote = 'Height sets the band';
+            } else if (v.height < 168 || v.style === 'dyn') {
+                blade = 'Short';
+                bladeNote = v.style === 'dyn' ? 'Pool dynamic: higher kick rate' : v.height + 'cm sits under 168cm';
+            } else if (v.height >= 183 || (v.depth >= 40 && v.freq === 'high')) {
+                blade = 'Long';
+                bladeNote = v.height >= 183 ? v.height + 'cm is 183cm or more' : '40m+ at 4+ sessions a week';
+            } else {
+                blade = 'Standard';
+                bladeNote = v.height + 'cm, recreational to intermediate depth';
+            }
+
+            // ---------- scenario ----------
+            var SCEN = {
+                rec: '25\u201340m recreational depth and travel days',
+                spear: 'Long surface swims with a loaded gun',
+                cwt: 'Competition CWT depth attempts',
+                cwtb: 'CWTB bi-fin depth work',
+                fim: 'FIM first \u2014 blades are secondary',
+                dyn: 'Pool dynamic sets and turns'
+            };
+            var scenario = SCEN[v.style] || SCEN.rec;
+
+            // ---------- review level ----------
+            var borderline = (Math.abs(load + 0.5) < 0.25) || (Math.abs(load - 2.5) < 0.25);
+            var outOfRange = foot && (foot + sock.mm < 236 || foot + sock.mm > 310);
+            var review, reviewNote;
+            if (outOfRange || flags.length >= 2 || (!foot)) {
+                review = 'Required';
+                reviewNote = outOfRange ? 'Foot outside the mould range \u2014 we cannot pick a band for you' : (flags.length ? 'Two or more shape flags' : 'Foot length missing');
+            } else if (flags.length === 1 || between || borderline) {
+                review = 'Fit check';
+                reviewNote = flags.length ? 'Shape flag (' + flags.join(', ') + '): pocket re-checked before the cut' : (between ? 'Within 2mm of a band edge' : 'Between two flex grades');
+            } else {
+                review = 'Not needed';
+                reviewNote = 'Every input lands inside a band';
+            }
+
+            var confTxt = confidence;
             if ($('rec-flex')) $('rec-flex').textContent = flex;
-            if ($('rec-flex-note')) $('rec-flex-note').textContent = 'Load score ' + load.toFixed(1) + ' \u00b7 ' + altLabel;
+            if ($('rec-flex-note')) $('rec-flex-note').textContent = 'Load score ' + load.toFixed(1) + ' of 4.0';
+            if ($('rec-blade')) $('rec-blade').textContent = blade;
+            if ($('rec-blade-note')) $('rec-blade-note').textContent = bladeNote;
             if ($('rec-pocket')) $('rec-pocket').textContent = pocket ? BANDS[pocketIdx].label : 'Measure first';
             if ($('rec-pocket-note')) $('rec-pocket-note').textContent = pocketNote;
-            if ($('rec-conf')) $('rec-conf').textContent = confidence;
+            if ($('rec-scenario')) $('rec-scenario').textContent = scenario;
+            if ($('rec-scenario-note')) $('rec-scenario-note').textContent = v.freq === 'high' ? '4+ sessions a week' : (v.freq === 'mid' ? '2\u20133 sessions a week' : 'Under 2 sessions a week');
+            if ($('rec-conf')) $('rec-conf').textContent = confTxt;
             if ($('rec-conf-note')) $('rec-conf-note').textContent = confNote;
+            if ($('rec-review')) $('rec-review').textContent = review;
+            if ($('rec-review-note')) $('rec-review-note').textContent = reviewNote;
 
             var ul = $('rec-reasons');
             if (ul) {
@@ -802,15 +1343,39 @@
                 }
             }
 
+            // ---------- alternative ----------
+            var softer = flex === 'Soft' ? '\u2014' : (flex === 'Hard' ? 'Medium' : 'Soft');
+            var altHtml = '<b>Alternative build:</b> <strong style="color:var(--text-bright);">' + softer + '</strong>';
+            if (softer === '\u2014') altHtml += ' \u2014 you are already at the soft end; the fix there is ankle conditioning, not a softer blade.';
+            else if (softer === 'Soft') altHtml += ' \u2014 choose it if your ankle range is worse than you rated it, or your weekly volume drops in winter. Lower load per kick, easier on the ankle, less drive at the bottom.';
+            else altHtml += ' \u2014 choose it if you are moving up from fibreglass this season, or if you dive less than you told us. More drive at depth, more ankle work.';
+            if (pocket && pocketIdx > 0 && !flags.length) altHtml += ' Pocket alternative: <strong style="color:var(--text-bright);">' + BANDS[pocketIdx - 1].label + '</strong> only if your foot measures at the bottom of the band \u2014 a tight pocket cannot be stretched into comfort.';
+            if ($('rec-alt')) $('rec-alt').innerHTML = altHtml;
+
+            // ---------- downgrade rule ----------
+            var dropTo = flex === 'Hard' ? 'Medium' : (flex === 'Medium' ? 'Soft' : null);
+            var dg = '';
+            if (dropTo) {
+                dg = '<b>Drop one grade (to ' + dropTo + ') when</b> ';
+                var conds = [];
+                if (v.ankle !== 'stiff') conds.push('the ankle is stiffer than you rated, or you have an old injury');
+                conds.push('weekly volume falls under two sessions');
+                if (v.style !== 'dyn') conds.push('you are moving up from a fibreglass or plastic blade');
+                if (!borderline) conds.push('the load score lands within 0.25 of a boundary (yours is ' + load.toFixed(1) + ', boundary at ' + (flex === 'Medium' ? '2.5' : '\u22120.5') + ')');
+                dg += conds.join('; ') + '. An unloaded blade is a slow blade, but an overloaded one is a shallow one.';
+            } else {
+                dg = '<b>Do not go softer than Soft.</b> If Soft still feels heavy, the answer is ankle mobility work and a shorter blade size, not a softer layup.';
+            }
+            if ($('rec-downgrade')) $('rec-downgrade').innerHTML = dg;
+
             var alertBox = $('rec-alert');
             if (alertBox) {
-                var borderline = (Math.abs(load + 0.5) < 0.25) || (Math.abs(load - 2.5) < 0.25);
                 if (borderline) {
                     alertBox.style.display = 'block';
-                    alertBox.innerHTML = '<strong>Borderline:</strong> you sit between ' + flex + ' and ' + softAlt + '. Take the softer of the two (' + softAlt + ') unless your ankle range is genuinely good \u2014 an overloaded blade loses depth that a stiff one never returns. Add a "please review fit" note and we check it before cutting.';
-                } else if (flags.length >= 2) {
+                    alertBox.innerHTML = '<strong>Borderline:</strong> you sit between ' + flex + ' and ' + softAlt + '. Take the softer of the two (' + softAlt + ') unless your ankle range is genuinely good \u2014 an overloaded blade loses depth that a stiff one never returns.';
+                } else if (flags.length >= 1) {
                     alertBox.style.display = 'block';
-                    alertBox.innerHTML = '<strong>Hand check recommended:</strong> ' + flags.join(', ') + '. <a href="../index.html#contact">Send us the configuration</a> with your measured foot length and width before ordering.';
+                    alertBox.innerHTML = '<strong>Hand check before the cut:</strong> ' + flags.join(', ') + '. The band above is already one step up; we re-check the pocket on your measurements before cutting.';
                 } else {
                     alertBox.style.display = 'none';
                 }
@@ -820,6 +1385,108 @@
             syncConfirm(flex, pocket || ($('sel-pocket') ? $('sel-pocket').value : '42-43'));
             if ($('cfm-sock')) $('cfm-sock').textContent = sock.label;
             renderLanded();
+
+            // ---------- summary + previews ----------
+            var c0 = country();
+            var L = window.C1P_LANDED || {};
+            if ($('sumFlex')) $('sumFlex').textContent = 'Flex ' + flex;
+            if ($('sumBlade')) $('sumBlade').textContent = 'blade ' + blade;
+            if ($('sumPocket')) $('sumPocket').textContent = 'pocket ' + (pocket ? BANDS[pocketIdx].label : 'not set');
+            if ($('sumDates')) $('sumDates').textContent = 'Dispatch ' + (L.dispatch || '\u2014') + ' \u00b7 arrival ' + (L.eta || '\u2014');
+            if ($('sumTotal')) $('sumTotal').textContent = L.total || '$818.00';
+            if ($('cfgSummary')) $('cfgSummary').classList.add('show');
+
+            if ($('prevFlex')) $('prevFlex').textContent = flex;
+            if ($('prevBlade')) $('prevBlade').textContent = blade;
+            if ($('prevPocket')) $('prevPocket').textContent = pocket ? BANDS[pocketIdx].label : 'not set';
+            if ($('prevSock')) $('prevSock').textContent = sock.label;
+            if ($('prevCountry')) $('prevCountry').textContent = c0.name;
+            if ($('prevDispatch')) $('prevDispatch').textContent = L.dispatch || '\u2014';
+            if ($('prevEta')) $('prevEta').textContent = L.eta || '\u2014';
+            if ($('prevTotal')) $('prevTotal').textContent = L.total || '$818.00';
+            if ($('cfm-dates2')) $('cfm-dates2').textContent = 'Dispatch ' + (L.dispatch || '\u2014') + ', arrival ' + (L.eta || '\u2014') + '.';
+            if ($('cfm-duty-country')) $('cfm-duty-country').textContent = c0.name;
+
+            var spec = [
+                'C1 Pro carbon blades \u2014 review request',
+                'Flex: ' + flex + ' (load ' + load.toFixed(1) + ')',
+                'Blade size: ' + blade,
+                'Footpocket: ' + (pocket ? BANDS[pocketIdx].label : 'not set'),
+                'Sock: ' + sock.label,
+                'Foot length: ' + (foot ? foot + 'mm' : 'not measured') + ' / width: ' + (width ? width + 'mm' : 'not measured'),
+                'Height: ' + (v.height ? v.height + 'cm' : '\u2014') + ' / weight: ' + weight + 'kg',
+                'Depth: ' + v.depth + 'm, ' + v.freq + ' sessions, ' + v.style,
+                'Ankle: ' + v.ankle + ', water: ' + v.water,
+                'Ship to: ' + c0.name,
+                'Dispatch ' + (L.dispatch || '\u2014') + ', arrival ' + (L.eta || '\u2014') + ', total ' + (L.total || '$818.00') + ' before duty',
+                'Confidence: ' + confidence + ' / human review: ' + review
+            ].join('\n');
+            window.C1P_SPEC = spec;
+            if ($('specBlock')) $('specBlock').textContent = spec;
+        }
+
+        var REVIEWS = [];
+
+        function renderReviews(dim) {
+            var box = $('revList');
+            if (!box) return;
+            var list = REVIEWS.filter(function (r) {
+                if (dim === 'all') return true;
+                if (dim === 'photo') return !!r.photo;
+                if (dim === 'disc') return !!r.discipline;
+                if (dim === 'flex') return !!r.flex;
+                if (dim === 'depth') return !!r.depth;
+                if (dim === 'foot') return !!r.foot;
+                return true;
+            });
+            list.sort(function (a, b) {
+                if (!!b.photo !== !!a.photo) return (b.photo ? 1 : 0) - (a.photo ? 1 : 0);
+                return (b.months || 0) - (a.months || 0);
+            });
+            var html = '';
+            if (!list.length) {
+                html += '<div class="c1p-rev-empty"><b>No verified purchase report published for this filter yet.</b> ' +
+                    'We do not publish a review until we hold the order number, the configuration bought and a use period &mdash; ' +
+                    'which is why this slot can be empty while the page still ships. Until then the layout sample below shows exactly what an entry contains, ' +
+                    'so you can judge the standard, and the confirmations on this page do not depend on reviews existing.<br><br>' +
+                    '<span class="c1p-rev-sample">LAYOUT SAMPLE &middot; NOT A CUSTOMER</span>' +
+                    '<div style="margin-top:8px;"><span class="c1p-rev-name">Discipline / flex / foot shape / country / months in use</span><br>' +
+                    '"What the buyer trained, how the recommended flex behaved at their depth, what they would change, and what they paid in duty."' +
+                    '<div class="c1p-rev-tags"><span class="c1p-rev-tag">VERIFIED PURCHASE</span><span class="c1p-rev-tag">CONFIG BOUGHT</span>' +
+                    '<span class="c1p-rev-tag">COUNTRY</span><span class="c1p-rev-tag">MONTHS IN USE</span><span class="c1p-rev-tag">PHOTO IF ANY</span></div></div></div>';
+            } else {
+                for (var i = 0; i < list.length; i++) {
+                    var r = list[i];
+                    html += '<div class="c1p-rev-card"><div class="c1p-rev-head"><span class="c1p-rev-name">' + r.name + '</span>' +
+                        (r.verified ? '<span class="c1p-verif">VERIFIED PURCHASE</span>' : '') + '</div>' +
+                        '<div>' + r.text + '</div><div class="c1p-rev-tags">' +
+                        '<span class="c1p-rev-tag">' + r.config + '</span>' +
+                        '<span class="c1p-rev-tag">' + r.country + '</span>' +
+                        '<span class="c1p-rev-tag">' + (r.months || 0) + ' months</span>' +
+                        (r.photo ? '<span class="c1p-rev-tag">PHOTO</span>' : '') + '</div></div>';
+                }
+            }
+            box.innerHTML = html;
+        }
+
+        var STEP_LABELS = ['Step 1 of 3 \u00b7 Body and training', 'Step 2 of 3 \u00b7 Feet and fit', 'Step 3 of 3 \u00b7 Delivery'];
+        function setStep(n) {
+            for (var i = 1; i <= 3; i++) {
+                var box = $('step' + i);
+                if (box) { if (i === n) { box.classList.add('on'); } else { box.classList.remove('on'); } }
+                var nav = $('nav' + i);
+                if (nav) { if (i === n) { nav.classList.remove('off'); } else { nav.classList.add('off'); } }
+                var lab = $('stepLabel' + (i === 1 ? '' : i));
+                if (lab) { if (i === n) { lab.classList.remove('off'); } else { lab.classList.add('off'); } }
+                if (lab && STEP_LABELS[i - 1]) lab.textContent = STEP_LABELS[i - 1];
+            }
+            var bar = $('stepBar');
+            if (bar) {
+                var dots = bar.getElementsByTagName('i');
+                for (var j = 0; j < dots.length; j++) {
+                    if (j < n) { dots[j].classList.add('on'); } else { dots[j].classList.remove('on'); }
+                }
+            }
         }
 
         function loadExample() {
@@ -833,8 +1500,8 @@
             if ($('cf-foot')) $('cf-foot').value = 268;
             if ($('cf-sock')) $('cf-sock').value = '3mm';
             if ($('cf-width')) $('cf-width').value = 102;
+            if ($('cf-instep')) $('cf-instep').value = 'average';
             if ($('cf-flags')) $('cf-flags').checked = false;
-            if ($('cf-inst')) $('cf-inst').checked = false;
             if ($('cf-asym')) $('cf-asym').checked = false;
             recommend();
             var target = $('configurator');
@@ -849,42 +1516,78 @@
             if ($('cf-ankle')) $('cf-ankle').value = 'average';
             if ($('cf-water')) $('cf-water').value = 'salt';
             if ($('cf-sock')) $('cf-sock').value = '3mm';
+            if ($('cf-instep')) $('cf-instep').value = 'average';
             if ($('cf-flags')) $('cf-flags').checked = false;
-            if ($('cf-inst')) $('cf-inst').checked = false;
             if ($('cf-asym')) $('cf-asym').checked = false;
             if ($('recPanel')) $('recPanel').classList.remove('show');
+            if ($('cfgSummary')) $('cfgSummary').classList.remove('show');
             if ($('cfm-sock')) $('cfm-sock').textContent = '3mm neoprene sock';
+            setStep(1);
             syncConfirm('Medium', '42-43');
         }
 
         document.addEventListener('DOMContentLoaded', function () {
             fillCountries();
             renderLanded();
+            setStep(1);
 
             if ($('runConfig')) $('runConfig').addEventListener('click', recommend);
+            if ($('runConfig2')) $('runConfig2').addEventListener('click', function () {
+                recommend();
+                var p2 = $('recPanel');
+                if (p2) p2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
             if ($('exampleProfile')) $('exampleProfile').addEventListener('click', loadExample);
             if ($('resetConfig')) $('resetConfig').addEventListener('click', resetAll);
 
+            var gotoBtns = document.querySelectorAll('[data-goto]');
+            for (var g = 0; g < gotoBtns.length; g++) {
+                gotoBtns[g].addEventListener('click', function () {
+                    var n = parseInt(this.getAttribute('data-goto'), 10);
+                    setStep(n);
+                    var cfg = $('configurator');
+                    if (cfg) cfg.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+
+            if ($('heroCountry')) $('heroCountry').addEventListener('change', function () {
+                if ($('cf-country')) $('cf-country').value = this.value;
+                if ($('cf-country2')) $('cf-country2').value = this.value;
+                renderLanded();
+                syncSummaryDates();
+            });
             if ($('cf-country')) $('cf-country').addEventListener('change', function () {
+                if ($('heroCountry')) $('heroCountry').value = $('cf-country').value;
                 if ($('cf-country2')) $('cf-country2').value = $('cf-country').value;
                 renderLanded();
+                syncSummaryDates();
             });
             if ($('cf-country2')) $('cf-country2').addEventListener('change', function () {
                 if ($('cf-country')) $('cf-country').value = $('cf-country2').value;
                 renderLanded();
+                syncSummaryDates();
             });
 
             if ($('sel-flex')) $('sel-flex').addEventListener('change', function () {
                 updateCartAttrs($('sel-flex').value, $('sel-pocket').value);
                 if ($('cfm-flex')) $('cfm-flex').textContent = $('sel-flex').value;
+                if ($('prevFlex')) $('prevFlex').textContent = $('sel-flex').value;
+                if ($('sumFlex')) $('sumFlex').textContent = 'Flex ' + $('sel-flex').value;
             });
             if ($('sel-pocket')) $('sel-pocket').addEventListener('change', function () {
                 updateCartAttrs($('sel-flex').value, $('sel-pocket').value);
                 var lbl = $('sel-pocket').value.replace('-', '\u2013');
                 if ($('cfm-pocket')) $('cfm-pocket').textContent = 'EU ' + lbl;
+                if ($('prevPocket')) $('prevPocket').textContent = 'EU ' + lbl;
+                if ($('sumPocket')) $('sumPocket').textContent = 'pocket EU ' + lbl;
             });
             if ($('cf-sock')) $('cf-sock').addEventListener('change', function () {
                 if ($('cfm-sock')) $('cfm-sock').textContent = SOCK[$('cf-sock').value].label;
+                if ($('prevSock')) $('prevSock').textContent = SOCK[$('cf-sock').value].label;
+                if ($('recPanel') && $('recPanel').classList.contains('show')) recommend();
+            });
+            if ($('cf-instep')) $('cf-instep').addEventListener('change', function () {
+                if ($('recPanel') && $('recPanel').classList.contains('show')) recommend();
             });
 
             var keys = ['cf-weight', 'cf-height', 'cf-depth', 'cf-foot', 'cf-width'];
@@ -895,6 +1598,82 @@
                     });
                 }
             }
+            var selKeys = ['cf-freq', 'cf-style', 'cf-ankle', 'cf-water'];
+            for (var k2 = 0; k2 < selKeys.length; k2++) {
+                if ($(selKeys[k2])) {
+                    $(selKeys[k2]).addEventListener('change', function () {
+                        if ($('recPanel') && $('recPanel').classList.contains('show')) recommend();
+                    });
+                }
+            }
+
+            if ($('measureZoom')) $('measureZoom').addEventListener('click', function () {
+                var f = $('measureFig');
+                if (!f) return;
+                if (f.classList.contains('fullscreen')) {
+                    f.classList.remove('fullscreen');
+                    this.textContent = 'Enlarge diagram';
+                } else {
+                    f.classList.add('fullscreen');
+                    this.textContent = 'Close';
+                }
+            });
+
+            if ($('notSureBtn')) $('notSureBtn').addEventListener('click', function () {
+                if (!($('recPanel') && $('recPanel').classList.contains('show'))) recommend();
+                var box = $('notSureBox');
+                if (!box) return;
+                if (box.style.display === 'none' || box.style.display === '') {
+                    box.style.display = 'block';
+                    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    box.style.display = 'none';
+                }
+            });
+
+            if ($('copySpecBtn')) $('copySpecBtn').addEventListener('click', function () {
+                var txt = window.C1P_SPEC || '';
+                if (!txt) { recommend(); txt = window.C1P_SPEC || ''; }
+                var done = function () {
+                    var b = $('copySpecBtn');
+                    if (!b) return;
+                    var old = b.textContent;
+                    b.textContent = 'Copied';
+                    setTimeout(function () { b.textContent = old; }, 1600);
+                };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(txt).then(done, function () { window.prompt('Copy your spec', txt); });
+                } else {
+                    window.prompt('Copy your spec', txt);
+                }
+            });
+
+            function syncSummaryDates() {
+                var L = window.C1P_LANDED || {};
+                if ($('sumDates')) $('sumDates').textContent = 'Dispatch ' + (L.dispatch || '\u2014') + ' \u00b7 arrival ' + (L.eta || '\u2014');
+                if ($('sumTotal')) $('sumTotal').textContent = L.total || '$818.00';
+                if ($('prevCountry')) $('prevCountry').textContent = L.country || 'United States';
+                if ($('prevDispatch')) $('prevDispatch').textContent = L.dispatch || '\u2014';
+                if ($('prevEta')) $('prevEta').textContent = L.eta || '\u2014';
+                if ($('prevTotal')) $('prevTotal').textContent = L.total || '$818.00';
+                if ($('cfm-dates2')) $('cfm-dates2').textContent = 'Dispatch ' + (L.dispatch || '\u2014') + ', arrival ' + (L.eta || '\u2014') + '.';
+                if ($('cfm-duty-country')) $('cfm-duty-country').textContent = L.country || 'your country';
+                if ($('prevSock')) $('prevSock').textContent = SOCK[$('cf-sock') ? $('cf-sock').value : '3mm'].label;
+            }
+            renderReviews('all');
+            var rf = $('revFilters');
+            if (rf) {
+                var btns = rf.querySelectorAll('.c1p-rev-btn');
+                for (var bi = 0; bi < btns.length; bi++) {
+                    btns[bi].addEventListener('click', function () {
+                        for (var bj = 0; bj < btns.length; bj++) btns[bj].classList.remove('on');
+                        this.classList.add('on');
+                        renderReviews(this.getAttribute('data-dim'));
+                    });
+                }
+            }
+
+            syncSummaryDates();
         });
     })();
     </script>

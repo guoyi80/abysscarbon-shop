@@ -84,6 +84,10 @@ textarea{
     min-height:44px;display:flex;align-items:center;
 }
 .nav-links a:hover{color:var(--accent);}
+.nav-links a.nav-secondary{
+    color:#7d8798;font-size:11px;letter-spacing:.8px;text-transform:none;opacity:.72;
+}
+.nav-links a.nav-secondary:hover{color:var(--accent);opacity:1;}
 
 /* Cart button in nav */
 .cart-btn{
@@ -735,7 +739,14 @@ body.dark > section:only-of-type{
 /* Show hamburger and hide desktop links below 900px
    (9 desktop links need ~870px; at 768-899 they clipped the cart button) */
 @media(max-width:959px){
-    .nav-links{display:none;}
+    .nav-links{
+        display:flex;overflow-x:auto;gap:14px;
+        -ms-overflow-style:none;scrollbar-width:none;
+        padding:0 4px;
+    }
+    .nav-links::-webkit-scrollbar{display:none;}
+    .nav-links a{font-size:11px;letter-spacing:.6px;padding:10px 0;}
+    .nav-links a.nav-secondary{display:none;}
     .hamburger{display:flex;}
     .nav{padding:0 16px;justify-content:space-between;}
     .nav-logo{margin-right:auto;}

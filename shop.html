@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Carbon Freediving Gear &mdash; Bifins, Masks, Noseclips, Monofin | AbyssCarbon</title>
+    <meta name="description" content="Filter carbon freediving gear by discipline, level, price, material, footpocket and build time. Carbon bifins, low-volume masks, noseclips, monofin, weights and bundles — launched priced, built to order.">
+    <link rel="canonical" href="https://abysscarbon.com/shop.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.css">
+    <style>
+        .shop-wrap { max-width: 1240px; margin: 0 auto; padding: 96px 20px 60px; }
+        .shop-head h1 { font-size: 30px; font-weight: 500; letter-spacing: -.5px; margin-bottom: 8px; }
+        .shop-head p { color: #8d8d8d; font-size: 13.5px; line-height: 1.8; max-width: 760px; }
+        .shop-quick { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 6px; }
+        .shop-quick a {
+            border: 1px solid #2a2a2a; border-radius: 999px; padding: 7px 14px; font-size: 12px;
+            color: #cfcfcf; text-decoration: none; background: #0c0c0c;
+        }
+        .shop-quick a b { color: var(--accent, #4a90c2); font-weight: 500; }
+        .shop-quick a:hover { border-color: var(--accent, #4a90c2); }
+        .shop-layout { display: grid; grid-template-columns: 236px 1fr; gap: 24px; margin-top: 22px; align-items: start; }
+        .facet-box { border: 1px solid #1f1f1f; border-radius: 4px; padding: 14px; background: #0a0a0a; position: sticky; top: 84px; }
+        .facet-group { margin-bottom: 16px; }
+        .facet-group:last-child { margin-bottom: 0; }
+        .facet-title { font-size: 10px; letter-spacing: 1.2px; color: #6d6d6d; text-transform: uppercase; margin-bottom: 7px; }
+        .facet-opt { display: flex; align-items: center; gap: 7px; font-size: 12px; color: #b0b0b0; padding: 3px 0; cursor: pointer; }
+        .facet-opt input { accent-color: #4a90c2; }
+        .facet-opt span.count { color: #5f5f5f; font-size: 10.5px; }
+        .shop-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px; }
+        .shop-count { font-size: 12px; color: #8d8d8d; }
+        .shop-reset { background: none; border: 1px solid #2a2a2a; color: #9a9a9a; font-size: 11px; padding: 5px 10px; border-radius: 2px; cursor: pointer; font-family: inherit; }
+        .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)); gap: 16px; }
+        .sku { border: 1px solid #1f1f1f; border-radius: 4px; background: #0a0a0a; display: flex; flex-direction: column; overflow: hidden; }
+        .sku-img { aspect-ratio: 4/3; background: #101010; overflow: hidden; display: block; }
+        .sku-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .sku-body { padding: 12px 13px 14px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+        .sku-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+        .sku-cat { font-size: 9.5px; letter-spacing: .8px; color: #6d6d6d; text-transform: uppercase; }
+        .sku-status { font-size: 9.5px; color: #6f9f6f; border: 1px solid #234023; padding: 1px 6px; border-radius: 2px; white-space: nowrap; }
+        .sku-status.built { color: #c2a25a; border-color: #3a3222; }
+        .sku h3 { font-size: 14.5px; font-weight: 500; color: #f0f0f0; line-height: 1.4; }
+        .price-line { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+        .price-now { font-size: 19px; color: #f0f0f0; font-weight: 500; }
+        .price-was { font-size: 12px; color: #666; text-decoration: line-through; }
+        .price-save { font-size: 10.5px; color: #7fbf7f; border: 1px solid #234023; padding: 1px 6px; border-radius: 2px; }
+        .price-list { font-size: 10.5px; color: #7d7d7d; border: 1px solid #2a2a2a; padding: 1px 6px; border-radius: 2px; }
+        .price-basis { font-size: 10.5px; color: #757575; line-height: 1.6; }
+        .sku-for { font-size: 12px; color: #9a9a9a; line-height: 1.7; }
+        .sku-specs { display: flex; flex-wrap: wrap; gap: 5px; }
+        .sku-specs span { font-size: 10px; color: #8d8d8d; border: 1px solid #242424; padding: 1px 6px; border-radius: 2px; }
+        .sku-lead { font-size: 11px; color: #8d8d8d; }
+        .sku-ship { font-size: 11px; color: #8d8d8d; border-top: 1px solid #1c1c1c; padding-top: 8px; line-height: 1.6; }
+        .sku-ship b { color: #cfcfcf; font-weight: 500; }
+        .sku-ship a { color: #4a90c2; text-decoration: none; font-size: 11px; }
+        .sku-cta { margin-top: auto; display: flex; flex-direction: column; gap: 7px; }
+        .sku-cta .btn, .sku-cta a.btn { width: 100%; text-align: center; font-size: 12px; padding: 10px 12px; }
+        .sku-bar { height: 3px; background: #1a1a1a; position: relative; overflow: hidden; }
+        .sku-bar i { position: absolute; inset: 0 auto 0 0; background: #4a90c2; }
+        .sku-gap { font-size: 10.5px; color: #7d8d9c; }
+        .shop-empty { border: 1px dashed #2a2a2a; border-radius: 4px; padding: 20px; color: #8d8d8d; font-size: 13px; }
+        .promo-rule { border: 1px solid #1f1f1f; border-radius: 4px; padding: 12px 14px; background: #0a0a0a; font-size: 11.5px; line-height: 1.7; color: #8d8d8d; margin-bottom: 16px; }
+        .promo-rule b { color: #cfcfcf; font-weight: 500; }
+        @media (max-width: 900px) {
+            .shop-layout { grid-template-columns: 1fr; }
+            .facet-box { position: static; }
+        }
+    </style>
+</head>
+<body class="shop-page">
+    <div id="snipcart" data-api-key="Mzk0NDcwMWEtNmZjYi00MzExLWIwNjktZjA1M2Q4YTFmODJjNjM5MTY0MzU1MjExMzEyODY2" hidden></div>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">ABYSS<span>CARBON</span></a>
+        <div class="nav-links">
+            <a href="shop.html?cat=bifins" data-cat="bifins">Carbon bifins</a>
+            <a href="shop.html?cat=masks" data-cat="masks">Masks</a>
+            <a href="shop.html?cat=noseclips" data-cat="noseclips">Nose clips</a>
+            <a href="shop.html?cat=monofin" data-cat="monofin">Monofin</a>
+            <a href="shop.html?cat=accessories" data-cat="accessories">Accessories</a>
+            <a href="shop.html?cat=bundles" data-cat="bundles">Bundles</a>
+            <a href="index.html#custom" class="nav-secondary">Custom Suits</a>
+            <a href="index.html#ocean" class="nav-secondary">Ocean Pledge</a>
+            <button class="snipcart-checkout cart-btn">Cart <span class="snipcart-items-count">0</span></button>
+        </div>
+    </nav>
+
+    <div class="shop-wrap">
+        <div class="shop-head">
+            <h1>Carbon freediving gear</h1>
+            <p>Built to order, one pair at a time. Filter by what actually changes the answer &mdash; discipline, level, price, material, whether the footpocket is included, and how long the build takes.</p>
+        </div>
+
+        <div class="shop-quick">
+            <a href="shop.html?cat=bifins">Carbon bifins <b id="qBifins">2</b></a>
+            <a href="shop.html?cat=masks">Masks</a>
+            <a href="shop.html?cat=noseclips">Nose clips</a>
+            <a href="shop.html?cat=monofin">Monofin</a>
+            <a href="shop.html?cat=accessories">Accessories</a>
+            <a href="shop.html?cat=bundles">Bundles</a>
+        </div>
+
+        <div class="promo-rule">
+            <b>One promotion format, everywhere.</b> Every card shows list price, current price, the saving and the basis for it (launch pricing ends 30 November 2026). Freight is $29 DHL Express flat, free over $500. Nothing is labelled Bestseller, Flash Sale or Limited unless the number or the date behind it is on the same card.
+        </div>
+
+        <div class="shop-layout">
+            <aside class="facet-box" id="facets"></aside>
+            <section>
+                <div class="shop-bar">
+                    <span class="shop-count" id="shopCount"></span>
+                    <button class="shop-reset" id="shopReset" type="button">Clear filters</button>
+                </div>
+                <div class="shop-grid" id="shopGrid"></div>
+                <div class="shop-empty" id="shopEmpty" style="display:none;">
+                    No product matches this combination yet. Clear a filter or tell us what you need &mdash; custom builds are possible outside the listed range.
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="js/catalog.js"></script>
+    <script src="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.js"></script>
+    <script>
+        (function () {
+            var C = window.AC_CATALOG;
+            var state = { cat: '', uses: [], level: [], price: [], material: [], pocket: [], lead: [] };
+
+            var BANDS = [
+                { id: 'u100', label: 'Under $100', test: function (s) { return s.price < 100; } },
+                { id: '100-500', label: '$100 \u2013 $500', test: function (s) { return s.price >= 100 && s.price < 500; } },
+                { id: '500-900', label: '$500 \u2013 $900', test: function (s) { return s.price >= 500 && s.price < 900; } },
+                { id: '900', label: '$900 and up', test: function (s) { return s.price >= 900; } }
+            ];
+            var LEVELS = [
+                { id: 'beginner', label: 'Beginner' },
+                { id: 'intermediate', label: 'Intermediate' },
+                { id: 'advanced', label: 'Advanced / competition' }
+            ];
+            var USES = ['CWT', 'CWTB', 'FIM', 'DYN'];
+            var MATS = [{ id: 'carbon', label: 'Carbon' }, { id: 'silicone', label: 'Silicone' }];
+            var LEADS = [
+                { id: 'stock', label: 'In stock (1\u20132 days)' },
+                { id: 'short', label: 'Built 1\u20133 days' },
+                { id: 'medium', label: 'Built 3\u20135 days' }
+            ];
+
+            function money(n) {
+                return '$' + n.toFixed(2).replace(/\.00$/, '');
+            }
+
+            function match(s) {
+                if (state.cat && s.cat !== state.cat) return false;
+                if (state.uses.length && !state.uses.some(function (u) { return s.uses.indexOf(u) >= 0; })) return false;
+                if (state.level.length && !state.level.some(function (l) { return s.level.indexOf(l) >= 0; })) return false;
+                if (state.price.length) {
+                    var ok = state.price.some(function (id) {
+                        var b = BANDS.filter(function (x) { return x.id === id; })[0];
+                        return b && b.test(s);
+                    });
+                    if (!ok) return false;
+                }
+                if (state.material.length && state.material.indexOf(s.material) < 0) return false;
+                if (state.pocket.length) {
+                    var want = state.pocket.indexOf('yes') >= 0;
+                    if (s.includesPocket !== want) return false;
+                }
+                if (state.lead.length && state.lead.indexOf(s.lead) < 0) return false;
+                return true;
+            }
+
+            function shipLine(s) {
+                var gap = C.freeShip - s.price;
+                if (gap > 0) {
+                    var pct = Math.max(4, Math.round((s.price / C.freeShip) * 100));
+                    return '<div class="sku-ship">DHL Express <b>$' + C.flatShip + '</b> flat \u2014 free over $' + C.freeShip + '.<br>' +
+                        'Add <b>' + money(gap) + '</b> to reach free freight.' +
+                        '<div class="sku-bar" style="margin-top:6px;"><i style="width:' + pct + '%"></i></div>' +
+                        '<div class="sku-gap" style="margin-top:6px;">Transit ' + C.transit + ' after dispatch. <a href="product/c1-pro.html#landed">See full landed cost \u2192</a></div></div>';
+                }
+                return '<div class="sku-ship">DHL Express <b>free</b> (order over $' + C.freeShip + ').<br>' +
+                    '<span class="sku-gap">Transit ' + C.transit + ' after dispatch. Duty and VAT are not included \u2014 collected at delivery where your country charges them. <a href="product/c1-pro.html#landed">See full landed cost \u2192</a></span></div>';
+            }
+
+            function card(s) {
+                var save = s.list > s.price ? s.list - s.price : 0;
+                var pct = save ? Math.round((save / s.list) * 1000) / 10 : 0;
+                var priceBlock = '<div class="price-line"><span class="price-now">' + money(s.price) + '</span>' +
+                    (save ? '<span class="price-was">' + money(s.list) + '</span><span class="price-save">Save ' + money(save) + ' (' + pct + '%)</span>'
+                          : '<span class="price-list">List price</span>') + '</div>' +
+                    '<div class="price-basis">' + (save ? (s.listNote || ('Was ' + money(s.list) + ' before launch pricing \u2014 ends ' + C.launchEnds + '.')) : 'No discount on this item \u2014 no fake countdown either.') + '</div>';
+
+                var cta = s.cta.type === 'link'
+                    ? '<a class="btn" href="' + s.url + '">' + s.cta.label + '</a>'
+                    : '<button class="btn snipcart-add-item" data-item-id="' + s.slug + '" data-item-price="' + s.price + '" data-item-url="/shop.html" data-item-name="' + s.name.replace(/"/g, '&quot;') + '" data-item-image="/' + s.img + '">' + s.cta.label + '</button>';
+
+                return '<article class="sku" data-cat="' + s.cat + '">' +
+                    '<a class="sku-img" href="' + s.url + '"><img src="' + s.img + '" alt="' + s.name + '" loading="lazy"></a>' +
+                    '<div class="sku-body">' +
+                        '<div class="sku-top"><span class="sku-cat">' + s.catLabel + '</span>' +
+                        '<span class="sku-status' + (s.status === 'In stock' ? '' : ' built') + '">' + s.status + '</span></div>' +
+                        '<h3>' + s.name + '</h3>' +
+                        priceBlock +
+                        '<p class="sku-for"><b style="color:#cfcfcf;font-weight:500;">Who it is for:</b> ' + s.forWho + '</p>' +
+                        '<div class="sku-specs">' + s.specs.map(function (x) { return '<span>' + x + '</span>'; }).join('') + '</div>' +
+                        '<div class="sku-lead">Build / dispatch: ' + s.leadLabel + '</div>' +
+                        shipLine(s) +
+                        '<div class="sku-cta">' + cta + '</div>' +
+                    '</div></article>';
+            }
+
+            function facetGroup(title, items, key) {
+                return '<div class="facet-group"><div class="facet-title">' + title + '</div>' +
+                    items.map(function (it) {
+                        var checked = state[key].indexOf(it.id) >= 0 ? ' checked' : '';
+                        return '<label class="facet-opt"><input type="checkbox" data-key="' + key + '" value="' + it.id + '"' + checked + '> ' +
+                            it.label + (it.count !== undefined ? ' <span class="count">(' + it.count + ')</span>' : '') + '</label>';
+                    }).join('') + '</div>';
+            }
+
+            function renderFacets() {
+                var pool = C.skus.slice();
+                function countFor(key, id, fn) {
+                    return pool.filter(fn).length;
+                }
+                var html = '';
+                html += '<div class="facet-group"><div class="facet-title">Category</div>' +
+                    '<label class="facet-opt"><input type="checkbox" data-key="cat" value=""' + (state.cat === '' ? ' checked' : '') + '> All gear</label>' +
+                    ['bifins', 'masks', 'noseclips', 'monofin', 'accessories', 'bundles', 'instruments', 'weights'].map(function (c) {
+                        var lbl = (C.skus.filter(function (s) { return s.cat === c; })[0] || {}).catLabel || c;
+                        return '<label class="facet-opt"><input type="checkbox" data-key="cat" value="' + c + '"' + (state.cat === c ? ' checked' : '') + '> ' +
+                            lbl + ' <span class="count">(' + countFor('cat', c, function (s) { return s.cat === c; }) + ')</span></label>';
+                    }).join('') + '</div>';
+                html += facetGroup('Discipline / use', USES.map(function (u) {
+                    return { id: u, label: u, count: countFor('uses', u, function (s) { return s.uses.indexOf(u) >= 0; }) };
+                }), 'uses');
+                html += facetGroup('Training level', LEVELS.map(function (l) {
+                    return { id: l.id, label: l.label, count: countFor('level', l.id, function (s) { return s.level.indexOf(l.id) >= 0; }) };
+                }), 'level');
+                html += facetGroup('Price', BANDS.map(function (b) {
+                    return { id: b.id, label: b.label, count: countFor('price', b.id, b.test) };
+                }), 'price');
+                html += facetGroup('Material', MATS.map(function (m) {
+                    return { id: m.id, label: m.label, count: countFor('material', m.id, function (s) { return s.material === m.id; }) };
+                }), 'material');
+                html += facetGroup('Footpocket included', [
+                    { id: 'yes', label: 'Included', count: countFor('pocket', 'yes', function (s) { return s.includesPocket; }) },
+                    { id: 'no', label: 'Not included', count: countFor('pocket', 'no', function (s) { return !s.includesPocket; }) }
+                ], 'pocket');
+                html += facetGroup('Build time', LEADS.map(function (l) {
+                    return { id: l.id, label: l.label, count: countFor('lead', l.id, function (s) { return s.lead === l.id; }) };
+                }), 'lead');
+                document.getElementById('facets').innerHTML = html;
+
+                var inputs = document.querySelectorAll('#facets input');
+                for (var i = 0; i < inputs.length; i++) {
+                    inputs[i].addEventListener('change', function () {
+                        var key = this.getAttribute('data-key');
+                        var val = this.value;
+                        if (key === 'cat') {
+                            state.cat = this.checked ? val : '';
+                        } else {
+                            if (this.checked) state[key].push(val);
+                            else state[key] = state[key].filter(function (x) { return x !== val; });
+                        }
+                        renderFacets();
+                        renderGrid();
+                    });
+                }
+            }
+
+            function renderGrid() {
+                var list = C.skus.filter(match);
+                var grid = document.getElementById('shopGrid');
+                grid.innerHTML = list.map(card).join('');
+                document.getElementById('shopEmpty').style.display = list.length ? 'none' : 'block';
+                document.getElementById('shopCount').textContent = list.length + ' of ' + C.skus.length + ' products' +
+                    (state.cat ? ' \u00b7 ' + state.cat : '');
+                document.getElementById('qBifins').textContent = C.skus.filter(function (s) { return s.cat === 'bifins'; }).length;
+            }
+
+            // deep link: shop.html?cat=bifins  -> one click from the nav to the bifin list
+            var q = new URLSearchParams(location.search);
+            if (q.get('cat')) state.cat = q.get('cat');
+
+            document.getElementById('shopReset').addEventListener('click', function () {
+                state = { cat: '', uses: [], level: [], price: [], material: [], pocket: [], lead: [] };
+                history.replaceState(null, '', 'shop.html');
+                renderFacets();
+                renderGrid();
+            });
+
+            renderFacets();
+            renderGrid();
+        })();
+    </script>
+</body>
+</html>
