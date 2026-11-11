@@ -193,7 +193,7 @@
 
                 var cta = s.cta.type === 'link'
                     ? '<a class="btn" href="' + s.url + '">' + s.cta.label + '</a>'
-                    : '<button class="btn snipcart-add-item" data-item-id="' + s.slug + '" data-item-price="' + s.price + '" data-item-url="/shop.html" data-item-name="' + s.name.replace(/"/g, '&quot;') + '" data-item-image="/' + s.img + '">' + s.cta.label + '</button>';
+                    : '<button class="btn snipcart-add-item" data-item-id="' + s.cartId + '" data-item-price="' + s.price + '" data-item-url="/" data-item-name="' + s.name.replace(/"/g, '&quot;') + '" data-item-image="/' + s.img + '">' + s.cta.label + '</button>';
 
                 var hasPage = s.slug === 'c1-pro';
                 var imgWrap = hasPage
