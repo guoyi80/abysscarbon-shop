@@ -866,6 +866,7 @@
                 <div class="c1p-field">
                     <label for="sel-pocket">Footpocket going into the cart</label>
                     <select id="sel-pocket">
+                        <option value="" disabled>Not measured &mdash; enter foot length</option>
                         <option value="38-39">EU 38&ndash;39</option>
                         <option value="40-41">EU 40&ndash;41</option>
                         <option value="42-43" selected>EU 42&ndash;43</option>
@@ -1149,13 +1150,23 @@ Warranty  3 years, manufacturing defects</div>
         }
 
         function syncConfirm(flex, pocket) {
-            if ($('sel-flex')) $('sel-flex').value = flex;
-            if ($('sel-pocket')) $('sel-pocket').value = pocket;
+            var cur = $('sel-pocket') ? $('sel-pocket').value : '';
             var bandLabel = 'EU 42\u201343';
-            for (var i = 0; i < BANDS.length; i++) { if (BANDS[i].value === pocket) bandLabel = BANDS[i].label; }
+            var target = pocket || cur;
+            for (var i = 0; i < BANDS.length; i++) { if (BANDS[i].value === target) bandLabel = BANDS[i].label; }
+            if (pocket) {
+                if ($('sel-pocket')) $('sel-pocket').value = pocket;
+            }
+            // No measured foot length: keep whatever band is in the selector (never overwrite a
+            // manual choice) but label it unconfirmed so the order sheet cannot be cut silently.
+            var confirmed = !!pocket;
+            if ($('sel-flex')) $('sel-flex').value = flex;
             if ($('cfm-flex')) $('cfm-flex').textContent = flex;
-            if ($('cfm-pocket')) $('cfm-pocket').textContent = bandLabel;
-            updateCartAttrs(flex, pocket);
+            if ($('cfm-pocket')) {
+                $('cfm-pocket').textContent = confirmed ? bandLabel : bandLabel + ' \u2014 unconfirmed (no foot length)';
+                $('cfm-pocket').style.color = confirmed ? '' : '#ff9d5c';
+            }
+            updateCartAttrs(flex, confirmed ? (target || 'TBC') : (target || 'TBC') + ' \u2014 unconfirmed, no foot length');
         }
 
         function renderLanded() {
@@ -1382,7 +1393,7 @@ Warranty  3 years, manufacturing defects</div>
             }
 
             if ($('recPanel')) $('recPanel').classList.add('show');
-            syncConfirm(flex, pocket || ($('sel-pocket') ? $('sel-pocket').value : '42-43'));
+            syncConfirm(flex, pocket);
             if ($('cfm-sock')) $('cfm-sock').textContent = sock.label;
             renderLanded();
 
@@ -1575,11 +1586,20 @@ Warranty  3 years, manufacturing defects</div>
                 if ($('sumFlex')) $('sumFlex').textContent = 'Flex ' + $('sel-flex').value;
             });
             if ($('sel-pocket')) $('sel-pocket').addEventListener('change', function () {
+                if (!$('sel-pocket').value) { updateCartAttrs($('sel-flex').value, 'TBC \u2014 foot length not measured'); return; }
                 updateCartAttrs($('sel-flex').value, $('sel-pocket').value);
                 var lbl = $('sel-pocket').value.replace('-', '\u2013');
                 if ($('cfm-pocket')) $('cfm-pocket').textContent = 'EU ' + lbl;
                 if ($('prevPocket')) $('prevPocket').textContent = 'EU ' + lbl;
                 if ($('sumPocket')) $('sumPocket').textContent = 'pocket EU ' + lbl;
+            });
+            if ($('addToCart')) $('addToCart').addEventListener('click', function (ev) {
+                var pv = $('sel-pocket') ? $('sel-pocket').value : '';
+                if (pv) return;
+                ev.preventDefault();
+                ev.stopPropagation();
+                alert('Pick your footpocket band first. The pocket is moulded to your foot length and cannot be resized after the cut.');
+                if ($('sel-pocket') && $('sel-pocket').scrollIntoView) $('sel-pocket').scrollIntoView({ block: 'center' });
             });
             if ($('cf-sock')) $('cf-sock').addEventListener('change', function () {
                 if ($('cfm-sock')) $('cfm-sock').textContent = SOCK[$('cf-sock').value].label;

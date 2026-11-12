@@ -310,6 +310,132 @@
             color: var(--accent);
         }
 
+        /* ── Hero Purchase-Intent Split (suit vs hard gear) ── */
+        .hero-paths {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 26px;
+            max-width: 640px;
+        }
+        @media(min-width:768px) { .hero-paths { grid-template-columns: 1fr 1fr; } }
+        .hero-path {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            min-width: 0;
+            padding: 16px 18px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: inherit;
+            transition: border-color .2s, background .2s;
+        }
+        .hero-path:hover, .hero-path:focus-visible { border-color: var(--accent); background: rgba(0,163,255,0.06); }
+        .hero-path-tag {
+            display: block;
+            font-size: 9.5px;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: #6fb8e8;
+            margin-bottom: 6px;
+        }
+        .hero-path.suit .hero-path-tag { color: #c8b28f; }
+        .hero-path-title {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: .3px;
+            color: var(--text-bright);
+            margin-bottom: 5px;
+        }
+        .hero-path-meta {
+            display: block;
+            font-size: 11.5px;
+            line-height: 1.55;
+            color: #9a9a9a;
+        }
+        .hero-path-cta {
+            display: block;
+            margin-top: 9px;
+            font-size: 10px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: #6fb8e8;
+        }
+        .hero-path.suit .hero-path-cta { color: #c8b28f; }
+        .hero-lead-split {
+            margin-top: 14px;
+            max-width: 640px;
+            font-size: 11px;
+            line-height: 1.65;
+            color: #808080;
+        }
+        .hero-lead-split b { color: #b8b8b8; font-weight: 600; }
+        .hero-intent-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+        .hero-intent-links a {
+            font-size: 9.5px;
+            letter-spacing: 1.1px;
+            text-transform: uppercase;
+            color: #9a9a9a;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 100px;
+            padding: 7px 12px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .hero-intent-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+        /* ── Product lead-time type tag ── */
+        .lead-tag {
+            display: inline-block;
+            margin: 0 0 8px;
+            padding: 3px 8px;
+            font-size: 9px;
+            line-height: 1.5;
+            letter-spacing: .9px;
+            text-transform: uppercase;
+            border-radius: 100px;
+            border: 1px solid rgba(0,163,255,0.35);
+            color: #6fb8e8;
+            background: rgba(0,163,255,0.07);
+        }
+        .lead-tag.lead-bundle {
+            border-color: rgba(200,178,143,0.45);
+            color: #c8b28f;
+            background: rgba(200,178,143,0.08);
+        }
+        .filter-count {
+            font-size: 9px;
+            letter-spacing: .5px;
+            color: #5f5f5f;
+            margin-left: 5px;
+        }
+        .filter-chip.active .filter-count { color: var(--accent); }
+        .filter-status {
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: .3px;
+            color: #666;
+            margin: -14px 0 24px;
+        }
+        .buy-type-note {
+            max-width: 780px;
+            margin: 0 auto 26px;
+            font-size: 12px;
+            line-height: 1.75;
+            color: #8d8d8d;
+            text-align: center;
+        }
+        .buy-type-note b { color: #c8b28f; }
+        .buy-type-note b.stock { color: #6fb8e8; }
+
         /* ── WHY ABYSSCARBON Trust Block ── */
         .trust-block {
             max-width: var(--max-width);
@@ -1395,7 +1521,8 @@
     <nav class="nav">
         <a href="#" class="nav-logo">ABYSS<span>CARBON</span></a>
         <div class="nav-links">
-            <a href="shop.html?cat=bifins">Carbon bifins</a>
+            <a href="shop.html?cat=bifins">Fins &amp; Blades</a>
+            <a href="product/c1-pro.html">C1 Pro</a>
             <a href="shop.html?cat=masks">Masks</a>
             <a href="shop.html?cat=noseclips">Nose clips</a>
             <a href="shop.html?cat=monofin">Monofin</a>
@@ -1417,11 +1544,33 @@
         <div class="hero-deep-inner">
         <div class="hero-text">
             <p class="hero-tag">CARBON FIBER &middot; MADE TO MEASURE &middot; PREVIEWED IN 3D</p>
-            <h1 class="hero-animate-title">Your Suit. Your Body.<br>Your Ocean.</h1>
-            <p class="hero-sub hero-animate-sub">Carbon fiber fins, masks, monofins and instruments &mdash; plus freediving, spearfishing, scuba and swim suits cut to your own measurements, previewed in a 3D configurator before anything is built. In-stock accessories leave the workshop in 1&ndash;3 business days.</p>
+            <h1 class="hero-animate-title">Your Suit. Your Fins.<br>Your Ocean.</h1>
+            <p class="hero-sub hero-animate-sub">Two ways to buy, two different lead times. Suits are cut to your own measurements and previewed in 3D before anything is built. Hard gear &mdash; carbon blades, masks, monofins, instruments &mdash; is built in days, not weeks.</p>
+            <div class="hero-paths hero-animate-sub">
+                <a class="hero-path suit" href="#custom">
+                    <span class="hero-path-tag">Made to measure</span>
+                    <span class="hero-path-title">Custom wetsuit &amp; swimsuit</span>
+                    <span class="hero-path-meta">Cut to your numbers, previewed in 3D first. Build 4&ndash;6 weeks, two fitting revisions included.</span>
+                    <span class="hero-path-cta">Open the 3D fitting room &rarr;</span>
+                </a>
+                <a class="hero-path" href="#products">
+                    <span class="hero-path-tag">In stock hard gear</span>
+                    <span class="hero-path-title">Fins, masks &amp; instruments</span>
+                    <span class="hero-path-meta">C1 Pro carbon blades and the rest of the kit. Built in 1&ndash;3 days, delivered in 5&ndash;10 business days.</span>
+                    <span class="hero-path-cta">Shop fins &amp; gear &rarr;</span>
+                </a>
+            </div>
+            <p class="hero-lead-split"><b>Two lead times, never mixed:</b> made-to-measure suits <b>4&ndash;6 weeks</b> &middot; hard gear built <b>1&ndash;3 business days</b>, delivered <b>5&ndash;10 business days</b> (US/EU).</p>
+            <div class="hero-intent-links hero-animate-sub">
+                <a href="product/c1-pro.html">C1 Pro &middot; $818</a>
+                <a href="#product-C1">Freedive</a>
+                <a href="#product-C1">Spearfishing</a>
+                <a href="shop.html?cat=accessories">Scuba</a>
+                <a href="shop.html?cat=monofin">Pool training</a>
+            </div>
             <div class="hero-cta-group hero-animate-btn">
-                <a href="#custom" class="btn">Build Your Suit in 3D</a>
-                <a href="#products" class="btn-outline">Shop Accessories</a>
+                <a href="product/c1-pro.html" class="btn">Configure C1 Pro &mdash; from $818</a>
+                <a href="#custom" class="btn-outline">Build Your Suit in 3D</a>
             </div>
             <div class="hero-stats hero-animate-btn">
                 <div class="hero-stat-card">
@@ -1671,19 +1820,20 @@
             <h2>The Kit That Goes With Every Suit</h2>
             <p style="color:#8d8d8d;font-size:13px;margin-top:10px;">Want it filtered by discipline, level, price or build time? <a href="shop.html" style="color:#4a90c2;">Open the full shop list &rarr;</a></p>
         </div>
+        <p class="buy-type-note"><b>Made to measure</b> &mdash; custom wetsuits and swimsuits, built in 4&ndash;6 weeks, two fitting revisions included. &nbsp;<b class="stock">In stock hard gear</b> &mdash; every product below: built in 1&ndash;3 business days, delivered in 5&ndash;10 business days (US/EU). A custom footpocket adds 3&ndash;5 days and cannot be returned for fit.</p>
         <!-- Category filter — add a data-category token + chip to open a new product line -->
         <div class="filter-bar" id="collectionFilter">
-            <button class="filter-chip active" data-filter="all">All Gear</button>
-            <button class="filter-chip" data-filter="fins">Fins &amp; Blades</button>
-            <button class="filter-chip" data-filter="mask">Masks</button>
-            <button class="filter-chip" data-filter="noseclip">Noseclips</button>
-            <button class="filter-chip" data-filter="monofin">Monofins</button>
-            <button class="filter-chip" data-filter="instrument">Instruments</button>
-            <button class="filter-chip" data-filter="weight">Weights</button>
-            <button class="filter-chip" data-filter="accessory">Accessories</button>
-            <button class="filter-chip" data-filter="bundle">Bundles</button>
+            <button class="filter-chip active" data-filter="all" type="button" aria-pressed="true">All Gear</button>
+            <button class="filter-chip" data-filter="fins" type="button" aria-pressed="false">Fins &amp; Blades</button>
+            <button class="filter-chip" data-filter="mask" type="button" aria-pressed="false">Masks</button>
+            <button class="filter-chip" data-filter="noseclip" type="button" aria-pressed="false">Noseclips</button>
+            <button class="filter-chip" data-filter="monofin" type="button" aria-pressed="false">Monofins</button>
+            <button class="filter-chip" data-filter="instrument" type="button" aria-pressed="false">Instruments</button>
+            <button class="filter-chip" data-filter="weight" type="button" aria-pressed="false">Weights</button>
+            <button class="filter-chip" data-filter="accessory" type="button" aria-pressed="false">Accessories</button>
+            <button class="filter-chip" data-filter="bundle" type="button" aria-pressed="false">Bundles</button>
         </div>
-        <p class="filter-empty" id="filterEmpty">Nothing in this category yet — new lines are in the workshop.</p>
+        <p class="filter-status" id="filterStatus" role="status" aria-live="polite"></p>
         <!-- Workshop Urgency Strip -->
         <div class="workshop-urgency-strip">
             <div class="wu-item">
@@ -1714,6 +1864,7 @@
                     </div>
                 </div>
                 <div class="product-info">
+                    <span class="lead-tag">in stock hard gear &middot; Built 1&ndash;3 days &middot; delivered 5&ndash;10 business days</span>
                     <p class="product-series">Series 01 · Bestseller</p>
                     <h3>Carbon Blades — C1 Pro</h3>
                     <span class="feature-badge">22&deg; Competition Angle</span>
@@ -1870,6 +2021,7 @@
                     </div>
                 </div>
                 <div class="product-info">
+                    <span class="lead-tag">in stock hard gear &middot; Built 1&ndash;3 days &middot; delivered 5&ndash;10 business days</span>
                     <p class="product-series">Series 02 · New Release</p>
                     <h3>Low-Volume Mask — M1</h3>
                     <span class="feature-badge">Crystal Silicone Skirt</span>
@@ -1921,6 +2073,7 @@
                     </div>
                 </div>
                 <div class="product-info">
+                    <span class="lead-tag">in stock hard gear &middot; Built 1&ndash;3 days &middot; delivered 5&ndash;10 business days</span>
                     <p class="product-series">Series 03</p>
                     <h3>Carbon Noseclip — N1</h3>
                     <span class="feature-badge">12g Carbon</span>
@@ -1967,6 +2120,7 @@
                     </div>
                 </div>
                 <div class="product-info">
+                    <span class="lead-tag">in stock hard gear &middot; Built 1&ndash;3 days &middot; delivered 5&ndash;10 business days</span>
                     <p class="product-series">Series 04 · Limited</p>
                     <h3>Monofin — MF1</h3>
                     <span class="feature-badge">Dolphin Kick Optimized</span>
@@ -2018,6 +2172,7 @@
                     </div>
                 </div>
                 <div class="product-info">
+                    <span class="lead-tag">in stock hard gear &middot; Built 1&ndash;3 days &middot; delivered 5&ndash;10 business days</span>
                     <p class="product-series">Series 05</p>
                     <h3>Dive Computer — DC1</h3>
                     <span class="feature-badge">100m Depth Rated</span>
@@ -2068,6 +2223,7 @@
                     </div>
                 </div>
                 <div class="product-info">
+                    <span class="lead-tag">in stock hard gear &middot; Built 1&ndash;3 days &middot; delivered 5&ndash;10 business days</span>
                     <p class="product-series">Series 06</p>
                     <h3>Neck Weight — W1 Carbon</h3>
                     <span class="feature-badge">Hydrodynamic Profile</span>
@@ -2118,6 +2274,7 @@
                     </div>
                 </div>
                 <div class="product-info">
+                    <span class="lead-tag">in stock hard gear &middot; Built 1&ndash;3 days &middot; delivered 5&ndash;10 business days</span>
                     <p class="product-series">Series 07 · New</p>
                     <h3>Silicone Ear Plugs — E1</h3>
                     <span class="feature-badge">27dB Noise Reduction</span>
@@ -2154,6 +2311,7 @@
                     </div>
                 </div>
                 <div class="product-info">
+                    <span class="lead-tag lead-bundle">bundle &middot; one box &middot; Built 1&ndash;3 days &middot; delivered 5&ndash;10 business days</span>
                     <p class="product-series">Series 08 · Bundle</p>
                     <h3>Mask + Noseclip Bundle — MN1</h3>
                     <span class="feature-badge">Perfect Equalization Combo</span>
@@ -2561,25 +2719,85 @@
         });
     </script>
     <script>
-        // Collection filter — scalable category chips (fins / mask / bundle / ...)
+        // Collection filter — category chips, live per-category counts, honest empty state.
+        // Counts come from the cards themselves, so a chip can never claim a category that has no product,
+        // and the empty state is created only when a filter really returns zero cards.
         document.addEventListener('DOMContentLoaded', function() {
             var bar = document.getElementById('collectionFilter');
             if (!bar) return;
-            var chips = bar.querySelectorAll('.filter-chip');
-            var cards = document.querySelectorAll('.product-grid .product-card');
-            var empty = document.getElementById('filterEmpty');
+            var chips = Array.prototype.slice.call(bar.querySelectorAll('.filter-chip'));
+            var cards = Array.prototype.slice.call(document.querySelectorAll('.product-grid .product-card'));
+            var status = document.getElementById('filterStatus');
+            var grid = document.querySelector('.product-grid');
+            if (!cards.length || !grid) return;
+
+            function catOf(card) { return card.getAttribute('data-category') || ''; }
+
+            var counts = { all: cards.length };
+            cards.forEach(function(card) {
+                var c = catOf(card);
+                counts[c] = (counts[c] || 0) + 1;
+            });
+
+            // Drop chips with no matching product, and label the rest with their real count.
+            chips = chips.filter(function(chip) {
+                var cat = chip.getAttribute('data-filter');
+                var n = counts[cat] || 0;
+                if (!n) {
+                    if (chip.parentNode) chip.parentNode.removeChild(chip);
+                    return false;
+                }
+                var tagEl = document.createElement('span');
+                tagEl.className = 'filter-count';
+                tagEl.textContent = n;
+                var chipLabel = chip.textContent.replace(/\d+$/, '').trim();
+                chip.appendChild(tagEl);
+                chip.setAttribute('data-label', chipLabel);
+                chip.setAttribute('aria-label', chipLabel + ' — ' + n + ' product' + (n === 1 ? '' : 's'));
+                return true;
+            });
+
+            var emptyEl = null;
+            function emptyState(label) {
+                if (!emptyEl) {
+                    emptyEl = document.createElement('p');
+                    emptyEl.className = 'filter-empty';
+                    emptyEl.setAttribute('role', 'status');
+                    grid.parentNode.insertBefore(emptyEl, grid);
+                }
+                emptyEl.innerHTML = 'No ' + label + ' in the catalogue right now. Custom builds are possible outside the listed range — ' +
+                    '<a href="#contact" style="color:#4a90c2;">tell us what you need</a>, or ' +
+                    '<a href="#products" style="color:#4a90c2;">view all gear</a>.';
+                emptyEl.style.display = 'block';
+            }
 
             function apply(cat) {
-                var visible = 0;
+                var shown = 0;
+                var label = 'items';
                 cards.forEach(function(card) {
-                    var match = (cat === 'all' || card.getAttribute('data-category') === cat);
+                    var match = (cat === 'all' || catOf(card) === cat);
+                    // hidden attribute + inline display: class-level display rules would beat [hidden] alone
+                    card.hidden = !match;
                     card.style.display = match ? '' : 'none';
-                    if (match) visible++;
+                    card.setAttribute('aria-hidden', match ? 'false' : 'true');
+                    if (match) shown++;
                 });
-                chips.forEach(function(c) {
-                    c.classList.toggle('active', c.getAttribute('data-filter') === cat);
+                chips.forEach(function(chip) {
+                    var on = chip.getAttribute('data-filter') === cat;
+                    chip.classList.toggle('active', on);
+                    chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+                    if (on) label = (chip.getAttribute('data-label') || 'items').toLowerCase();
                 });
-                if (empty) empty.style.display = visible ? 'none' : 'block';
+                if (shown) {
+                    if (emptyEl) emptyEl.style.display = 'none';
+                } else {
+                    emptyState(label);
+                }
+                if (status) {
+                    status.textContent = shown
+                        ? 'Showing ' + shown + ' of ' + cards.length + ' products' + (cat === 'all' ? ' across all categories.' : ' in ' + label + '.')
+                        : 'No products in ' + label + ' — see the alternative below.';
+                }
             }
 
             chips.forEach(function(chip) {
@@ -2587,6 +2805,12 @@
                     apply(chip.getAttribute('data-filter'));
                 });
             });
+
+            // Deep link support: index.html#products?cat=fins, plus the "view all gear" link above.
+            var q = new URLSearchParams(location.search);
+            var initial = q.get('cat') || 'all';
+            if (initial !== 'all' && !counts[initial]) initial = 'all';
+            apply(initial);
         });
     </script>
 
