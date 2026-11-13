@@ -59,7 +59,11 @@
         .sku-bar { height: 3px; background: #1a1a1a; position: relative; overflow: hidden; }
         .sku-bar i { position: absolute; inset: 0 auto 0 0; background: #4a90c2; }
         .sku-gap { font-size: 10.5px; color: #7d8d9c; }
-        .shop-empty { border: 1px dashed #2a2a2a; border-radius: 4px; padding: 20px; color: #8d8d8d; font-size: 13px; }
+        .shop-empty { border: 1px dashed #2a2a2a; border-radius: 4px; padding: 20px; color: #8d8d8d; font-size: 13px; line-height: 1.7; }
+        .shop-empty b { color: #cfcfcf; font-weight: 500; }
+        .shop-error { border: 1px solid #4a2a2a; background: #120b0b; border-radius: 4px; padding: 18px 20px; color: #b9a3a3; font-size: 13px; line-height: 1.7; margin-top: 12px; }
+        .shop-error b { color: #e6c9c9; font-weight: 500; }
+        .shop-error a { color: #4a90c2; }
         .promo-rule { border: 1px solid #1f1f1f; border-radius: 4px; padding: 12px 14px; background: #0a0a0a; font-size: 11.5px; line-height: 1.7; color: #8d8d8d; margin-bottom: 16px; }
         .promo-rule b { color: #cfcfcf; font-weight: 500; }
         @media (max-width: 900px) {
@@ -114,7 +118,18 @@
                 </div>
                 <div class="shop-grid" id="shopGrid"></div>
                 <div class="shop-empty" id="shopEmpty" style="display:none;">
-                    No product matches this combination yet. Clear a filter or tell us what you need &mdash; custom builds are possible outside the listed range.
+                    <b id="shopEmptyTitle">No product matches this combination.</b>
+                    <p id="shopEmptyBody" style="margin:8px 0 12px;">The catalogue loaded fine &mdash; this filter combination simply returns nothing. Clear a filter, or tell us what you need: custom builds exist outside the listed range.</p>
+                    <button class="shop-reset" id="shopEmptyReset" type="button">Clear filters and show all gear</button>
+                </div>
+                <div class="shop-error" id="shopError" style="display:none;" role="alert">
+                    <b id="shopErrorTitle">The product list could not load.</b>
+                    <p style="margin:8px 0 12px;" id="shopErrorBody">The catalogue data file did not arrive, so no prices are shown rather than prices that might be wrong.</p>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                        <button class="shop-reset" id="shopRetry" type="button" style="border-color:#4a90c2;color:#9dc6e6;">Retry loading the catalogue</button>
+                        <span class="shop-gap" id="shopRetryState"></span>
+                    </div>
+                    <p style="margin:12px 0 0;font-size:11.5px;">If it keeps failing, the C1 Pro page and the configuration flow still work on their own: <a href="product/c1-pro.html" style="color:#4a90c2;">open C1 Pro &rarr;</a>. Or write to us and we will quote by hand.</p>
                 </div>
             </section>
         </div>
@@ -124,7 +139,7 @@
     <script src="https://cdn.snipcart.com/themes/v3.3.1/default/snipcart.js"></script>
     <script>
         (function () {
-            var C = window.AC_CATALOG;
+            var C = window.AC_CATALOG || null;
             var state = { cat: '', uses: [], level: [], price: [], material: [], pocket: [], lead: [] };
 
             var BANDS = [
@@ -276,28 +291,102 @@
             }
 
             function renderGrid() {
+                if (!dataReady()) { showError(); return; }
                 var list = C.skus.filter(match);
                 var grid = document.getElementById('shopGrid');
                 grid.innerHTML = list.map(card).join('');
-                document.getElementById('shopEmpty').style.display = list.length ? 'none' : 'block';
+                var emptyEl = document.getElementById('shopEmpty');
+                var errorEl = document.getElementById('shopError');
+                emptyEl.style.display = list.length ? 'none' : 'block';
+                if (!list.length) {
+                    var inCat = state.cat ? C.skus.filter(function (s) { return s.cat === state.cat; }).length : C.skus.length;
+                    var t = document.getElementById('shopEmptyTitle');
+                    var b = document.getElementById('shopEmptyBody');
+                    if (inCat === 0) {
+                        t.textContent = 'Nothing is in stock in this category right now.';
+                        b.textContent = 'The catalogue loaded correctly and really does hold zero products here — this is not a loading error. Tell us what you are looking for and we will quote it as a custom build.';
+                    } else {
+                        t.textContent = 'No product matches this filter combination.';
+                        b.textContent = 'The catalogue loaded fine — ' + inCat + ' product(s) exist in this category, none of them match the filters you picked. Clear a filter and try again.';
+                    }
+                }
                 document.getElementById('shopCount').textContent = list.length + ' of ' + C.skus.length + ' products' +
                     (state.cat ? ' \u00b7 ' + state.cat : '');
                 document.getElementById('qBifins').textContent = C.skus.filter(function (s) { return s.cat === 'bifins'; }).length;
             }
 
-            // deep link: shop.html?cat=bifins  -> one click from the nav to the bifin list
-            var q = new URLSearchParams(location.search);
-            if (q.get('cat')) state.cat = q.get('cat');
+            // ---- data availability: distinguish "0 results" from "the file never arrived" ----
+            function dataReady() {
+                return !!(window.AC_CATALOG && Object.prototype.toString.call(window.AC_CATALOG.skus) === '[object Array]' && window.AC_CATALOG.skus.length);
+            }
 
-            document.getElementById('shopReset').addEventListener('click', function () {
+            var retryCount = 0;
+
+            function showError(msg) {
+                C = null;
+                document.getElementById('shopGrid').innerHTML = '';
+                document.getElementById('shopEmpty').style.display = 'none';
+                document.getElementById('shopError').style.display = 'block';
+                document.getElementById('shopCount').textContent = 'Catalogue unavailable';
+                if (msg) document.getElementById('shopErrorBody').textContent = msg;
+            }
+
+            function retryLoad() {
+                retryCount++;
+                var st = document.getElementById('shopRetryState');
+                var btn = document.getElementById('shopRetry');
+                st.textContent = 'Retrying (' + retryCount + ')…';
+                btn.disabled = true;
+                var s = document.createElement('script');
+                s.src = 'js/catalog.js?v=' + Date.now();
+                s.onload = function () {
+                    btn.disabled = false;
+                    if (dataReady()) {
+                        C = window.AC_CATALOG;
+                        st.textContent = 'Catalogue loaded.';
+                        document.getElementById('shopError').style.display = 'none';
+                        boot();
+                    } else {
+                        st.textContent = 'Still no catalogue data — the file loaded but holds no products.';
+                    }
+                };
+                s.onerror = function () {
+                    btn.disabled = false;
+                    st.textContent = 'Retry failed — connection or cache issue. Try again, or use the C1 Pro page.';
+                };
+                document.head.appendChild(s);
+            }
+
+            function boot() {
+                if (!dataReady()) {
+                    showError('js/catalog.js did not load, so prices and stock are unknown. Nothing is guessed here — retry, or configure the C1 Pro directly.');
+                    return;
+                }
+                C = window.AC_CATALOG;
+                // deep link: shop.html?cat=bifins -> one click from the nav to that category
+                var q = new URLSearchParams(location.search);
+                if (q.get('cat')) state.cat = q.get('cat');
+                renderFacets();
+                renderGrid();
+            }
+
+            function resetAll() {
                 state = { cat: '', uses: [], level: [], price: [], material: [], pocket: [], lead: [] };
                 history.replaceState(null, '', 'shop.html');
                 renderFacets();
                 renderGrid();
-            });
+            }
 
-            renderFacets();
-            renderGrid();
+            document.getElementById('shopReset').addEventListener('click', resetAll);
+            document.getElementById('shopEmptyReset').addEventListener('click', resetAll);
+            document.getElementById('shopRetry').addEventListener('click', retryLoad);
+
+            boot();
+            window.addEventListener('error', function (e) {
+                if (e && e.target && e.target.tagName === 'SCRIPT' && /catalog\.js/.test(e.target.src || '')) {
+                    showError('js/catalog.js failed to load (network or cache). No prices are shown rather than stale ones — retry below.');
+                }
+            }, true);
         })();
     </script>
 </body>
