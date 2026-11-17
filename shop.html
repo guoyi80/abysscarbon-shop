@@ -59,6 +59,9 @@
         .sku-bar { height: 3px; background: #1a1a1a; position: relative; overflow: hidden; }
         .sku-bar i { position: absolute; inset: 0 auto 0 0; background: #4a90c2; }
         .sku-gap { font-size: 10.5px; color: #7d8d9c; }
+        .sku-uses { font-size: 10.5px; color: #7d8d9c; letter-spacing: .2px; }
+        .sku-terms { font-size: 10.5px; color: #7d8d9c; line-height: 1.6; border-top: 1px solid #1c1c1c; padding-top: 8px; }
+        .sku-terms a { color: #4a90c2; text-decoration: none; }
         .shop-empty { border: 1px dashed #2a2a2a; border-radius: 4px; padding: 20px; color: #8d8d8d; font-size: 13px; line-height: 1.7; }
         .shop-empty b { color: #cfcfcf; font-weight: 500; }
         .shop-error { border: 1px solid #4a2a2a; background: #120b0b; border-radius: 4px; padding: 18px 20px; color: #b9a3a3; font-size: 13px; line-height: 1.7; margin-top: 12px; }
@@ -198,6 +201,18 @@
                     '<span class="sku-gap">Transit ' + C.transit + ' after dispatch. Duty and VAT are not included \u2014 collected at delivery where your country charges them. <a href="product/c1-pro.html#landed">How duty and transit are calculated \u2192</a></span></div>';
             }
 
+            function specChips(s) {
+                var out = s.specs.slice();
+                if (s.flex) out.push('Flex: ' + s.flex);
+                return out;
+            }
+
+            function policyLine(s) {
+                return '<div class="sku-terms">3-year warranty on manufacturing defects \u00b7 30-day returns on unused gear' +
+                    (s.custom ? ' \u00b7 a footpocket cut to your numbers is non-refundable unless defective' : '') +
+                    ' \u00b7 <a href="refunds.html">Policy</a></div>';
+            }
+
             function card(s) {
                 var save = s.list > s.price ? s.list - s.price : 0;
                 var pct = save ? Math.round((save / s.list) * 1000) / 10 : 0;
@@ -218,13 +233,15 @@
                 return '<article class="sku" data-cat="' + s.cat + '">' +
                     imgWrap +
                     '<div class="sku-body">' +
-                        '<div class="sku-top"><span class="sku-cat">' + s.catLabel + '</span>' +
+                        '<div class="sku-top"><span class="sku-cat">' + (s.catLabel || s.cat) + '</span>' +
                         '<span class="sku-status' + (s.status === 'In stock' ? '' : ' built') + '">' + s.status + '</span></div>' +
                         titleEl +
                         priceBlock +
                         '<p class="sku-for"><b style="color:#cfcfcf;font-weight:500;">Who it is for:</b> ' + s.forWho + '</p>' +
-                        '<div class="sku-specs">' + s.specs.map(function (x) { return '<span>' + x + '</span>'; }).join('') + '</div>' +
+                        '<div class="sku-specs">' + specChips(s).map(function (x) { return '<span>' + x + '</span>'; }).join('') + '</div>' +
+                        '<div class="sku-uses">Discipline: ' + s.uses.join(' \u00b7 ') + '</div>' +
                         '<div class="sku-lead">Build / dispatch: ' + s.leadLabel + '</div>' +
+                        policyLine(s) +
                         shipLine(s) +
                         '<div class="sku-cta">' + cta + '</div>' +
                     '</div></article>';

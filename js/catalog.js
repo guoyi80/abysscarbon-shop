@@ -10,6 +10,9 @@ window.AC_CATALOG = {
   skus: [
     {
       slug: "c1-pro",
+      catLabel: "Carbon bifins",
+      flex: "Soft / Medium / Hard",
+      custom: true,
       cartId: "C1-Pro",
       name: "Carbon Blades \u2014 C1 Pro",
       url: "product/c1-pro.html",
@@ -30,6 +33,8 @@ window.AC_CATALOG = {
     },
     {
       slug: "mf1",
+      catLabel: "Monofin",
+      custom: true,
       cartId: "MF1-Monofin",
       name: "Monofin \u2014 MF1",
       url: "product/mf1-monofin.html",
@@ -50,6 +55,7 @@ window.AC_CATALOG = {
     },
     {
       slug: "dc1",
+      catLabel: "Dive computer",
       cartId: "DC1-Computer",
       name: "Dive Computer \u2014 DC1",
       url: "product/dc1-dive-computer.html",
@@ -70,6 +76,7 @@ window.AC_CATALOG = {
     },
     {
       slug: "m1",
+      catLabel: "Mask",
       cartId: "M1-Mask",
       name: "Low-Volume Mask \u2014 M1",
       url: "product/m1-low-volume-mask.html",
@@ -90,6 +97,7 @@ window.AC_CATALOG = {
     },
     {
       slug: "w1",
+      catLabel: "Neck weight",
       cartId: "W1-Weight",
       name: "Neck Weight \u2014 W1 Carbon",
       url: "product/w1-neck-weight.html",
@@ -110,6 +118,7 @@ window.AC_CATALOG = {
     },
     {
       slug: "n1",
+      catLabel: "Noseclip",
       cartId: "N1-Noseclip",
       name: "Carbon Noseclip \u2014 N1",
       url: "product/n1-noseclip.html",
@@ -130,6 +139,7 @@ window.AC_CATALOG = {
     },
     {
       slug: "e1",
+      catLabel: "Ear plugs",
       cartId: "E1-EarPlugs",
       name: "Silicone Ear Plugs \u2014 E1",
       url: "product/e1-earplugs.html",
@@ -150,6 +160,7 @@ window.AC_CATALOG = {
     },
     {
       slug: "mn1",
+      catLabel: "Bundle",
       cartId: "MN1-Bundle",
       name: "Mask + Noseclip Bundle \u2014 MN1",
       url: "product/mn1-bundle.html",
