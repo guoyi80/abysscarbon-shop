@@ -1187,9 +1187,9 @@ Warranty  3 years, manufacturing defects</div>
             if ($('lc-total')) $('lc-total').textContent = money(total);
             if ($('lc-build')) $('lc-build').textContent = 'Dispatch by ' + fmtDate(shipBy);
             if ($('lc-ship-date')) $('lc-ship-date').textContent = shipTxt;
-            if ($('lc-transit-label')) $('lc-transit-label').textContent = label + (isOther ? ' (major city)' : '');
+            if ($('lc-transit-label')) $('lc-transit-label').textContent = label;
             if ($('lc-eta')) $('lc-eta').textContent = etaTxt;
-            if ($('lc-when-head')) $('lc-when-head').textContent = 'Your dates \u00b7 ' + c.name + (isOther ? ' \u2014 we re-confirm this lane' : '');
+            if ($('lc-when-head')) $('lc-when-head').textContent = 'Your dates \u00b7 ' + c.name;
             if ($('cfm-country')) $('cfm-country').textContent = c.name;
             if ($('cfm-dispatch')) $('cfm-dispatch').textContent = shipTxt;
             if ($('cfm-eta')) $('cfm-eta').textContent = etaTxt;
