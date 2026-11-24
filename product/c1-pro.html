@@ -361,8 +361,8 @@
                     <tr><td>Product price</td><td style="text-align:right;color:var(--text-bright);">$818.00 <span style="color:#666;text-decoration:line-through;font-size:11px;">$895.00</span></td></tr>
                     <tr><td>DHL Express freight</td><td style="text-align:right;color:var(--text-bright);" id="heroShip">$0.00 &mdash; free (over $500)</td></tr>
                     <tr><td>Import duty &amp; tax</td><td style="text-align:right;" id="heroDuty">Not included &middot; paid by receiver</td></tr>
-                    <tr><td>Estimated dispatch</td><td style="text-align:right;color:var(--text-bright);" id="heroDispatch">&mdash;</td></tr>
-                    <tr class="c1p-total"><td><strong>Estimated arrival</strong></td><td style="text-align:right;color:var(--accent);" id="heroEta">&mdash;</td></tr>
+                    <tr><td>Estimated dispatch</td><td style="text-align:right;color:var(--text-bright);" id="heroDispatch">Within 1&ndash;3 business days</td></tr>
+                    <tr class="c1p-total"><td><strong>Estimated arrival</strong></td><td style="text-align:right;color:var(--accent);" id="heroEta">5&ndash;10 business days after dispatch</td></tr>
                 </table>
 
                 <div class="c1p-flags" style="margin-top:12px;">
@@ -631,7 +631,7 @@
             <div class="c1p-summary" id="cfgSummary">
                 <div class="c1p-summary-main">
                     <span class="c1p-summary-line"><b id="sumFlex">Flex &mdash;</b> &middot; <span id="sumBlade">blade &mdash;</span> &middot; <span id="sumPocket">pocket &mdash;</span></span>
-                    <span class="c1p-summary-sub" id="sumDates">Dispatch &mdash; &middot; arrival &mdash;</span>
+                    <span class="c1p-summary-sub" id="sumDates">Dispatch within 3 business days &middot; arrival 5&ndash;10 business days after</span>
                 </div>
                 <span class="c1p-summary-price" id="sumTotal">$818.00</span>
             </div>
@@ -842,9 +842,9 @@
 
             <table class="c1p-table">
                 <tr><th>Step</th><th>Timing</th><th id="lc-when-head">Your dates</th></tr>
-                <tr><td>Built in the workshop</td><td>1&ndash;3 business days</td><td id="lc-build">&mdash;</td></tr>
-                <tr><td>Dispatch + tracking email</td><td>Within 48h of build</td><td id="lc-ship-date">&mdash;</td></tr>
-                <tr><td>Transit with DHL Express</td><td id="lc-transit-label">&mdash;</td><td id="lc-eta">&mdash;</td></tr>
+                <tr><td>Built in the workshop</td><td>1&ndash;3 business days</td><td id="lc-build">1&ndash;3 business days</td></tr>
+                <tr><td>Dispatch + tracking email</td><td>Within 48h of build</td><td id="lc-ship-date">Within 48h of build</td></tr>
+                <tr><td>Transit with DHL Express</td><td id="lc-transit-label">5&ndash;10 business days</td><td id="lc-eta">5&ndash;10 business days after dispatch</td></tr>
             </table>
             <p class="c1p-card-note">Duty and import tax are set by your own customs authority, are not included in the $818 or in freight, and are paid by the receiver. DHL notifies you of the amount before delivery. We never declare parcels as gifts to avoid fees. Returning an item means the original freight is not refunded and return freight is yours unless the fault is ours.</p>
         </section>
@@ -930,8 +930,8 @@ Blade     <span id="prevBlade">Standard</span>
 Pocket    <span id="prevPocket">EU 42–43</span>
 Sock      <span id="prevSock">3mm neoprene sock</span>
 Ship to   <span id="prevCountry">United States</span>
-Dispatch  <span id="prevDispatch">—</span>
-Arrival   <span id="prevEta">—</span>
+Dispatch  <span id="prevDispatch">Within 1–3 business days</span>
+Arrival   <span id="prevEta">5–10 business days after dispatch</span>
 Total     <span id="prevTotal">$818.00</span> before duty
 Warranty  3 years, manufacturing defects</div>
         </section>
@@ -1177,31 +1177,36 @@ Warranty  3 years, manufacturing defects</div>
             var etaB = addBusinessDays(shipBy, c.transit[1]);
             var ship = PRICE >= FREE_AT ? 0 : FREIGHT;
             var total = PRICE + ship;
-            var label = 'US/EU 5\u201310 business days';
+            var label = 'DHL Express ' + c.transit[0] + '\u2013' + c.transit[1] + ' business days';
+            var isOther = c.code === 'OTHER';
+            var shipTxt = fmtDate(shipBy);
+            var etaTxt = fmtRange(etaA, etaB);
 
             if ($('lc-ship')) $('lc-ship').textContent = ship === 0 ? '$0.00 (free)' : money(ship);
             if ($('lc-threshold')) $('lc-threshold').innerHTML = '$' + FREE_AT + ' \u2014 cleared by the blades alone';
             if ($('lc-total')) $('lc-total').textContent = money(total);
             if ($('lc-build')) $('lc-build').textContent = 'Dispatch by ' + fmtDate(shipBy);
-            if ($('lc-ship-date')) $('lc-ship-date').textContent = fmtDate(shipBy);
-            if ($('lc-transit-label')) $('lc-transit-label').textContent = label;
-            if ($('lc-eta')) $('lc-eta').textContent = fmtRange(etaA, etaB);
-            if ($('lc-when-head')) $('lc-when-head').textContent = 'Your dates \u00b7 ' + c.name;
+            if ($('lc-ship-date')) $('lc-ship-date').textContent = shipTxt;
+            if ($('lc-transit-label')) $('lc-transit-label').textContent = label + (isOther ? ' (major city)' : '');
+            if ($('lc-eta')) $('lc-eta').textContent = etaTxt;
+            if ($('lc-when-head')) $('lc-when-head').textContent = 'Your dates \u00b7 ' + c.name + (isOther ? ' \u2014 we re-confirm this lane' : '');
             if ($('cfm-country')) $('cfm-country').textContent = c.name;
-            if ($('cfm-dispatch')) $('cfm-dispatch').textContent = fmtDate(shipBy);
-            if ($('cfm-eta')) $('cfm-eta').textContent = fmtRange(etaA, etaB);
+            if ($('cfm-dispatch')) $('cfm-dispatch').textContent = shipTxt;
+            if ($('cfm-eta')) $('cfm-eta').textContent = etaTxt;
             if ($('cfm-total')) $('cfm-total').textContent = money(total);
 
             var EU = ['DE', 'FR', 'IT', 'ES', 'NL', 'BE', 'AT', 'PT', 'PL', 'SE', 'DK', 'FI', 'IE', 'GR'];
             var dnote;
             if (EU.indexOf(c.code) >= 0) dnote = 'EU: import VAT is collected by DHL from you before delivery; this freight line is not a VAT invoice.';
             else if (c.code === 'US') dnote = 'US: the $800 de minimis does not cover an $818 order, so CBP can assess duty and DHL bills it to you.';
+            else if (isOther) dnote = 'Other country: the dates above assume DHL Express to a major city on our 7\u201315 business day lane, and duty or import VAT are set by your own customs authority. Put your city in the order comments \u2014 we confirm the exact lane, freight and duty within 2 business days, before the blade is cut.';
             else dnote = c.name + ': duty and import tax are collected from you by DHL before delivery.';
             if ($('lcAlertText')) $('lcAlertText').textContent = dnote;
             if ($('heroCountry')) $('heroCountry').value = c.code;
             if ($('heroDutyShort')) {
                 if (c.code === 'US') $('heroDutyShort').textContent = 'For the US the $800 de minimis does not cover an $818 order, so duty can be assessed.';
                 else if (EU.indexOf(c.code) >= 0) $('heroDutyShort').textContent = 'For the EU, import VAT is collected by DHL before delivery.';
+                else if (isOther) $('heroDutyShort').textContent = 'Outside the EU/US list, duty and tax are set by your customs authority and collected at delivery.';
                 else $('heroDutyShort').textContent = 'For ' + c.name + ', duty and tax are collected at delivery.';
             }
             if ($('lc-duty')) $('lc-duty').textContent = 'Not included \u00b7 paid by receiver';
@@ -1209,10 +1214,10 @@ Warranty  3 years, manufacturing defects</div>
 
             if ($('heroShip')) $('heroShip').textContent = ship === 0 ? 'Free (over $500)' : money(ship);
             if ($('heroDuty')) $('heroDuty').textContent = 'Paid by you at delivery';
-            if ($('heroDispatch')) $('heroDispatch').textContent = fmtDate(shipBy);
-            if ($('heroEta')) $('heroEta').textContent = fmtRange(etaA, etaB);
+            if ($('heroDispatch')) $('heroDispatch').textContent = shipTxt;
+            if ($('heroEta')) $('heroEta').textContent = etaTxt;
 
-            window.C1P_LANDED = { dispatch: fmtDate(shipBy), eta: fmtRange(etaA, etaB), total: money(total), country: c.name };
+            window.C1P_LANDED = { dispatch: shipTxt, eta: etaTxt, total: money(total), country: c.name };
         }
 
         function recommend() {
@@ -1403,7 +1408,7 @@ Warranty  3 years, manufacturing defects</div>
             if ($('sumFlex')) $('sumFlex').textContent = 'Flex ' + flex;
             if ($('sumBlade')) $('sumBlade').textContent = 'blade ' + blade;
             if ($('sumPocket')) $('sumPocket').textContent = 'pocket ' + (pocket ? BANDS[pocketIdx].label : 'not set');
-            if ($('sumDates')) $('sumDates').textContent = 'Dispatch ' + (L.dispatch || '\u2014') + ' \u00b7 arrival ' + (L.eta || '\u2014');
+            if ($('sumDates')) $('sumDates').textContent = 'Dispatch ' + (L.dispatch || 'within 1\u20133 business days') + ' \u00b7 arrival ' + (L.eta || '5\u201310 business days after dispatch');
             if ($('sumTotal')) $('sumTotal').textContent = L.total || '$818.00';
             if ($('cfgSummary')) $('cfgSummary').classList.add('show');
 
@@ -1412,10 +1417,10 @@ Warranty  3 years, manufacturing defects</div>
             if ($('prevPocket')) $('prevPocket').textContent = pocket ? BANDS[pocketIdx].label : 'not set';
             if ($('prevSock')) $('prevSock').textContent = sock.label;
             if ($('prevCountry')) $('prevCountry').textContent = c0.name;
-            if ($('prevDispatch')) $('prevDispatch').textContent = L.dispatch || '\u2014';
-            if ($('prevEta')) $('prevEta').textContent = L.eta || '\u2014';
+            if ($('prevDispatch')) $('prevDispatch').textContent = L.dispatch || 'within 1\u20133 business days';
+            if ($('prevEta')) $('prevEta').textContent = L.eta || '5\u201310 business days after dispatch';
             if ($('prevTotal')) $('prevTotal').textContent = L.total || '$818.00';
-            if ($('cfm-dates2')) $('cfm-dates2').textContent = 'Dispatch ' + (L.dispatch || '\u2014') + ', arrival ' + (L.eta || '\u2014') + '.';
+            if ($('cfm-dates2')) $('cfm-dates2').textContent = 'Dispatch ' + (L.dispatch || 'within 1\u20133 business days') + ', arrival ' + (L.eta || '5\u201310 business days after dispatch') + '.';
             if ($('cfm-duty-country')) $('cfm-duty-country').textContent = c0.name;
 
             var spec = [
@@ -1670,13 +1675,13 @@ Warranty  3 years, manufacturing defects</div>
 
             function syncSummaryDates() {
                 var L = window.C1P_LANDED || {};
-                if ($('sumDates')) $('sumDates').textContent = 'Dispatch ' + (L.dispatch || '\u2014') + ' \u00b7 arrival ' + (L.eta || '\u2014');
+                if ($('sumDates')) $('sumDates').textContent = 'Dispatch ' + (L.dispatch || 'within 1\u20133 business days') + ' \u00b7 arrival ' + (L.eta || '5\u201310 business days after dispatch');
                 if ($('sumTotal')) $('sumTotal').textContent = L.total || '$818.00';
                 if ($('prevCountry')) $('prevCountry').textContent = L.country || 'United States';
-                if ($('prevDispatch')) $('prevDispatch').textContent = L.dispatch || '\u2014';
-                if ($('prevEta')) $('prevEta').textContent = L.eta || '\u2014';
+                if ($('prevDispatch')) $('prevDispatch').textContent = L.dispatch || 'within 1\u20133 business days';
+                if ($('prevEta')) $('prevEta').textContent = L.eta || '5\u201310 business days after dispatch';
                 if ($('prevTotal')) $('prevTotal').textContent = L.total || '$818.00';
-                if ($('cfm-dates2')) $('cfm-dates2').textContent = 'Dispatch ' + (L.dispatch || '\u2014') + ', arrival ' + (L.eta || '\u2014') + '.';
+                if ($('cfm-dates2')) $('cfm-dates2').textContent = 'Dispatch ' + (L.dispatch || 'within 1\u20133 business days') + ', arrival ' + (L.eta || '5\u201310 business days after dispatch') + '.';
                 if ($('cfm-duty-country')) $('cfm-duty-country').textContent = L.country || 'your country';
                 if ($('prevSock')) $('prevSock').textContent = SOCK[$('cf-sock') ? $('cf-sock').value : '3mm'].label;
             }
