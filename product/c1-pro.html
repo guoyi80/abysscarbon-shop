@@ -472,7 +472,7 @@
                 <tr><td>Price</td><td><b>$818</b> &middot; list $895 &middot; save $77 (USD)</td></tr>
                 <tr><td>Build time</td><td>1&ndash;3 business days, then dispatch</td></tr>
                 <tr><td>Tracking</td><td>Emailed within 48 hours of dispatch</td></tr>
-                <tr><td>Transit</td><td>DHL Express, 5&ndash;10 business days US / EU</td></tr>
+                <tr><td>Transit</td><td>DHL Express, 5&ndash;10 business days US / EU; 7&ndash;15 days to AU, NZ, JP, KR, SG, AE, ZA, BR, MX and other regions</td></tr>
                 <tr><td>Duty &amp; tax</td><td>Not included in price or freight &mdash; collected at delivery where applicable</td></tr>
                 <tr><td>Warranty</td><td>3 years, manufacturing defects</td></tr>
             </table>
@@ -1196,6 +1196,11 @@ Warranty  3 years, manufacturing defects</div>
             if ($('cfm-total')) $('cfm-total').textContent = money(total);
 
             var EU = ['DE', 'FR', 'IT', 'ES', 'NL', 'BE', 'AT', 'PT', 'PL', 'SE', 'DK', 'FI', 'IE', 'GR'];
+            // The hero chip is read before the table: it has to follow the destination lane,
+            // not the US/EU default baked into the HTML, or an AU/JP buyer sees a 5-10 day
+            // promise next to 7-15 day dates and stops trusting both.
+            var laneName = c.code === 'US' ? 'US' : (EU.indexOf(c.code) >= 0 ? 'EU' : (isOther ? 'worldwide' : c.code));
+            if ($('heroTransit')) $('heroTransit').textContent = c.transit[0] + '\u2013' + c.transit[1] + ' days ' + laneName;
             var dnote;
             if (EU.indexOf(c.code) >= 0) dnote = 'EU: import VAT is collected by DHL from you before delivery; this freight line is not a VAT invoice.';
             else if (c.code === 'US') dnote = 'US: the $800 de minimis does not cover an $818 order, so CBP can assess duty and DHL bills it to you.';
